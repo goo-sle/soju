@@ -151,7 +151,7 @@
   </div>
   <script>
     (function(){
-      var ns = 'higherad-soju-guide';
+      var ns = 'higherad-soju-guide-v2';
       var d = new Date();
       var dayKey = 'd' + d.getFullYear() + String(d.getMonth()+1).padStart(2,'0') + String(d.getDate()).padStart(2,'0');
       var el = document.getElementById('visitorStats');
@@ -160,15 +160,15 @@
           .then(function(r){ return r.json(); })
           .then(function(d){ return d.value; });
       }
-      var visitedTotal = localStorage.getItem('sojuVisitedTotal') === '1';
-      var visitedToday = localStorage.getItem('sojuVisitedDay') === dayKey;
+      var visitedTotal = localStorage.getItem('sojuVisitedTotalV2') === '1';
+      var visitedToday = localStorage.getItem('sojuVisitedDayV2') === dayKey;
 
       var totalP = visitedTotal ? call('get', 'total') : call('hit', 'total').then(function(v){
-        localStorage.setItem('sojuVisitedTotal', '1');
+        localStorage.setItem('sojuVisitedTotalV2', '1');
         return v;
       });
       var todayP = visitedToday ? call('get', dayKey) : call('hit', dayKey).then(function(v){
-        localStorage.setItem('sojuVisitedDay', dayKey);
+        localStorage.setItem('sojuVisitedDayV2', dayKey);
         return v;
       });
 
