@@ -2810,6 +2810,10 @@ initBadgeRows();
 initRegionSummaries();
 initRegionJumpNav();
 initCardAccordions();
+(function () {
+  var id = location.hash.replace('#', '');
+  if (id) showTab(id);
+})();
 </script>
 </body>
 </html>

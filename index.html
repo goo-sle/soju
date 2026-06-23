@@ -78,15 +78,22 @@
     gap:10px;
     text-align:left;
   }
-  .sections div{
+  .sections a{
     background:var(--card);
     border:1px solid #232833;
     border-radius:10px;
     padding:12px 14px;
     font-size:13px;
     color:var(--sub);
+    text-decoration:none;
+    display:block;
+    transition:transform .15s ease, border-color .15s ease;
   }
-  .sections div b{
+  .sections a:hover{
+    transform:translateY(-2px);
+    border-color:var(--sub);
+  }
+  .sections a b{
     display:block;
     color:var(--text);
     font-size:13px;
@@ -101,17 +108,17 @@
   <div class="wrap">
     <span class="badge">26.06 Edition</span>
     <h1>한국 소주 완전 정리 가이드</h1>
-    <p class="lead">고려 말부터 현재까지, 전국 소주 브랜드와 제조사를<br>지역별로 한눈에 정리했습니다.</p>
+    <p class="lead">전국 소주 브랜드와 제조사를<br>지역별로 한눈에 정리했습니다.</p>
     <a class="cta" href="guide.html">가이드 보기 →</a>
-    <div class="meta">매달 업데이트됩니다 · 최근 업데이트 2026.06</div>
+    <div class="meta">최근 업데이트 2026.06</div>
     <div class="meta" id="visitorStats"></div>
     <div class="sections">
-      <div><b>🔍 빠른 찾기</b>전 브랜드 검색·필터</div>
-      <div><b>🗺️ 지역별 브랜드</b>지도 기반 탐색</div>
-      <div><b>📅 타임라인</b>고려 말~현재</div>
-      <div><b>📜 역사 속 브랜드</b>단종·변경·합병</div>
-      <div><b>🏭 제조사 현황</b>주요 소주 제조사</div>
-      <div><b>✈️ 수출 브랜드</b>글로벌 라인업</div>
+      <a href="guide.html#quickindex"><b>🔍 빠른 찾기</b>전 브랜드 검색·필터</a>
+      <a href="guide.html#region"><b>🗺️ 지역별 브랜드</b>지도 기반 탐색</a>
+      <a href="guide.html#timeline"><b>📅 타임라인</b>고려 말~현재</a>
+      <a href="guide.html#discontinued"><b>📜 역사 속 브랜드</b>단종·변경·합병</a>
+      <a href="guide.html#companies"><b>🏭 제조사 현황</b>주요 소주 제조사</a>
+      <a href="guide.html#export"><b>✈️ 수출 브랜드</b>글로벌 라인업</a>
     </div>
   </div>
   <script>
