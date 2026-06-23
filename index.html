@@ -127,12 +127,24 @@
       var d = new Date();
       var dayKey = 'd' + d.getFullYear() + String(d.getMonth()+1).padStart(2,'0') + String(d.getDate()).padStart(2,'0');
       var el = document.getElementById('visitorStats');
-      function hit(key){
-        return fetch('https://abacus.jasoncameron.dev/hit/' + ns + '/' + key)
+      function call(action, key){
+        return fetch('https://abacus.jasoncameron.dev/' + action + '/' + ns + '/' + key)
           .then(function(r){ return r.json(); })
           .then(function(d){ return d.value; });
       }
-      Promise.all([hit(dayKey), hit('total')]).then(function(v){
+      var visitedTotal = localStorage.getItem('sojuVisitedTotal') === '1';
+      var visitedToday = localStorage.getItem('sojuVisitedDay') === dayKey;
+
+      var totalP = visitedTotal ? call('get', 'total') : call('hit', 'total').then(function(v){
+        localStorage.setItem('sojuVisitedTotal', '1');
+        return v;
+      });
+      var todayP = visitedToday ? call('get', dayKey) : call('hit', dayKey).then(function(v){
+        localStorage.setItem('sojuVisitedDay', dayKey);
+        return v;
+      });
+
+      Promise.all([todayP, totalP]).then(function(v){
         el.textContent = '오늘 방문 ' + v[0] + ' · 전체 방문 ' + v[1];
       }).catch(function(){});
     })();
