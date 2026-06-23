@@ -102,6 +102,34 @@
   @media (max-width:480px){
     .sections{grid-template-columns:1fr;}
   }
+  .feedback-fab{
+    position:fixed; bottom:20px; right:20px; z-index:1000;
+    background:var(--accent); color:#0f1115; border:none; border-radius:999px;
+    padding:12px 18px; font-size:14px; font-weight:600; cursor:pointer;
+    box-shadow:0 8px 24px rgba(58,166,255,.35);
+  }
+  .feedback-panel{
+    position:fixed; bottom:78px; right:20px; z-index:1000;
+    width:280px; background:var(--card); border:1px solid #2a2f3a; border-radius:12px;
+    padding:16px; box-shadow:0 12px 32px rgba(0,0,0,.4);
+    display:none; text-align:left;
+  }
+  .feedback-panel.open{ display:block; }
+  .feedback-panel .fb-title{ font-size:13px; font-weight:700; margin-bottom:8px; }
+  .feedback-panel textarea, .feedback-panel input{
+    width:100%; box-sizing:border-box; background:var(--bg); border:1px solid #2a2f3a;
+    border-radius:8px; color:var(--text); padding:8px; font-size:13px; margin-bottom:8px;
+    font-family:inherit;
+  }
+  .feedback-panel textarea{ min-height:80px; resize:vertical; }
+  .feedback-panel button[type="submit"]{
+    width:100%; background:var(--accent); color:#0f1115; border:none; border-radius:8px;
+    padding:8px; font-size:13px; font-weight:600; cursor:pointer;
+  }
+  .feedback-panel .fb-msg{ font-size:12px; color:var(--sub); margin-top:6px; min-height:14px; }
+  @media (max-width:480px){
+    .feedback-panel{ width:calc(100vw - 40px); right:20px; }
+  }
 </style>
 </head>
 <body>
@@ -147,6 +175,47 @@
       Promise.all([todayP, totalP]).then(function(v){
         el.textContent = '오늘 방문 ' + v[0] + ' · 전체 방문 ' + v[1];
       }).catch(function(){});
+    })();
+  </script>
+
+  <button class="feedback-fab" id="feedbackFab">📩 제보</button>
+  <div class="feedback-panel" id="feedbackPanel">
+    <div class="fb-title">제보 / 정보 수정 요청</div>
+    <form id="feedbackForm">
+      <textarea name="message" placeholder="오타, 누락된 브랜드, 잘못된 정보 등 자유롭게 적어주세요" required></textarea>
+      <input type="email" name="email" placeholder="답장 받을 메일 (선택)">
+      <button type="submit">보내기</button>
+      <div class="fb-msg" id="feedbackMsg"></div>
+    </form>
+  </div>
+  <script>
+    (function(){
+      var endpoint = 'https://formspree.io/f/xkolggzz';
+      var fab = document.getElementById('feedbackFab');
+      var panel = document.getElementById('feedbackPanel');
+      var form = document.getElementById('feedbackForm');
+      var msg = document.getElementById('feedbackMsg');
+      fab.addEventListener('click', function(){
+        panel.classList.toggle('open');
+      });
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        msg.textContent = '전송 중...';
+        fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        }).then(function(r){
+          msg.textContent = r.ok ? '전송됐습니다. 감사합니다!' : '전송 실패. 잠시 후 다시 시도해주세요.';
+          if (r.ok) form.reset();
+        }).catch(function(){
+          msg.textContent = '전송 실패. 잠시 후 다시 시도해주세요.';
+        }).finally(function(){
+          btn.disabled = false;
+        });
+      });
     })();
   </script>
 </body>
