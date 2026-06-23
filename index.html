@@ -95,37 +95,14 @@
   @media (max-width:480px){
     .sections{grid-template-columns:1fr;}
   }
-  #guideFrame{
-    display:none;
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100%;
-    border:0;
-    background:var(--bg);
-  }
-  #backToHome{
-    display:none;
-    position:fixed;
-    top:14px;
-    left:14px;
-    z-index:10;
-    background:rgba(15,17,21,.85);
-    color:var(--text);
-    border:1px solid #2a2f3a;
-    border-radius:8px;
-    padding:6px 12px;
-    font-size:13px;
-    text-decoration:none;
-  }
 </style>
 </head>
 <body>
-  <div class="wrap" id="landing">
+  <div class="wrap">
     <span class="badge">26.06 Edition</span>
     <h1>한국 소주 완전 정리 가이드</h1>
     <p class="lead">고려 말부터 현재까지, 전국 소주 브랜드와 제조사를<br>지역별로 한눈에 정리했습니다.</p>
-    <a class="cta" href="/guide" id="guideLink">가이드 보기 →</a>
+    <a class="cta" href="guide.html">가이드 보기 →</a>
     <div class="meta">매달 업데이트됩니다 · 최근 업데이트 2026.06</div>
     <div class="sections">
       <div><b>🔍 빠른 찾기</b>전 브랜드 검색·필터</div>
@@ -136,46 +113,5 @@
       <div><b>✈️ 수출 브랜드</b>글로벌 라인업</div>
     </div>
   </div>
-  <a id="backToHome" href="/">← 처음으로</a>
-  <iframe id="guideFrame" title="한국 소주 완전 정리 가이드"></iframe>
-  <script>
-  (function(){
-    var GUIDE_FILE = "한국 소주 완전 정리 가이드 ｜ 26.06 Edition.html";
-    var landing = document.getElementById('landing');
-    var frame = document.getElementById('guideFrame');
-    var backLink = document.getElementById('backToHome');
-
-    function isGuidePath(){
-      return location.pathname.replace(/\/$/, '') === '/guide';
-    }
-    function showGuide(push){
-      if(!frame.src) frame.src = encodeURI(GUIDE_FILE);
-      landing.style.display = 'none';
-      backLink.style.display = 'block';
-      frame.style.display = 'block';
-      if(push) history.pushState({page:'guide'}, '', '/guide');
-    }
-    function showLanding(push){
-      frame.style.display = 'none';
-      backLink.style.display = 'none';
-      landing.style.display = '';
-      if(push) history.pushState({page:'home'}, '', '/');
-    }
-
-    document.getElementById('guideLink').addEventListener('click', function(e){
-      e.preventDefault();
-      showGuide(true);
-    });
-    backLink.addEventListener('click', function(e){
-      e.preventDefault();
-      showLanding(true);
-    });
-    window.addEventListener('popstate', function(){
-      if(isGuidePath()) showGuide(false); else showLanding(false);
-    });
-
-    if(isGuidePath()) showGuide(false);
-  })();
-  </script>
 </body>
 </html>
