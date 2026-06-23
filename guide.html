@@ -87,7 +87,11 @@ button.tab-btn {
   background: #e94560; color: #fff; border: none; border-radius: 999px;
   padding: 10px 16px; font-size: 9.5pt; font-weight: 700; cursor: pointer;
   box-shadow: 0 6px 18px rgba(233,69,96,.4);
+  display: flex; align-items: center; gap: 6px;
+  transition: transform .15s ease;
 }
+.feedback-fab:hover { transform: scale(1.05); }
+.feedback-fab svg { width: 14px; height: 14px; flex-shrink: 0; }
 .feedback-panel {
   position: fixed; bottom: 64px; right: 20px; z-index: 1000;
   width: 260px; background: #fff; border: 1px solid #ddd; border-radius: 10px;
@@ -2845,7 +2849,10 @@ initCardAccordions();
 })();
 </script>
 
-<button class="feedback-fab" id="feedbackFab">📩 제보</button>
+<button class="feedback-fab" id="feedbackFab">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+  제보하기
+</button>
 <div class="feedback-panel" id="feedbackPanel">
   <div class="fb-title">제보 / 정보 수정 요청</div>
   <form id="feedbackForm">

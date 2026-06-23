@@ -107,7 +107,11 @@
     background:var(--accent); color:#0f1115; border:none; border-radius:999px;
     padding:12px 18px; font-size:14px; font-weight:600; cursor:pointer;
     box-shadow:0 8px 24px rgba(58,166,255,.35);
+    display:flex; align-items:center; gap:6px;
+    transition:transform .15s ease;
   }
+  .feedback-fab:hover{ transform:scale(1.05); }
+  .feedback-fab svg{ width:16px; height:16px; flex-shrink:0; }
   .feedback-panel{
     position:fixed; bottom:78px; right:20px; z-index:1000;
     width:280px; background:var(--card); border:1px solid #2a2f3a; border-radius:12px;
@@ -178,7 +182,10 @@
     })();
   </script>
 
-  <button class="feedback-fab" id="feedbackFab">📩 제보</button>
+  <button class="feedback-fab" id="feedbackFab">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    제보하기
+  </button>
   <div class="feedback-panel" id="feedbackPanel">
     <div class="fb-title">제보 / 정보 수정 요청</div>
     <form id="feedbackForm">
