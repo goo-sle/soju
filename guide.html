@@ -2847,7 +2847,10 @@ initRegionJumpNav();
 initCardAccordions();
 (function () {
   var id = location.hash.replace('#', '');
-  if (id) showTab(id);
+  if (id) {
+    showTab(id);
+    history.replaceState(null, '', location.pathname + location.search);
+  }
 })();
 </script>
 
