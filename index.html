@@ -71,9 +71,14 @@
   @media (max-width:480px){
     p.lead{ font-size:14px; }
   }
-  .meta{
-    margin-top:18px; font-size:12px; color:#888; text-align:center;
+  .stats-row{
+    margin-top:18px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap;
   }
+  .stat-chip{
+    background:#fff; border:1px solid #e3e1d8; border-radius:999px;
+    padding:6px 14px; font-size:12px; color:#888;
+  }
+  .stat-chip b{ color:#111; font-weight:800; margin-right:4px; }
   .feedback-fab{
     position:fixed; bottom:20px; right:20px; z-index:1000;
     background:#111; color:#fff; border:none; border-radius:999px;
@@ -125,33 +130,38 @@
       <a class="card c5" href="guide.html#region"><span class="ico">🗺️</span><span class="name">지역별 브랜드 — 지도 기반 탐색</span></a>
       <a class="card c6" href="guide.html#export"><span class="ico">✈️</span><span class="name">수출 브랜드</span></a>
     </div>
-    <div class="meta" id="visitorStats"></div>
+    <div class="stats-row">
+      <span class="stat-chip"><b id="statToday">-</b>오늘 방문</span>
+      <span class="stat-chip"><b id="statTotal">-</b>전체 방문</span>
+    </div>
   </div>
   <script>
     (function(){
-      var ns = 'higherad-soju-guide-v2';
+      var ns = 'higherad-soju-guide';
       var d = new Date();
       var dayKey = 'd' + d.getFullYear() + String(d.getMonth()+1).padStart(2,'0') + String(d.getDate()).padStart(2,'0');
-      var el = document.getElementById('visitorStats');
+      var elToday = document.getElementById('statToday');
+      var elTotal = document.getElementById('statTotal');
       function call(action, key){
         return fetch('https://abacus.jasoncameron.dev/' + action + '/' + ns + '/' + key)
           .then(function(r){ return r.json(); })
           .then(function(d){ return d.value; });
       }
-      var visitedTotal = localStorage.getItem('sojuVisitedTotalV2') === '1';
-      var visitedToday = localStorage.getItem('sojuVisitedDayV2') === dayKey;
+      var visitedTotal = localStorage.getItem('sojuVisitedTotal') === '1';
+      var visitedToday = localStorage.getItem('sojuVisitedDay') === dayKey;
 
       var totalP = visitedTotal ? call('get', 'total') : call('hit', 'total').then(function(v){
-        localStorage.setItem('sojuVisitedTotalV2', '1');
+        localStorage.setItem('sojuVisitedTotal', '1');
         return v;
       });
       var todayP = visitedToday ? call('get', dayKey) : call('hit', dayKey).then(function(v){
-        localStorage.setItem('sojuVisitedDayV2', dayKey);
+        localStorage.setItem('sojuVisitedDay', dayKey);
         return v;
       });
 
       Promise.all([todayP, totalP]).then(function(v){
-        el.textContent = '오늘 방문 ' + v[0] + ' · 전체 방문 ' + v[1];
+        elToday.textContent = v[0];
+        elTotal.textContent = v[1];
       }).catch(function(){});
     })();
   </script>
