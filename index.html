@@ -6,6 +6,7 @@
   try {
     if (sessionStorage.getItem('sojuGuideVisited') === '1') location.replace('guide.html');
   } catch (e) {}
+  if (location.pathname.endsWith('/index.html')) history.replaceState(null, '', '/');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>소주 가이드</title>
