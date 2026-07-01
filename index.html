@@ -4,7 +4,16 @@
 <meta charset="UTF-8">
 <script>
   try {
-    if (sessionStorage.getItem('sojuGuideVisited') === '1') location.replace('guide.html');
+    if (sessionStorage.getItem('sojuGuideVisited') === '1') {
+      document.documentElement.style.visibility = 'hidden';
+      fetch('guide.html').then(function(r){ return r.text(); }).then(function(html){
+        document.open();
+        document.write(html);
+        document.close();
+      }).catch(function(){
+        document.documentElement.style.visibility = 'visible';
+      });
+    }
   } catch (e) {}
   if (location.pathname.endsWith('/index.html')) history.replaceState(null, '', '/');
 </script>
