@@ -329,8 +329,8 @@ button.tab-btn {
 .mfr-note { color: #333; line-height: 1.55; }
 
 /* ── 역사 속 소주 브랜드: 제조사별 그룹 카드 ── */
-.hist-grid { display: flex; flex-wrap: wrap; gap: 12px; margin: 10px 0 4px; }
-.hist-card { flex: 1 1 280px; background: #f7f8fb; border-radius: 8px; padding: 10px 12px; border-left: 4px solid #1a1a2e; page-break-inside: avoid; break-inside: avoid; }
+.hist-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 10px 0 4px; }
+.hist-card { background: #f7f8fb; border-radius: 8px; padding: 10px 12px; border-left: 4px solid #1a1a2e; page-break-inside: avoid; break-inside: avoid; }
 .hist-mfr-head { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; margin-bottom: 6px; }
 .hist-mfr-name { font-size: 9.5pt; font-weight: 900; color: #1a1a2e; }
 .hist-mfr-region { font-size: 7.3pt; font-weight: 700; color: #555; background: #eceef3; border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
@@ -338,8 +338,11 @@ button.tab-btn {
 .hist-brand:first-of-type { border-top: none; padding-top: 0; }
 .hist-brand-name { font-weight: 800; color: #333; }
 .hist-brand-note { color: #666; font-size: 7.6pt; line-height: 1.55; margin-top: 2px; }
+@media screen and (max-width: 900px) {
+  .hist-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media screen and (max-width: 640px) {
-  .hist-card { flex: 1 1 100%; }
+  .hist-grid { grid-template-columns: 1fr; }
 }
 
 /* ── COMPANY / HISTORY TABLE ── */
