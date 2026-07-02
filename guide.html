@@ -286,16 +286,7 @@ button.tab-btn {
   white-space: nowrap;
 }
 .tl-era-title { font-size: 9pt; font-weight: 800; color: #333; }
-.tl-era-desc {
-  font-size: 8.8pt;
-  color: #3a3a3a;
-  background: #f7f8fb;
-  border-left: 3px solid #ccc;
-  border-radius: 0 6px 6px 0;
-  padding: 7px 12px;
-  margin: 0 0 9px 2px;
-  line-height: 1.65;
-}
+.tl-era-desc-inline { font-weight: 400; color: #777; font-size: 8.3pt; }
 .tl-events { padding-left: 4px; border-left: 2px solid #eee; margin-left: 4px; }
 .tl-event { display: flex; gap: 10px; padding: 4px 0 4px 12px; font-size: 8.5pt; }
 .tl-event-when { flex: 0 0 62px; font-weight: 800; color: #555; }
@@ -306,12 +297,6 @@ button.tab-btn {
 .tl-era-4 .tl-era-range { background: #e65100; }
 .tl-era-5 .tl-era-range { background: #4a148c; }
 .tl-era-6 .tl-era-range { background: #e94560; }
-.tl-era-1 .tl-era-desc { border-left-color: #1a1a2e; }
-.tl-era-2 .tl-era-desc { border-left-color: #1565c0; }
-.tl-era-3 .tl-era-desc { border-left-color: #00796b; }
-.tl-era-4 .tl-era-desc { border-left-color: #e65100; }
-.tl-era-5 .tl-era-desc { border-left-color: #4a148c; }
-.tl-era-6 .tl-era-desc { border-left-color: #e94560; }
 @media screen and (max-width: 640px) {
   .tl-event { flex-direction: column; gap: 1px; }
   .tl-event-when { flex: none; }
@@ -919,8 +904,7 @@ table.card.card-collapsed { display: none; }
 <div class="timeline">
 
 <div class="tl-era tl-era-1">
-<div class="tl-era-head"><span class="tl-era-range">고려 말 ~ 1970년대</span><span class="tl-era-title">지역명·한자 의미 중심 작명</span></div>
-<div class="tl-era-desc">지역명(안동소주)·한자 의미(眞露·大鮮) 중심. 역사·지리 기반의 직관적 작명.</div>
+<div class="tl-era-head"><span class="tl-era-range">고려 말 ~ 1970년대</span><span class="tl-era-title">지역명·한자 의미 중심 작명 <span class="tl-era-desc-inline">ㅣ 지역명(안동소주)·한자 의미(眞露·大鮮) 중심. 역사·지리 기반의 직관적 작명.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">고려 말</div><div class="tl-event-what">원나라로부터 증류 기술 전래 → 아락(아라크) 기반 증류식 소주 시작. 안동·개성 지역 정착.</div></div>
 <div class="tl-event"><div class="tl-event-when">1924.10</div><div class="tl-event-what">평남 용강군 진천양조상회에서 <b>진로</b> 첫 출시 (35도). 한국 최초의 근대 소주 브랜드.</div></div>
@@ -929,8 +913,7 @@ table.card.card-collapsed { display: none; }
 </div>
 
 <div class="tl-era tl-era-2">
-<div class="tl-era-head"><span class="tl-era-range">1976 ~ 1990년대</span><span class="tl-era-title">1도1사 자도주법, 지역 소주 고착</span></div>
-<div class="tl-era-desc">1도1사 자도주법 시대. 지역 소주 고착. 경월·보해 등 지역 정체성 강화.</div>
+<div class="tl-era-head"><span class="tl-era-range">1976 ~ 1990년대</span><span class="tl-era-title">1도1사 자도주법, 지역 소주 고착 <span class="tl-era-desc-inline">ㅣ 1도1사 자도주법 시대. 지역 소주 고착. 경월·보해 등 지역 정체성 강화.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">1976.06</div><div class="tl-event-what">국세청 훈령으로 '1도 1사' 자도주법 시행 → 시·도별 1개 업체만 허가. <b>지역 소주 브랜드 체제</b> 성립.</div></div>
 <div class="tl-event"><div class="tl-event-when">1996.12</div><div class="tl-event-what">헌법재판소, 자도주 구입제도 위헌 결정 → 소주 시장 전국 무한 경쟁 시대 개막.</div></div>
@@ -938,24 +921,21 @@ table.card.card-collapsed { display: none; }
 </div>
 
 <div class="tl-era tl-era-3">
-<div class="tl-era-head"><span class="tl-era-range">1998 ~ 2005년</span><span class="tl-era-title">순우리말·감성 네이밍 급부상</span></div>
-<div class="tl-era-desc">참이슬·처음처럼 등 <b>순우리말·감성 네이밍</b> 급부상. 깨끗함·부드러움·초심 이미지.</div>
+<div class="tl-era-head"><span class="tl-era-range">1998 ~ 2005년</span><span class="tl-era-title">순우리말·감성 네이밍 급부상 <span class="tl-era-desc-inline">ㅣ 참이슬·처음처럼 등 순우리말·감성 네이밍 급부상. 깨끗함·부드러움·초심 이미지.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">1998.10</div><div class="tl-event-what"><b>참이슬</b> 출시 (23도). '소주=25도' 등식 최초 붕괴. 저도수·부드러운 소주 시대 개막.</div></div>
 </div>
 </div>
 
 <div class="tl-era tl-era-4">
-<div class="tl-era-head"><span class="tl-era-range">2006 ~ 2018년</span><span class="tl-era-title">긍정 감성+자연 이미지 확산</span></div>
-<div class="tl-era-desc">좋은데이·잎새주·한라산 등 <b>긍정 감성+자연 이미지</b> 확산. 저도수 경쟁.</div>
+<div class="tl-era-head"><span class="tl-era-range">2006 ~ 2018년</span><span class="tl-era-title">긍정 감성+자연 이미지 확산 <span class="tl-era-desc-inline">ㅣ 좋은데이·잎새주·한라산 등 긍정 감성+자연 이미지 확산. 저도수 경쟁.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">2006.11</div><div class="tl-event-what"><b>좋은데이</b> 출시 (16.9도). 저도수 소주 경쟁 가속화. 전국 주요 소주사 저도수 경쟁 돌입.</div></div>
 </div>
 </div>
 
 <div class="tl-era tl-era-5">
-<div class="tl-era-head"><span class="tl-era-range">2019 ~ 2024년</span><span class="tl-era-title">스토리·캐릭터·철학 중심 브랜딩</span></div>
-<div class="tl-era-desc">진로이즈백(뉴트로)·새로(제로슈거+전통)·원소주(힙한 증류식) 등 <b>스토리·캐릭터·철학</b> 중심 브랜딩. 이름에 세계관과 마케팅 전략이 담기는 시대로 진화.</div>
+<div class="tl-era-head"><span class="tl-era-range">2019 ~ 2024년</span><span class="tl-era-title">스토리·캐릭터·철학 중심 브랜딩 <span class="tl-era-desc-inline">ㅣ 진로이즈백(뉴트로)·새로(제로슈거+전통)·원소주(힙한 증류식) 등 스토리·캐릭터·철학 중심 브랜딩. 이름에 세계관과 마케팅 전략이 담기는 시대로 진화.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">2019.04</div><div class="tl-event-what"><b>진로이즈백</b>(두꺼비 캐릭터) 출시. 뉴트로(New-tro) 마케팅 열풍 → 복고 감성 소주 붐.</div></div>
 <div class="tl-event"><div class="tl-event-when">2022.02</div><div class="tl-event-what"><b>원소주</b>(박재범) 출시. 증류식 소주 편의점 진출.</div></div>
@@ -964,8 +944,7 @@ table.card.card-collapsed { display: none; }
 </div>
 
 <div class="tl-era tl-era-6">
-<div class="tl-era-head"><span class="tl-era-range">2025 ~ 현재</span><span class="tl-era-title">헤리티지·리뉴얼 수식어 결합</span></div>
-<div class="tl-era-desc">처음처럼 클래식(2006년 원조 레시피·이름 복원)·좋은데이 'All New' 등 <b>헤리티지·리뉴얼 수식어</b>를 브랜드명에 결합하는 흐름 확산.</div>
+<div class="tl-era-head"><span class="tl-era-range">2025 ~ 현재</span><span class="tl-era-title">헤리티지·리뉴얼 수식어 결합 <span class="tl-era-desc-inline">ㅣ 처음처럼 클래식(2006년 원조 레시피·이름 복원)·좋은데이 'All New' 등 헤리티지·리뉴얼 수식어를 브랜드명에 결합하는 흐름 확산.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">2025.02</div><div class="tl-event-what"><b>선양오크</b>(오크 숙성 블렌딩) 출시로 위스키 공법 접목 소주 등장.</div></div>
 <div class="tl-event"><div class="tl-event-when">2025.12</div><div class="tl-event-what"><b>원소주 환영30</b>(치악산 배 우린 30도) 출시. 프리미엄·하이브리드 소주 시대.</div></div>
