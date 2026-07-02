@@ -343,6 +343,20 @@ button.tab-btn {
 .mfr-brands { font-size: 8pt; color: #555; margin-bottom: 5px; }
 .mfr-note { color: #333; line-height: 1.55; }
 
+/* ── 역사 속 소주 브랜드: 제조사별 그룹 카드 ── */
+.hist-grid { display: flex; flex-wrap: wrap; gap: 12px; margin: 10px 0 4px; }
+.hist-card { flex: 1 1 280px; background: #f7f8fb; border-radius: 8px; padding: 10px 12px; border-left: 4px solid #1a1a2e; page-break-inside: avoid; break-inside: avoid; }
+.hist-mfr-head { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; margin-bottom: 6px; }
+.hist-mfr-name { font-size: 9.5pt; font-weight: 900; color: #1a1a2e; }
+.hist-mfr-region { font-size: 7.3pt; font-weight: 700; color: #555; background: #eceef3; border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+.hist-brand { padding: 6px 0; border-top: 1px solid #e7e7ee; font-size: 8pt; }
+.hist-brand:first-of-type { border-top: none; padding-top: 0; }
+.hist-brand-name { font-weight: 800; color: #333; }
+.hist-brand-note { color: #666; font-size: 7.6pt; line-height: 1.55; margin-top: 2px; }
+@media screen and (max-width: 640px) {
+  .hist-card { flex: 1 1 100%; }
+}
+
 /* ── COMPANY / HISTORY TABLE ── */
 .ctable {
   width: 100%;
@@ -2480,116 +2494,62 @@ table.card.card-collapsed { display: none; }
 <!-- ══════════════════ 역사 브랜드 ══════════════════ -->
 <div class="tab-panel" id="tab-discontinued">
 <div class="section-header sh-teal">📜 역사 속 소주 브랜드 (단종·변경·합병)</div>
-<table class="ctable">
-<tr>
-<th style="width:9%">브랜드명</th>
-<th style="width:18%">제조사</th>
-<th style="width:9%">지역</th>
-<th>이름 유래 · 특징 · 현황</th>
-</tr>
-<tr>
-<td><b>경월</b></td>
-<td>경월주조</td>
-<td>강원</td>
-<td>京(경, 도시)·月(월, 달) = "강릉의 달빛". 처음처럼 전신 기업. 두산→롯데 합병 후 처음처럼으로 대체.</td>
-</tr>
-<tr>
-<td><b>그린소주</b></td>
-<td>두산경월</td>
-<td>강원</td>
-<td>1993년 11월 두산경월 출범과 동시에 출시. "부드러운 소주" 콘셉트의 녹색병·스크류캡 디자인. 1999년 단일품목 시장점유율 30%로 1위. 경월→처음처럼 전환 과정의 중간 단계.</td>
-</tr>
-<tr>
-<td><b>뉴그린 / 산(山처럼)</b></td>
-<td>두산경월</td>
-<td>강원</td>
-<td>그린소주 후속 리뉴얼. 뉴그린(1998)→산(2001) 순으로 이어지다 2006년 처음처럼 출시와 함께 대체·단종.</td>
-</tr>
-<tr>
-<td><b>좋다카이</b></td>
-<td>무학(주)</td>
-<td>경남</td>
-<td>2009년 3월 출시(19.5도). 경상도 사투리 "좋다 아이가"에서 착안. 현 주력 브랜드 좋은데이 이전의 과도기 라인.</td>
-</tr>
-<tr>
-<td><b>잎새주 부라더 시리즈</b></td>
-<td>보해양조</td>
-<td>전남</td>
-<td>2015년 출시된 잎새주의 MZ 타깃 서브라인. 부라더·부라더#소다(3도 탄산주)·복받은 부라더(복분자 과즙) 3종으로 확장됐다가 단종된 것으로 추정.</td>
-</tr>
-<tr>
-<td><b>맥키스 홈믹싱주</b></td>
-<td>더맥키스컴퍼니</td>
-<td>충남 대전</td>
-<td>2013년 3월 출시(21도). 조웅래 대표 주도, 신동엽 광고 모델. 사명을 선양주조에서 더맥키스컴퍼니로 변경한 시기에 함께 출시된 가정용 홈믹싱 리큐르.</td>
-</tr>
-<tr>
-<td><b>보배</b></td>
-<td>보배양조</td>
-<td>전북</td>
-<td>"보배롭다"의 보배. 전북 대표 소주였으나 현재 하이트진로에 합병. 보배참이슬 생산 이력.</td>
-</tr>
-<tr>
-<td><b>오투린(O2린)</b></td>
-<td>더맥키스컴퍼니</td>
-<td>충남</td>
-<td>O₂(산소) + 린(순수함). 높은 산소 함유량 강조. 맑은린 → 오투린 → 이제우린으로 변경.</td>
-</tr>
-<tr>
-<td><b>산(山)</b></td>
-<td>두산경월</td>
-<td>강원·수도권</td>
-<td>대관령 산지 청정 이미지. 녹차 성분 첨가 강조. 처음처럼 출시 전 두산경월 메인 소주.</td>
-</tr>
-<tr>
-<td><b>즐거워예</b></td>
-<td>대선주조</td>
-<td>부산·경남</td>
-<td>2011년 6월 출시(16.2도). 상황별 네이밍(조문용 '그리워예')을 시도한 저도주. 현재 대선·강알리로 계보 계승.</td>
-</tr>
-<tr>
-<td><b>맑은린</b></td>
-<td>더맥키스컴퍼니</td>
-<td>충남</td>
-<td>"맑고 깨끗함 + 린(순수함)". 오투린 이전 이름. 2005년 출시 초기 명칭.</td>
-</tr>
-<tr>
-<td><b>이슬露</b></td>
-<td>하이트진로</td>
-<td>전국</td>
-<td>진로(眞露)의 '이슬 로(露)'를 상품명으로. 1998년 참이슬 출시 당시 "참진이슬露"로 혼용되다 2009.12 참이슬로 브랜드 통일.</td>
-</tr>
-<tr>
-<td><b>진로소주(구)</b></td>
-<td>진로</td>
-<td>전국</td>
-<td>1924년 창업 이래 참이슬(1998) 출시 이전의 진로 메인 브랜드. 초록 뚜껑·녹색 병 상징. 25도→23도→현재까지 저도수 경쟁의 기준점.</td>
-</tr>
-<tr>
-<td><b>백화수복(白花壽福)</b></td>
-<td>보해양조</td>
-<td>전남·광주</td>
-<td>白花(흰꽃)·壽福(수복=오래 살며 복 받음). 잎새주 이전 보해 대표 약주 계열 브랜드. 현재는 전통 약주·청주 라인으로만 유지.</td>
-</tr>
-<tr>
-<td><b>올래소주 (한라산 올래)</b></td>
-<td>한라산소주</td>
-<td>제주</td>
-<td>2014년 제주소주의 '올레소주' 출시에 맞서 한라산이 기존 '순한소주' 라벨을 '올래'로 변경. 제주어 <b>올레</b>(집으로 이어지는 골목길)를 브랜드화. 상표권 확보 후 2019년 투명병 '한라산17'로 교체되며 단종.</td>
-</tr>
-<tr>
-<td><b>제주올레소주 (→푸른밤)</b></td>
-<td>제주소주(현 OB맥주)</td>
-<td>제주</td>
-<td>제주 올레길에서 이름 착안. 2014년 출시 당시 제품명 '올레소주 곱들락(보통)·산도롱(독한)'. 한라산과 상표권 소송 패소 → 2017년 '푸른밤'으로 전면 리뉴얼. 제주 도내 최초 제2 지역소주로 기록.</td>
-</tr>
-<tr>
-<td><b>두꺼비소주 (별칭)</b></td>
-<td>하이트진로</td>
-<td>전국</td>
-<td>진로 두꺼비 마스코트를 제품명처럼 사용하던 시기의 별칭. 공식 제품명은 아니나 소비자 사이에서 광범위하게 통용. 진로이즈백에서 캐릭터로 부활.</td>
-</tr>
-</table>
+<div class="hist-grid">
+
+<div class="hist-card">
+<div class="hist-mfr-head"><span class="hist-mfr-name">하이트진로</span><span class="hist-mfr-region">전국</span></div>
+<div class="hist-brand"><div class="hist-brand-name">진로소주(구)</div><div class="hist-brand-note">1924년 창업 이래 참이슬(1998) 출시 이전의 진로 메인 브랜드. 초록 뚜껑·녹색 병 상징. 25도→23도→현재까지 저도수 경쟁의 기준점.</div></div>
+<div class="hist-brand"><div class="hist-brand-name">이슬露</div><div class="hist-brand-note">진로(眞露)의 '이슬 로(露)'를 상품명으로. 1998년 참이슬 출시 당시 "참진이슬露"로 혼용되다 2009.12 참이슬로 브랜드 통일.</div></div>
+<div class="hist-brand"><div class="hist-brand-name">두꺼비소주 (별칭)</div><div class="hist-brand-note">진로 두꺼비 마스코트를 제품명처럼 사용하던 시기의 별칭. 공식 제품명은 아니나 소비자 사이에서 광범위하게 통용. 진로이즈백에서 캐릭터로 부활.</div></div>
+</div>
+
+<div class="hist-card">
+<div class="hist-mfr-head"><span class="hist-mfr-name">경월주조 / 두산경월</span><span class="hist-mfr-region">강원</span></div>
+<div class="hist-brand"><div class="hist-brand-name">경월</div><div class="hist-brand-note">京(경, 도시)·月(월, 달) = "강릉의 달빛". 처음처럼 전신 기업.</div></div>
+<div class="hist-brand"><div class="hist-brand-name">그린소주</div><div class="hist-brand-note">1993년 11월 두산경월 출범과 동시에 출시. "부드러운 소주" 콘셉트의 녹색병·스크류캡 디자인. 1999년 단일품목 시장점유율 30%로 1위.</div></div>
+<div class="hist-brand"><div class="hist-brand-name">뉴그린</div><div class="hist-brand-note">1998년 그린소주 후속 리뉴얼.</div></div>
+<div class="hist-brand"><div class="hist-brand-name">산(山처럼)</div><div class="hist-brand-note">2001년 뉴그린 후속. 대관령 산지 청정 이미지, 녹차 성분 첨가 강조. 2006년 처음처럼 출시와 함께 대체·단종 — 경월 계보의 마지막 브랜드.</div></div>
+</div>
+
+<div class="hist-card">
+<div class="hist-mfr-head"><span class="hist-mfr-name">더맥키스컴퍼니</span><span class="hist-mfr-region">충남</span></div>
+<div class="hist-brand"><div class="hist-brand-name">맑은린</div><div class="hist-brand-note">"맑고 깨끗함 + 린(순수함)". 2005년 출시 초기 명칭.</div></div>
+<div class="hist-brand"><div class="hist-brand-name">오투린(O2린)</div><div class="hist-brand-note">O₂(산소) + 린(순수함). 높은 산소 함유량 강조. 맑은린 → 오투린 → 이제우린으로 변경.</div></div>
+<div class="hist-brand"><div class="hist-brand-name">맥키스 홈믹싱주</div><div class="hist-brand-note">2013년 3월 출시(21도). 조웅래 대표 주도, 신동엽 광고 모델. 사명을 선양주조에서 더맥키스컴퍼니로 변경한 시기에 함께 출시된 가정용 홈믹싱 리큐르.</div></div>
+</div>
+
+<div class="hist-card">
+<div class="hist-mfr-head"><span class="hist-mfr-name">보해양조</span><span class="hist-mfr-region">전남·광주</span></div>
+<div class="hist-brand"><div class="hist-brand-name">백화수복(白花壽福)</div><div class="hist-brand-note">白花(흰꽃)·壽福(수복=오래 살며 복 받음). 잎새주 이전 보해 대표 약주 계열 브랜드. 현재는 전통 약주·청주 라인으로만 유지.</div></div>
+<div class="hist-brand"><div class="hist-brand-name">잎새주 부라더 시리즈</div><div class="hist-brand-note">2015년 출시된 잎새주의 MZ 타깃 서브라인. 부라더·부라더#소다(3도 탄산주)·복받은 부라더(복분자 과즙) 3종으로 확장됐다가 단종된 것으로 추정.</div></div>
+</div>
+
+<div class="hist-card">
+<div class="hist-mfr-head"><span class="hist-mfr-name">보배양조</span><span class="hist-mfr-region">전북</span></div>
+<div class="hist-brand"><div class="hist-brand-name">보배</div><div class="hist-brand-note">"보배롭다"의 보배. 전북 대표 소주였으나 현재 하이트진로에 합병. 보배참이슬 생산 이력.</div></div>
+</div>
+
+<div class="hist-card">
+<div class="hist-mfr-head"><span class="hist-mfr-name">무학(주)</span><span class="hist-mfr-region">경남</span></div>
+<div class="hist-brand"><div class="hist-brand-name">좋다카이</div><div class="hist-brand-note">2009년 3월 출시(19.5도). 경상도 사투리 "좋다 아이가"에서 착안. 현 주력 브랜드 좋은데이 이전의 과도기 라인.</div></div>
+</div>
+
+<div class="hist-card">
+<div class="hist-mfr-head"><span class="hist-mfr-name">대선주조</span><span class="hist-mfr-region">부산·경남</span></div>
+<div class="hist-brand"><div class="hist-brand-name">즐거워예</div><div class="hist-brand-note">2011년 6월 출시(16.2도). 상황별 네이밍(조문용 '그리워예')을 시도한 저도주. 현재 대선·강알리로 계보 계승.</div></div>
+</div>
+
+<div class="hist-card">
+<div class="hist-mfr-head"><span class="hist-mfr-name">한라산소주</span><span class="hist-mfr-region">제주</span></div>
+<div class="hist-brand"><div class="hist-brand-name">올래소주 (한라산 올래)</div><div class="hist-brand-note">2014년 제주소주의 '올레소주' 출시에 맞서 한라산이 기존 '순한소주' 라벨을 '올래'로 변경. 제주어 <b>올레</b>(집으로 이어지는 골목길)를 브랜드화. 상표권 확보 후 2019년 투명병 '한라산17'로 교체되며 단종.</div></div>
+</div>
+
+<div class="hist-card">
+<div class="hist-mfr-head"><span class="hist-mfr-name">제주소주 (현 OB맥주)</span><span class="hist-mfr-region">제주</span></div>
+<div class="hist-brand"><div class="hist-brand-name">제주올레소주 (→푸른밤)</div><div class="hist-brand-note">제주 올레길에서 이름 착안. 2014년 출시 당시 제품명 '올레소주 곱들락(보통)·산도롱(독한)'. 한라산과 상표권 소송 패소 → 2017년 '푸른밤'으로 전면 리뉴얼. 제주 도내 최초 제2 지역소주로 기록.</div></div>
+</div>
+
+</div>
 </div>
 <!-- ══════════════════ 제조사 현황 ══════════════════ -->
 <div class="tab-panel" id="tab-companies">
