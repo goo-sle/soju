@@ -329,8 +329,6 @@ button.tab-btn {
 .mfr-region { font-size: 7.3pt; font-weight: 700; color: #555; background: #eceef3; border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
 .mfr-brands { font-size: 8pt; color: #555; margin-bottom: 5px; }
 .mfr-note { color: #333; line-height: 1.55; }
-.mfr-hist { margin-top: 5px; padding-top: 5px; border-top: 1px dashed #d8d8e0; color: #777; font-size: 7.6pt; line-height: 1.5; }
-.mfr-hist b { color: #555; }
 
 /* ── 수출·글로벌 소주 브랜드: 제조사별 그룹 카드 ── */
 .exp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 10px 0 4px; align-items: start; }
@@ -633,7 +631,7 @@ table.card.card-collapsed { display: none; }
 <div class="hero">
 <div class="hero-main">
 <div class="hero-title"><svg viewBox="0 0 48 64" style="width:26px;height:35px;vertical-align:-8px" xmlns="http://www.w3.org/2000/svg"><rect x="19" y="1" width="10" height="5" rx="1" fill="#0b5e2c"/><rect x="20" y="6" width="8" height="10" rx="1" fill="#1f9d55"/><path d="M20 16L28 16L34 22L14 22Z" fill="#1f9d55"/><path d="M14 22h20v33a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z" fill="#1f9d55"/><rect x="16" y="34" width="16" height="14" fill="white"/></svg> 한국 <span>소주</span> 완전 정리 가이드 | 26.06 Edition<a href="/" class="home-link" title="홈으로" onclick="try{sessionStorage.removeItem('sojuGuideVisited');}catch(e){}"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3z"/></svg></a></div>
-<div class="hero-sub">26.06 기준 - 제조사 30개 · 브랜드 164종</div>
+<div class="hero-sub">26.06 기준 - 제조사 31개 · 브랜드 169종</div>
 <div class="hero-tags tab-nav">
 <button class="tag tab-btn active" data-tab="quickindex" onclick="showTab('quickindex')">빠른 찾기</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="timeline" onclick="showTab('timeline')">타임라인</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="region" onclick="showTab('region')">지역별 브랜드</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="companies" onclick="showTab('companies')">제조사 현황</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="export" onclick="showTab('export')">수출·글로벌</button>
 </div>
@@ -669,7 +667,7 @@ table.card.card-collapsed { display: none; }
 <button class="idx-filter-btn" data-cat="수출전용" onclick="setIdxFilter('수출전용')">수출전용</button>
 </div>
 </div>
-<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 상업 소주사 · 유통사 콜라보 (14개사)</div>
+<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 상업 소주사 · 유통사 콜라보 (15개사)</div>
 <div class="idx-group-body">
 <div class="idx-grid" id="idxGrid">
 <div class="idx-card" style="order:1"><div class="idx-card-header">하이트진로</div>
@@ -734,11 +732,14 @@ table.card.card-collapsed { display: none; }
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">잎새주 부라더 시리즈</span><span class="idx-abv">17.5도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">부라더·부라더#소다(3도)·복받은 부라더, MZ 타깃 서브라인</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">여수바다</span><span class="idx-abv">16.5도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">여수밤바다→리브랜딩, 상괭이 ESG</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">아홉시반</span><span class="idx-abv">17.5도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">저도수 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">하이트(구 보배양조)</span><span class="idx-abv">19도(추정)</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">전북 대표, 2013년 하이트진로 흡수합병</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">보해골드</span><span class="idx-year">1992</span></div><div class="idx-brand-kw">옛 프리미엄 라인</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">씨티</span><span class="idx-year">1994</span></div><div class="idx-brand-kw">옛 주력 라인</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">김삿갓</span><span class="idx-year">1996</span></div><div class="idx-brand-kw">방랑 시인 이름 차용</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">곰바우</span><span class="idx-year">1997</span></div><div class="idx-brand-kw">향토적 네이밍</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">백화수복(白花壽福)</span></div><div class="idx-brand-kw">잎새주 이전 대표 약주 계열 브랜드</div></div>
+</div>
+<div class="idx-card" style="order:15"><div class="idx-card-header">보배양조</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">하이트(구 보배양조)</span><span class="idx-abv">19도(추정)</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">전북 대표, 2013년 하이트진로 흡수합병</div></div>
 </div>
 <div class="idx-card" style="order:5"><div class="idx-card-header">대선주조</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">C1(씨원)</span><span class="idx-abv">18도</span><span class="idx-year">1996</span></div><div class="idx-brand-kw">음향숙성진동공법 · 2025.07 19도→18도 리뉴얼</div></div>
@@ -759,6 +760,7 @@ table.card.card-collapsed { display: none; }
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">한라산1950</span><span class="idx-abv">25도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">오크 숙성, 허벅술 대중화 버전</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">오늘도 부드럽게 오름</span><span class="idx-abv">16도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.01 창립 75주년 기념, 2019 단종 녹색병 부활</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">한일소주</span><span class="idx-abv">25~30도</span><span class="idx-year">1950</span></div><div class="idx-brand-kw">1993년 한라산으로 사명·브랜드 변경</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">올래소주 (한라산 올래)</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">제주소주 '올레소주'에 맞선 리브랜딩, 2019년 한라산17로 교체</div></div>
 </div>
 <div class="idx-card" style="order:7"><div class="idx-card-header">더맥키스컴퍼니</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">선양</span><span class="idx-abv">14.9도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">국내 희석식 최저 도수</div></div>
@@ -770,6 +772,8 @@ table.card.card-collapsed { display: none; }
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">캔소맥</span><span class="idx-brand-name">선양 오크소맥</span><span class="idx-abv">5.7도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.06 편의점 4사 동시 출시, 세계 최초 캔 소맥</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">버지니아</span><span class="idx-abv">16.5도</span></div><div class="idx-brand-kw">선양의 옛 저도수 라인</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">맥키스 홈믹싱주</span><span class="idx-abv">21도</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">2013.03 출시, 가정용 홈믹싱 리큐르</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">맑을린</span><span class="idx-year">2005</span></div><div class="idx-brand-kw">이제우린 계보 1탄, 오투린으로 리뉴얼</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">오투린(O2린)</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">이제우린 계보 2탄, 산소 함유량 강조</div></div>
 </div>
 <div class="idx-card" style="order:8"><div class="idx-card-header">금복주</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참소주</span><span class="idx-abv">16.5도</span><span class="idx-year">1994</span></div><div class="idx-brand-kw">대구·경북 대표, 2026.01 리뉴얼(나노&amp;삼투막 듀얼필터링)</div></div>
@@ -810,6 +814,7 @@ table.card.card-collapsed { display: none; }
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">산(山처럼)</span><span class="idx-year">2001</span></div><div class="idx-brand-kw">2006년 처음처럼 출시와 함께 단종</div></div>
 </div>
 <div class="idx-card" style="order:13"><div class="idx-card-header">OB맥주 제주공장</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">제주올레소주 (→푸른밤)</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">한라산과 상표권 소송 패소 후 2017년 푸른밤으로 리뉴얼</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">푸른밤</span><span class="idx-abv">16.9도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">올레소주 후신, 2019 짧은밤·긴밤 통합 · 2025 OB맥주 인수</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">푸른밤 지픈밤</span><span class="idx-abv">20도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">"깊은 밤"의 제주어, 고도주 수요층 타깃</div></div>
 </div>
@@ -1453,8 +1458,24 @@ table.card.card-collapsed { display: none; }
 <div class="cat-subhead">🍃 희석식</div>
 <table class="card">
 <tr>
-<td class="cb cb-t" rowspan="9">더맥키스
+<td class="cb cb-t" rowspan="11">더맥키스
 컴퍼니</td>
+<td class="cn at"><span class="cn-launch-date">2005</span>맑을린<span class="disc-badge">단종</span></td>
+<td class="ci it">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">"맑고 깨끗함 + <b>린(순수함)</b>". 이제우린 계보의 첫 이름.</div>
+<div class="det">2005년 출시. 이후 오투린(O2린)으로 리뉴얼되며 단종.</div>
+</td>
+</tr>
+<tr>
+<td class="cn at"><span class="cn-launch-date">2008</span>오투린(O2린)<span class="disc-badge">단종</span></td>
+<td class="ci it">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">O₂(산소) + <b>린(순수함)</b>. 높은 산소 함유량을 강조한 리뉴얼 네이밍.</div>
+<div class="det">2008년 맑을린 후속 출시. 2018년 10월 이제우린으로 변경되며 단종.</div>
+</td>
+</tr>
+<tr>
 <td class="cn at"><span class="cn-launch-date">2013.03</span>맥키스 홈믹싱주<span class="abv-badge">21도</span><span class="disc-badge">단종</span></td>
 <td class="ci it">
 <div class="lbl">🔤 이름 유래</div>
@@ -1743,6 +1764,17 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
+<td class="cn ab">백화수복(白花壽福)<span class="disc-badge">단종</span></td>
+<td class="ci ib">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">白花(흰꽃)·壽福(수복=오래 살며 복을 받음)을 결합한 길상 문구형 네이밍.</div>
+<div class="det">잎새주 이전 보해양조의 대표 약주 계열 브랜드. 현재는 전통 약주·청주 라인으로만 유지.</div>
+</td>
+</tr>
+</table>
+<table class="card">
+<tr>
+<td class="cb cb-b" rowspan="1">보배양조</td>
 <td class="cn ab">하이트 (구 보배양조)<span class="abv-badge">19도</span></td>
 <td class="ci ib">
 <div class="lbl">🔤 이름 유래</div>
@@ -2381,8 +2413,16 @@ table.card.card-collapsed { display: none; }
 <div class="cat-subhead">🍃 희석식</div>
 <table class="card">
 <tr>
-<td class="cb cb-t" rowspan="2">OB맥주
+<td class="cb cb-t" rowspan="3">OB맥주
 제주공장</td>
+<td class="cn at"><span class="cn-launch-date">2014</span>제주올레소주 (→푸른밤)<span class="disc-badge">단종</span></td>
+<td class="ci it">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">제주 올레길에서 이름 착안. 출시 당시 제품명 '올레소주 곱들락(보통)·산도롱(독한)'.</div>
+<div class="det">2014년 출시. 한라산과 상표권 소송 패소 → 2017년 '푸른밤'으로 전면 리뉴얼. 제주 도내 최초 제2 지역소주로 기록.</div>
+</td>
+</tr>
+<tr>
 <td class="cn at"><span class="cn-launch-date">2017.09</span>푸른밤<span class="abv-badge">16.9도</span></td>
 <td class="ci it">
 <div class="lbl">🔤 이름 유래</div>
@@ -2401,13 +2441,21 @@ table.card.card-collapsed { display: none; }
 </table>
 <table class="card">
 <tr>
-<td class="cb cb-t" rowspan="4">한라산
+<td class="cb cb-t" rowspan="5">한라산
 소주</td>
 <td class="cn at"><span class="cn-launch-date">1950</span>한일소주<span class="abv-badge">25~30도</span><span class="disc-badge">단종</span></td>
 <td class="ci it">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">창업 당시 사명 <b>한일(韓一)</b>을 제품명으로 그대로 사용.</div>
 <div class="det">25~30도. 1950년 창업 당시 사명·브랜드명. 1993년 '한라산'으로 사명·브랜드를 변경하며 단종.</div>
+</td>
+</tr>
+<tr>
+<td class="cn at"><span class="cn-launch-date">2014</span>올래소주 (한라산 올래)<span class="disc-badge">단종</span></td>
+<td class="ci it">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">제주어 <b>올레</b>(집으로 이어지는 골목길)를 브랜드화.</div>
+<div class="det">2014년 제주소주의 '올레소주' 출시에 맞서 기존 '순한소주' 라벨을 '올래'로 변경. 상표권 확보 후 2019년 투명병 '한라산17'로 교체되며 단종.</div>
 </td>
 </tr>
 <tr>
@@ -2490,7 +2538,16 @@ table.card.card-collapsed { display: none; }
 <div class="mfr-head"><span class="mfr-name">하이트진로(주)</span><span class="mfr-region">서울·경기 / 전국</span></div>
 <div class="mfr-brands">참이슬·진로·진로이즈백·일품진로</div>
 <div class="mfr-note">1924년 창업. 2011년 하이트맥주-진로 합병(하이트진로 출범). 세계 1위 소주 회사. 80여 개국 수출.</div>
-<div class="mfr-hist">📜 역사: <b>진로소주(구)</b> — 1924년 창업 이래 참이슬(1998) 출시 이전의 메인 브랜드, 초록 뚜껑·녹색 병 상징. <b>이슬露</b> — 1998년 "참진이슬露"로 참이슬과 혼용되다 2009.12 참이슬로 통일. <b>보배</b>(전북) — 전북 대표 소주였으나 하이트진로에 합병. <b>두꺼비소주</b> — 진로 두꺼비 마스코트의 비공식 별칭, 진로이즈백에서 캐릭터로 부활.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1926(추정)</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">경월주조 (구, 현 롯데주류)</span><span class="mfr-region">강원</span></div>
+<div class="mfr-brands">경월·그린소주·뉴그린·산(山처럼) (전부 단종)</div>
+<div class="mfr-note">1926년 강릉합동주조㈜ 설립이 모태로 추정(정확한 창업연도 재확인 필요). 1993년 두산 인수 후 그린소주로 개명, 2009년 롯데주류 인수 후 처음처럼으로 최종 대체·단종 — 현재 롯데주류(MBC)로 계보 계승.</div>
 </div>
 </div>
 
@@ -2501,7 +2558,6 @@ table.card.card-collapsed { display: none; }
 <div class="mfr-head"><span class="mfr-name">무학(주)</span><span class="mfr-region">경남 창원</span></div>
 <div class="mfr-brands">좋은데이·화이트·부산갈매기·좋은데이 톡</div>
 <div class="mfr-note">1929년 창업. 무학(舞鶴)은 학이 춤추는 마산 지역 옛 지명. 최재호 회장 2대째 경영.</div>
-<div class="mfr-hist">📜 역사: <b>좋다카이</b> — 2009.03 출시(19.5도), 경상도 사투리 "좋다 아이가"에서 착안, 좋은데이 이전 과도기 라인.</div>
 </div>
 </div>
 
@@ -2512,7 +2568,6 @@ table.card.card-collapsed { display: none; }
 <div class="mfr-head"><span class="mfr-name">대선주조(주)</span><span class="mfr-region">부산</span></div>
 <div class="mfr-brands">C1·대선·대선159·강알리</div>
 <div class="mfr-note">1930년 창업. 2011년 BN그룹 인수. 부산 대표 소주사. 음향숙성 공법 보유.</div>
-<div class="mfr-hist">📜 역사: <b>즐거워예</b> — 2011.06 출시(16.2도), 상황별 네이밍(조문용 '그리워예')을 시도한 저도주, 현재 대선·강알리로 계보 계승.</div>
 </div>
 </div>
 
@@ -2523,7 +2578,6 @@ table.card.card-collapsed { display: none; }
 <div class="mfr-head"><span class="mfr-name">보해양조(주)</span><span class="mfr-region">전남 영암</span></div>
 <div class="mfr-brands">잎새주·아홉시반</div>
 <div class="mfr-note">1950년 창업(전남 목포). 보해(寶海)는 "보물의 바다". 전남·광주 대표 주류사. 개별 브랜드 전략 고수.</div>
-<div class="mfr-hist">📜 역사: <b>백화수복(白花壽福)</b> — 잎새주 이전 보해 대표 약주 계열 브랜드, 현재는 전통 약주·청주 라인으로만 유지. <b>잎새주 부라더 시리즈</b> — 2015년 잎새주의 MZ 타깃 서브라인(부라더·부라더#소다·복받은 부라더 3종), 단종 추정.</div>
 </div>
 </div>
 
@@ -2534,7 +2588,6 @@ table.card.card-collapsed { display: none; }
 <div class="mfr-head"><span class="mfr-name">한라산소주(주)</span><span class="mfr-region">제주</span></div>
 <div class="mfr-brands">한라산21·한라산순한·허벅술</div>
 <div class="mfr-note">전신 한일소주(1950년 창업) → 1993년 한라산으로 사명 변경. 화산암반수 사용. 제주 관광 기념 소주로 전국 인지도 확보.</div>
-<div class="mfr-hist">📜 역사: <b>올래소주(한라산 올래)</b> — 2014년 제주소주의 '올레소주'에 맞서 기존 '순한소주' 라벨을 '올래'로 변경, 상표권 확보 후 2019년 '한라산17'로 교체되며 단종. (경쟁사) <b>제주올레소주</b>(제주소주, 현 OB맥주 제주공장) — 2014년 출시, 한라산과 상표권 소송 패소 후 2017년 '푸른밤'으로 리뉴얼.</div>
 </div>
 </div>
 
@@ -2565,7 +2618,6 @@ table.card.card-collapsed { display: none; }
 <div class="mfr-head"><span class="mfr-name">더맥키스컴퍼니</span><span class="mfr-region">충남 대전</span></div>
 <div class="mfr-brands">선양·이제우린·이제우린 高·선양오크·선양 말차</div>
 <div class="mfr-note">1973년 금관주조로 창업(구 선양주조). MacKiss 영문 사명 사용 이력. 충청권 대표. 선양오크로 프리미엄 블렌딩 소주 진출.</div>
-<div class="mfr-hist">📜 역사: <b>맑은린</b>(2005) → <b>오투린(O2린)</b>(산소 함유량 강조) → <b>맥키스 홈믹싱주</b>(2013.03, 21도, 사명을 맥키스컴퍼니로 바꾸게 한 신제품, 조웅래 대표·신동엽 광고 모델) — 현재 이제우린으로 계보 계승.</div>
 </div>
 </div>
 
@@ -2626,7 +2678,6 @@ table.card.card-collapsed { display: none; }
 <div class="mfr-head"><span class="mfr-name">롯데주류(MBC)</span><span class="mfr-region">강원·서울</span></div>
 <div class="mfr-brands">처음처럼·새로·순하리·여울</div>
 <div class="mfr-note">두산경월→롯데 인수(2009). 처음처럼·새로 투트랙 운영. MZ·전통 감성 이중 공략.</div>
-<div class="mfr-hist">📜 역사(경월주조/두산경월 계보): <b>경월</b>("강릉의 달빛") → <b>그린소주</b>(1993.11, 1999년 점유율 1위) → <b>뉴그린</b>(1998) → <b>산(山처럼)</b>(2001, 대관령 산지 이미지) → 2006년 <b>처음처럼</b> 출시와 함께 대체·단종.</div>
 </div>
 </div>
 
