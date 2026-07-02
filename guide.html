@@ -317,6 +317,32 @@ button.tab-btn {
   .tl-event-when { flex: none; }
 }
 
+/* ── 제조사 현황: 세로 스파인 타임라인 ── */
+.mfr-timeline { position: relative; padding-left: 26px; margin: 10px 0 4px; }
+.mfr-timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px; top: 4px; bottom: 4px;
+  width: 2px;
+  background: linear-gradient(#4285f4, #e94560);
+  border-radius: 2px;
+}
+.mfr-item { position: relative; margin-bottom: 14px; page-break-inside: avoid; break-inside: avoid; }
+.mfr-item:last-child { margin-bottom: 0; }
+.mfr-dot {
+  position: absolute; left: -26px; top: 3px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #1a1a2e; border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #1a1a2e;
+}
+.mfr-year { display: block; font-size: 9.5pt; font-weight: 900; color: #1a1a2e; margin-bottom: 3px; }
+.mfr-card { background: #f7f8fb; border-radius: 8px; padding: 9px 12px; font-size: 8.6pt; color: #333; }
+.mfr-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.mfr-name { font-size: 9.5pt; font-weight: 900; color: #1a1a2e; }
+.mfr-region { font-size: 7.3pt; font-weight: 700; color: #555; background: #eceef3; border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+.mfr-brands { font-size: 8pt; color: #555; margin-bottom: 5px; }
+.mfr-note { color: #333; line-height: 1.55; }
+
 /* ── COMPANY / HISTORY TABLE ── */
 .ctable {
   width: 100%;
@@ -662,7 +688,7 @@ table.card.card-collapsed { display: none; }
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로 1924 헤리티지</span><span class="idx-abv">30도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">창립 100주년 기념 한정판</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로 고연산</span><span class="idx-abv">31도</span><span class="idx-year">2018</span></div><div class="idx-brand-kw">장기숙성 원액 비중 강화</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-a">수출전용</span><span class="idx-brand-name">진로24</span><span class="idx-abv">24도</span></div><div class="idx-brand-kw">동남아·미국 한인시장</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">이슬露</span></div><div class="idx-brand-kw">참이슬과 같은 어원 계열, 단종 후 참이슬 통합</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">이슬露</span><span class="idx-year">1998</span></div><div class="idx-brand-kw">참이슬과 혼용되다 2009.12 참이슬로 브랜드 통일</div></div>
 </div>
 <div class="idx-card" style="order:2"><div class="idx-card-header">롯데주류</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">처음처럼</span><span class="idx-abv">16도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">2026.03 출시 20주년 헤리티지 리뉴얼</div></div>
@@ -1066,11 +1092,11 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ab">이슬露<span class="disc-badge">단종</span></td>
+<td class="cn ab"><span class="cn-launch-date">1998</span>이슬露<span class="disc-badge">단종</span></td>
 <td class="ci ib">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">진로(眞露)의 <b>"이슬 로(露)"</b>를 상품명으로 사용. 참이슬과 같은 어원 계열.</div>
-<div class="det">참이슬과 병행 운영되던 라인이었으나 단종 후 참이슬로 통합.</div>
+<div class="det">1998년 참이슬 출시 당시 "참진이슬露"라는 이름으로 참이슬과 함께 혼용되다가, 2009년 12월 리뉴얼과 함께 브랜드명이 참이슬로 통일되며 단종.</div>
 </td>
 </tr>
 </table>
@@ -1163,7 +1189,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn at">새로 리치<span class="abv-badge">12도</span></td>
+<td class="cn at"><span class="cn-launch-date">2024</span>새로 리치<span class="abv-badge">12도</span></td>
 <td class="ci it">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>새로</b> + <b>리치(Lychee)</b>. 해외 소비자 취향을 겨냥한 수출 전용 플레이버.</div>
@@ -1223,7 +1249,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ab">청포도에이슬<span class="abv-badge">13도</span></td>
+<td class="cn ab"><span class="cn-launch-date">2016</span>청포도에이슬<span class="abv-badge">13도</span></td>
 <td class="ci ib">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>청포도(Green Grape)</b> + <b>에이슬</b>. 청포도의 신선하고 상큼한 이미지를 통해 가볍고 깔끔한 음용 경험 강조. 에이슬 시리즈 중 가장 청량한 컨셉.</div>
@@ -1231,7 +1257,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ab">복숭아에이슬<span class="abv-badge">13도</span></td>
+<td class="cn ab"><span class="cn-launch-date">2022</span>복숭아에이슬<span class="abv-badge">13도</span></td>
 <td class="ci ib">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>복숭아(Peach)</b> + <b>에이슬</b>. 플레이버 소주 시장 전체에서 가장 인기 높은 복숭아 풍미를 에이슬 라인으로 출시. 수출 전용 제품으로 동남아·미주·일본 공략.</div>
@@ -1239,7 +1265,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ab">딸기에이슬<span class="abv-badge">13도</span></td>
+<td class="cn ab"><span class="cn-launch-date">2019</span>딸기에이슬<span class="abv-badge">13도</span></td>
 <td class="ci ib">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>딸기(Strawberry)</b> + <b>에이슬</b>. 베트남 등 동남아시아에서 딸기가 고급 과일 이미지를 가진 데 착안해 수출 전용으로 개발. 현지 반응 확인 후 일부 국내 역출시.</div>
@@ -1338,7 +1364,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ad">일품진로 1924 헤리티지<span class="abv-badge">30도</span></td>
+<td class="cn ad"><span class="cn-launch-date">2024</span>일품진로 1924 헤리티지<span class="abv-badge">30도</span></td>
 <td class="ci id">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>1924</b> = 진로 창업 연도, <b>헤리티지(Heritage)</b> = 유산·전통. 창립 100주년을 전후로 브랜드 원점을 기념하는 의미를 제품명에 직접 표기.</div>
@@ -1346,7 +1372,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ad">일품진로 고연산<span class="abv-badge">31도</span></td>
+<td class="cn ad"><span class="cn-launch-date">2018</span>일품진로 고연산<span class="abv-badge">31도</span></td>
 <td class="ci id">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>고연산(高年産)</b> = 오래 숙성된 원액의 비중을 높였다는 뜻을 그대로 제품명에 사용. 위스키의 '숙성연산' 표기 문화를 증류식 소주에 접목.</div>
@@ -1369,7 +1395,7 @@ table.card.card-collapsed { display: none; }
 <tr>
 <td class="cb cb-d" rowspan="3">문배주
 양조원</td>
-<td class="cn ad">문배주 23도<span class="abv-badge">23도</span></td>
+<td class="cn ad"><span class="cn-launch-date">1986(추정)</span>문배주 23도<span class="abv-badge">23도</span></td>
 <td class="ci id">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">술의 향기가 <b>문배나무(돌배나무)</b> 과실 향과 유사해 붙여진 이름. 실제로 배가 들어가지 않지만 기장쌀·수수·밀을 발효·증류하는 과정에서 자연적으로 배향(梨香)이 발생. 재료가 아닌 <b>향기로 이름 지은 술</b>.</div>
@@ -1377,7 +1403,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ad">문배주 25도<span class="abv-badge">25도</span></td>
+<td class="cn ad"><span class="cn-launch-date">1986(추정)</span>문배주 25도<span class="abv-badge">25도</span></td>
 <td class="ci id">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>문배주</b> 브랜드명 + 도수 <b>25</b>. 500ml 용량의 표준형 라인.</div>
@@ -1385,7 +1411,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ad">문배주 40도<span class="abv-badge">40도</span></td>
+<td class="cn ad"><span class="cn-launch-date">1986(추정)</span>문배주 40도<span class="abv-badge">40도</span></td>
 <td class="ci id">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>문배주</b> 브랜드명 + 도수 <b>40</b>. 조와 수수만 사용해 빚은 전통 주력 라인.</div>
@@ -1493,11 +1519,11 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn at">버지니아<span class="abv-badge">16.5도</span><span class="disc-badge">단종</span></td>
+<td class="cn at"><span class="cn-launch-date">2009.11.10</span>버지니아<span class="abv-badge">16.5도</span><span class="disc-badge">단종</span></td>
 <td class="ci it">
 <div class="lbl">🔤 이름 유래</div>
-<div class="ety">미국 지명 <b>버지니아(Virginia)</b>를 차용한 이국적 영문 브랜딩.</div>
-<div class="det">선양의 저도수 라인이었으나 단종.</div>
+<div class="ety">미국 지명 <b>버지니아(Virginia)</b>를 차용한 이국적 영문 브랜딩. 원래 이름은 "O2버지니아".</div>
+<div class="det">2009년 11월 10일 출시. 선양의 저도수 라인이었으나 단종.</div>
 </td>
 </tr>
 </table>
@@ -1568,7 +1594,7 @@ table.card.card-collapsed { display: none; }
 <tr>
 <td class="cb cb-d" rowspan="4">경월
 주조</td>
-<td class="cn ad"><span class="cn-launch-date">1926(추정)</span>경월</td>
+<td class="cn ad"><span class="cn-launch-date">1926(추정)</span>경월<span class="abv-badge">25도(단종 시점)</span></td>
 <td class="ci id">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">강원 지역명에서 따온 이름. <b>京(경)</b>은 강릉(경강의 경), <b>月(월)</b>은 달. <b>"강릉의 달빛"</b>, 대관령 청정 자연과 달빛 이미지 표현. 강원도 지역 소주의 역사적 원형.</div>
@@ -1576,7 +1602,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ad"><span class="cn-launch-date">1993.11</span>그린소주<span class="disc-badge">단종</span></td>
+<td class="cn ad"><span class="cn-launch-date">1993.11</span>그린소주<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
 <td class="ci id">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">1993년 두산이 경월을 인수하며 친환경·청정 이미지를 강조한 <b>"그린(Green)"</b>으로 개명.</div>
@@ -1592,7 +1618,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ad"><span class="cn-launch-date">2001</span>산(山처럼)<span class="disc-badge">단종</span></td>
+<td class="cn ad"><span class="cn-launch-date">2001</span>산(山처럼)<span class="abv-badge">21도</span><span class="disc-badge">단종</span></td>
 <td class="ci id">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">강원도의 산악 지형 이미지를 형상화한 <b>산(山)</b>.</div>
@@ -1653,7 +1679,7 @@ table.card.card-collapsed { display: none; }
 <tr>
 <td class="cb cb-b" rowspan="9">보해
 양조</td>
-<td class="cn ab"><span class="cn-launch-date">1992</span>보해골드<span class="disc-badge">단종</span></td>
+<td class="cn ab"><span class="cn-launch-date">1992</span>보해골드<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
 <td class="ci ib">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">보해 브랜드명 + <b>골드(Gold)</b>를 결합한 프리미엄 네이밍.</div>
@@ -1661,7 +1687,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ab"><span class="cn-launch-date">1994</span>씨티<span class="disc-badge">단종</span></td>
+<td class="cn ab"><span class="cn-launch-date">1994</span>씨티<span class="abv-badge">23도</span><span class="disc-badge">단종</span></td>
 <td class="ci ib">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">영어 <b>City(도시)</b>의 음차. 도시적이고 세련된 이미지를 표현한 영문 네이밍.</div>
@@ -1669,7 +1695,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ab"><span class="cn-launch-date">1996</span>김삿갓<span class="disc-badge">단종</span></td>
+<td class="cn ab"><span class="cn-launch-date">1996</span>김삿갓<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
 <td class="ci ib">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">조선 후기 방랑 시인 <b>김삿갓(김병연)</b>의 이름을 그대로 차용한 향토적 네이밍.</div>
@@ -1677,7 +1703,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ab"><span class="cn-launch-date">1997</span>곰바우<span class="disc-badge">단종</span></td>
+<td class="cn ab"><span class="cn-launch-date">1997</span>곰바우<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
 <td class="ci ib">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">순박하고 듬직한 이미지의 <b>"곰"</b> + 전라도 사투리 어미 <b>"바우"</b>를 결합한 향토적 네이밍.</div>
@@ -1790,7 +1816,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn aa"><span class="cn-launch-date">1982</span>선소주<span class="disc-badge">단종</span></td>
+<td class="cn aa"><span class="cn-launch-date">1982</span>선소주<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
 <td class="ci ia">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">회사명 <b>大鮮(대선)</b>의 "선(鮮)"을 그대로 제품명화.</div>
@@ -1798,7 +1824,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn aa"><span class="cn-launch-date">1993</span>선타임(대선골드)<span class="disc-badge">단종</span></td>
+<td class="cn aa"><span class="cn-launch-date">1993</span>선타임(대선골드)<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
 <td class="ci ia">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>선(鮮)</b> + <b>타임(Time)</b>. "대선골드"라는 별칭으로도 불림.</div>
@@ -1916,7 +1942,7 @@ table.card.card-collapsed { display: none; }
 <table class="card">
 <tr>
 <td class="cb cb-a" rowspan="12">금복주</td>
-<td class="cn aa"><span class="cn-launch-date">1992</span>수퍼골드마일드<span class="disc-badge">단종</span></td>
+<td class="cn aa"><span class="cn-launch-date">1992</span>수퍼골드마일드<span class="abv-badge">15도</span><span class="disc-badge">단종</span></td>
 <td class="ci ia">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>수퍼(Super)</b> + <b>골드(Gold)</b> + <b>마일드(Mild)</b>를 조합한 프리미엄·저자극 이미지의 영문 네이밍.</div>
@@ -1924,7 +1950,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn aa"><span class="cn-launch-date">1993</span>금복골드<span class="disc-badge">단종</span></td>
+<td class="cn aa"><span class="cn-launch-date">1993</span>금복골드<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
 <td class="ci ia">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">금복주 브랜드명 + <b>골드(Gold)</b>를 결합한 프리미엄 네이밍.</div>
@@ -1996,7 +2022,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn aa">맛있는참<span class="abv-badge">16.9도</span></td>
+<td class="cn aa"><span class="cn-launch-date">2019</span>맛있는참<span class="abv-badge">16.9도</span></td>
 <td class="ci ia">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>맛있는</b>(형용사) + <b>참(眞, 진짜·올바름)</b>. "진짜 맛있는 소주"라는 직관적 의미. 기존 참소주 브랜드를 저도수 시장 대응을 위해 별도 라인으로 출시. 부드러움·맛을 전면에 내세운 네이밍.</div>
@@ -2004,7 +2030,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn aa">오크젠<span class="abv-badge">25도</span></td>
+<td class="cn aa"><span class="cn-launch-date">2008</span>오크젠<span class="abv-badge">25도</span></td>
 <td class="ci ia">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>오크(Oak)</b> 숙성 + <b>Zen(젠, 정제됨)</b>을 결합한 프리미엄 네이밍.</div>
@@ -2365,7 +2391,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn at">푸른밤 지픈밤<span class="abv-badge">20.1도</span></td>
+<td class="cn at"><span class="cn-launch-date">2019</span>푸른밤 지픈밤<span class="abv-badge">20.1도</span></td>
 <td class="ci it">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주 방언으로 <b>"깊은 밤"</b>을 뜻하는 <b>지픈밤</b>. 푸른밤보다 도수를 높인 고도주 라인임을 표현.</div>
@@ -2433,7 +2459,7 @@ table.card.card-collapsed { display: none; }
 <table class="card">
 <tr>
 <td class="cb cb-d" rowspan="2">제주술익는집</td>
-<td class="cn ad">고소리술 29도<span class="abv-badge">29도</span></td>
+<td class="cn ad"><span class="cn-launch-date">1995(추정)</span>고소리술 29도<span class="abv-badge">29도</span></td>
 <td class="ci id">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>고소리</b>는 제주 방언으로 <b>소줏고리(증류 기구)</b>를 뜻함. 즉 "소줏고리로 만든 술"이라는 제조 도구 자체가 제품명이 된 케이스. 제주 고유의 언어·문화가 담긴 이름.</div>
@@ -2441,7 +2467,7 @@ table.card.card-collapsed { display: none; }
 </td>
 </tr>
 <tr>
-<td class="cn ad">고소리술 40도<span class="abv-badge">40도</span></td>
+<td class="cn ad"><span class="cn-launch-date">1995(추정)</span>고소리술 40도<span class="abv-badge">40도</span></td>
 <td class="ci id">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>고소리술</b> 브랜드명 + 도수 <b>40</b>. 도자기 세트로 출시하는 주력 라인.</div>
@@ -2531,7 +2557,7 @@ table.card.card-collapsed { display: none; }
 <td><b>이슬露</b></td>
 <td>하이트진로</td>
 <td>전국</td>
-<td>진로(眞露)의 '이슬 로(露)'를 상품명으로. 참이슬과 같은 어원 계열. 단종 후 참이슬 통합.</td>
+<td>진로(眞露)의 '이슬 로(露)'를 상품명으로. 1998년 참이슬 출시 당시 "참진이슬露"로 혼용되다 2009.12 참이슬로 브랜드 통일.</td>
 </tr>
 <tr>
 <td><b>진로소주(구)</b></td>
@@ -2568,104 +2594,159 @@ table.card.card-collapsed { display: none; }
 <!-- ══════════════════ 제조사 현황 ══════════════════ -->
 <div class="tab-panel" id="tab-companies">
 <div class="section-header sh-blue">🏭 주요 소주 제조사 현황 (2025 기준)</div>
-<table class="ctable">
-<tr>
-<th style="width:14%">제조사</th>
-<th style="width:26%">대표 브랜드</th>
-<th style="width:12%">기반 지역</th>
-<th>창업 연도 · 특이점</th>
-</tr>
-<tr>
-<td><b>하이트진로(주)</b></td>
-<td>참이슬·진로·진로이즈백·일품진로</td>
-<td>서울·경기 / 전국</td>
-<td>1924년 창업. 2011년 하이트맥주-진로 합병(하이트진로 출범). 세계 1위 소주 회사. 80여 개국 수출.</td>
-</tr>
-<tr>
-<td><b>롯데주류(MBC)</b></td>
-<td>처음처럼·새로·순하리·여울</td>
-<td>강원·서울</td>
-<td>두산경월→롯데 인수(2009). 처음처럼·새로 투트랙 운영. MZ·전통 감성 이중 공략.</td>
-</tr>
-<tr>
-<td><b>무학(주)</b></td>
-<td>좋은데이·화이트·부산갈매기·좋은데이 톡</td>
-<td>경남 창원</td>
-<td>1929년 창업. 무학(舞鶴)은 학이 춤추는 마산 지역 옛 지명. 최재호 회장 2대째 경영.</td>
-</tr>
-<tr>
-<td><b>대선주조(주)</b></td>
-<td>C1·대선·대선159·강알리</td>
-<td>부산</td>
-<td>1930년 창업. 2011년 BN그룹 인수. 부산 대표 소주사. 음향숙성 공법 보유.</td>
-</tr>
-<tr>
-<td><b>금복주(주)</b></td>
-<td>참소주·맛있는참·오크젠·제왕</td>
-<td>대구·경북</td>
-<td>1957년 창업(삼산물산). 경북 대표 주류사. 금복(金福)은 "황금 복"의 한자. 첨단여과공법 특허.</td>
-</tr>
-<tr>
-<td><b>보해양조(주)</b></td>
-<td>잎새주·아홉시반</td>
-<td>전남 영암</td>
-<td>1950년 창업(전남 목포). 보해(寶海)는 "보물의 바다". 전남·광주 대표 주류사. 개별 브랜드 전략 고수.</td>
-</tr>
-<tr>
-<td><b>더맥키스컴퍼니</b></td>
-<td>선양·이제우린·이제우린 高·선양오크·선양 말차</td>
-<td>충남 대전</td>
-<td>구 선양주조. MacKiss 영문 사명. 충청권 대표. 선양오크로 프리미엄 블렌딩 소주 진출.</td>
-</tr>
-<tr>
-<td><b>충북소주(주)</b></td>
-<td>NEW 시원(시원한청풍)</td>
-<td>충북</td>
-<td>충북 지역 대표 소주사. 1957년 대양상사로 설립, 2011년 롯데주류에 매각. 청풍명월 자연 이미지 브랜딩. 충북 지역 내 안정적 점유율 유지.</td>
-</tr>
-<tr>
-<td><b>한라산소주(주)</b></td>
-<td>한라산21·한라산순한·허벅술</td>
-<td>제주</td>
-<td>제주 전용 소주사. 화산암반수 사용. 제주 관광 기념 소주로 전국 인지도 확보.</td>
-</tr>
-<tr>
-<td><b>화요(주)</b></td>
-<td>화요17·25·41·53</td>
-<td>경기 여주</td>
-<td>도자기 명가 광주요 계열. 술+도자기 고급 브랜드 컨셉. 17·19·25·41·53도 + X.P. 6종 프리미엄 라인업.</td>
-</tr>
-<tr>
-<td><b>원스피리츠</b></td>
-<td>원소주 오리지널·스피릿·클래식</td>
-<td>강원 원주</td>
-<td>2021년 설립. 가수 박재범 창업. 전통 밀누룩 사용. MZ 세대 증류식 소주 대중화 선도.</td>
-</tr>
-<tr>
-<td><b>전주이강주(주)</b></td>
-<td>이강주</td>
-<td>전북 전주</td>
-<td>조선 3대 명주 전통 계승. 조정형 명인(식품명인 제9호) 제조. 전라북도 무형문화재 제6호. 19도·25도·38도 3종. 배·생강·계피·꿀 사용 증류식.</td>
-</tr>
-<tr>
-<td><b>감홍로(주)</b></td>
-<td>감홍로</td>
-<td>경기 파주</td>
-<td>평안도 관서 전통주 복원. 이기숙 명인(식품명인 제43호) 보유. 40도 + 2026년 1월 감홍로 화이트 신규 출시. 한약재 사용 증류식.</td>
-</tr>
-<tr>
-<td><b>추성고을</b></td>
-<td>추성주·죽력고·대통주</td>
-<td>전남 담양</td>
-<td>양대수 명인(식품명인 제22호). 담양 연동사 유래 약 천 년 역사 전통주 복원. 25도 추성주 외 대나무 활용 죽력고·대통주 등 운영.</td>
-</tr>
-<tr>
-<td><b>(주)솔송주</b></td>
-<td>솔송주·담솔</td>
-<td>경남 함양</td>
-<td>박흥선 명인(식품명인 제27호). 경남 무형문화재 제35호. 정여창 가문 500년 가양주 계승. 솔송주(약주 13도)·담솔(증류 고급주) 2종 라인. 2007년 남북정상회담 만찬주.</td>
-</tr>
-</table>
+<div class="mfr-timeline">
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1924</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">하이트진로(주)</span><span class="mfr-region">서울·경기 / 전국</span></div>
+<div class="mfr-brands">참이슬·진로·진로이즈백·일품진로</div>
+<div class="mfr-note">1924년 창업. 2011년 하이트맥주-진로 합병(하이트진로 출범). 세계 1위 소주 회사. 80여 개국 수출.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1929</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">무학(주)</span><span class="mfr-region">경남 창원</span></div>
+<div class="mfr-brands">좋은데이·화이트·부산갈매기·좋은데이 톡</div>
+<div class="mfr-note">1929년 창업. 무학(舞鶴)은 학이 춤추는 마산 지역 옛 지명. 최재호 회장 2대째 경영.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1930</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">대선주조(주)</span><span class="mfr-region">부산</span></div>
+<div class="mfr-brands">C1·대선·대선159·강알리</div>
+<div class="mfr-note">1930년 창업. 2011년 BN그룹 인수. 부산 대표 소주사. 음향숙성 공법 보유.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1950</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">보해양조(주)</span><span class="mfr-region">전남 영암</span></div>
+<div class="mfr-brands">잎새주·아홉시반</div>
+<div class="mfr-note">1950년 창업(전남 목포). 보해(寶海)는 "보물의 바다". 전남·광주 대표 주류사. 개별 브랜드 전략 고수.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1950</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">한라산소주(주)</span><span class="mfr-region">제주</span></div>
+<div class="mfr-brands">한라산21·한라산순한·허벅술</div>
+<div class="mfr-note">전신 한일소주(1950년 창업) → 1993년 한라산으로 사명 변경. 화산암반수 사용. 제주 관광 기념 소주로 전국 인지도 확보.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1957</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">금복주(주)</span><span class="mfr-region">대구·경북</span></div>
+<div class="mfr-brands">참소주·맛있는참·오크젠·제왕</div>
+<div class="mfr-note">1957년 창업(삼산물산). 경북 대표 주류사. 금복(金福)은 "황금 복"의 한자. 첨단여과공법 특허.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1957</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">충북소주(주)</span><span class="mfr-region">충북</span></div>
+<div class="mfr-brands">NEW 시원(시원한청풍)</div>
+<div class="mfr-note">1957년 대양상사로 설립, 2011년 롯데주류에 매각. 청풍명월 자연 이미지 브랜딩. 충북 지역 내 안정적 점유율 유지.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1973</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">더맥키스컴퍼니</span><span class="mfr-region">충남 대전</span></div>
+<div class="mfr-brands">선양·이제우린·이제우린 高·선양오크·선양 말차</div>
+<div class="mfr-note">1973년 금관주조로 창업(구 선양주조). MacKiss 영문 사명 사용 이력. 충청권 대표. 선양오크로 프리미엄 블렌딩 소주 진출.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1988(추정)</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">전주이강주(주)</span><span class="mfr-region">전북 전주</span></div>
+<div class="mfr-brands">이강주</div>
+<div class="mfr-note">조선 3대 명주 전통 계승. 조정형 명인(식품명인 제9호) 제조. 전라북도 무형문화재 제6호. 19도·25도·38도 3종. 배·생강·계피·꿀 사용 증류식.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1988(추정)</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">감홍로(주)</span><span class="mfr-region">경기 파주</span></div>
+<div class="mfr-brands">감홍로</div>
+<div class="mfr-note">평안도 관서 전통주 복원. 이기숙 명인(식품명인 제43호) 보유. 40도 + 2026년 1월 감홍로 화이트 신규 출시. 한약재 사용 증류식.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1992(추정)</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">추성고을</span><span class="mfr-region">전남 담양</span></div>
+<div class="mfr-brands">추성주·죽력고·대통주</div>
+<div class="mfr-note">양대수 명인(식품명인 제22호). 담양 연동사 유래 약 천 년 역사 전통주 복원. 25도 추성주 외 대나무 활용 죽력고·대통주 등 운영.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1996(추정)</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">(주)솔송주</span><span class="mfr-region">경남 함양</span></div>
+<div class="mfr-brands">솔송주·담솔</div>
+<div class="mfr-note">박흥선 명인(식품명인 제27호). 경남 무형문화재 제35호. 정여창 가문 500년 가양주 계승. 솔송주(약주 13도)·담솔(증류 고급주) 2종 라인. 2007년 남북정상회담 만찬주.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2005</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">화요(주)</span><span class="mfr-region">경기 여주</span></div>
+<div class="mfr-brands">화요17·25·41·53</div>
+<div class="mfr-note">도자기 명가 광주요 계열. 술+도자기 고급 브랜드 컨셉. 17·19·25·41·53도 + X.P. 6종 프리미엄 라인업.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2009</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">롯데주류(MBC)</span><span class="mfr-region">강원·서울</span></div>
+<div class="mfr-brands">처음처럼·새로·순하리·여울</div>
+<div class="mfr-note">두산경월→롯데 인수(2009). 처음처럼·새로 투트랙 운영. MZ·전통 감성 이중 공략.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2021</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">원스피리츠</span><span class="mfr-region">강원 원주</span></div>
+<div class="mfr-brands">원소주 오리지널·스피릿·클래식</div>
+<div class="mfr-note">2021년 설립. 가수 박재범 창업. 전통 밀누룩 사용. MZ 세대 증류식 소주 대중화 선도.</div>
+</div>
+</div>
+
+</div>
 </div>
 <!-- ══════════════════ 수출 / 글로벌 브랜드 ══════════════════ -->
 <div class="tab-panel" id="tab-export">
