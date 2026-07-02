@@ -314,7 +314,7 @@ button.tab-btn {
   background: linear-gradient(#4285f4, #e94560);
   border-radius: 2px;
 }
-.mfr-item { position: relative; margin-bottom: 8px; page-break-inside: avoid; break-inside: avoid; }
+.mfr-item { position: relative; margin-bottom: 14px; page-break-inside: avoid; break-inside: avoid; }
 .mfr-item:last-child { margin-bottom: 0; }
 .mfr-dot {
   position: absolute; left: -26px; top: 3px;
@@ -322,24 +322,24 @@ button.tab-btn {
   background: #1a1a2e; border: 3px solid #fff;
   box-shadow: 0 0 0 2px #1a1a2e;
 }
-.mfr-year { display: block; font-size: 8.8pt; font-weight: 900; color: #e94560; margin-bottom: 2px; }
-.mfr-card { background: #f7f8fb; border-radius: 7px; padding: 6px 9px; font-size: 7.6pt; color: #333; }
-.mfr-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 2px; }
-.mfr-name { font-size: 8.6pt; font-weight: 900; color: #1a1a2e; }
-.mfr-region { font-size: 6.6pt; font-weight: 700; color: #555; background: #eceef3; border-radius: 999px; padding: 1px 6px; white-space: nowrap; }
-.mfr-brands { font-size: 7.3pt; color: #555; margin-bottom: 3px; }
-.mfr-note { color: #333; line-height: 1.4; }
+.mfr-year { display: block; font-size: 9.5pt; font-weight: 900; color: #e94560; margin-bottom: 3px; }
+.mfr-card { background: #f7f8fb; border-radius: 8px; padding: 9px 12px; font-size: 8.6pt; color: #333; }
+.mfr-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.mfr-name { font-size: 9.5pt; font-weight: 900; color: #1a1a2e; }
+.mfr-region { font-size: 7.3pt; font-weight: 700; color: #555; background: #eceef3; border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+.mfr-brands { font-size: 8pt; color: #555; margin-bottom: 5px; }
+.mfr-note { color: #333; line-height: 1.55; }
 
 /* ── 역사 속 소주 브랜드: 제조사별 그룹 카드 ── */
-.hist-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 10px 0 4px; }
-.hist-card { min-width: 0; background: #f7f8fb; border-radius: 7px; padding: 7px 10px; border-left: 4px solid #1a1a2e; page-break-inside: avoid; break-inside: avoid; overflow-wrap: break-word; }
-.hist-mfr-head { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
-.hist-mfr-name { font-size: 8.6pt; font-weight: 900; color: #1565c0; }
-.hist-mfr-region { font-size: 6.6pt; font-weight: 700; color: #555; background: #eceef3; border-radius: 999px; padding: 1px 6px; white-space: nowrap; }
-.hist-brand { padding: 4px 0; border-top: 1px solid #e7e7ee; font-size: 7.3pt; }
+.hist-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 10px 0 4px; }
+.hist-card { min-width: 0; background: #f7f8fb; border-radius: 8px; padding: 10px 12px; border-left: 4px solid #1a1a2e; page-break-inside: avoid; break-inside: avoid; overflow-wrap: break-word; }
+.hist-mfr-head { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; margin-bottom: 6px; }
+.hist-mfr-name { font-size: 9.5pt; font-weight: 900; color: #1565c0; }
+.hist-mfr-region { font-size: 7.3pt; font-weight: 700; color: #555; background: #eceef3; border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+.hist-brand { padding: 6px 0; border-top: 1px solid #e7e7ee; font-size: 8pt; }
 .hist-brand:first-of-type { border-top: none; padding-top: 0; }
 .hist-brand-name { font-weight: 800; color: #333; }
-.hist-brand-note { color: #666; font-size: 7pt; line-height: 1.4; margin-top: 2px; }
+.hist-brand-note { color: #666; font-size: 7.6pt; line-height: 1.55; margin-top: 2px; }
 @media screen and (max-width: 900px) {
   .hist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -348,15 +348,15 @@ button.tab-btn {
 }
 
 /* ── 수출·글로벌 소주 브랜드: 제조사별 그룹 카드 ── */
-.exp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 10px 0 4px; align-items: start; }
-.exp-card { min-width: 0; background: #fff8e1; border-radius: 7px; padding: 7px 10px; border-left: 4px solid #e65100; page-break-inside: avoid; break-inside: avoid; overflow-wrap: break-word; }
-.exp-mfr-name { font-size: 8.6pt; font-weight: 900; color: #e65100; margin-bottom: 4px; }
-.exp-brand { padding: 4px 0; border-top: 1px solid #f0e0c0; font-size: 7.3pt; }
+.exp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 10px 0 4px; align-items: start; }
+.exp-card { min-width: 0; background: #fff8e1; border-radius: 8px; padding: 10px 12px; border-left: 4px solid #e65100; page-break-inside: avoid; break-inside: avoid; overflow-wrap: break-word; }
+.exp-mfr-name { font-size: 9.5pt; font-weight: 900; color: #e65100; margin-bottom: 6px; }
+.exp-brand { padding: 6px 0; border-top: 1px solid #f0e0c0; font-size: 8pt; }
 .exp-brand:first-of-type { border-top: none; padding-top: 0; }
 .exp-brand-top { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
 .exp-brand-name { font-weight: 800; color: #333; }
-.exp-brand-market { font-size: 6.3pt; font-weight: 700; color: #a65a00; background: #ffe8b8; border-radius: 999px; padding: 1px 6px; white-space: nowrap; }
-.exp-brand-note { color: #666; font-size: 7pt; line-height: 1.4; margin-top: 2px; }
+.exp-brand-market { font-size: 6.8pt; font-weight: 700; color: #a65a00; background: #ffe8b8; border-radius: 999px; padding: 1px 7px; white-space: nowrap; }
+.exp-brand-note { color: #666; font-size: 7.6pt; line-height: 1.55; margin-top: 2px; }
 @media screen and (max-width: 900px) {
   .exp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
