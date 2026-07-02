@@ -345,6 +345,23 @@ button.tab-btn {
   .hist-grid { grid-template-columns: 1fr; }
 }
 
+/* ── 수출·글로벌 소주 브랜드: 제조사별 그룹 카드 ── */
+.exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 10px 0 4px; align-items: start; }
+.exp-card { background: #fff8e1; border-radius: 8px; padding: 10px 12px; border-left: 4px solid #e65100; page-break-inside: avoid; break-inside: avoid; }
+.exp-mfr-name { font-size: 9.5pt; font-weight: 900; color: #e65100; margin-bottom: 6px; }
+.exp-brand { padding: 6px 0; border-top: 1px solid #f0e0c0; font-size: 8pt; }
+.exp-brand:first-of-type { border-top: none; padding-top: 0; }
+.exp-brand-top { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
+.exp-brand-name { font-weight: 800; color: #333; }
+.exp-brand-market { font-size: 6.8pt; font-weight: 700; color: #a65a00; background: #ffe8b8; border-radius: 999px; padding: 1px 7px; white-space: nowrap; }
+.exp-brand-note { color: #666; font-size: 7.6pt; line-height: 1.55; margin-top: 2px; }
+@media screen and (max-width: 900px) {
+  .exp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 640px) {
+  .exp-grid { grid-template-columns: 1fr; }
+}
+
 /* ── COMPANY / HISTORY TABLE ── */
 .ctable {
   width: 100%;
@@ -2693,74 +2710,69 @@ table.card.card-collapsed { display: none; }
 <!-- ══════════════════ 수출 / 글로벌 브랜드 ══════════════════ -->
 <div class="tab-panel" id="tab-export">
 <div class="section-header sh-amber">✈️ 수출 전용 · 글로벌 소주 브랜드</div>
-<table class="ctable">
-<tr>
-<th style="width:12%">브랜드명</th>
-<th style="width:13%">제조사</th>
-<th style="width:13%">타깃 시장</th>
-<th style="width:62%">이름 유래 · 특징 · 현황</th>
-</tr>
-<tr>
-<td><b>진로24</b></td>
-<td>하이트진로</td>
-<td>해외 수출</td>
-<td>진로 브랜드 + 24도 도수를 제품명에 직접 표기. 내수 진로(25도)와 구분된 수출 전용 규격. 주로 동남아·미국 한인 시장 유통.</td>
-</tr>
-<tr>
-<td><b>CHUM CHURUM</b></td>
-<td>롯데주류</td>
-<td>해외 수출</td>
-<td>처음처럼의 영문 로마자 표기 그대로 수출 브랜드화. 한국어 발음 유지로 현지에서 이국적 매력 강조. 미국·동남아·유럽 K-푸드 매장 유통.</td>
-</tr>
-<tr>
-<td><b>고리(GORI)</b></td>
-<td>고리증류소</td>
-<td>프리미엄·수출</td>
-<td>한국 전통 술 용기인 <b>고리(缸, 항아리형 증류 기구)</b>에서 이름을 가져옴. 증류 도구 이름을 브랜드화. 100% 쌀 단식 증류 방식. 프리미엄 시장·해외 바(bar) 시장 공략 타깃.</td>
-</tr>
-<tr>
-<td><b>원소주 스피릿</b></td>
-<td>원스피리츠</td>
-<td>글로벌</td>
-<td>원소주의 해외 수출용 서브 라인. 영어 Spirit으로 증류주 카테고리를 명확히 표기. 글로벌 프리미엄 한국 증류주 포지셔닝. 미국·일본·유럽 고급 주류 매장 공략.</td>
-</tr>
-<tr>
-<td><b>화요 X.P.</b></td>
-<td>화요</td>
-<td>프리미엄·수출</td>
-<td>X.P. = Extra Premium 약자. 화요 라인업 중 최고급 수출 타깃 제품. 41도. 한국 증류식 소주를 프리미엄 스피리츠로 포지셔닝해 글로벌 바·레스토랑 채널 공략.</td>
-</tr>
-<tr>
-<td><b>자두에이슬</b></td>
-<td>하이트진로</td>
-<td>해외 수출</td>
-<td>에이슬 시리즈 수출 전용 1탄. 한국에서도 소비자 요청으로 역출시. 자두 특유의 달콤하고 향긋한 맛. 동남아·미주 시장 인기.</td>
-</tr>
-<tr>
-<td><b>딸기에이슬</b></td>
-<td>하이트진로</td>
-<td>해외 수출</td>
-<td>에이슬 시리즈 수출 전용 2탄. 베트남 등 동남아에서 딸기가 고급 과일로 인식되는 점 활용. 봄 시즌 강세.</td>
-</tr>
-<tr>
-<td><b>복숭아에이슬</b></td>
-<td>하이트진로</td>
-<td>해외 수출</td>
-<td>에이슬 시리즈 수출 전용 3탄. 전 세계적으로 선호도 높은 복숭아 풍미. 26개국 이상 판매.</td>
-</tr>
-<tr>
-<td><b>레몬에이슬</b></td>
-<td>하이트진로</td>
-<td>해외 수출</td>
-<td>2025년 3월 수출 전용 출시. 에이슬 시리즈 6번째 제품·수출 전용 4탄. 영문명 JINRO LEMON. 일본 시작→미국·중국·베트남 등 26개국 이상 순차 판매. 13도.</td>
-</tr>
-<tr>
-<td><b>멜론에이슬</b></td>
-<td>하이트진로</td>
-<td>해외 수출(한정)</td>
-<td>2026년 4월 수출 전용 한정 출시. 에이슬 시리즈 7번째 제품·수출 전용 5탄. 영문명 JINRO MELON LIMITED EDITION. 블랙 컬러 한정판 패키지. 미·일·베트남·호주·영국 등 20여 개국 순차 판매. 13도.</td>
-</tr>
-</table>
+<div class="exp-grid">
+
+<div class="exp-card">
+<div class="exp-mfr-name">하이트진로 — 에이슬 시리즈 외</div>
+<div class="exp-brand">
+<div class="exp-brand-top"><span class="exp-brand-name">진로24</span><span class="exp-brand-market">해외 수출</span></div>
+<div class="exp-brand-note">진로 브랜드 + 24도 도수를 제품명에 직접 표기. 내수 진로(25도)와 구분된 수출 전용 규격. 주로 동남아·미국 한인 시장 유통.</div>
+</div>
+<div class="exp-brand">
+<div class="exp-brand-top"><span class="exp-brand-name">자두에이슬</span><span class="exp-brand-market">해외 수출</span></div>
+<div class="exp-brand-note">에이슬 시리즈 수출 전용 1탄. 한국에서도 소비자 요청으로 역출시. 자두 특유의 달콤하고 향긋한 맛. 동남아·미주 시장 인기.</div>
+</div>
+<div class="exp-brand">
+<div class="exp-brand-top"><span class="exp-brand-name">딸기에이슬</span><span class="exp-brand-market">해외 수출</span></div>
+<div class="exp-brand-note">에이슬 시리즈 수출 전용 2탄. 베트남 등 동남아에서 딸기가 고급 과일로 인식되는 점 활용. 봄 시즌 강세.</div>
+</div>
+<div class="exp-brand">
+<div class="exp-brand-top"><span class="exp-brand-name">복숭아에이슬</span><span class="exp-brand-market">해외 수출</span></div>
+<div class="exp-brand-note">에이슬 시리즈 수출 전용 3탄. 전 세계적으로 선호도 높은 복숭아 풍미. 26개국 이상 판매.</div>
+</div>
+<div class="exp-brand">
+<div class="exp-brand-top"><span class="exp-brand-name">레몬에이슬</span><span class="exp-brand-market">해외 수출</span></div>
+<div class="exp-brand-note">2025년 3월 수출 전용 출시. 에이슬 시리즈 6번째 제품·수출 전용 4탄. 영문명 JINRO LEMON. 일본 시작→미국·중국·베트남 등 26개국 이상 순차 판매. 13도.</div>
+</div>
+<div class="exp-brand">
+<div class="exp-brand-top"><span class="exp-brand-name">멜론에이슬</span><span class="exp-brand-market">해외 수출(한정)</span></div>
+<div class="exp-brand-note">2026년 4월 수출 전용 한정 출시. 에이슬 시리즈 7번째 제품·수출 전용 5탄. 영문명 JINRO MELON LIMITED EDITION. 블랙 컬러 한정판 패키지. 미·일·베트남·호주·영국 등 20여 개국 순차 판매. 13도.</div>
+</div>
+</div>
+
+<div class="exp-card">
+<div class="exp-mfr-name">롯데주류</div>
+<div class="exp-brand">
+<div class="exp-brand-top"><span class="exp-brand-name">CHUM CHURUM</span><span class="exp-brand-market">해외 수출</span></div>
+<div class="exp-brand-note">처음처럼의 영문 로마자 표기 그대로 수출 브랜드화. 한국어 발음 유지로 현지에서 이국적 매력 강조. 미국·동남아·유럽 K-푸드 매장 유통.</div>
+</div>
+</div>
+
+<div class="exp-card">
+<div class="exp-mfr-name">고리증류소</div>
+<div class="exp-brand">
+<div class="exp-brand-top"><span class="exp-brand-name">고리(GORI)</span><span class="exp-brand-market">프리미엄·수출</span></div>
+<div class="exp-brand-note">한국 전통 술 용기인 <b>고리(缸, 항아리형 증류 기구)</b>에서 이름을 가져옴. 증류 도구 이름을 브랜드화. 100% 쌀 단식 증류 방식. 프리미엄 시장·해외 바(bar) 시장 공략 타깃.</div>
+</div>
+</div>
+
+<div class="exp-card">
+<div class="exp-mfr-name">원스피리츠</div>
+<div class="exp-brand">
+<div class="exp-brand-top"><span class="exp-brand-name">원소주 스피릿</span><span class="exp-brand-market">글로벌</span></div>
+<div class="exp-brand-note">원소주의 해외 수출용 서브 라인. 영어 Spirit으로 증류주 카테고리를 명확히 표기. 글로벌 프리미엄 한국 증류주 포지셔닝. 미국·일본·유럽 고급 주류 매장 공략.</div>
+</div>
+</div>
+
+<div class="exp-card">
+<div class="exp-mfr-name">화요</div>
+<div class="exp-brand">
+<div class="exp-brand-top"><span class="exp-brand-name">화요 X.P.</span><span class="exp-brand-market">프리미엄·수출</span></div>
+<div class="exp-brand-note">X.P. = Extra Premium 약자. 화요 라인업 중 최고급 수출 타깃 제품. 41도. 한국 증류식 소주를 프리미엄 스피리츠로 포지셔닝해 글로벌 바·레스토랑 채널 공략.</div>
+</div>
+</div>
+
+</div>
 </div>
 <div class="footer">
   <svg viewBox="0 0 48 64" style="width:11px;height:15px;vertical-align:-2px" xmlns="http://www.w3.org/2000/svg"><rect x="19" y="1" width="10" height="5" rx="1" fill="#0b5e2c"/><rect x="20" y="6" width="8" height="10" rx="1" fill="#1f9d55"/><path d="M20 16L28 16L34 22L14 22Z" fill="#1f9d55"/><path d="M14 22h20v33a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z" fill="#1f9d55"/><rect x="16" y="34" width="16" height="14" fill="white"/></svg> 한국 소주 완전 정리 가이드 | 26.06 Edition  | 
