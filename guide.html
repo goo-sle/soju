@@ -6,6 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>한국 소주 완전 정리 가이드</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 64%22><rect x=%2219%22 y=%221%22 width=%2210%22 height=%225%22 rx=%221%22 fill=%22%230b5e2c%22/><rect x=%2220%22 y=%226%22 width=%228%22 height=%2210%22 rx=%221%22 fill=%22%231f9d55%22/><path d=%22M20 16L28 16L34 22L14 22Z%22 fill=%22%231f9d55%22/><path d=%22M14 22h20v33a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z%22 fill=%22%231f9d55%22/><rect x=%2216%22 y=%2234%22 width=%2216%22 height=%2214%22 fill=%22white%22/></svg>">
+<link rel="canonical" href="https://xn--9l4b29k.kro.kr/guide.html">
+<meta name="description" content="전국 소주 브랜드 170종·제조사 31곳 정보를 정리한 한국 소주 가이드. 희석식·증류식 소주 종류, 100년 소주 역사 타임라인, 소주 제조법(제조 공정), 지역별 브랜드, 제조사 현황, 해외 수출 브랜드까지 한눈에 확인하세요.">
+<meta name="keywords" content="소주,소주 가이드,소주 정보,소주 종류,한국 소주,소주 역사,소주 제조법">
+<meta property="og:site_name" content="한국 소주 가이드">
+<meta property="og:title" content="한국 소주 완전 정리 가이드">
+<meta property="og:description" content="전국 소주 브랜드 170종·제조사 31곳의 종류·역사·제조법·지역별 브랜드·수출 현황을 정리한 완전 가이드.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xn--9l4b29k.kro.kr/guide.html">
+<meta property="og:locale" content="ko_KR">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"한국 소주 가이드","alternateName":"소주 가이드","url":"https://xn--9l4b29k.kro.kr/","description":"전국 소주 브랜드와 제조사를 종류·역사·제조법·지역별로 정리한 한국 소주 가이드.","inLanguage":"ko"}
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-01Z00FVDNW"></script>
 <script>
@@ -125,6 +137,21 @@ button.tab-btn {
 @media print {
   .tab-panel { display: block !important; }
   .tab-nav { display: none; }
+}
+
+/* ── LANGUAGE FAB ── */
+.lang-fab {
+  position: fixed; bottom: 20px; left: 20px; z-index: 1000;
+  background: #1a1a2e; color: #fff; border: none; border-radius: 999px;
+  padding: 10px 16px; font-size: 9.5pt; font-weight: 700; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(26,26,46,.35);
+  display: flex; align-items: center; gap: 6px;
+  text-decoration: none; transition: transform .15s ease;
+}
+.lang-fab:hover { transform: scale(1.05); }
+.lang-fab svg { width: 14px; height: 14px; flex-shrink: 0; }
+@media print {
+  .lang-fab { display: none !important; }
 }
 
 /* ── FEEDBACK FAB ── */
@@ -277,6 +304,49 @@ button.tab-btn {
 .it  { border-bottom: 1px solid #b2dfdb; }
 .id  { border-bottom: 1px solid #e1bee7; }
 .ia  { border-bottom: 1px solid #ffccbc; }
+
+/* ── 지역별 브랜드 상세: 매거진 카드형 아코디언 (제조사 단위 접기) ── */
+.rgH2-group {
+  margin: 0 0 10px; border-radius: 6px 6px 8px 8px; overflow: hidden;
+  page-break-inside: avoid; break-inside: avoid;
+}
+.rgH2-head {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 9pt; font-weight: 900; color: #fff;
+  padding: 6px 12px; cursor: pointer; list-style: none;
+}
+.rgH2-head::-webkit-details-marker { display: none; }
+.rgH2-head:hover { filter: brightness(1.08); }
+.rgH2-count { font-size: 7.3pt; font-weight: 700; background: rgba(255,255,255,.22); padding: 1px 7px; border-radius: 999px; }
+.rgH2-caret { margin-left: auto; font-size: 8pt; transition: transform .15s; }
+.rgH2-group[open] .rgH2-caret { transform: rotate(180deg); }
+.rgH2-body { padding: 8px 0 2px; }
+.rgH-card {
+  display: flex; background: #fff; border-radius: 8px; overflow: hidden;
+  margin: 0 0 8px; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  page-break-inside: avoid; break-inside: avoid;
+}
+.rgH-left { flex: 0 0 128px; background: #f7f8fb; padding: 8px 10px; }
+.rgH-card.ab .rgH-left { border-left: 4px solid #1565c0; }
+.rgH-card.at .rgH-left { border-left: 4px solid #00796b; }
+.rgH-card.ad .rgH-left { border-left: 4px solid #4a148c; }
+.rgH-card.aa .rgH-left { border-left: 4px solid #e65100; }
+.rgH-year { font-size: 7.3pt; font-weight: 700; color: #999; margin-bottom: 2px; }
+.rgH-name { font-size: 9pt; font-weight: 900; color: #1a1a2e; line-height: 1.3; margin-bottom: 4px; }
+.rgH-badges { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.rgH-right { flex: 1; padding: 8px 12px; min-width: 0; }
+.rgH-right .lbl, .rgH-right .ety, .rgH-right .det { margin-left: 0; }
+@media screen and (max-width: 640px) {
+  .rgH-card { flex-direction: column; }
+  .rgH-card .rgH-left { border-left: none !important; border-top: 4px solid #ccc; }
+  .rgH-card.ab .rgH-left { border-top-color: #1565c0; }
+  .rgH-card.at .rgH-left { border-top-color: #00796b; }
+  .rgH-card.ad .rgH-left { border-top-color: #4a148c; }
+  .rgH-card.aa .rgH-left { border-top-color: #e65100; }
+}
+@media print {
+  .rgH2-group:not([open]) > *:not(.rgH2-head) { display: block !important; }
+}
 
 /* ── TIMELINE (시대 밴드 그룹핑) ── */
 .timeline { margin: 8px 0 4px; }
@@ -2794,7 +2864,7 @@ table.card.card-collapsed { display: none; }
 <!-- ══════════════════ 제조 방법 ══════════════════ -->
 <div class="tab-panel" id="tab-method">
 <div class="section-header sh-teal"><svg viewBox="0 0 48 64" style="width:14px;height:19px;vertical-align:-4px" xmlns="http://www.w3.org/2000/svg"><rect x="19" y="1" width="10" height="5" rx="1" fill="#0b5e2c"/><rect x="20" y="6" width="8" height="10" rx="1" fill="#1f9d55"/><path d="M20 16L28 16L34 22L14 22Z" fill="#1f9d55"/><path d="M14 22h20v33a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z" fill="#1f9d55"/><rect x="16" y="34" width="16" height="14" fill="white"/></svg> 소주 제조 방법</div>
-<div class="intro-box">한국 소주는 크게 세 가지 방식으로 나뉩니다. 아래에서 방식별 정의를 먼저 확인하고, 그 아래 단계별 제조 공정을 살펴보세요.
+<div class="intro-box">한국 소주의 종류는 크게 세 가지 방식으로 나뉩니다. 아래에서 소주 종류별 정의를 먼저 확인하고, 그 아래 단계별 소주 제조법(제조 공정)을 살펴보세요.
 <div class="method-grid">
 <div class="method-card mc-b"><div class="mc-head">🍃 희석식</div><div class="mc-body"><b>정의</b>: 타피오카·고구마 등에서 뽑은 95도 이상 주정(연속식 증류)을 물로 희석한 뒤 감미료·산도조절제를 넣어 맛을 맞춘 소주.<br/><b>원료/공정</b>: 주정 + 정제수 + 감미료(에리스리톨·자일리톨 등) 혼합 — 단식 증류 과정이 없어 곡물 풍미는 거의 남지 않음.<br/><b>도수</b>: 통상 15~25도(2026년 다수 브랜드 15.7도대로 표준화).<br/><b>대표</b>: 참이슬·처음처럼·새로·진로</div></div>
 <div class="method-card mc-t"><div class="mc-head">🍑 플레이버</div><div class="mc-body"><b>정의</b>: 희석식 소주(보통 12~13도로 추가 희석)에 과일 등 향료·향미액을 첨가한 저도수 가향 소주.<br/><b>원료/공정</b>: 희석식 소주 베이스 + 과즙/향료 첨가 — 제조 공정 자체는 희석식과 동일, 향 첨가 단계만 추가.<br/><b>도수</b>: 통상 12~17도로 희석식보다 낮음.<br/><b>대표</b>: 자몽에이슬·순하리·새로 살구·좋은데이 컬러시리즈</div></div>
@@ -3139,6 +3209,10 @@ initCardAccordions();
 })();
 </script>
 
+<a class="lang-fab" id="langFab" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 6H15.5a15.6 15.6 0 0 0-1.2-4.44A8.03 8.03 0 0 1 18.93 8ZM12 4.04c.83 1.2 1.5 2.7 1.87 3.96h-3.74c.37-1.26 1.04-2.76 1.87-3.96ZM4.26 14a8.14 8.14 0 0 1 0-4h3.38a16.7 16.7 0 0 0 0 4H4.26Zm.81 2h3.43c.3 1.62.83 3.16 1.5 4.44A8.03 8.03 0 0 1 5.07 16Zm3.43-8H5.07a8.03 8.03 0 0 1 4.94-4.44A16.06 16.06 0 0 0 8.5 8ZM12 19.96c-.83-1.2-1.5-2.7-1.87-3.96h3.74c-.37 1.26-1.04 2.76-1.87 3.96ZM13.87 14h-3.74a14.7 14.7 0 0 1 0-4h3.74a14.7 14.7 0 0 1 0 4Zm.36 5.44c.67-1.28 1.2-2.82 1.5-4.44h3.43a8.03 8.03 0 0 1-4.93 4.44ZM15.87 14a16.7 16.7 0 0 0 0-4h3.38a8.14 8.14 0 0 1 0 4h-3.38Z"/></svg>
+  EN
+</a>
 <button class="feedback-fab" id="feedbackFab">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
   제보하기
@@ -3152,6 +3226,11 @@ initCardAccordions();
   </form>
 </div>
 <script>
+(function(){
+  var langFab = document.getElementById('langFab');
+  var host = location.hostname.replace(/\./g, '-');
+  langFab.href = 'https://' + host + '.translate.goog' + location.pathname + '?_x_tr_sl=ko&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp';
+})();
 (function(){
   var endpoint = 'https://formspree.io/f/xkolggzz';
   var fab = document.getElementById('feedbackFab');
