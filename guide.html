@@ -482,7 +482,8 @@ button.tab-btn {
   font-size: 6.8pt;
   font-weight: 800;
   color: #fff;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 100%;
 }
 .idx-cat-b { background: #1565c0; }
 .idx-cat-t { background: #00796b; }
@@ -515,6 +516,7 @@ button.tab-btn {
   border-radius: 20px;
   padding: 14px 16px;
   background: #fff;
+  overflow: hidden;
   page-break-inside: avoid; break-inside: avoid;
 }
 .idx-card-header {
@@ -533,6 +535,7 @@ button.tab-btn {
 .idx-brand-top {
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
   gap: 6px;
   font-weight: 700;
   font-size: 8.3pt;
