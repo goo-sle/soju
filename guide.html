@@ -124,6 +124,14 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
   white-space: nowrap;
 }
 .cn:has(.disc-badge) .cn-name-badge { opacity: 0.5; }
+.exp-badge {
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: #1565c0;
+  vertical-align: middle;
+  white-space: nowrap;
+}
 
 /* ── TAB NAV / PANEL ── */
 button.tab-btn {
@@ -415,23 +423,6 @@ button.tab-btn {
 .mfr-region { font-size: 7.3pt; font-weight: 700; color: #555; background: #eceef3; border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
 .mfr-brands { font-size: 8pt; color: #555; margin-bottom: 5px; }
 .mfr-note { color: #333; line-height: 1.55; }
-
-/* ── 수출·글로벌 소주 브랜드: 제조사별 그룹 카드 ── */
-.exp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 10px 0 4px; align-items: start; }
-.exp-card { min-width: 0; background: #fff8e1; border-radius: 8px; padding: 10px 12px; border-left: 4px solid #e65100; page-break-inside: avoid; break-inside: avoid; overflow-wrap: break-word; }
-.exp-mfr-name { font-size: 9.5pt; font-weight: 900; color: #e65100; margin-bottom: 6px; }
-.exp-brand { padding: 6px 0; border-top: 1px solid #f0e0c0; font-size: 8pt; }
-.exp-brand:first-of-type { border-top: none; padding-top: 0; }
-.exp-brand-top { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
-.exp-brand-name { font-weight: 800; color: #333; }
-.exp-brand-market { font-size: 6.8pt; font-weight: 700; color: #a65a00; background: #ffe8b8; border-radius: 999px; padding: 1px 7px; white-space: nowrap; }
-.exp-brand-note { color: #666; font-size: 7.6pt; line-height: 1.55; margin-top: 2px; }
-@media screen and (max-width: 900px) {
-  .exp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media screen and (max-width: 640px) {
-  .exp-grid { grid-template-columns: minmax(0, 1fr); }
-}
 
 /* ── COMPANY / HISTORY TABLE ── */
 .ctable {
@@ -745,9 +736,9 @@ table.card.card-collapsed { display: none; }
 <div class="hero">
 <div class="hero-main">
 <div class="hero-title"><svg viewBox="0 0 48 64" style="width:26px;height:35px;vertical-align:-8px" xmlns="http://www.w3.org/2000/svg"><rect x="19" y="1" width="10" height="5" rx="1" fill="#0b5e2c"/><rect x="20" y="6" width="8" height="10" rx="1" fill="#1f9d55"/><path d="M20 16L28 16L34 22L14 22Z" fill="#1f9d55"/><path d="M14 22h20v33a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z" fill="#1f9d55"/><rect x="16" y="34" width="16" height="14" fill="white"/></svg> 한국 <span>소주</span> 완전 정리 가이드 | 26.06 Edition<a href="/" class="home-link" title="홈으로" onclick="try{sessionStorage.removeItem('sojuGuideVisited');}catch(e){}"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3z"/></svg></a></div>
-<div class="hero-sub">26.06 기준 - 제조사 31개 · 브랜드 170종</div>
+<div class="hero-sub">26.06 기준 - 제조사 30개 · 브랜드 169종</div>
 <div class="hero-tags tab-nav">
-<button class="tag tab-btn active" data-tab="quickindex" onclick="showTab('quickindex')">빠른 찾기</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="timeline" onclick="showTab('timeline')">타임라인</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="region" onclick="showTab('region')">지역별 브랜드</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="companies" onclick="showTab('companies')">제조사 현황</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="export" onclick="showTab('export')">수출·글로벌</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="method" onclick="showTab('method')">제조 방법</button>
+<button class="tag tab-btn active" data-tab="quickindex" onclick="showTab('quickindex')">빠른 찾기</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="timeline" onclick="showTab('timeline')">타임라인</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="region" onclick="showTab('region')">지역별 브랜드</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="companies" onclick="showTab('companies')">제조사 현황</button><span class="tag-sep">|</span><button class="tag tab-btn" data-tab="method" onclick="showTab('method')">제조 방법</button>
 </div>
 </div>
 <div class="hero-highlight">
@@ -938,7 +929,7 @@ table.card.card-collapsed { display: none; }
 </div>
 </div>
 </div>
-<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 전통 증류주 · 명인 양조장 (16개사)</div>
+<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 전통 증류주 · 명인 양조장 (15개사)</div>
 <div class="idx-group-body">
 <div class="idx-grid" id="idxGrid2">
 <div class="idx-card" style="order:1"><div class="idx-card-header">민속주/명인 안동소주</div>
@@ -980,9 +971,6 @@ table.card.card-collapsed { display: none; }
 <div class="idx-card" style="order:5"><div class="idx-card-header">(주)솔송주</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">약주</span><span class="idx-brand-name">솔송주</span><span class="idx-abv">13도</span><span class="idx-year">1996(추정)</span></div><div class="idx-brand-kw">정여창 가문 가양주, 식품명인 제27호</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">담솔</span><span class="idx-abv">40도</span><span class="idx-year">2010(추정)</span></div><div class="idx-brand-kw">솔송주 증류 후 2년 저온 숙성</div></div>
-</div>
-<div class="idx-card" style="order:9"><div class="idx-card-header">고리증류소</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-a">수출전용</span><span class="idx-brand-name">고리(GORI)</span><span class="idx-abv">-</span></div><div class="idx-brand-kw">100% 쌀 단식증류, 글로벌 바</div></div>
 </div>
 <div class="idx-card" style="order:10"><div class="idx-card-header">안동소주일품(주)</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">안동소주일품 45도</span><span class="idx-abv">45도</span><span class="idx-year">2001</span></div><div class="idx-brand-kw">안동소주협회 회원사, 도자기병 포장</div></div>
@@ -1089,7 +1077,7 @@ table.card.card-collapsed { display: none; }
 <!-- ══════════════════ 지역별 브랜드 (희석식·플레이버·증류식 통합) ══════════════════ -->
 <div class="tab-panel" id="tab-region">
 <div class="section-header sh-blue">🗺️ 지역별 브랜드 — 희석식 · 플레이버 · 증류식 통합</div>
-<div class="intro-box">지도 또는 버튼에서 지역을 선택하면 해당 지역 제조사의 희석식 · 플레이버 · 증류식 소주를 한 페이지에서 모두 볼 수 있습니다. 각 방식의 정의·공정은 <b>제조 방법</b> 탭에서 확인하세요.</div>
+<div class="intro-box">지도 또는 버튼에서 지역을 선택하면 해당 지역 제조사의 희석식 · 플레이버 · 증류식 소주를 한 페이지에서 모두 볼 수 있습니다.</div>
 <div class="kr-map-nav-wrap">
 <div class="kr-map-flex">
 <div class="kr-map-col">
@@ -1156,7 +1144,7 @@ table.card.card-collapsed { display: none; }
 <div class="cat-subhead">🍃 희석식</div>
 
 <details class="rgH2-group">
-<summary class="rgH2-head cat-diluted">하이트진로<span class="rgH2-count">7종</span><span class="rgH2-caret">▾</span></summary>
+<summary class="rgH2-head cat-diluted">하이트진로<span class="rgH2-count">8종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
 <div class="rgH-left"><div class="rgH-year">1993</div><div class="rgH-name">진로25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
@@ -1207,6 +1195,14 @@ table.card.card-collapsed { display: none; }
 </div>
 </div>
 <div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-name">진로24</div><div class="rgH-badges"><span class="abv-badge">24도</span><span class="exp-badge">수출전용</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">진로 브랜드명 + 도수 <b>24</b>를 그대로 표기. 내수용 진로25(25도)와 구분되는 수출 전용 규격임을 숫자로 명확히 표시.</div>
+<div class="det">내수 진로25(25도)와 구분된 수출 전용 규격. 동남아·미국 한인 시장 중심으로 유통.</div>
+</div>
+</div>
+<div class="rgH-card cat-diluted">
 <div class="rgH-left"><div class="rgH-year">1998</div><div class="rgH-name">이슬露</div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
@@ -1218,7 +1214,7 @@ table.card.card-collapsed { display: none; }
 </details>
 
 <details class="rgH2-group">
-<summary class="rgH2-head cat-diluted">롯데주류<span class="rgH2-count">4종</span><span class="rgH2-caret">▾</span></summary>
+<summary class="rgH2-head cat-diluted">롯데주류<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
 <div class="rgH-left"><div class="rgH-year">2006</div><div class="rgH-name">처음처럼</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
@@ -1226,6 +1222,14 @@ table.card.card-collapsed { display: none; }
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">사회운동가·서예가 <b>신영복 교수</b>의 글귀에서 영감. "세상과 사람을 <b>처음 만났을 때처럼</b> 순수하게". 동시에 "음주 다음 날도 몸이 처음처럼 돌아오길"이라는 이중 의미.</div>
 <div class="det">두산경월이 2006년 출시. 대관령 알칼리수 사용 강조. 2009년 롯데에 인수. 2025년 7월 16.5도→16도로 인하. 2026년 3월 출시 20주년 헤리티지 리뉴얼 — 초기 디자인의 어린 새·새싹 이미지와 대관령 암반수를 형상화한 물방울 그래픽 적용, '16도' 도수 표기 전면 배치, 병목에 'Since 2006 · 20th ANNIVERSARY' 넥라벨. 신영복 교수는 사례비를 받지 않았다고 알려짐.</div>
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-name">CHUM CHURUM</div><div class="rgH-badges"><span class="exp-badge">수출전용</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">처음처럼의 한글 발음을 그대로 로마자로 표기한 수출 브랜드명. 현지에서 한국어 발음이 주는 이국적 매력을 그대로 살림.</div>
+<div class="det">처음처럼의 영문 로마자 표기 수출판. 미국·동남아·유럽 K-푸드 매장 유통.</div>
 </div>
 </div>
 <div class="rgH-card cat-diluted">
@@ -1309,7 +1313,7 @@ table.card.card-collapsed { display: none; }
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2024</div><div class="rgH-name">새로 리치</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024</div><div class="rgH-name">새로 리치</div><div class="rgH-badges"><span class="abv-badge">12도</span><span class="exp-badge">수출전용</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>새로</b> + <b>리치(Lychee)</b>. 해외 소비자 취향을 겨냥한 수출 전용 플레이버.</div>
@@ -1400,7 +1404,7 @@ table.card.card-collapsed { display: none; }
 <div class="cat-subhead">🏺 증류식 · 전통</div>
 
 <details class="rgH2-group">
-<summary class="rgH2-head cat-distilled">화요<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
+<summary class="rgH2-head cat-distilled">화요<span class="rgH2-count">6종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
 <div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name">화요25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
@@ -1440,6 +1444,14 @@ table.card.card-collapsed { display: none; }
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + 도수 <b>19</b> + <b>金(금)</b>을 결합. 목통 증류원액을 더한 프리미엄 저도주임을 금빛으로 표현.</div>
 <div class="det">2025년 6월 26일 출시(6/23은 보도자료 배포일). 375ml. 목통증류원액 10.9% 함유. 화요17(2010년) 이후 15년 만의 저도주 신제품.</div>
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2013</div><div class="rgH-name">화요 X.P.</div><div class="rgH-badges"><span class="abv-badge">41도</span><span class="exp-badge">수출전용</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety"><b>X.P.</b> = Extra Premium 약자. 화요 라인업 중 최고급 수출 타깃 제품임을 영문 약어로 표기.</div>
+<div class="det">오크통 5년 이상 숙성. 한국 증류식 소주를 프리미엄 스피릿으로 포지셔닝해 글로벌 바·레스토랑 채널을 공략.</div>
 </div>
 </div>
 </div>
@@ -2921,73 +2933,6 @@ table.card.card-collapsed { display: none; }
 
 </div>
 </div>
-<!-- ══════════════════ 수출 / 글로벌 브랜드 ══════════════════ -->
-<div class="tab-panel" id="tab-export">
-<div class="section-header sh-amber">✈️ 수출 전용 · 글로벌 소주 브랜드</div>
-<div class="exp-grid">
-
-<div class="exp-card">
-<div class="exp-mfr-name">하이트진로 — 에이슬 시리즈 외</div>
-<div class="exp-brand">
-<div class="exp-brand-top"><span class="exp-brand-name">진로24</span><span class="exp-brand-market">해외 수출</span></div>
-<div class="exp-brand-note">진로 브랜드 + 24도 도수를 제품명에 직접 표기. 내수 진로(25도)와 구분된 수출 전용 규격. 주로 동남아·미국 한인 시장 유통.</div>
-</div>
-<div class="exp-brand">
-<div class="exp-brand-top"><span class="exp-brand-name">자두에이슬</span><span class="exp-brand-market">해외 수출</span></div>
-<div class="exp-brand-note">에이슬 시리즈 수출 전용 1탄. 한국에서도 소비자 요청으로 역출시. 자두 특유의 달콤하고 향긋한 맛. 동남아·미주 시장 인기.</div>
-</div>
-<div class="exp-brand">
-<div class="exp-brand-top"><span class="exp-brand-name">딸기에이슬</span><span class="exp-brand-market">해외 수출</span></div>
-<div class="exp-brand-note">에이슬 시리즈 수출 전용 2탄. 베트남 등 동남아에서 딸기가 고급 과일로 인식되는 점 활용. 봄 시즌 강세.</div>
-</div>
-<div class="exp-brand">
-<div class="exp-brand-top"><span class="exp-brand-name">복숭아에이슬</span><span class="exp-brand-market">해외 수출</span></div>
-<div class="exp-brand-note">에이슬 시리즈 수출 전용 3탄. 전 세계적으로 선호도 높은 복숭아 풍미. 26개국 이상 판매.</div>
-</div>
-<div class="exp-brand">
-<div class="exp-brand-top"><span class="exp-brand-name">레몬에이슬</span><span class="exp-brand-market">해외 수출</span></div>
-<div class="exp-brand-note">2025년 3월 수출 전용 출시. 에이슬 시리즈 6번째 제품·수출 전용 4탄. 영문명 JINRO LEMON. 일본 시작→미국·중국·베트남 등 26개국 이상 순차 판매. 13도.</div>
-</div>
-<div class="exp-brand">
-<div class="exp-brand-top"><span class="exp-brand-name">멜론에이슬</span><span class="exp-brand-market">해외 수출(한정)</span></div>
-<div class="exp-brand-note">2026년 4월 수출 전용 한정 출시. 에이슬 시리즈 7번째 제품·수출 전용 5탄. 영문명 JINRO MELON LIMITED EDITION. 블랙 컬러 한정판 패키지. 미·일·베트남·호주·영국 등 20여 개국 순차 판매. 13도.</div>
-</div>
-</div>
-
-<div class="exp-card">
-<div class="exp-mfr-name">롯데주류</div>
-<div class="exp-brand">
-<div class="exp-brand-top"><span class="exp-brand-name">CHUM CHURUM</span><span class="exp-brand-market">해외 수출</span></div>
-<div class="exp-brand-note">처음처럼의 영문 로마자 표기 그대로 수출 브랜드화. 한국어 발음 유지로 현지에서 이국적 매력 강조. 미국·동남아·유럽 K-푸드 매장 유통.</div>
-</div>
-</div>
-
-<div class="exp-card">
-<div class="exp-mfr-name">고리증류소</div>
-<div class="exp-brand">
-<div class="exp-brand-top"><span class="exp-brand-name">고리(GORI)</span><span class="exp-brand-market">프리미엄·수출</span></div>
-<div class="exp-brand-note">한국 전통 술 용기인 <b>고리(缸, 항아리형 증류 기구)</b>에서 이름을 가져옴. 증류 도구 이름을 브랜드화. 100% 쌀 단식 증류 방식. 프리미엄 시장·해외 바(bar) 시장 공략 타깃.</div>
-</div>
-</div>
-
-<div class="exp-card">
-<div class="exp-mfr-name">원스피리츠</div>
-<div class="exp-brand">
-<div class="exp-brand-top"><span class="exp-brand-name">원소주 스피릿</span><span class="exp-brand-market">글로벌</span></div>
-<div class="exp-brand-note">원소주의 해외 수출용 서브 라인. 영어 Spirit으로 증류주 카테고리를 명확히 표기. 글로벌 프리미엄 한국 증류주 포지셔닝. 미국·일본·유럽 고급 주류 매장 공략.</div>
-</div>
-</div>
-
-<div class="exp-card">
-<div class="exp-mfr-name">화요</div>
-<div class="exp-brand">
-<div class="exp-brand-top"><span class="exp-brand-name">화요 X.P.</span><span class="exp-brand-market">프리미엄·수출</span></div>
-<div class="exp-brand-note">X.P. = Extra Premium 약자. 화요 라인업 중 최고급 수출 타깃 제품. 41도. 한국 증류식 소주를 프리미엄 스피리츠로 포지셔닝해 글로벌 바·레스토랑 채널 공략.</div>
-</div>
-</div>
-
-</div>
-</div>
 <!-- ══════════════════ 제조 방법 ══════════════════ -->
 <div class="tab-panel" id="tab-method">
 <div class="section-header sh-teal"><svg viewBox="0 0 48 64" style="width:14px;height:19px;vertical-align:-4px" xmlns="http://www.w3.org/2000/svg"><rect x="19" y="1" width="10" height="5" rx="1" fill="#0b5e2c"/><rect x="20" y="6" width="8" height="10" rx="1" fill="#1f9d55"/><path d="M20 16L28 16L34 22L14 22Z" fill="#1f9d55"/><path d="M14 22h20v33a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z" fill="#1f9d55"/><rect x="16" y="34" width="16" height="14" fill="white"/></svg> 소주 제조 방법</div>
@@ -3131,7 +3076,7 @@ function setIdxFilter(cat) {
 }
 var TAB_LABELS = {
   quickindex: '빠른 찾기', timeline: '타임라인', region: '지역별 브랜드',
-  companies: '제조사 현황', export: '수출·글로벌', method: '제조 방법'
+  companies: '제조사 현황', method: '제조 방법'
 };
 function showTab(id) {
   document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
