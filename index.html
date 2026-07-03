@@ -215,10 +215,11 @@
     })();
   </script>
 
-  <a class="lang-fab" id="langFab" href="#" target="_blank" rel="noopener">
+  <button class="lang-fab" id="langFab" type="button">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 6H15.5a15.6 15.6 0 0 0-1.2-4.44A8.03 8.03 0 0 1 18.93 8ZM12 4.04c.83 1.2 1.5 2.7 1.87 3.96h-3.74c.37-1.26 1.04-2.76 1.87-3.96ZM4.26 14a8.14 8.14 0 0 1 0-4h3.38a16.7 16.7 0 0 0 0 4H4.26Zm.81 2h3.43c.3 1.62.83 3.16 1.5 4.44A8.03 8.03 0 0 1 5.07 16Zm3.43-8H5.07a8.03 8.03 0 0 1 4.94-4.44A16.06 16.06 0 0 0 8.5 8ZM12 19.96c-.83-1.2-1.5-2.7-1.87-3.96h3.74c-.37 1.26-1.04 2.76-1.87 3.96ZM13.87 14h-3.74a14.7 14.7 0 0 1 0-4h3.74a14.7 14.7 0 0 1 0 4Zm.36 5.44c.67-1.28 1.2-2.82 1.5-4.44h3.43a8.03 8.03 0 0 1-4.93 4.44ZM15.87 14a16.7 16.7 0 0 0 0-4h3.38a8.14 8.14 0 0 1 0 4h-3.38Z"/></svg>
     EN
-  </a>
+  </button>
+  <div id="google_translate_element" style="display:none"></div>
   <button class="feedback-fab" id="feedbackFab">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
     제보하기
@@ -232,10 +233,24 @@
     </form>
   </div>
   <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'ko', includedLanguages: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
     (function(){
       var langFab = document.getElementById('langFab');
-      var host = location.hostname.replace(/\./g, '-');
-      langFab.href = 'https://' + host + '.translate.goog' + location.pathname + '?_x_tr_sl=ko&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp';
+      function triggerTranslate(attemptsLeft){
+        var sel = document.querySelector('#google_translate_element select.goog-te-combo');
+        if (sel) {
+          sel.value = 'en';
+          sel.dispatchEvent(new Event('change'));
+        } else if (attemptsLeft > 0) {
+          setTimeout(function(){ triggerTranslate(attemptsLeft - 1); }, 300);
+        }
+      }
+      langFab.addEventListener('click', function(){ triggerTranslate(15); });
     })();
   </script>
   <script>
