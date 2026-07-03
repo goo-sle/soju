@@ -225,7 +225,10 @@ button.tab-btn {
   font-size: 8.5pt;
   font-weight: 700;
   padding: 4px 11px;
-  display: block;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 10px;
   margin-bottom: 0;
   page-break-inside: avoid; break-inside: avoid;
@@ -331,6 +334,12 @@ button.tab-btn {
 .rgH-card.at .rgH-left { border-left: 4px solid #00796b; }
 .rgH-card.ad .rgH-left { border-left: 4px solid #4a148c; }
 .rgH-card.aa .rgH-left { border-left: 4px solid #e65100; }
+.rgH2-head.cat-diluted { background: #4f8fd1; }
+.rgH2-head.cat-flavor { background: #e28a4d; }
+.rgH2-head.cat-distilled { background: #9c7a5c; }
+.rgH-card.cat-diluted .rgH-left { border-left: 4px solid #4f8fd1; }
+.rgH-card.cat-flavor .rgH-left { border-left: 4px solid #e28a4d; }
+.rgH-card.cat-distilled .rgH-left { border-left: 4px solid #9c7a5c; }
 .rgH-year { font-size: 7.3pt; font-weight: 700; color: #999; margin-bottom: 2px; }
 .rgH-name { font-size: 9pt; font-weight: 900; color: #1a1a2e; line-height: 1.3; margin-bottom: 4px; }
 .rgH-badges { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
@@ -343,6 +352,9 @@ button.tab-btn {
   .rgH-card.at .rgH-left { border-top-color: #00796b; }
   .rgH-card.ad .rgH-left { border-top-color: #4a148c; }
   .rgH-card.aa .rgH-left { border-top-color: #e65100; }
+  .rgH-card.cat-diluted .rgH-left { border-top-color: #4f8fd1; }
+  .rgH-card.cat-flavor .rgH-left { border-top-color: #e28a4d; }
+  .rgH-card.cat-distilled .rgH-left { border-top-color: #9c7a5c; }
 }
 @media print {
   .rgH2-group:not([open]) > *:not(.rgH2-head) { display: block !important; }
@@ -692,12 +704,13 @@ button.tab-btn {
 .rep-sub b { font-weight: 700; color: #777; margin-right: 5px; }
 /* ── 지역 페이지 개선: 요약 바 / 카테고리 내비 / 지역 점프 / 카드 아코디언 ── */
 .region-label-counts {
-  display: inline-flex; flex-wrap: wrap; gap: 4px;
-  margin-left: 8px; vertical-align: middle;
+  display: flex; flex-wrap: wrap; gap: 5px;
+  margin-left: auto;
 }
 .region-label-counts .stat-chip {
-  background: #fff; border: 1px solid currentColor; border-radius: 999px;
-  font-weight: 700; font-size: 7.3pt; padding: 2px 9px; opacity: .85;
+  background: rgba(255,255,255,.6); border: none; border-radius: 5px;
+  font-weight: 800; font-size: 7.2pt; padding: 3px 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 .region-jump-nav { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 0 0 8px 8px; vertical-align: middle; position: relative; top: 2px; }
 .region-jump-label { font-size: 7.5pt; color: #888; margin-right: 2px; }
@@ -1136,1494 +1149,1605 @@ table.card.card-collapsed { display: none; }
 </div>
 </div>
 <div class="region-detail" id="region-seoul">
-<div class="region-label rl-blue">📍 서울 · 경기  |  제조사: 하이트진로(주) · 롯데주류 · 화요 · 문배주양조원 · 제이앤제이브루어리 · 감홍로(주)</div>
+<div class="region-label rl-blue">📍 서울 · 경기  |  대표 브랜드: 참이슬 · 처음처럼 · 화요 · 문배주 · 감홍로 · 청혼</div>
 <div class="cat-subhead">🍃 희석식</div>
-<table class="card">
-<tr>
-<td class="cb cb-b" rowspan="7">하이트
-진로</td>
-<td class="cn ab"><span class="cn-launch-date">1993</span>진로25<span class="abv-badge">25도</span></td>
-<td class="ci ib">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">하이트진로<span class="rgH2-count">7종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1993</div><div class="rgH-name">진로25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">창업지 <b>진지리(眞池里)</b>의 '진(眞)' + 증류 시 이슬처럼 맺히는 '로(露)'. 1924년 10월 3일 평남 용강군 진지리에 <b>진천(眞泉)양조상회</b>를 설립하며 출발. 한자 <b>眞露 = "참된 이슬"</b>. ※ "나아갈 길 進路" 설도 있으나 지명+증류 이슬 합성어가 공식 유래.</div>
 <div class="det">1924년 창업 이래의 정통 도수를 유지하는 오리지널 라인. 1993년 첫 출시. 25년 연속 세계 증류주 판매 1위 브랜드(2025년 기준)의 뿌리 제품.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">1996</span>참나무통 맑은소주<span class="abv-badge">22도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1996</div><div class="rgH-name">참나무통 맑은소주</div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>참나무(Oak)</b>통 숙성이라는 제조 공법을 제품명에 직접 표기. "참나무"의 순우리말 + "맑은"이라는 청정 이미지 결합. 위스키식 오크 숙성을 소주에 도입했다는 컨셉을 이름으로 명확히 전달.</div>
 <div class="det">참나무통 6개월 이상 숙성 후 희석한 블렌딩 소주. 옅은 황금빛 색상. 1996년 출시(당시 '검은병 소주' 프리미엄 경쟁에 대응). 1997년 외환위기로 진로 자금난이 악화되며 단종되었고, 2017년 '참나무통 맑은이슬'이라는 이름으로 재출시. 편의점 및 마트 유통. 프리미엄 희석식 소주 카테고리 선도 제품.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">1998</span>참이슬 오리지널<span class="abv-badge">20.1도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1998</div><div class="rgH-name">참이슬 오리지널</div><div class="rgH-badges"><span class="abv-badge">20.1도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">참이슬 본래 라인의 정통 콘셉트 제품. 참이슬 브랜드의 기본 풍미와 이미지를 유지.</div>
 <div class="det">2006년 2월 이후 현재 도수 유지. 참이슬 브랜드 자체는 1998년 출시. '오리지널'이라는 명칭은 2012년 1월 '참이슬 클래식'으로 한 차례 바뀌었다가 2017년경 '참이슬 오리지널'로 환원되어 현재까지 유지. 참이슬 후레쉬와 함께 2트랙으로 운영.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">1998.10.19</span>참이슬 후레쉬<span class="abv-badge">15.7도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1998.10.19</div><div class="rgH-name">참이슬 후레쉬</div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">진로(眞露)를 순우리말로 풀이한 참이슬 라인의 저도수 주력 제품. <b>眞(진)→참</b>, <b>露(로)→이슬</b>.</div>
 <div class="det">참이슬 브랜드는 1998년 10월 19일 23도로 첫 출시(2026년 5월 기준 누적 약 413억 병 판매, 1초당 약 47병). 2006년경 기존 라인(오리지널)과 저도수 '후레쉬' 라인으로 분화(자료에 따라 2007년설도 있음). 2012년 1월 대규모 리뉴얼 때 '후레쉬'→'참이슬', '오리지널'→'참이슬 클래식'으로 명칭이 한때 뒤바뀌었다가 2017년경 현재의 '후레쉬/오리지널' 명칭으로 환원. 2026년 6월 2일 발표·6월 중순부터 순차 적용된 리뉴얼로 16도→15.7도로 조정(2024년 2월 16도 조정 후 약 2년 4개월 만). 2025년 5월 페트(400·500·640ml·1.8L)·오리지널(640ml·1.8L) 패키지를 대나무잎 곡선 줄무늬 디자인으로 새단장. 부드러운 목넘김 중심의 대중형 라인.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2019.04</span>진로이즈백<span class="abv-badge">15.7도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2019.04</div><div class="rgH-name">진로이즈백</div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>진로(眞露) Is Back</b> = "진로가 돌아왔다". 1970~80년대 진로 두꺼비 마스코트·복고 디자인을 그대로 재해석한 뉴트로(New-tro) 콘셉트를 영문 슬로건형 제품명에 직접 담음.</div>
 <div class="det">2019년 4월 출시. 2026년 2월 16도→15.7도로 리뉴얼·"더 깔끔한 맛" 강조. 하늘색 투명병·두꺼비 캐릭터 복고 디자인. 뉴트로 마케팅 열풍을 주도한 제품.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2024</span>진로 골드(제로)<span class="abv-badge">15.5도</span><span class="zs-badge">Zero</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2024</div><div class="rgH-name">진로 골드(제로)</div><div class="rgH-badges"><span class="abv-badge">15.5도</span><span class="zs-badge">Zero</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>진로(眞露)</b> 브랜드에 <b>Gold(황금·최고 등급)</b>를 결합해 2024년 출시한 프리미엄 네이밍. 부드러운 제로슈거 콘셉트와 정통 진로 이미지를 동시에 강조.</div>
 <div class="det">2024년 하이트진로 창립 100주년 출시. 하이트진로 제품 중 최저 도수. 쌀 증류원액 블렌딩 기반의 부드러운 제로슈거 스타일. 주요 수출 시장 중심으로 운영되며, 하이트진로 글로벌 포트폴리오에서 프리미엄 축을 담당.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">1998</span>이슬露<span class="disc-badge">단종</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1998</div><div class="rgH-name">이슬露</div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">진로(眞露)의 <b>"이슬 로(露)"</b>를 상품명으로 사용. 참이슬과 같은 어원 계열.</div>
 <div class="det">1998년 참이슬 출시 당시 "참진이슬露"라는 이름으로 참이슬과 함께 혼용되다가, 2009년 12월 리뉴얼과 함께 브랜드명이 참이슬로 통일되며 단종.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-b" rowspan="4">롯데
-주류</td>
-<td class="cn ab"><span class="cn-launch-date">2006</span>처음처럼<span class="abv-badge">16도</span></td>
-<td class="ci ib">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">롯데주류<span class="rgH2-count">4종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2006</div><div class="rgH-name">처음처럼</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">사회운동가·서예가 <b>신영복 교수</b>의 글귀에서 영감. "세상과 사람을 <b>처음 만났을 때처럼</b> 순수하게". 동시에 "음주 다음 날도 몸이 처음처럼 돌아오길"이라는 이중 의미.</div>
 <div class="det">두산경월이 2006년 출시. 대관령 알칼리수 사용 강조. 2009년 롯데에 인수. 2025년 7월 16.5도→16도로 인하. 2026년 3월 출시 20주년 헤리티지 리뉴얼 — 초기 디자인의 어린 새·새싹 이미지와 대관령 암반수를 형상화한 물방울 그래픽 적용, '16도' 도수 표기 전면 배치, 병목에 'Since 2006 · 20th ANNIVERSARY' 넥라벨. 신영복 교수는 사례비를 받지 않았다고 알려짐.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2022</span>새로<span class="abv-badge">15.7도</span><span class="zs-badge">Zero</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2022</div><div class="rgH-name">새로</div><div class="rgH-badges"><span class="abv-badge">15.7도</span><span class="zs-badge">Zero</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">순우리말 <b>"새로운"</b>의 '새로'와 Zero Sugar의 <b>'로'</b>, 그리고 새로운 길(路)의 중의적 의미를 한 이름에 겹쳐 담은 네이밍. "새로운 소주, 당 제로" 메시지를 2022년 출시 시점부터 일관되게 전개.</div>
 <div class="det">구미호 캐릭터·한복·판소리 세계관 마케팅. 백자(도자기) 컨셉 민트색 투명 병. 2026년 리뉴얼로 서울·경기 저도수 트렌드에 맞춘 재포지셔닝. 진로이즈백 뉴트로에 맞선 한국 전통 감성 브랜딩.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2026.03</span>처음처럼 클래식<span class="abv-badge">20도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2026.03</div><div class="rgH-name">처음처럼 클래식</div><div class="rgH-badges"><span class="abv-badge">20도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>처음처럼</b> 브랜드명에 <b>클래식(Classic)</b>을 더해 2006년 출시 당시의 '원조' 정체성을 강조. 20주년을 맞아 그 시절 그대로의 맛을 복원했다는 의미를 이름에 직접 담음.</div>
 <div class="det">2026년 3월 출시. 2006년 출시 초기와 동일한 알라닌·아스파라진·자일리톨 등 첨가물 배합을 그대로 복원해 "20년 전 그 맛"을 재현한 헤리티지 한정 라인.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab">처음처럼 담금소주<span class="abv-badge">25~35도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-name">처음처럼 담금소주</div><div class="rgH-badges"><span class="abv-badge">25~35도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>처음처럼</b> 브랜드명 + 과실주 등을 직접 <b>담그는(담금)</b> 용도임을 그대로 표기. 음용용이 아닌 재료의 보존·추출을 위한 고도수 전용 제품임을 이름에서 명확히 구분.</div>
 <div class="det">25도·30도·35도 세 종류로 세분화 판매. 매실주·과실주 등을 가정에서 담글 때 부패를 막기 위해 일반 음용 소주보다 높은 도수로 제조한 담금 전용 라인.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 <div class="cat-subhead">🍑 플레이버</div>
-<table class="card">
-<tr>
-<td class="cb cb-t" rowspan="7">롯데
-주류</td>
-<td class="cn at"><span class="cn-launch-date">2015.03</span>순하리 유자<span class="abv-badge">12도</span></td>
-<td class="ci it">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-flavor">롯데주류<span class="rgH2-count">7종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2015.03</div><div class="rgH-name">순하리 유자</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>순하리</b> = "순하다(부드럽다)"의 어근 순(純)에서 파생. 도수가 낮고 부드럽다는 의미를 이름에 직접 담은 네이밍. 처음처럼 계열 플레이버 서브 브랜드로 출범.</div>
 <div class="det">14도(출시 당시)→이후 12도로 조정. 2015년 3월 초 출시(원명 '처음처럼 순하리'). 플레이버 소주 붐의 시발점. 출시 100일 만에 누적 4000만 병 판매. 이후 복숭아·딸기·블루베리 등으로 시리즈 확장. 과일 소주 시장 형성의 주역. ※ 일부 자료(나무위키 구버전)에 2014년 출시로 기재된 경우가 있으나, 당시 보도자료(연합뉴스 2015.02.24 등) 기준 2015년 출시가 정확.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2015.07</span>순하리 복숭아<span class="abv-badge">12도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2015.07</div><div class="rgH-name">순하리 복숭아</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>순하리</b> + <b>복숭아(Peach)</b>. 유자 시리즈 성공 후 확장. 복숭아의 달콤하고 부드러운 이미지가 순하리 브랜드 컨셉과 일치.</div>
 <div class="det">2015년 7월 출시. 순하리 시리즈 중 유자와 함께 가장 높은 판매량. 달콤한 향으로 젊은 층·음주 초보층 선호.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2017.12</span>순하리 딸기<span class="abv-badge">12도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2017.12</div><div class="rgH-name">순하리 딸기</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>순하리</b> + <b>딸기(Strawberry)</b>. 계절 한정 제품으로 출발해 정규 라인업에 편입. 딸기의 상큼·달콤 이중 이미지를 순하리 플레이버로 구현.</div>
 <div class="det">2017년 12월 수출 전용 출시(동남아·오세아니아). 봄 시즌 마케팅 강세. 딸기 라떼 등 칵테일 베이스로 활용하는 MZ 문화와 함께 확산.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2024.04</span>새로 살구<span class="abv-badge">12도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2024.04</div><div class="rgH-name">새로 살구</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>새로</b>(메인 브랜드) + <b>살구(Apricot)</b>. 새로의 제로슈거 컨셉을 유지하면서 살구의 달콤·새콤한 과일 향으로 플레이버 라인 확장. 살구의 은은하고 부드러운 이미지가 새로 브랜드 감성과 조화.</div>
 <div class="det">제로슈거. 새로 플레이버 1탄(2024년 4월). 구미호 세계관 디자인 유지. 살구 특유의 향긋하고 달콤한 맛으로 순하리·에이슬 시리즈와 경쟁.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2025.04</span>새로 다래<span class="abv-badge">12도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2025.04</div><div class="rgH-name">새로 다래</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>새로</b> + <b>다래(Wild Kiwi, 한국 야생 다래)</b>. 키위 원종인 한국 토종 과일 다래를 선택해 한국적 자연 재료 강조. 새로의 전통·자연 감성 브랜딩에 맞춰 외래 과일 대신 토종 과일 채택.</div>
 <div class="det">제로슈거. 새로 플레이버 2탄(2025년 4월). 다래 특유의 청포도·키위 중간 맛. 토종 과일 차별화 전략으로 에이슬·순하리와 차별화.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2026.05</span>새로 오미자<span class="abv-badge">12도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2026.05</div><div class="rgH-name">새로 오미자</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>새로</b> + <b>오미자(五味子)</b>. 경북 문경산 오미자를 사용해 상큼하고 쌉쌀한 맛을 살린 새로 플레이버 3탄.</div>
 <div class="det">제로슈거. 경북 문경산 오미자 과즙 사용. 새로 특유의 쓴맛을 줄이고 연한 붉은빛을 구현.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2024</span>새로 리치<span class="abv-badge">12도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2024</div><div class="rgH-name">새로 리치</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>새로</b> + <b>리치(Lychee)</b>. 해외 소비자 취향을 겨냥한 수출 전용 플레이버.</div>
 <div class="det">2024년부터 미국·캐나다·동남아 등 해외 시장에 선보인 수출 전용 라인. 국내는 새로 살구 위주로 유통하며 미출시.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-b" rowspan="9">하이트
-진로</td>
-<td class="cn ab"><span class="cn-launch-date">2016</span>자몽에이슬<span class="abv-badge">13도</span></td>
-<td class="ci ib">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-flavor">하이트진로<span class="rgH2-count">9종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name">자몽에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>자몽(Grapefruit)</b> + <b>에이슬</b>(참이슬의 '이슬'에서 파생된 플레이버 시리즈 공통 접미사). 과일명을 그대로 붙여 맛을 직관적으로 표현. 에이슬 시리즈의 사실상 원조.</div>
 <div class="det">2016년 출시. 에이슬 시리즈 중 가장 높은 판매량. 자몽 특유의 쌉쌀함+달콤함. 편의점 기준 플레이버 소주 최장 스테디셀러.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2018.01</span>자두에이슬<span class="abv-badge">13도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2018.01</div><div class="rgH-name">자두에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>자두(Plum)</b> + <b>에이슬</b>. 한국인에게 친숙한 여름 과일 자두를 전면에 내세워 계절감·향수 마케팅. 에이슬 시리즈 확장 제품.</div>
 <div class="det">2018년 1월 수출 전용 출시, 8개월 만에 150만 병 판매. 달콤한 자두 향으로 소주 입문자·가벼운 음주 선호층 인기. 이후 국내 역출시. 에이슬 시리즈 2탄.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2020</span>아이셔에이슬<span class="abv-badge">13도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2020</div><div class="rgH-name">아이셔에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>아이셔(Sour Candy·오리온 캔디)</b> + <b>에이슬</b>. 오리온 '아이셔' 캔디와의 컬래버레이션으로 탄생. 과일이 아닌 <b>캔디 브랜드</b>를 소주와 결합한 최초 시도. 소주류 콜라보 마케팅의 포문을 열었다는 평가.</div>
 <div class="det">2020년 출시. 소주류 최초 캔디 브랜드 협업. 한 달 만에 1년 치 물량 완판. 새콤달콤한 캔디 특유의 신맛 구현. MZ세대 SNS 화제 상품.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2025.03</span>레몬에이슬<span class="abv-badge">13도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2025.03</div><div class="rgH-name">레몬에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>레몬(Lemon)</b> + <b>에이슬</b>. 글로벌 플레이버 주류 트렌드 조사를 통해 선정된 레몬 풍미를 에이슬 라인으로 구현. 영문명 <b>JINRO LEMON</b>으로 브랜드 세계화 강조.</div>
 <div class="det">2025년 3월 수출 전용 출시. 에이슬 시리즈 6번째 제품·수출 전용 4번째. 일본 → 미국·중국·베트남 등 26개국 이상 순차 판매. 새콤한 레몬 향 구현.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2025.04</span>핵아이셔에이슬(2025)<span class="abv-badge">12도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2025.04</div><div class="rgH-name">핵아이셔에이슬(2025)</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>핵아이셔(오리온 캔디)</b> + <b>에이슬</b>. 아이셔에이슬의 후속 한정 협업작으로 "핵"은 기존 아이셔에이슬보다 강한 신맛을 의미. 기존 아이셔에이슬 시리즈 3번째 제품. 두꺼비 캐릭터가 신맛에 윙크하는 패키지 디자인.</div>
 <div class="det">제로슈거. 2025년 4월 한정 출시. 노랑·검정·빨강 강렬한 포인트 컬러. 홍대·건대 등 대학가 온오프라인 프로모션 진행. 조기 품절 예상 한정 수량.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2026.04</span>멜론에이슬<span class="abv-badge">13도</span><span class="zs-badge">한정판</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2026.04</div><div class="rgH-name">멜론에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span><span class="zs-badge">한정판</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>멜론(Melon)</b> + <b>에이슬</b>. 자두·딸기·복숭아·레몬에 이은 에이슬 시리즈 다섯 번째 수출 전용 제품(전체 7번째). 글로벌 주류 트렌드 조사를 바탕으로 멜론의 달콤한 풍미를 선택.</div>
 <div class="det">영문명 JINRO MELON LIMITED EDITION. 2026년 4월 수출 전용 한정 출시. 기존 제품과 차별화된 블랙 컬러 패키지로 한정판 이미지 강조. 3월 말부터 미국·일본·베트남·호주·영국 등 20여 개국 순차 출시.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2016</span>청포도에이슬<span class="abv-badge">13도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name">청포도에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>청포도(Green Grape)</b> + <b>에이슬</b>. 청포도의 신선하고 상큼한 이미지를 통해 가볍고 깔끔한 음용 경험 강조. 에이슬 시리즈 중 가장 청량한 컨셉.</div>
 <div class="det">향긋함과 가벼운 단맛. 여름 시즌 특히 판매 강세. 에이슬 시리즈 3탄.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2022</span>복숭아에이슬<span class="abv-badge">13도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2022</div><div class="rgH-name">복숭아에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>복숭아(Peach)</b> + <b>에이슬</b>. 플레이버 소주 시장 전체에서 가장 인기 높은 복숭아 풍미를 에이슬 라인으로 출시. 수출 전용 제품으로 동남아·미주·일본 공략.</div>
 <div class="det">수출 전용. 에이슬 시리즈 수출 라인 2탄. 달콤하고 부드러운 복숭아향으로 해외 K-소주 팬층 확보. 26개국 이상 수출.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2019</span>딸기에이슬<span class="abv-badge">13도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">딸기에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>딸기(Strawberry)</b> + <b>에이슬</b>. 베트남 등 동남아시아에서 딸기가 고급 과일 이미지를 가진 데 착안해 수출 전용으로 개발. 현지 반응 확인 후 일부 국내 역출시.</div>
 <div class="det">수출 전용. 에이슬 시리즈 수출 라인 3탄. 동남아·중화권·미주 인기. 봄 시즌 마케팅 강세.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 <div class="cat-subhead">🏺 증류식 · 전통</div>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="5">화요</td>
-<td class="cn ad"><span class="cn-launch-date">2005</span>화요25<span class="abv-badge">25도</span></td>
-<td class="ci id">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">화요<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name">화요25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + 도수 <b>25</b>. 가장 대중적인 기본 라인임을 표기.</div>
 <div class="det">화요 브랜드 출시 초기(2005년, 광주요 그룹은 2003년 설립)부터 존재한 기본형. 쌀 본연의 풍미와 균형감이 특징인 화요 라인업의 기본형. 가장 대중적인 판매량. 출시 후 10년간 적자였으나 2015년 흑자 전환.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2005</span>화요41<span class="abv-badge">41도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name">화요41</div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + 도수 <b>41</b>. 고도수 프리미엄 라인임을 표기.</div>
 <div class="det">화요 브랜드 출시 초기(2005년)부터 존재한 라인. 깊고 부드러운 향. 스트레이트·온더락 등 고도주 음용법에 맞춘 라인. 고도주에 대한 편견 해소를 노린 포지셔닝. 화요 라인업 중 평가가 가장 좋은 제품으로 꼽힘.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2010</span>화요17<span class="abv-badge">17도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2010</div><div class="rgH-name">화요17</div><div class="rgH-badges"><span class="abv-badge">17도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">소주의 <b>燒(소)</b>자를 파자(破字): <b>火(화, 불)</b> + <b>堯(요, 높을·훌륭할)</b>. "불로 다스린 귀한 술"이라는 철학적 의미. 도자기 명가 광주요(廣州窯)에서 만들어 술+도자기 고급 컨셉 구현.</div>
 <div class="det">2010년 출시. 광주요 계열 제조. 감압증류 방식 사용. 가볍고 부드러운 저도수 라인, 여성·저도수 선호층 타깃. 프리미엄 증류식 소주 대중화 선도.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2015</span>화요53<span class="abv-badge">53도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2015</div><div class="rgH-name">화요53</div><div class="rgH-badges"><span class="abv-badge">53도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + 도수 <b>53</b>. 화요 라인업 중 최고 도수임을 표기.</div>
 <div class="det">2015년 출시. 53도. 마니아층 대상 고도 제품. 면세점 중심 유통에서 백화점까지 확대.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2025.06.26</span>화요19金<span class="abv-badge">19도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2025.06.26</div><div class="rgH-name">화요19金</div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + 도수 <b>19</b> + <b>金(금)</b>을 결합. 목통 증류원액을 더한 프리미엄 저도주임을 금빛으로 표현.</div>
 <div class="det">2025년 6월 26일 출시(6/23은 보도자료 배포일). 375ml. 목통증류원액 10.9% 함유. 화요17(2010년) 이후 15년 만의 저도주 신제품.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="2">감홍로(주)</td>
-<td class="cn ad"><span class="cn-launch-date">2005(추정)</span>감홍로<span class="abv-badge">40도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">감홍로(주)<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2005(추정)</div><div class="rgH-name">감홍로</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>甘(감, 달 감)</b> + <b>紅(홍, 붉을 홍)</b> + <b>露(로, 이슬 로)</b> = <b>"달고 붉은 이슬"</b>. 용안육·진피·정향 등 한약재를 넣어 빚어 붉은빛을 띠고 달콤한 향이 나는 특성을 이름으로 표현. 조선 3대 명주 중 하나.</div>
 <div class="det">평안도 관서 지방 전통주. 이기숙 명인(식품명인 제43호) 제조. 경기 파주 소재. 기본 라인. 용안육·계피·진피·정향·생강·감초·지초 사용. 1988년 8대 민속주 지정. 이경찬 옹(문배주 무형문화재)의 막내딸 이기숙이 2012년 명인(제43호) 등록 후 계승. 2025년 "제작 20주년"을 맞이했다는 나무위키·업계 자료 기준으로 역산하면 본격 재현·생산 시작은 2005년경(이전엔 친언니 이기양 명인이 2000년 사망 전까지 생산).</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2026.01.28</span>감홍로 화이트<span class="abv-badge">43도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2026.01.28</div><div class="rgH-name">감홍로 화이트</div><div class="rgH-badges"><span class="abv-badge">43도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>감홍로</b> 브랜드명 + <b>화이트(White)</b>. 기존 붉은빛 감홍로보다 맑고 깨끗한 색·맛을 강조한 프리미엄 라인명.</div>
 <div class="det">8년 재증류 숙성. 2026년 1월 28일 출시, 이기숙 명인 제조 20주년 기념 신제품.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="5">하이트
-진로</td>
-<td class="cn ad"><span class="cn-launch-date">2007</span>일품진로25<span class="abv-badge">25도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">하이트진로<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2007</div><div class="rgH-name">일품진로25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>一品(일품)</b> = 으뜸가는 품질·최고 등급. 진로의 기술을 집약한 프리미엄 라인임을 한자로 직접 표현. 조선시대 관직 품계 '일품'에서 온 고급스러운 이미지 차용.</div>
 <div class="det">2007년 출시. 기본형. 하이트진로의 프리미엄 증류식 소주 라인 시작점. 편의점에서 구매 가능한 증류식 소주 대중화 선도. 누룩 대신 일본식 입국 사용(법적으로는 증류식 소주 분류).</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2023.07</span>일품진로 오크43<span class="abv-badge">43도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2023.07</div><div class="rgH-name">일품진로 오크43</div><div class="rgH-badges"><span class="abv-badge">43도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>오크(Oak)</b> 캐스크 숙성 공법 + <b>43</b>도 도수를 제품명에 직접 표기. 고도수 프리미엄 포지셔닝을 숫자로 명확히 전달.</div>
 <div class="det">2023년 7월 출시. 국내 목통숙성실에서 5년 이상 숙성된 원액을 블렌딩한 고도수 프리미엄 증류식 소주. 스트레이트·온더락·하이볼 등 다양한 음용법 제안.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2024.05</span>일품진로 오크25<span class="abv-badge">25도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2024.05</div><div class="rgH-name">일품진로 오크25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">오크43과 동일한 <b>오크(Oak)</b> 숙성 콘셉트를 유지하면서 <b>25</b>도 저도수로 재구성한 명칭.</div>
 <div class="det">2024년 5월 출시. 오크43과 동일한 5년 이상 목통숙성 원액을 사용한 저도수 버전. 일품진로25·오크43·1924 헤리티지·고연산과 함께 증류주 라인업을 완성.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2024</span>일품진로 1924 헤리티지<span class="abv-badge">30도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2024</div><div class="rgH-name">일품진로 1924 헤리티지</div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>1924</b> = 진로 창업 연도, <b>헤리티지(Heritage)</b> = 유산·전통. 창립 100주년을 전후로 브랜드 원점을 기념하는 의미를 제품명에 직접 표기.</div>
 <div class="det">창립연도를 제품명에 새긴 헤리티지 라인. 일품진로 증류주 포트폴리오 내 프리미엄 기념 제품. 2024년 7월 출시된 한정판 "1924 헤리티지 100주년 에디션"과는 별개 정규 라인.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2018</span>일품진로 고연산<span class="abv-badge">31도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2018</div><div class="rgH-name">일품진로 고연산</div><div class="rgH-badges"><span class="abv-badge">31도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>고연산(高年産)</b> = 오래 숙성된 원액의 비중을 높였다는 뜻을 그대로 제품명에 사용. 위스키의 '숙성연산' 표기 문화를 증류식 소주에 접목.</div>
 <div class="det">장기숙성 원액 비중을 높인 고연산 블렌딩 제품. 일품진로 라인 중 가장 숙성도가 높은 포지셔닝.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="1">롯데
-주류</td><td class="cn ad"><span class="cn-launch-date">2024.01</span>여울<span class="abv-badge">25도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">롯데주류<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2024.01</div><div class="rgH-name">여울</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">물이 굽이쳐 흐르는 <b>여울</b>(강·바다의 빠른 물살 구간)에서 따온 순우리말. 쌀이 발효·증류되며 맑게 정제되는 과정을 물 흐름의 이미지로 표현.</div>
 <div class="det">2024년 1월 25일 출시. 국산 쌀·국내산 누룩·국산 효모 100% 사용. 2단 발효 후 감압증류, 0도 냉동여과 공정. 롯데주류(롯데칠성음료)의 증류식 소주 라인업 확장 시도였으나 시장 반응은 부진한 편으로 평가됨. 롯데의 증류식 소주 도전은 이번이 처음이 아니며, 2016년 출시했던 전작 '대장부'(25도→21도·23도 확장)도 화요·일품진로 양강 체제를 넘지 못하고 2021년 단종된 바 있다.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="3">문배주
-양조원</td>
-<td class="cn ad"><span class="cn-launch-date">1986(추정)</span>문배주 23도<span class="abv-badge">23도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">문배주양조원<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">1986(추정)</div><div class="rgH-name">문배주 23도</div><div class="rgH-badges"><span class="abv-badge">23도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">술의 향기가 <b>문배나무(돌배나무)</b> 과실 향과 유사해 붙여진 이름. 실제로 배가 들어가지 않지만 기장쌀·수수·밀을 발효·증류하는 과정에서 자연적으로 배향(梨香)이 발생. 재료가 아닌 <b>향기로 이름 지은 술</b>.</div>
 <div class="det">쌀을 첨가해 부드럽게 만든 저도수 라인. 평안도 전통주, 국가무형유산 제86-1호(1986년 지정). 1988년 8대 민속주 지정. 제조사 문배주양조원은 경기 김포에 위치.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">1986(추정)</span>문배주 25도<span class="abv-badge">25도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">1986(추정)</div><div class="rgH-name">문배주 25도</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>문배주</b> 브랜드명 + 도수 <b>25</b>. 500ml 용량의 표준형 라인.</div>
 <div class="det">500ml. 제조사 문배주양조원(경기 김포), 이기춘 명인(5대째) 운영.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">1986(추정)</span>문배주 40도<span class="abv-badge">40도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">1986(추정)</div><div class="rgH-name">문배주 40도</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>문배주</b> 브랜드명 + 도수 <b>40</b>. 조와 수수만 사용해 빚은 전통 주력 라인.</div>
 <div class="det">조+수수만 사용한 주력 라인. 아들 이승용 전수 중. 남북정상회담·한-아세안 정상회담 건배주 선정 이력.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="3">제이앤제이
-브루어리</td>
-<td class="cn ad">청혼레드25<span class="abv-badge">25도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">제이앤제이브루어리<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">청혼레드25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>청혼(靑魂 또는 淸魂)</b> — "맑고 청정한 혼(魂)이 담긴 술"이라는 의미. 고도수 소주에 깊은 정신적 가치를 부여한 네이밍.</div>
 <div class="det">375ml. 청혼 라인업의 입문형 저도수 제품.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">청혼50<span class="abv-badge">50도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">청혼50</div><div class="rgH-badges"><span class="abv-badge">50도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>청혼</b> 브랜드명 + 도수 <b>50</b>. 청혼 라인업의 중간 도수 제품.</div>
 <div class="det">375ml.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">청혼75<span class="abv-badge">75도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">청혼75</div><div class="rgH-badges"><span class="abv-badge">75도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>청혼</b> 브랜드명 + 도수 <b>75</b>. 청혼 라인업 중 최고 도수.</div>
 <div class="det">375ml. 2024년 기준 국내 시판 증류식 소주 중 최고 도수.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 </div>
 <div class="region-detail" id="region-chungcheong">
-<div class="region-label rl-teal">📍 충청도  |  더맥키스컴퍼니(충남) · 충북소주(충북) · 토끼소주코리아(충북 충주) · 홍성양조장</div>
+<div class="region-label rl-teal">📍 충청도  |  대표 브랜드: 선양 · 선양린 · NEW 시원 · 황금보리소주</div>
 <div class="cat-subhead">🍃 희석식</div>
-<table class="card">
-<tr>
-<td class="cb cb-t" rowspan="12">더맥키스
-컴퍼니</td>
-<td class="cn at"><span class="cn-launch-date">2005</span>맑을린<span class="disc-badge">단종</span></td>
-<td class="ci it">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">더맥키스컴퍼니<span class="rgH2-count">12종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name">맑을린</div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">"맑고 깨끗함 + <b>린(순수함)</b>". 이제우린 계보의 첫 이름.</div>
 <div class="det">2005년 출시. 이후 오투린(O2린)으로 리뉴얼되며 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2008</span>오투린(O2린)<span class="abv-badge">17.8도</span><span class="disc-badge">단종</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name">오투린(O2린)</div><div class="rgH-badges"><span class="abv-badge">17.8도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">O₂(산소) + <b>린(순수함)</b>. 높은 산소 함유량을 강조한 리뉴얼 네이밍.</div>
 <div class="det">2008년 맑을린 후속 출시. 2018년 10월 이제우린으로 변경되며 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2013.03</span>맥키스 홈믹싱주<span class="abv-badge">21도</span><span class="disc-badge">단종</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2013.03</div><div class="rgH-name">맥키스 홈믹싱주</div><div class="rgH-badges"><span class="abv-badge">21도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">회사명 <b>맥키스(MacKiss)</b> + 가정에서 직접 섞어 마시는 <b>홈믹싱(Home Mixing)</b> 콘셉트를 결합한 명칭.</div>
 <div class="det">2013년 3월 출시. 조웅래 대표 주도, 신동엽 광고 모델. 회사명을 선양주조에서 더맥키스컴퍼니로 바꾸게 한 신제품으로, 짧게 "맥키스"로도 불림(별도 제품 아님). 가정용 홈믹싱 리큐르였으나 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2018.10</span>이제우린<span class="abv-badge">17.2도</span><span class="disc-badge">단종</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2018.10</div><div class="rgH-name">이제우린</div><div class="rgH-badges"><span class="abv-badge">17.2도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>"이제 우리 한잔 하자"</b>는 정감 있는 표현. 2005년 '맑을린' 출시 → 2008년 높은 산소(O₂) 함유를 강조한 '오투린(O2린)'으로 리뉴얼 → 2018년 10월 '이제우린'으로 변경. 이름마다 시대 마케팅 반영.</div>
 <div class="det">산소 함유량이 높아 숙취 해소가 빠르다고 강조. 충남 청양 지역 점유율 약 90%였으나, 2024년 6월 원래 이름인 '맑을린'으로 19년 만에 환원됐다가 2025년 5월 '선양린'으로 다시 리뉴얼되며 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2021.11</span>선양린 高<span class="abv-badge">20.2도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2021.11</div><div class="rgH-name">선양린 高</div><div class="rgH-badges"><span class="abv-badge">20.2도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>선양린</b> 브랜드 + 높을 <b>高</b>를 더해 고도수 라인임을 한자로 직관적으로 표기. 출시 당시 이름은 '이제우린 高'.</div>
 <div class="det">2021년 11월 이제우린 高로 출시. 가정에서 즐기는 PET병 고도수 라인. 본 브랜드가 맑을린(2024)→선양린(2025)으로 리뉴얼되며 高 라인도 함께 선양린 高로 개명된 것으로 추정 — 高 라인 자체의 리뉴얼 여부는 1차 출처로 재확인 필요.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2023.03.02</span>선양<span class="abv-badge">14.9도</span><span class="zs-badge">Zero</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2023.03.02</div><div class="rgH-name">선양</div><div class="rgH-badges"><span class="abv-badge">14.9도</span><span class="zs-badge">Zero</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">대전·충청 지역 소주 회사 <b>선양주조(鮮釀酒造)</b>의 회사명을 제품명으로 직접 사용(리브랜딩). '선양(鮮釀)'은 <b>"신선하게 빚다"</b>는 한자 의미.</div>
 <div class="det">현재 더맥키스컴퍼니로 사명 변경. 충청남도 대표 소주. 국내 희석식 소주 중 최저 도수.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2025.02.27</span>선양오크<span class="abv-badge">14.9도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2025.02.27</div><div class="rgH-name">선양오크</div><div class="rgH-badges"><span class="abv-badge">14.9도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>선양</b> 브랜드 + <b>오크(Oak)</b> 캐스크 숙성 콘셉트를 전면화한 명칭. 쌀 증류식 소주 원액을 오크통에 6개월~10년 숙성 후 희석식 소주에 11% 블렌딩한 하이브리드 설계.</div>
 <div class="det">2025년 2월 27일 GS리테일 협업 출시. 초도 50만 병이 3일 만에 품절. 10년 숙성 쌀 증류원액을 포함한 멀티 빈티지 원액 블렌딩으로 레이어를 확보. 옅은 금빛 색상과 오크 향·쌀술 향의 결합이 특징인 국내 본격 오크 숙성 블렌딩 소주.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2025.05.22</span>선양린<span class="abv-badge">16도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2025.05.22</div><div class="rgH-name">선양린</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">회사명 <b>선양</b> + <b>린(순수함)</b>. 맑을린→오투린→이제우린으로 이어지던 계보가 2024년 '맑을린'으로 먼저 환원됐다가, 2025년 선양 브랜드 디자인에 맞춰 '선양린'으로 최종 리뉴얼.</div>
 <div class="det">2025년 5월 22일 출시. 조웅래 회장이 직접 광고 모델로 참여. 100% 국내산 쌀 증류원액과 15년 장기 숙성 보리 증류원액 블렌딩. 고래 캐릭터·그린 컬러 디자인. 충남 청양·대전 지역 대표 소주로 현재 판매 중.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2026.03.31</span>착한소주 990<span class="abv-badge">16도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2026.03.31</div><div class="rgH-name">착한소주 990</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">소비자에게 <b>착한</b> 가격(990원)을 제공한다는 의미를 그대로 제품명에 담음. 모델비·마케팅비를 줄여 가격 인하분을 반영했다는 점을 강조.</div>
 <div class="det">360mL. 2026년 3월 31일 출시. 병당 990원(20병 1박스 1만 9800원)으로 "20년 전 가격"을 표방. 동네 슈퍼마켓 전용 유통(한국수퍼체인협동조합 회원사 약 1만여 곳), 소상공인시장진흥공단·KVC와의 협업으로 기획. 총 990만 병 한정 생산. 2006년 특허받은 산소숙성공법(오투린 계열 기술) 적용.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2026.04.22</span>선양 말차<span class="abv-badge">14.9도</span><span class="zs-badge">Zero</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2026.04.22</div><div class="rgH-name">선양 말차</div><div class="rgH-badges"><span class="abv-badge">14.9도</span><span class="zs-badge">Zero</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>선양</b> 브랜드 + 일본식 가루녹차 <b>말차(抹茶)</b>를 접목한 명칭. '말차코어' 트렌드를 반영해 희석식 소주에 말차 향을 더한 국내 최초 시도.</div>
 <div class="det">2026년 4월 22일 GS25 단독 출시. 5월 31일까지 3,300원 프로모션 진행. 기존 선양(14.9도)과 동일한 제로슈거 베이스에 말차 풍미를 더함.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2026.06.10</span>선양 오크소맥<span class="abv-badge">5.7도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2026.06.10</div><div class="rgH-name">선양 오크소맥</div><div class="rgH-badges"><span class="abv-badge">5.7도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>선양 오크</b> + <b>소맥(소주+맥주)</b>. 소주와 맥주를 섞는 수고 없이 한 캔으로 즐기도록 만든 프리미엄 캔 소맥.</div>
 <div class="det">2026년 6월 10일 CU·GS25·세븐일레븐·이마트24 편의점 4사 동시 출시. 라거 맥주 450㎖에 선양 오크 소주 40㎖·오크통 6개월~10년 숙성 쌀 증류식 소주 원액 10㎖를 배합한 세계 최초 캔 소맥. 500㎖, 5.7도.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2009.11.10</span>버지니아<span class="abv-badge">16.5도</span><span class="disc-badge">단종</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2009.11.10</div><div class="rgH-name">버지니아</div><div class="rgH-badges"><span class="abv-badge">16.5도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">미국 지명 <b>버지니아(Virginia)</b>를 차용한 이국적 영문 브랜딩. 원래 이름은 "O2버지니아".</div>
 <div class="det">2009년 11월 10일 출시. 선양의 저도수 라인이었으나 단종.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-t" rowspan="1">충북소주</td><td class="cn at"><span class="cn-launch-date">2025.12</span>NEW 시원(시원한 청풍)<span class="abv-badge">16도</span></td>
-<td class="ci it">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">충북소주<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2025.12</div><div class="rgH-name">NEW 시원(시원한 청풍)</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">충북의 명소 <b>청풍명월(淸風明月)</b>에서 '청풍(淸風, 맑은 바람)'을 따옴. 충북 자연 청정 이미지 + 소주를 마실 때의 시원한 느낌을 결합한 이중 표현. 최신 리뉴얼판은 "새롭다"는 의미의 <b>NEW</b>를 더해 "시원" 이미지를 재차 강조.</div>
 <div class="det">충북 지역 대표 소주. 1957년 대양상사로 설립 → 1989년 백학소주로 사명 변경 → 1997년 하이트맥주 계열 편입(하이트소주) → 2004년 부산 C1과의 명칭 중복을 피해 <b>시원소주</b>로 브랜드명 변경(이때 장덕수 사장이 인수하며 사명도 충북소주로 변경) → 2006년 자체 브랜드 '청풍'·'맑은바람'·'휘' 전개 → 2011년 롯데주류에 매각. <b>NEW 시원</b>은 2025년 12월 10년 만의 리뉴얼판(알룰로스 첨가로 쓴맛 감소). <b>맑은바람</b>은 별개 제품이 아니라 홈플러스 등 유통채널에 이름만 바꿔 공급된 동일 제품의 PB(자체브랜드) 버전.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 <div class="cat-subhead">🏺 증류식 · 전통</div>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="2">토끼소주
-코리아</td>
-<td class="cn ad"><span class="cn-launch-date">2016</span>토끼소주 화이트<span class="abv-badge">23도</span></td>
-<td class="ci id">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">토끼소주코리아<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name">토끼소주 화이트</div><div class="rgH-badges"><span class="abv-badge">23도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">창업자 브랜든 힐(Brandon Hill)이 한국에서 보낸 2011년 토끼해의 경험과, 달에 사는 토끼가 나오는 한국 설화에서 착안한 <b>토끼(Tokki)</b>.</div>
 <div class="det">미국인 브랜든 힐이 2016년 미국 뉴욕 브루클린에서 창업, 2020년 충북 충주로 생산지를 이전. 100% 찹쌀과 전통 방식으로 빚는 증류식 소주. 화이트는 저도수 기본 라인.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">토끼소주 블랙<span class="abv-badge">40도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">토끼소주 블랙</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>토끼소주</b> 브랜드 + <b>블랙(Black)</b>, 고도수 라인임을 색상으로 구분.</div>
 <div class="det">화이트보다 고도수인 스트레이트·온더락용 라인.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="3">홍성
-양조장</td>
-<td class="cn ad">황금보리소주 17도<span class="abv-badge">17도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">홍성양조장<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">황금보리소주 17도</div><div class="rgH-badges"><span class="abv-badge">17도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">김제평야에서 재배되는 <b>황금빛 보리(황금보리)</b>를 원료로 사용한 데서 그대로 이름. 원료명이 제품명이 된 직관적 작명. 재료의 귀함과 황금색 이미지 강조.</div>
 <div class="det">무농약 보리 100% 사용, 375ml. 충남 홍성 생산.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">황금보리소주 25도<span class="abv-badge">25도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">황금보리소주 25도</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>황금보리소주</b> 브랜드명 + 도수 <b>25</b>. 375ml 표준 라인.</div>
 <div class="det">375ml. 보리 특유의 구수하고 부드러운 맛.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">황금보리소주 40도<span class="abv-badge">40도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">황금보리소주 40도</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>황금보리소주</b> 브랜드명 + 도수 <b>40</b>. 보리 풍미가 가장 진한 고도수 라인.</div>
 <div class="det">2018년 전통주협회 선호도 조사 2위.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 </div>
 <div class="region-detail" id="region-gangwon">
-<div class="region-label rl-deep">📍 강원도  |  구 경월주조(현 롯데주류 합병) · 원스피리츠</div>
+<div class="region-label rl-deep">📍 강원도  |  대표 브랜드: 원소주</div>
 <div class="cat-subhead">🍃 희석식</div>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="4">경월
-주조</td>
-<td class="cn ad"><span class="cn-launch-date">1926.06</span>경월<span class="abv-badge">25도(단종 시점)</span></td>
-<td class="ci id">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">경월주조<span class="rgH2-count">4종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1926.06</div><div class="rgH-name">경월</div><div class="rgH-badges"><span class="abv-badge">25도(단종 시점)</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">강원 지역명에서 따온 이름. <b>京(경)</b>은 강릉(경강의 경), <b>月(월)</b>은 달. <b>"강릉의 달빛"</b>, 대관령 청정 자연과 달빛 이미지 표현. 강원도 지역 소주의 역사적 원형.</div>
 <div class="det">1926년 6월 강릉합동주조㈜ 설립이 모태. 1976년 1도1사 체제에서 강원 대표로 살아남은 브랜드. 1993년 두산 인수 후 '그린소주'로 개명, 2009년 두산주류가 롯데주류에 인수되며 최종적으로 '처음처럼'으로 대체됨. 처음처럼 탄생의 모태 기업.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">1993.11</span>그린소주<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1993.11</div><div class="rgH-name">그린소주</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">1993년 두산이 경월을 인수하며 친환경·청정 이미지를 강조한 <b>"그린(Green)"</b>으로 개명.</div>
 <div class="det">1993년 11월 출시. 경월 후속 브랜드. 1999년 12월 '뉴그린'으로 대체되며 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">1999.12</span>뉴그린<span class="disc-badge">단종</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1999.12</div><div class="rgH-name">뉴그린</div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">그린소주 + <b>"New"</b>. 리뉴얼 후속 라인임을 이름에 직접 표기.</div>
 <div class="det">1998년 8월 두산주류BG 출범 후 1999년 12월 출시. 그린소주 리뉴얼. 2001년경 '산(山처럼)'으로 대체되며 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2001</span>산(山처럼)<span class="abv-badge">21도</span><span class="disc-badge">단종</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2001</div><div class="rgH-name">산(山처럼)</div><div class="rgH-badges"><span class="abv-badge">21도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">강원도의 산악 지형 이미지를 형상화한 <b>산(山)</b>.</div>
 <div class="det">2001년 출시. 뉴그린 후속 라인. 2006년 '처음처럼' 출시와 함께 대체·단종 — 경월(강릉합동주조) 계보의 마지막 브랜드.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 <div class="cat-subhead">🏺 증류식 · 전통</div>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="5">원
-스피리츠</td>
-<td class="cn ad"><span class="cn-launch-date">2022.02.25</span>원소주 오리지널<span class="abv-badge">22도</span></td>
-<td class="ci id">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">원스피리츠<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2022.02.25</div><div class="rgH-name">원소주 오리지널</div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">생산지 <b>강원도 원주(原州)</b>의 '원' + "원래의·근원의·순수한"이라는 <b>原(원)</b>의 의미 중첩. 한국 전통 밀누룩(진주곡자)을 사용해 뿌리로 돌아간다는 철학도 포함.</div>
 <div class="det">2022년 2월 25일 팝업스토어를 통해 정식 출시. 가수 박재범(Jay Park) 창업. 유통 첫날 완판. 375ml 14,900원. 증류식 소주의 대중화·힙(hip)한 이미지 선도. MZ 세대 공략.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2022.07.12</span>원소주 스피릿<span class="abv-badge">24도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2022.07.12</div><div class="rgH-name">원소주 스피릿</div><div class="rgH-badges"><span class="abv-badge">24도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>원소주</b> + <b>스피릿(Spirit)</b>. 오리지널보다 한 단계 높은 도수로 편의점 유통에 맞춰 재설계된 라인임을 표현.</div>
 <div class="det">2022년 7월 12일 GS25·GS더프레시 입점과 함께 출시. 375ml 12,900원. 점포당 1일 최대 4병 입고 제한, 화·목·토 "원데이(WON DAY)" 입고. 편의점 유통 확대용 라인.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2022.09</span>원소주 클래식<span class="abv-badge">28도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2022.09</div><div class="rgH-name">원소주 클래식</div><div class="rgH-badges"><span class="abv-badge">28도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>원소주</b> + <b>클래식(Classic)</b>. 자체 개발 효모를 사용한 정통 라인임을 강조.</div>
 <div class="det">2022년 9월 엔씨소프트 '리니지W' 콜라보 한정판으로 첫 출시(5만5000병 완판) 후 9월 21일부터 온라인몰 정식 판매(하루 1,400병 한정). 375ml 21,900원. 국내 자체 개발 효모 사용.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2025.12.22</span>원소주 환영30<span class="abv-badge">30도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2025.12.22</div><div class="rgH-name">원소주 환영30</div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>환영(歡迎)</b> = 반갑게 맞이함 + 도수 <b>30</b>. 치악산 배 향을 가미해 손님을 맞이하는 향 중심 한정판이라는 의미.</div>
 <div class="det">2025년 12월 22일 출시. 강원 원주 치악산 햇배와 원소주 증류원액을 침출한 가향 증류주. 700ml, 약 8만9000원. 원스피리츠 라인업 중 최고 도수·고용량 한정판.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2023.05.17</span>원소주 투고<span class="abv-badge">17도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2023.05.17</div><div class="rgH-name">원소주 투고</div><div class="rgH-badges"><span class="abv-badge">17도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>원소주</b> + <b>투고(To Go)</b>. 캠핑·피크닉·페스티벌 등 야외에서 간편히 들고 다니며 마실 수 있는 파우치형이라는 뜻을 그대로 담음.</div>
 <div class="det">2023년 5월 17일 GS25 성수 '도어투성수' 팝업으로 출시, 이후 전국 GS25·GS더프레시로 확대. 100ml 파우치, 17도로 기존 라인 중 가장 낮은 도수. 휴대성에 맞춰 도수·무게를 함께 낮춘 아웃도어 전용 라인.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 </div>
 <div class="region-detail" id="region-jeolla">
-<div class="region-label rl-blue">📍 전라도  |  보해양조(본사: 광주광역시/목포, 주 공장: 전남 영암) · 구 보배양조(전북) · 전주이강주(주) · 추성고을 · 세븐일레븐×최강록</div>
+<div class="region-label rl-blue">📍 전라도  |  대표 브랜드: 잎새주 · 이강주 · 추성주</div>
 <div class="cat-subhead">🍃 희석식</div>
-<table class="card">
-<tr>
-<td class="cb cb-b" rowspan="8">보해
-양조</td>
-<td class="cn ab"><span class="cn-launch-date">1992</span>보해골드<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
-<td class="ci ib">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">보해양조<span class="rgH2-count">8종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1992</div><div class="rgH-name">보해골드</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">보해 브랜드명 + <b>골드(Gold)</b>를 결합한 프리미엄 네이밍.</div>
 <div class="det">1992년 출시. 보해양조의 옛 프리미엄 라인이었으나 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">1994</span>씨티<span class="abv-badge">23도</span><span class="disc-badge">단종</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1994</div><div class="rgH-name">씨티</div><div class="rgH-badges"><span class="abv-badge">23도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">영어 <b>City(도시)</b>의 음차. 도시적이고 세련된 이미지를 표현한 영문 네이밍.</div>
 <div class="det">1994년 출시. 보해양조의 옛 주력 라인 중 하나였으나 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">1996</span>김삿갓<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1996</div><div class="rgH-name">김삿갓</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">조선 후기 방랑 시인 <b>김삿갓(김병연)</b>의 이름을 그대로 차용한 향토적 네이밍.</div>
 <div class="det">1996년 출시. 보해양조의 옛 주력 라인 중 하나였으나 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">1997</span>곰바우<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1997</div><div class="rgH-name">곰바우</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">순박하고 듬직한 이미지의 <b>"곰"</b> + 전라도 사투리 어미 <b>"바우"</b>를 결합한 향토적 네이밍.</div>
 <div class="det">1997년 출시. 보해양조의 옛 주력 라인 중 하나였으나 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2002</span>잎새주<span class="abv-badge">16도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2002</div><div class="rgH-name">잎새주</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">나뭇잎 끝에 맺히는 <b>이슬</b>의 감성적 이미지. <b>잎새(나뭇잎)</b> + 이슬이 맺힌다는 자연 이미지의 합성 네이밍. 깨끗하고 맑은 소주를 표현.</div>
 <div class="det">보해양조(1950년 전남 목포 창업, 현 본사 광주광역시 및 목포, 주 공장 영암) 대표 소주. 2002년 19.8도 출시 후 18.5도(2016)→17.8도(2017)→17.3도(2019)→16.5도(2022)→16도(2024)까지 단계적 저도화. 100% 자연 감미료·인공조미료 미첨가 강조. 광주·전남 대표 소주.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2014.04</span>아홉시반<span class="abv-badge">17.5도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2014.04</div><div class="rgH-name">아홉시반</div><div class="rgH-badges"><span class="abv-badge">17.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>"밤 9시 반"</b> — 퇴근 후 하루 마무리, 친구와 한잔하기 좋은 시간대를 브랜드화. 일상 속 소주 한잔의 여유로운 순간을 직접적으로 표현한 감성 네이밍.</div>
 <div class="det">2014년 4월 출시. 보해양조 라인업 중 저도수 제품. 직장인 퇴근 후 음주 감성 마케팅.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2015</span>잎새주 부라더 시리즈<span class="abv-badge">17.5도</span><span class="disc-badge">단종</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2015</div><div class="rgH-name">잎새주 부라더 시리즈</div><div class="rgH-badges"><span class="abv-badge">17.5도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">영어 <b>Brother(형·동생)</b>의 한글 음차. 친근한 형·동생 사이의 가벼운 술자리 정서를 MZ세대 어휘로 표현한 서브 브랜드명.</div>
 <div class="det">2015년 출시된 잎새주의 MZ 타깃 변형 서브라인. <b>부라더</b>(저도수 베이스)·<b>부라더#소다</b>(2015.09, 3도 탄산주)·<b>복받은 부라더</b>(2015.10, 복분자 과즙 첨가) 3종으로 확장됐다가 현재는 단종된 것으로 추정.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ab"><span class="cn-launch-date">2019</span>여수밤바다 → 여수바다<span class="abv-badge">16.5도</span></td>
-<td class="ci ib">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">여수밤바다 → 여수바다</div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">버스커버스커의 노래 제목이자 전남 여수 야경의 정서를 가져온 <b>여수밤바다</b>에서 출발. 2019년 로코노미(로컬+이코노미) 전략으로 인지도를 확보한 뒤 <b>여수바다</b>로 리브랜딩하며, 멸종위기 해양동물 <b>상괭이</b> 보호 메시지를 전면에 내세운 ESG 커뮤니케이션으로 확장.</div>
 <div class="det">2019년 출시 → 현재 <b>여수바다</b> 운영. 여수 낭만포차 거리 소주 점유율 80%. 팝아트 작가 기안84 협업 리뉴얼과 상괭이 모티프 라벨을 결합해 관광 기념주를 넘어 해양 생태 인식 제고 캠페인형 브랜드로 진화.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-b" rowspan="1">보배양조</td>
-<td class="cn ab">하이트 (구 보배양조)<span class="abv-badge">19도</span></td>
-<td class="ci ib">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">보배양조<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-name">하이트 (구 보배양조)</div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">영어 <b>High(높을) + -ite</b>(접미사). "높은 품질"의 영어식 작명. 전북 지역 소주였으나 하이트맥주와 동일 명칭으로 혼동이 생기는 유명한 에피소드 보유.</div>
 <div class="det">전북 대표 소주. 대나무 숯 정제 소주. 보배양조(1995년 법정관리 → 1997년 하이트진로 전신 조선맥주에 인수 → 2010년 상호를 다시 '보배'로 변경) → 2013년 11월 1일 하이트진로에 최종 흡수합병. 도수는 19도(추정).</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 <div class="cat-subhead">🏺 증류식 · 전통</div>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="3">이강주(주)</td>
-<td class="cn ad"><span class="cn-launch-date">1987(추정)</span>이강주 25도<span class="abv-badge">25도</span></td>
-<td class="ci id">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">이강주(주)<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">1987(추정)</div><div class="rgH-name">이강주 25도</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이강주</b> 브랜드명 + 도수 <b>25</b>. 원조 도수의 표준형 라인.</div>
 <div class="det">원조 도수, 375/500/1000ml. 조정형 명인이 1987년 단절됐던 이강주를 복원·재현(같은 해 무형문화재 지정, 1996년 식품명인 제9호 선정).</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2006</span>이강주 19도<span class="abv-badge">19도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2006</div><div class="rgH-name">이강주 19도</div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이(梨, 배)</b> + <b>강(薑, 생강)</b> + <b>주(酒, 술)</b>. 배(梨)와 생강(薑)을 넣어 빚은 술이라는 뜻을 한자로 직접 표현. 조선 3대 명주 중 하나로, 황해도·전라도 지역 전통 배 산지와 생강 산지를 반영한 작명.</div>
 <div class="det">2006년 미국 수출용으로 출시(미국의 고도주 규제를 회피하기 위해 원조보다 도수를 낮춘 버전). 제조사 전주이강주(주)는 전북 전주에 위치, 조정형 명인 가문 6대째 가양주.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2014</span>이강주 38도<span class="abv-badge">38도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name">이강주 38도</div><div class="rgH-badges"><span class="abv-badge">38도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이강주</b> 브랜드명 + 도수 <b>38</b>. 고도주를 선호하는 수출 시장을 겨냥한 고도수 라인.</div>
 <div class="det">2014년 중국·러시아 수출용으로 출시. 조선 3대 명주. 조정형 명인(식품명인 제9호, 전라북도 무형문화재 제6호) 제조. 1988년 8대 민속주 지정. 배·생강·계피·꿀 첨가, 황금빛 색상. 영국·네덜란드 수출 중.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="1">추성고을</td><td class="cn ad"><span class="cn-launch-date">1992(추정)</span>추성주<span class="abv-badge">25도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">추성고을<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">1992(추정)</div><div class="rgH-name">추성주</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>추성(秋城)</b> = 담양 금성면 연동사 인근 지역의 옛 지명. 약 1천 년 역사를 가진 담양 연동사 유래 약술을 복원한 데서 지명을 브랜드화. 쌀·구기자·오미자 등 10여 종 한약재 사용, 25도 약소주.</div>
 <div class="det">전남 담양 추성고을. 양대수 명인(식품명인 제22호) 제조. 연동사 주지스님 비법 → 증조부 전수 → 일제강점기 단절 → 양 명인이 주방문(酒方文) 기반으로 복원. 추성주 외 죽력고·대통주·대입술 등 대나무 활용 라인업 운영. 전남도 7월 전통주 선정(2025년).</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="1">세븐일레븐
-×최강록</td><td class="cn ad"><span class="cn-launch-date">2026.01</span>최강록 네오25화이트<span class="abv-badge">25도</span><span class="zs-badge">한정판</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">세븐일레븐×최강록<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2026.01</div><div class="rgH-name">최강록 네오25화이트</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="zs-badge">한정판</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>네오(Neo)</b> = 새로운, <b>25</b> = 도수, <b>화이트(White)</b> = 맑고 깨끗한 쌀술 이미지. '흑백요리사'로 유명한 <b>최강록 셰프</b>(별명 '조림의 신')와 협업해 새로운 프리미엄 증류식 소주임을 직관적으로 표현.</div>
 <div class="det">2026년 1월 출시. 전남 곡성산 유기농 가루미를 생쌀 발효해 만든 쌀 증류주로 은은한 단맛과 고소한 풍미가 특징. 최강록 셰프가 기획 단계부터 참여해 여러 차례 블렌딩·테이스팅. 2만 병 한정 판매. 2025년 3월 간편식 협업에 이은 세븐일레븐×최강록 콜라보 2탄.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 </div>
 <div class="region-detail" id="region-gyeongsang">
-<div class="region-label rl-amber">📍 경상도  |  무학(경남) · 대선주조(부산) · 금복주(경북) · 민속주·명인 안동소주 · 안동소주일품·명품안동소주·양반 안동소주·올소·진맥소주·회곡양조장 · (주)솔송주</div>
+<div class="region-label rl-amber">📍 경상도  |  대표 브랜드: 대선 · C1 · 좋은데이 · 참소주 · 안동소주 · 솔송주 · 담솔</div>
 <div class="cat-subhead">🍃 희석식</div>
-<table class="card">
-<tr>
-<td class="cb cb-a" rowspan="10">대선
-주조</td>
-<td class="cn aa"><span class="cn-launch-date">1965(추정)</span>대선 (大鮮)<span class="abv-badge">16.5도</span></td>
-<td class="ci ia">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">대선주조<span class="rgH2-count">10종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1965(추정)</div><div class="rgH-name">대선 (大鮮)</div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">회사명 <b>大鮮釀造(대선양조)</b>에서 유래. '大鮮'은 창업 당시 일제강점기에 "大朝鮮(대조선)"을 줄여 민족 자긍심을 담으려 했다는 설이 전해짐. ※ "大(클 대) + 鮮(고울 선) = 크고 훌륭한 술" 해석도 병존. 1930년 창립, 부산 최고령 소주사.</div>
 <div class="det">1965년 양곡관리법 개정으로 쌀 소주 생산이 금지되며 25도 희석식 '大鮮'으로 첫 생산. 2017년 뉴트로 감성으로 재출시해 부산 돌풍. 정통 라인. 원적외선 숙성공법(특허) + 증류식소주원액 블렌딩. 토마틴·벌꿀 첨가 단맛. 2011년 BN그룹 인수, 부산 점유율 1위 경쟁 중.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">1982</span>선소주<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1982</div><div class="rgH-name">선소주</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">회사명 <b>大鮮(대선)</b>의 "선(鮮)"을 그대로 제품명화.</div>
 <div class="det">1982년 출시. C1 이전 대선주조의 주력 라인 중 하나였으나 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">1993</span>선타임(대선골드)<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1993</div><div class="rgH-name">선타임(대선골드)</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>선(鮮)</b> + <b>타임(Time)</b>. "대선골드"라는 별칭으로도 불림.</div>
 <div class="det">1993년경 출시. C1 출시 전 대선주조 프리미엄 라인이었으나 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">1996</span>C1 (씨원)<span class="abv-badge">18도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1996</div><div class="rgH-name">C1 (씨원)</div><div class="rgH-badges"><span class="abv-badge">18도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>C = Choice(최고의 선택)</b>, <b>1 = 1등·최고</b>. 동시에 발음이 <b>"씨원→시원"</b>하다는 이중 효과. 부산 특유의 시원하고 강한 이미지 반영.</div>
 <div class="det">대선주조(부산, 1930년 창업). 1996년 첫 출시. "시원" 또는 "시원소주"로도 불림(별도 제품 아님). 국내 최초 음향숙성진동공법(클래식 음악 음파 적용 특허 공법) 도입. 부산 점유율 1위 경쟁 중. 2025.07 13년 만에 도수·상표·성분 리뉴얼, 19도→18도로 인하.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2009.04.27</span>봄봄<span class="abv-badge">16.7도</span><span class="disc-badge">단종</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2009.04.27</div><div class="rgH-name">봄봄</div><div class="rgH-badges"><span class="abv-badge">16.7도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>봄봄</b>은 봄의 계절감·설렘을 반복 표현한 저도주 네이밍.</div>
 <div class="det">2009년 4월 27일 출시. 20~30대 여성층을 겨냥한 초저도 소주로, 배우 강동원을 광고 모델로 기용. 이후 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2011.06</span>즐거워예<span class="abv-badge">16.2도</span><span class="disc-badge">단종</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2011.06</div><div class="rgH-name">즐거워예</div><div class="rgH-badges"><span class="abv-badge">16.2도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">경상도 사투리 "즐겁다" + 호칭 어미 <b>"-예"</b>. 조문용으로는 "그리워예"처럼 상황별 네이밍을 시도한 저도주 라인.</div>
 <div class="det">2011년 6월 출시. 상황별 네이밍 전략을 시도한 저도주. 현재 대선·강알리로 계보가 계승되며 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2014</span>C1블루<span class="abv-badge">16.5도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name">C1블루</div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>C1(씨원)</b> 메인 브랜드에 <b>Blue(청색·깔끔함)</b>를 결합. 부드럽고 청량한 소주라는 이미지를 색상으로 표현. 2014년 출시 당시 맑고 투명한 파란빛 병 디자인으로 화제.</div>
 <div class="det">2014~2016년 출시 → 단종 후 2022년 재출시(무가당). 음향진동숙성공법(클래식 음악 음파 적용)으로 숙성. 야자숯·대나무숯 5중 수처리. 몽드 셀렉션 은상 수상 이력.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2021.03</span>다이아몬드<span class="abv-badge">16.9도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2021.03</div><div class="rgH-name">다이아몬드</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>다이아몬드(Diamond)</b>. 보석의 대명사로 통하는 이름을 그대로 차용해 맑고 반짝이는 저도수 소주 이미지를 표현.</div>
 <div class="det">2021년 3월 출시된 대선주조의 저도수 라인.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2024.01</span>강알리<span class="abv-badge">16도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2024.01</div><div class="rgH-name">강알리</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>강알리</b> = <b>광안리(廣安里)</b>의 부산 사투리 발음. 부산 사람들이 "광안리"를 "강알리"로 발음하는 것에서 착안. 메인 카피도 "붓산(부산)", "턱별한(특별한)" 등 부산 사투리를 활용해 향토 정체성 극대화.</div>
 <div class="det">2024년 1월 출시. 슈거프리. 100% 국내산 쌀 증류주 원액 블렌딩. 광안대교·불꽃축제·파라솔·바다를 담은 투명 병 라벨. 광안리 인접 남구·수영구 상권에서 시작해 점차 확대 중.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2025.01</span>대선159<span class="abv-badge">15.9도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2025.01</div><div class="rgH-name">대선159</div><div class="rgH-badges"><span class="abv-badge">15.9도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>대선</b> 브랜드명 + 도수 <b>15.9</b>를 그대로 결합한 직관적 네이밍. 저도수 라인임을 숫자로 명시.</div>
 <div class="det">2025년 1월 도수·상표·성분을 전면 교체하며 리뉴얼(아르기닌·효소처리 스테비아 적용)한 후속 라인 — 이전 저도수 라인을 사실상 대체. 17도 미만 부문 9년 연속 수상.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-a" rowspan="6">무학</td>
-<td class="cn aa"><span class="cn-launch-date">1995</span>화이트<span class="abv-badge">20도(단종 시점)</span></td>
-<td class="ci ia">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">무학<span class="rgH2-count">6종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1995</div><div class="rgH-name">화이트</div><div class="rgH-badges"><span class="abv-badge">20도(단종 시점)</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">영어 <b>White(하얀, 순수한)</b>. 깨끗하고 순수한 소주 이미지를 흰색과 영어 직관적 표기로 표현. 희석식 소주 중 영어 이름을 사용한 초기 사례 중 하나.</div>
 <div class="det">1995년 23도 '100% 쌀 소주'로 출시되어 좋은데이 출시 전 무학의 대표 브랜드였음. 울산·경남 지역 장기 판매. 2006년 16.9도 좋은데이 출시와 함께 좋은데이 전신격 포지션에서 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2006.11</span>좋은데이<span class="abv-badge">15.7도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2006.11</div><div class="rgH-name">좋은데이</div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">"소주 한잔 나누기 <b>좋은 날(Good Day)</b>"이라는 긍정 의미. 동시에 경상도 사투리 <b>"좋다 아이가(좋은데예)"</b>의 느낌을 담은 중의적 작명. 지역 정서와 긍정 이미지 결합.</div>
 <div class="det">무학(창원 본사, 1929년 소화주류공업사로 창업 → 무학주류로 상호 변경. 회사명은 마산의 명산 <b>무학산(舞鶴山)</b>에서 따옴). 지리산 지하 320m 암반수·72시간 산소 숙성·10단계 여과. 2006년 11월 16.9도로 출시, 16.5도(2021년 리뉴얼) → 'All New 좋은데이' 15.7도 리뉴얼(2026.03)(국내산 쌀 100% 증류주 원액·72시간 산소숙성). 경남 대표 소주. ※장례식장 버전: <b>우리가 함께했던 좋은데이</b>(흰 국화 라벨·흰색 배경, 내용물 동일).</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2009.03</span>좋다카이<span class="abv-badge">19.5도</span><span class="disc-badge">단종</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2009.03</div><div class="rgH-name">좋다카이</div><div class="rgH-badges"><span class="abv-badge">19.5도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">경상도 사투리 <b>"좋다카이"</b>(좋다고 말하다)를 그대로 제품명화.</div>
 <div class="det">2009년 3월 출시. 좋은데이 이전의 저도수 라인 중 하나로 운영되다 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2019.10</span>청춘소주 무학<span class="abv-badge">16.9도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2019.10</div><div class="rgH-name">청춘소주 무학</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>청춘(靑春)</b> = 젊음·꽃다운 시절 + <b>무학(舞鶴)</b> = 학이 춤추다(회사명). 뉴트로 열풍에 맞춰 무학 창립 90주년(2019년)을 기념해 옛 감성을 현대적으로 해석한 복고 감성 제품. 1929년 창업 당시로의 회귀를 "청춘"으로 표현.</div>
 <div class="det">2019년 10월 창립 90주년 출시. 하늘색 투명병·실버 왕관형 스크류캡 디자인. 무가당·식물성 첨가물. 뉴트로 콘셉트로 진로이즈백에 대항. 2020년 2월 라벨 리뉴얼.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2024.03</span>좋은데이 부산갈매기19<span class="abv-badge">19도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2024.03</div><div class="rgH-name">좋은데이 부산갈매기19</div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> 모 브랜드 + 부산의 상징 <b>갈매기</b>. 부산 바닷가에서 흔히 볼 수 있는 갈매기의 활기차고 역동적인 이미지를 차용해 부산 전용 소주임을 직관적으로 표현.</div>
 <div class="det">2024년 3월 부산 한정 출시. 일반증류주. 국산 헛개 농축액 첨가로 부드러운 목넘김 강조. 진한 맛 라인. 경남 무학이 부산 시장 공략용으로 출시한 전략 제품.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2024.11</span>좋은데이 부산갈매기16<span class="abv-badge">16도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2024.11</div><div class="rgH-name">좋은데이 부산갈매기16</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>부산갈매기19</b>와 동일한 네이밍 콘셉트에 더 낮은 도수 <b>16</b>을 결합한 순한 맛 버전.</div>
 <div class="det">2024년 11월 추가 출시. 부산갈매기19보다 순한 맛으로 저도수 트렌드에 대응한 후속 라인.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-a" rowspan="12">금복주</td>
-<td class="cn aa"><span class="cn-launch-date">1992</span>수퍼골드마일드<span class="abv-badge">15도</span><span class="disc-badge">단종</span></td>
-<td class="ci ia">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">금복주<span class="rgH2-count">12종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1992</div><div class="rgH-name">수퍼골드마일드</div><div class="rgH-badges"><span class="abv-badge">15도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>수퍼(Super)</b> + <b>골드(Gold)</b> + <b>마일드(Mild)</b>를 조합한 프리미엄·저자극 이미지의 영문 네이밍.</div>
 <div class="det">1992년 출시. 금복주의 옛 프리미엄 라인이었으나 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">1993</span>금복골드<span class="abv-badge">25도</span><span class="disc-badge">단종</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1993</div><div class="rgH-name">금복골드</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">금복주 브랜드명 + <b>골드(Gold)</b>를 결합한 프리미엄 네이밍.</div>
 <div class="det">1993년 출시. 금복주의 옛 프리미엄 라인이었으나 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">1995(추정)</span>참소주<span class="abv-badge">16.5도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1995(추정)</div><div class="rgH-name">참소주</div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>참(眞)</b> = 진짜·바른·깨끗함. 정직하고 진실된 소주라는 이미지. 참이슬의 '참'과 동일한 순우리말 어원이지만 별개의 회사에서 독립적으로 작명. 경북 지역 정서에 맞는 소박한 네이밍.</div>
 <div class="det">금복주(대구·경북 대표 주류사, 1957년 창업, 삼산물산으로 시작) 메인 브랜드. 1995년경 첫 출시(자료에 따라 1997년 설도 있음). 첨단고순도정밀여과공법 강조. 대구·경북 지역 대표 소주. 도수 변천: 17도(2019)→16.5도(2021)→16도(2024.02)→16.5도(2026.01, 나노&amp;삼투막 듀얼필터링 리뉴얼, 현재).</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2008</span>참ISLAND<span class="abv-badge">19.5도</span><span class="disc-badge">단종</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name">참ISLAND</div><div class="rgH-badges"><span class="abv-badge">19.5도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>참소주</b> 브랜드명 + 영어 <b>"ISLAND"</b>를 결합한 네이밍.</div>
 <div class="det">2008년 출시된 참소주 계열의 서브 라인으로, 이후 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2015(추정)</span>제왕<span class="abv-badge">25도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name">제왕</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>제왕(帝王)</b> = 임금 중의 임금. 쌀과 고구마를 함께 증류한 고급 증류주임을 강조하는 격조 있는 네이밍.</div>
 <div class="det">원조 제품. 쌀+고구마 증류주.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2017.07</span>제왕21<span class="abv-badge">21도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2017.07</div><div class="rgH-name">제왕21</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>제왕</b> 브랜드명 + 도수 <b>21</b>을 결합한 후속 라인.</div>
 <div class="det">2017년 7월 출시.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2017.11.01</span>제왕16.9<span class="abv-badge">16.9도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2017.11.01</div><div class="rgH-name">제왕16.9</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>제왕</b> 브랜드명 + 도수 <b>16.9</b>를 결합한 저도수 라인.</div>
 <div class="det">2017년 11월 1일 출시. 제왕 시리즈 중 가장 낮은 저도수 증류식.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2019.12</span>소주왕 금복주<span class="abv-badge">16.9도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2019.12</div><div class="rgH-name">소주왕 금복주</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">옛 금복주 캐릭터 <b>"복영감"</b>의 레트로 라벨을 그대로 복각하며 "소주왕"이라는 왕(王) 칭호를 더해 뉴트로 향수를 자극하는 네이밍.</div>
 <div class="det">2019년 12월 출시. 복영감 캐릭터 라벨 복각 뉴트로 라인. 출시 첫 달 210만 병 판매.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2021.09</span>백로<span class="abv-badge">41도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2021.09</div><div class="rgH-name">백로</div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">한국의 전통적인 흰 새 <b>백로(白鷺)</b>에서 따온 이름. 맑고 깨끗한 고구마 증류 원액의 이미지를 흰 새의 청정함으로 표현.</div>
 <div class="det">2021년 9월 출시. 고구마 증류주. 고도수 라인.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2025.07.02</span>오크젠(신)<span class="abv-badge">16도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2025.07.02</div><div class="rgH-name">오크젠(신)</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">기존 <b>오크젠</b> 브랜드를 희석식 소주 도수대로 재구성한 신규 버전.</div>
 <div class="det">2025년 7월 2일 출시. 희석식 소주에 증류식 원액을 블렌딩한 하이브리드 설계.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2019</span>맛있는참<span class="abv-badge">16.9도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">맛있는참</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>맛있는</b>(형용사) + <b>참(眞, 진짜·올바름)</b>. "진짜 맛있는 소주"라는 직관적 의미. 기존 참소주 브랜드를 저도수 시장 대응을 위해 별도 라인으로 출시. 부드러움·맛을 전면에 내세운 네이밍.</div>
 <div class="det">금복주의 저도수 전용 라인. 경북 지역 저도수 소주 트렌드 주도.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2008</span>오크젠<span class="abv-badge">25도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name">오크젠</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>오크(Oak)</b> 숙성 + <b>Zen(젠, 정제됨)</b>을 결합한 프리미엄 네이밍.</div>
 <div class="det">프랑스산 오크통에서 최장 10년 숙성된 원액을 블렌딩한 프리미엄 라인.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 <div class="cat-subhead">🍑 플레이버</div>
-<table class="card">
-<tr>
-<td class="cb cb-a" rowspan="10">무학</td>
-<td class="cn aa"><span class="cn-launch-date">2015(추정)</span>좋은데이 블루베리<span class="abv-badge">13.5도</span></td>
-<td class="ci ia">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-flavor">무학<span class="rgH2-count">10종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name">좋은데이 블루베리</div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> 모 브랜드에 색상명+과일명을 병기하는 컬러 시리즈 전략. <b>블루</b>는 블루베리 과실색에서 직관적으로 가져옴. 각 색상이 곧 맛을 연상시키는 설계.</div>
 <div class="det">좋은데이 플레이버 라인 중 첫 출시(2015년경). 블루베리 특유의 진하고 달콤한 향. 경남 지역 과일 소주 시장 선도.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2015(추정)</span>좋은데이 유자<span class="abv-badge">13.5도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name">좋은데이 유자</div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + <b>유자(Yuzu)</b>. 한국·일본 공통 인기 과일 유자를 플레이버로 채택. 향기로운 유자향이 '좋은 날'이라는 브랜드 감성과 잘 맞아떨어짐.</div>
 <div class="det">유자청 특유의 향긋한 신맛·단맛 조화. 일본 수출 반응 양호. 관광객 선물용으로도 인기.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2015(추정)</span>좋은데이 복숭아<span class="abv-badge">13.5도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name">좋은데이 복숭아</div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + <b>복숭아(Peach)</b>. 플레이버 소주 시장 전체에서 가장 선호도 높은 복숭아 풍미를 좋은데이 라인으로 출시.</div>
 <div class="det">좋은데이 컬러 시리즈 중 최다 판매. 경남·부산 지역 플레이버 소주 점유율 1위.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2016.03</span>엔조이 오리지날 사과<span class="abv-badge">18.5도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2016.03</div><div class="rgH-name">엔조이 오리지날 사과</div><div class="rgH-badges"><span class="abv-badge">18.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>엔조이(Enjoy)</b> = 즐기다. 이마트 단독 PB 리큐르 소주 시리즈 공통명.</div>
 <div class="det">무학×이마트 PB. 2016년 3월 출시, 이마트 단독 판매. 사과 특유의 달콤한 향을 살린 고도수 리큐르.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2016.05</span>엔조이 오리지날 배<span class="abv-badge">18.5도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2016.05</div><div class="rgH-name">엔조이 오리지날 배</div><div class="rgH-badges"><span class="abv-badge">18.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>엔조이</b> + <b>배(Pear)</b>. 오리지날 사과의 후속 과일 라인.</div>
 <div class="det">무학×이마트 PB. 2016년 5월 출시, 이마트 단독 판매.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2016</span>엔조이 스파클링 사과<span class="abv-badge">15도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name">엔조이 스파클링 사과</div><div class="rgH-badges"><span class="abv-badge">15도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>엔조이 오리지날</b>의 탄산주(스파클링) 버전.</div>
 <div class="det">무학×이마트 PB. 2016년 출시, 이마트 단독 판매. 엔조이 오리지날 사과의 탄산 첨가 버전.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2018</span>좋은데이 깔라만시<span class="abv-badge">12.5도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2018</div><div class="rgH-name">좋은데이 깔라만시</div><div class="rgH-badges"><span class="abv-badge">12.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + <b>깔라만시(Calamansi)</b>. 필리핀·동남아 원산 소형 감귤류 깔라만시를 한국 주류에 도입. 2018년 열대과일 트렌드와 건강식 관심을 반영한 이색 조합.</div>
 <div class="det">2018년 출시. 새콤달콤한 깔라만시 특유의 향. 당시 열대과일 음료 유행과 맞물려 이색 소주 시도. 좋은데이 플레이버 중 가장 독특한 소재.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2021.07</span>좋은데이 민트초코<span class="abv-badge">12.5도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2021.07</div><div class="rgH-name">좋은데이 민트초코</div><div class="rgH-badges"><span class="abv-badge">12.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + <b>민트초코(Mint Choco)</b>. 2021년 MZ세대 민트초코 열풍에 편승한 이색 기획. 과일이 아닌 과자·디저트 맛을 소주에 적용한 이례적 시도. 소주의 플레이버 경계를 과일 이상으로 확장.</div>
 <div class="det">리큐르 분류. 2021년 7월 출시. 투명 병에 민트색 내용물. 은은한 초코향+시원한 민트맛. 호불호 극명히 갈리는 이색 소주. "소주에 치약" vs "시원달콤" 상반된 반응.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2021.11</span>좋은데이 석류<span class="abv-badge">13.5도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2021.11</div><div class="rgH-name">좋은데이 석류</div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + <b>석류(Pomegranate)</b>. 여성 건강 이미지가 강한 석류를 소재로 컬러 시리즈를 확장.</div>
 <div class="det">2021년 11월 블루베리 탄산 리뉴얼과 동시에 신규 출시.</div>
-</td>
-</tr>
-<tr>
-<td class="cn aa"><span class="cn-launch-date">2022.04</span>좋은데이 톡<span class="abv-badge">7도</span></td>
-<td class="ci ia">
+</div>
+</div>
+<div class="rgH-card cat-flavor">
+<div class="rgH-left"><div class="rgH-year">2022.04</div><div class="rgH-name">좋은데이 톡</div><div class="rgH-badges"><span class="abv-badge">7도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + 탄산이 <b>"톡"</b> 쏘는 느낌을 표현한 의성어. 컬러 시리즈보다 도수를 낮추고 탄산을 더한 저도수 탄산주 라인명.</div>
 <div class="det">2022년 4월 출시. 사과·파인애플·석류·블루베리 4종 탄산주 라인.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 <div class="cat-subhead">🏺 증류식 · 전통</div>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="3">민속주
-안동소주</td>
-<td class="cn ad"><span class="cn-launch-date">1988(추정)</span>민속주 안동소주 45도<span class="abv-badge">45도</span></td>
-<td class="ci id">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">민속주안동소주<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">1988(추정)</div><div class="rgH-name">민속주 안동소주 45도</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>안동소주</b>는 특정 브랜드명이 아닌 안동 지역 증류식 소주 전체의 통칭(고려 말 원나라 군대 주둔 시 전해진 아라크 증류 기술이 안동 반가 문화에 정착). 그중 <b>민속주 안동소주</b>는 '민속주'(국가 지정 전통 민속주) 수식어로 전통 제조법 고수를 강조한 명칭.</div>
 <div class="det">전통 밀누룩 사용, 가마솥 상압 단식증류로 곡물 풍미를 살린 전통 방식 고수. 고 조옥화 명인(식품명인 제20호, 2020년 작고) → 현재 아들 김연박 명인(식품명인 제20-가호)·며느리 배경화(무형문화재) 3대째 계승. 1990년부터 주력 라인.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2023.01</span>민속주 안동소주 25도<span class="abv-badge">25도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2023.01</div><div class="rgH-name">민속주 안동소주 25도</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>민속주 안동소주</b> 브랜드명 + 도수 <b>25</b>. 33년 만의 신제품으로 출시된 저도수 라인.</div>
 <div class="det">2023년 1월 출시. 33년 만의 신제품, 무가수 원액. 안동시는 '안동소주 세계화 사업'을 추진하고 도지사 품질 인증제를 도입해 수출·품질 신뢰도를 높이고 있다.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">민속주 안동소주 35도<span class="abv-badge">35도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">민속주 안동소주 35도</div><div class="rgH-badges"><span class="abv-badge">35도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>민속주 안동소주</b> 브랜드명 + 도수 <b>35</b>. 저도수 보조 라인.</div>
 <div class="det">360ml. 저도수 라인.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="3">명인
-안동소주</td>
-<td class="cn ad"><span class="cn-launch-date">1988(추정)</span>명인안동소주 45도<span class="abv-badge">45도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">명인안동소주<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">1988(추정)</div><div class="rgH-name">명인안동소주 45도</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>안동소주</b>는 특정 브랜드명이 아닌 안동 지역 증류식 소주 전체의 통칭. 그중 <b>명인안동소주</b>는 박재서 명인 개인을 브랜드화한 명칭으로, 같은 안동소주 중에서도 쌀누룩·감압증류 방식으로 누룩향을 줄여 현대적 풍미를 낸 점이 특징.</div>
 <div class="det">박재서 명인(식품명인 제6호, 1995년 지정) 제조. 과거 상압증류에서 현재 쌀누룩+감압증류 방식으로 전환해 누룩향·불 냄새를 최소화. 주력 라인, 호리병 하회탈 패키지. 1988년 8대 민속주 지정. 경북 무형문화재 제12호.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">명인안동소주 35도<span class="abv-badge">35도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">명인안동소주 35도</div><div class="rgH-badges"><span class="abv-badge">35도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>명인안동소주</b> 브랜드명 + 도수 <b>35</b>. 저도수 보조 라인.</div>
 <div class="det">360ml.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">명인안동소주 22도<span class="abv-badge">22도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">명인안동소주 22도</div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>명인안동소주</b> 브랜드명 + 도수 <b>22</b>. 입문용 저도수 라인.</div>
 <div class="det">360ml. 저도수·입문용.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="2">(주)솔송주</td>
-<td class="cn ad"><span class="cn-launch-date">1996(추정)</span>솔송주<span class="abv-badge">13도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">(주)솔송주<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">1996(추정)</div><div class="rgH-name">솔송주</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>솔(소나무·솔잎)</b> + <b>송(松, 소나무)</b> + <b>주(酒)</b>. 솔잎(소나무 잎)을 원료로 사용했다는 것을 이름 자체에 이중으로 표현(순우리말 "솔" + 한자 "松"). 원래 이름은 '송순주'였으나 동명 브랜드와 구분을 위해 '솔송주'로 명칭 변경.</div>
 <div class="det">약주. 경남 함양 (주)솔송주. 박흥선 명인(식품명인 제27호, 경남 무형문화재 제35호) 제조 — 하동정씨 가문 16대손 며느리로 시어머니에게 전수받음. 정여창 선생 시대(1450~1504년)부터 이어진 가양주. 2007년 남북정상회담 만찬주 선정.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2010(추정)</span>담솔<span class="abv-badge">40도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2010(추정)</div><div class="rgH-name">담솔</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>담(맑다/담그다)</b> + <b>솔</b>. 솔송주를 증류해 맑게 정제한 고급 증류주라는 의미를 담은 이름.</div>
 <div class="det">증류식. 쌀·솔잎·송순으로 빚은 솔송주를 증류해 2년간 저온 숙성한 고급주. 2010년경(추정) 출시 후 2015년 대한민국 우리술품평회 리큐르 부문 대상을 수상하며 대표 명주로 자리매김. 벨기에 몽드셀렉션 금상·영국 IWSC 동상(2016)·대한민국주류대상 우리술 리큐르 대상(2016·2023·2025년 총 3회 수상, 2025년이 최신).</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="3">안동소주일품(주)</td>
-<td class="cn ad"><span class="cn-launch-date">2001</span>안동소주일품 45도<span class="abv-badge">45도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">안동소주일품(주)<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2001</div><div class="rgH-name">안동소주일품 45도</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">농업회사법인 <b>안동소주일품(주)</b>의 사명을 브랜드명으로 그대로 사용. 1997년 "푸른영농조합법인"으로 설립, 2002년 현재 사명으로 변경한 안동소주협회 회원사.</div>
 <div class="det">2001년부터 안동소주 판매 시작. 전통 도자기병 포장 라인.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">안동소주일품 40도<span class="abv-badge">40도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">안동소주일품 40도</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>안동소주일품</b> 브랜드명 + 도수 <b>40</b>.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">안동소주일품 21도<span class="abv-badge">21도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">안동소주일품 21도</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>안동소주일품</b> 브랜드명 + 도수 <b>21</b>. 저도수 유리병 라인.</div>
 <div class="det">고가의 도자기 선물용 포장이 일반적인 타 안동소주와 달리, 저도수·유리병으로 대중화를 시도한 라인.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="5">명품안동소주(주)</td>
-<td class="cn ad"><span class="cn-launch-date">2008</span>명품안동소주 45도<span class="abv-badge">45도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">명품안동소주(주)<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name">명품안동소주 45도</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">농업회사법인 <b>명품안동소주(주)</b>의 사명을 브랜드명으로 그대로 사용.</div>
 <div class="det">600mL. 2008년부터 안동소주 판매 시작. 2010년 청와대 선물세트로 사용된 기록이 있음.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">명품안동소주 40도<span class="abv-badge">40도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">명품안동소주 40도</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>명품안동소주</b> 브랜드명 + 도수 <b>40</b>.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">명품안동소주 끌림<span class="abv-badge">30도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">명품안동소주 끌림</div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>명품안동소주</b> 30도 라인의 제품명 <b>"끌림"</b>.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">명품안동소주 19.8도<span class="abv-badge">19.8도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">명품안동소주 19.8도</div><div class="rgH-badges"><span class="abv-badge">19.8도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>명품안동소주</b> 브랜드명 + 도수 <b>19.8</b>.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">참조은 안동쏘주<span class="abv-badge">16.9도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">참조은 안동쏘주</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">명품안동소주의 저도수 서브 브랜드명 <b>"참조은"</b>.</div>
 <div class="det">360mL.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="6">유토피아(주)</td>
-<td class="cn ad"><span class="cn-launch-date">2011</span>양반 안동소주 50도<span class="abv-badge">50도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">유토피아(주)<span class="rgH2-count">6종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2011</div><div class="rgH-name">양반 안동소주 50도</div><div class="rgH-badges"><span class="abv-badge">50도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">농업회사법인 <b>유토피아(주)</b>의 브랜드명 <b>"양반"</b> — 안동 전통 반가(班家) 문화를 표상.</div>
 <div class="det">2011년부터 안동소주 판매 시작. "○○년산" 숙성 연수 표기 시리즈(3년산·5년산·20년산·27년산 등)가 특징. 용량도 60mL~3.6L까지 다양.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">양반 안동소주 45도<span class="abv-badge">45도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">양반 안동소주 45도</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>양반 안동소주</b> 브랜드명 + 도수 <b>45</b>.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">양반 안동소주 43도<span class="abv-badge">43도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">양반 안동소주 43도</div><div class="rgH-badges"><span class="abv-badge">43도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>양반 안동소주</b> 브랜드명 + 도수 <b>43</b>.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">양반 안동소주 38도<span class="abv-badge">38도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">양반 안동소주 38도</div><div class="rgH-badges"><span class="abv-badge">38도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>양반 안동소주</b> 브랜드명 + 도수 <b>38</b>.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">양반 안동소주 30도<span class="abv-badge">30도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">양반 안동소주 30도</div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>양반 안동소주</b> 브랜드명 + 도수 <b>30</b>.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">양반 안동소주 25도<span class="abv-badge">25도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">양반 안동소주 25도</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>양반 안동소주</b> 브랜드명 + 도수 <b>25</b>.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="1">(주)버버리찰떡</td><td class="cn ad"><span class="cn-launch-date">2016.12</span>안동소주 올소<span class="abv-badge">25도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">(주)버버리찰떡<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2016.12</div><div class="rgH-name">안동소주 올소</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">'모두'를 뜻하는 순우리말 <b>올</b> + <b>소주</b>를 결합한 명칭으로 추정.</div>
 <div class="det">25도·35도 2종. 안동산 찹쌀 100%로 빚어 12일간 숙성한 찹쌀 동동주를 저온 증류한 뒤 와인 오크통에서 6개월 숙성. 2016년 12월 출시. 농업회사법인 (주)버버리찰떡 제조.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="3">맹개술도가
-(㈜밀과노닐다)</td>
-<td class="cn ad"><span class="cn-launch-date">2019</span>진맥소주 53도<span class="abv-badge">53도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">맹개술도가(㈜밀과노닐다)<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">진맥소주 53도</div><div class="rgH-badges"><span class="abv-badge">53도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">조선시대 문헌 『수운잡방』 기록을 근거로 복원한 밀 기반 증류식 소주. <b>진맥(眞麥)</b>은 "진짜 밀"이라는 의미.</div>
 <div class="det">500mL. 2019년 출시. 낙동강변 맹개마을에서 직접 재배한 100% 유기농 통밀 사용 — 안동 지역에서 드물게 쌀이 아닌 밀을 원료로 쓰는 증류식 소주. 국가지정 증류식소주 인증(인증번호 국가지정-가-204). 박성호 대표는 농식품부장관상(2020)·대통령 표창(2021)·경북도지사 표창(2023) 수상.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">진맥소주 40도<span class="abv-badge">40도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">진맥소주 40도</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>진맥소주</b> 브랜드명 + 도수 <b>40</b>.</div>
 <div class="det">375mL.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">진맥소주 22도<span class="abv-badge">22도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">진맥소주 22도</div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>진맥소주</b> 브랜드명 + 도수 <b>22</b>. 입문용 저도수 라인.</div>
 <div class="det">200mL.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="3">회곡양조장</td>
-<td class="cn ad">회곡 안동소주 22도<span class="abv-badge">22도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">회곡양조장<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">회곡 안동소주 22도</div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제조사 <b>회곡양조장</b>의 지명·상호를 브랜드명으로 그대로 사용.</div>
 <div class="det">375mL. 안동에서 90년간 3대째 가업을 이어온 농업회사법인 (주)회곡양조장 제조. 우리 쌀과 전통누룩으로 빚은 술을 증류한 고도주.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">회곡 안동소주 32도<span class="abv-badge">32도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">회곡 안동소주 32도</div><div class="rgH-badges"><span class="abv-badge">32도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>회곡 안동소주</b> 브랜드명 + 도수 <b>32</b>.</div>
 <div class="det">375mL.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad">회곡 안동소주 42도<span class="abv-badge">42도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-name">회곡 안동소주 42도</div><div class="rgH-badges"><span class="abv-badge">42도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>회곡 안동소주</b> 브랜드명 + 도수 <b>42</b>.</div>
 <div class="det">375mL. 안동소주에 국화를 침출시킨 국화주도 별도 판매.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 </div>
 <div class="region-detail" id="region-jeju">
-<div class="region-label rl-teal">📍 제주도  |  한라산소주(주) · 구 제주소주(현 OB맥주 제주공장) · 제주술익는집</div>
+<div class="region-label rl-teal">📍 제주도  |  대표 브랜드: 한라산21 · 고소리술</div>
 <div class="cat-subhead">🍃 희석식</div>
-<table class="card">
-<tr>
-<td class="cb cb-t" rowspan="4">OB맥주
-제주공장</td>
-<td class="cn at"><span class="cn-launch-date">2014</span>제주올레소주 곱들락<span class="abv-badge">18도</span><span class="disc-badge">단종</span></td>
-<td class="ci it">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">OB맥주제주공장<span class="rgH2-count">4종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name">제주올레소주 곱들락</div><div class="rgH-badges"><span class="abv-badge">18도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주 올레길에서 이름 착안. <b>곱들락</b>은 제주 방언으로 순한 맛을 뜻하는 기본형 라인.</div>
 <div class="det">2014년 출시. 한라산과 상표권 소송 패소 → 2017년 '푸른밤'으로 전면 리뉴얼. 제주 도내 최초 제2 지역소주로 기록.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2014</span>제주올레소주 산도롱<span class="abv-badge">20.1도</span><span class="disc-badge">단종</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name">제주올레소주 산도롱</div><div class="rgH-badges"><span class="abv-badge">20.1도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주 올레길에서 이름 착안. <b>산도롱</b>은 제주 방언으로 독한 맛을 뜻하는 고도수 라인.</div>
 <div class="det">2014년 출시. 곱들락(18도)과 함께 운영되다 한라산과 상표권 소송 패소 → 2017년 '푸른밤'으로 전면 리뉴얼.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2017.09</span>푸른밤<span class="abv-badge">16.9도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2017.09</div><div class="rgH-name">푸른밤</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주의 <b>푸른 밤바다</b> 정취를 차용한 명칭. 2014년 '제주 올레소주'를 전신으로 하며, 한라산소주와 상표권 분쟁 이후 브랜드를 '푸른밤'으로 재정렬해 2017년 9월 공식 출시.</div>
 <div class="det">짧은밤(16.9도)·긴밤(20.1도)으로 도수를 구분해 운영. 2011년 8월 제주천수 설립 → 2014년 6월 제주소주로 상호 변경 → 2016년 신세계그룹 인수(매각가 190억원) → 2017년 9월 '푸른밤' 공식 출시 → 2021년 3월 사업 중단 → 2021년 8월 20일 신세계L&amp;B에 흡수합병("신세계L&amp;B 제주사업소") → 2022년부터 수출용 리큐르 소주 OEM 생산 → 2024년 9월 오비맥주가 신세계L&amp;B로부터 인수 → 2024년 12월 흡수합병 완료, 제주소주 법인 해산 후 '오비맥주 제주공장'으로 재편. 현재 동남아·미주 일부 채널을 겨냥한 수출용 리큐르 소주(과일향·저도수 포맷 중심)를 생산하며 제주 기반 수출 거점으로 운영 중.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2019</span>푸른밤 지픈밤<span class="abv-badge">20.1도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">푸른밤 지픈밤</div><div class="rgH-badges"><span class="abv-badge">20.1도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주 방언으로 <b>"깊은 밤"</b>을 뜻하는 <b>지픈밤</b>. 푸른밤보다 도수를 높인 고도주 라인임을 표현.</div>
 <div class="det">짧은밤(16.9도)과 함께 운영되는 고도수 라인("긴밤").</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-t" rowspan="5">한라산
-소주</td>
-<td class="cn at"><span class="cn-launch-date">1950</span>한일소주<span class="abv-badge">25~30도</span><span class="disc-badge">단종</span></td>
-<td class="ci it">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-diluted">한라산소주<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">1950</div><div class="rgH-name">한일소주</div><div class="rgH-badges"><span class="abv-badge">25~30도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">창업 당시 사명 <b>한일(韓一)</b>을 제품명으로 그대로 사용.</div>
 <div class="det">25~30도. 1950년 창업 당시 사명·브랜드명. 1993년 '한라산'으로 사명·브랜드를 변경하며 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2014.09</span>올래소주 (한라산 올래)<span class="abv-badge">17.5도</span><span class="disc-badge">단종</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2014.09</div><div class="rgH-name">올래소주 (한라산 올래)</div><div class="rgH-badges"><span class="abv-badge">17.5도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주어 <b>올레</b>(집으로 이어지는 골목길)를 브랜드화.</div>
 <div class="det">2014년 9월 제주소주의 '올레소주' 출시에 맞서 기존 '순한소주' 라벨을 '올래'로 변경. 상표권 확보 후 2019년 투명병 '한라산17'로 교체되며 단종.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2019</span>한라산21<span class="abv-badge">21도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">한라산21</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주도의 상징이자 대한민국 최고봉 <b>한라산(漢拏山)</b>의 이름을 그대로 브랜드화. 제주 화산암반수·청정 자연 정체성을 이름 자체로 표현. 1950년 창업 4대째 향토기업. 1993년 23도 전후로 첫 출시(자료별로 23~25도로 다소 불일치) 후 여러 차례 도수 인하를 거쳐 2012년 21도로 정착, 2019년 신제품 "한라산17"과 이름 통일성을 맞춰 기존 "한라산 오리지널"에서 "한라산21"로 명칭 변경.</div>
 <div class="det">오리지널·희석식. 1993년 출시 후 수차례 도수 인하를 거쳐 2012년 21도로 정착한 현 주력 라인(2019년부터 "한라산21" 명칭 사용). ※단종: 한라산올레·한라산물순한소주오리지널. 제주 점유율 60%대. 2012 IWSC 금상·세계 3대 주류품평회 석권.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2023.05.10</span>한라산순한<span class="abv-badge">16도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2023.05.10</div><div class="rgH-name">한라산순한</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>한라산</b> 브랜드명 + <b>"순하다"</b>를 결합해 저도수 라인을 직관적으로 표기. 2019년 출시된 "한라산17"(17도)을 4년 만에 대체한 후속 라인.</div>
 <div class="det">무가당 제로 슈거. 2023년 5월 한라산17(17도)을 단종하고 도수를 낮춰 출시. 한라산21과 함께 운영되는 현 2종 체제의 저도수 버전.</div>
-</td>
-</tr>
-<tr>
-<td class="cn at"><span class="cn-launch-date">2025.01</span>오늘도 부드럽게 오름<span class="abv-badge">16도</span></td>
-<td class="ci it">
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2025.01</div><div class="rgH-name">오늘도 부드럽게 오름</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>오름</b> = 제주 방언으로 화산 분출로 생긴 <b>기생화산(소형 화산 언덕)</b>. 제주 전역에 360여 개가 있어 제주의 상징적 지형. 창립 75주년을 맞아 <b>"도민과 함께 밝은 미래로 다시 올라선다"</b>는 의지를 표현. 한라산 윗세오름의 산세와 떠오르는 태양을 병 라벨에 형상화.</div>
 <div class="det">정식명 "오늘도 부드럽게 오름". 2025년 1월 출시. 한라산소주 창립 75주년 기념 제주 전용 신제품. 10년 숙성 국산 쌀 증류원액 블렌딩. 금색 뚜껑(황금빛 벼 의미). 2019년 단종된 녹색 병이 6년 만에 부활. 기존 한라산21·순한(17도)과 차별화한 세 번째 라인.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 <div class="cat-subhead">🏺 증류식 · 전통</div>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="2">한라산
-소주</td>
-<td class="cn ad"><span class="cn-launch-date">1995.01.03</span>허벅술<span class="abv-badge">35도</span></td>
-<td class="ci id">
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">한라산소주<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">1995.01.03</div><div class="rgH-name">허벅술</div><div class="rgH-badges"><span class="abv-badge">35도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>허벅</b>은 제주 방언으로 <b>물을 길어 나르는 전통 항아리(옹기 항아리)</b>를 뜻함. 제주 여성들이 물을 길어 나르던 허벅의 이미지로 제주 전통·여성성·청정수 이미지를 동시에 표현. 제주 고유 언어가 이름이 된 사례. 병 외부에는 제주 서예가 소암 현중화 선생의 친필이 새겨짐.</div>
 <div class="det">1995년 1월 3일 첫 출시(0.72L). 100% 제주산 쌀·제주 화산암반수를 증류한 원주에 천연 유채꿀을 더해 오크통 3년 숙성. 제주 공장 직판·제주 한정 연 3만 병 생산. 2003년 남북평화축전, 2005년 남북 국방장관회담, 2009년 6월 한-아세안 특별정상회의(당시 만찬용으로는 도수가 높아 18도로 희석한 별도 버전 사용) 공식 만찬주로 채택. 2018 평창올림픽 남북대표단 오찬 건배주 선정. 1996년 제주 한일정상회담에서 하시모토 류타로 당시 일본 총리가 즐겨 마셔 "하시모토 술"이라는 별명을 얻기도 함. 2012년 11월 IWSC 한국 증류주 부문 최초 금상 수상.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">2023.11.03</span>한라산1950<span class="abv-badge">25도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2023.11.03</div><div class="rgH-name">한라산1950</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>1950</b> = 한라산소주 창립 연도(1950년) + 한라산 실제 해발고도 <b>1,950m</b>의 이중 의미. 창업의 역사와 제주 최고봉의 높이를 동시에 담은 중의적 네이밍.</div>
 <div class="det">2023년 11월 3일 출시. ㈜한라산 창립 73주년(1950+73) 기념 프리미엄 라인. 100% 국산쌀 증류식 소주 원액 오크통 숙성 후 블렌딩. 제주 한정판에서 전국 편의점·면세점까지 확대 유통(2024년 신세계면세점 입점). 허벅술의 대중화 버전 포지셔닝. 은은한 오크 향과 부드러운 쌀맛이 특징. 원부자재 가격 상승으로 375ml 편의점가가 1만2000원→1만3500원(12.5%↑)으로 인상된 바 있음.</div>
-</td>
-</tr>
-</table>
-<table class="card">
-<tr>
-<td class="cb cb-d" rowspan="2">제주술익는집</td>
-<td class="cn ad"><span class="cn-launch-date">1995(추정)</span>고소리술 29도<span class="abv-badge">29도</span></td>
-<td class="ci id">
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">제주술익는집<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">1995(추정)</div><div class="rgH-name">고소리술 29도</div><div class="rgH-badges"><span class="abv-badge">29도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>고소리</b>는 제주 방언으로 <b>소줏고리(증류 기구)</b>를 뜻함. 즉 "소줏고리로 만든 술"이라는 제조 도구 자체가 제품명이 된 케이스. 제주 고유의 언어·문화가 담긴 이름.</div>
 <div class="det">차조·보리누룩 기반 오메기술 증류. 375ml. 제조사 제주술익는집은 서귀포 성읍민속마을 인근에 위치. 제주도 무형문화재 제11호(1995년 지정) 기법 기반 제품.</div>
-</td>
-</tr>
-<tr>
-<td class="cn ad"><span class="cn-launch-date">1995(추정)</span>고소리술 40도<span class="abv-badge">40도</span></td>
-<td class="ci id">
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">1995(추정)</div><div class="rgH-name">고소리술 40도</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>고소리술</b> 브랜드명 + 도수 <b>40</b>. 도자기 세트로 출시하는 주력 라인.</div>
 <div class="det">주력 라인, 도자기 세트. 제주도 무형문화재 제11호(1995년 지정). 기존 기능보유자 고 김을정 명인 2021년 3월 작고 후 현재 <b>김희숙 명인</b>(식품명인 제84호, 제주도 무형문화재 제11호)이 서귀포 성읍민속마을 인근 '제주술익는집'에서 계승. 최소 1년 6개월 이상 숙성.</div>
-</td>
-</tr>
-</table>
+</div>
+</div>
+</div>
+</details>
+
 </div>
 </div>
 
@@ -3080,7 +3204,7 @@ function catKeyOf(text) {
 }
 function initRegionSummaries() {
   document.querySelectorAll('.region-detail').forEach(function (region) {
-    var mfrCount = region.querySelectorAll('.cb').length;
+    var mfrCount = region.querySelectorAll('.cb, .rgH2-group').length;
     var catCounts = {};
     var order = [];
     var current = null;
@@ -3090,6 +3214,8 @@ function initRegionSummaries() {
         if (order.indexOf(current) === -1) { order.push(current); catCounts[current] = 0; }
       } else if (el.tagName === 'TABLE' && el.classList.contains('card') && current) {
         catCounts[current] += el.querySelectorAll('.cn').length;
+      } else if (el.tagName === 'DETAILS' && el.classList.contains('rgH2-group') && current) {
+        catCounts[current] += el.querySelectorAll('.rgH-card').length;
       }
     });
     var total = 0;
