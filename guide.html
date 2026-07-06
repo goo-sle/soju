@@ -496,14 +496,13 @@ button.tab-btn {
 .idx-filter-btn.active { background: #4a148c; color: #fff; border-color: #4a148c; }
 .idx-empty { text-align: center; color: #999; padding: 14px; font-size: 10.1pt; display: none; }
 
-/* ── 빠른 찾기: 제조사 그리드 ── */
+/* ── 빠른 찾기: 제조사 그리드 (JS 메이슨리 레이아웃, layoutMasonry() 참고) ── */
 .idx-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
-  gap: 10px;
+  position: relative;
   margin: 6px 0 4px;
 }
 .idx-card {
+  box-sizing: border-box;
   border: 1px solid #e0e0e0;
   border-radius: 20px;
   padding: 14px 16px;
@@ -514,15 +513,20 @@ button.tab-btn {
 .idx-card-header {
   font-weight: 900;
   font-size: 10.4pt;
-  color: #1a1a2e;
+  color: #e94560;
   margin-bottom: 6px;
   padding-bottom: 5px;
-  border-bottom: 2px solid #1a1a2e;
+  border-bottom: 2px solid #e94560;
 }
 .idx-brand {
-  padding: 5px 0;
-  border-bottom: 1px dashed #e8e8e8;
+  padding: 6px 0 6px 8px;
+  border-bottom: 1px solid #e2e2e2;
+  border-left: 3px solid #ddd;
 }
+.idx-brand:has(.idx-cat-b) { border-left-color: #1565c0; }
+.idx-brand:has(.idx-cat-t) { border-left-color: #00796b; }
+.idx-brand:has(.idx-cat-d) { border-left-color: #4a148c; }
+.idx-brand:has(.idx-cat-a) { border-left-color: #e65100; }
 .idx-brand:last-child { border-bottom: none; }
 .idx-brand-top {
   display: flex;
@@ -548,7 +552,8 @@ button.tab-btn {
 .idx-brand-kw .idx-cat { margin-right: 5px; }
 @media print {
   .idx-search { display: none; }
-  .idx-card { display: block !important; }
+  .idx-grid { height: auto !important; position: static !important; }
+  .idx-card { display: block !important; position: static !important; left: auto !important; top: auto !important; width: auto !important; margin-bottom: 10px; }
   .idx-brand { display: block !important; }
   .idx-empty { display: none !important; }
 }
@@ -593,7 +598,6 @@ button.tab-btn {
   body { font-size: 12px; }
   .hero { padding: 16px 10px 12px; }
   .hero-title { font-size: 17.9pt; }
-  .idx-grid { grid-template-columns: 1fr; }
   .card, .card tbody, .card tr { display: block; width: 100%; }
   .card td { display: block; width: 100% !important; white-space: normal; }
   .cb { text-align: left; border-radius: 4px 4px 0 0; }
@@ -805,8 +809,7 @@ table.card.card-collapsed { display: none; }
 </div>
 <div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 상업 소주사 · 유통사 콜라보 (15개사)</div>
 <div class="idx-group-body">
-<div class="idx-grid" id="idxGrid">
-<div class="idx-card" style="order:1"><div class="idx-card-header">하이트진로</div>
+<div class="idx-grid" id="idxGrid"><div class="idx-card" style="order:1"><div class="idx-card-header">하이트진로</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1924</span></div><div class="idx-brand-kw">1924년 원조 브랜드 · 정통 도수 유지</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로이즈백</span></div><div class="idx-brand-meta"><span class="idx-abv">15.7도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">두꺼비 뉴트로 · 2026.02 15.7도 리뉴얼</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참이슬 후레쉬</span></div><div class="idx-brand-meta"><span class="idx-abv">15.7도</span><span class="idx-year">1998</span></div><div class="idx-brand-kw">No.1 스테디셀러 · 2026.06 15.7도 리뉴얼, 패키지 새단장</div></div>
@@ -875,9 +878,6 @@ table.card.card-collapsed { display: none; }
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">씨티</span></div><div class="idx-brand-meta"><span class="idx-year">1994</span></div><div class="idx-brand-kw">옛 주력 라인</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">김삿갓</span></div><div class="idx-brand-meta"><span class="idx-year">1996</span></div><div class="idx-brand-kw">방랑 시인 이름 차용</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">곰바우</span></div><div class="idx-brand-meta"><span class="idx-year">1997</span></div><div class="idx-brand-kw">향토적 네이밍</div></div></div>
-<div class="idx-card" style="order:15"><div class="idx-card-header">보배양조</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">하이트(구 보배양조)</span></div><div class="idx-brand-meta"><span class="idx-abv">19도(추정)</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">전북 대표, 2013년 하이트진로 흡수합병</div></div>
-</div>
 <div class="idx-card" style="order:5"><div class="idx-card-header">대선주조</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">C1(씨원)</span></div><div class="idx-brand-meta"><span class="idx-abv">18도</span><span class="idx-year">1996</span></div><div class="idx-brand-kw">음향숙성진동공법 · 2025.07 19도→18도 리뉴얼</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">대선</span></div><div class="idx-brand-meta"><span class="idx-abv">16.5도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">부산 최고령 소주사, 정통 라인</div></div>
@@ -960,12 +960,13 @@ table.card.card-collapsed { display: none; }
 <div class="idx-card" style="order:14"><div class="idx-card-header">세븐일레븐×최강록</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">최강록 네오25화이트</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.01 출시, 2만병 한정</div></div>
 </div>
-</div>
+<div class="idx-card" style="order:15"><div class="idx-card-header">보배양조</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">하이트(구 보배양조)</span></div><div class="idx-brand-meta"><span class="idx-abv">19도(추정)</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">전북 대표, 2013년 하이트진로 흡수합병</div></div>
+</div></div>
 </div>
 <div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 전통 증류주 · 명인 양조장 (37개사)</div>
 <div class="idx-group-body">
-<div class="idx-grid" id="idxGrid2">
-<div class="idx-card" style="order:1"><div class="idx-card-header">민속주/명인 안동소주</div>
+<div class="idx-grid" id="idxGrid2"><div class="idx-card" style="order:1"><div class="idx-card-header">민속주/명인 안동소주</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 45도</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">1990년부터 주력, 조옥화→김연박 명인 계승</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 35도</span></div><div class="idx-brand-meta"><span class="idx-abv">35도</span></div><div class="idx-brand-kw">저도수 라인, 360ml</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 25도</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">2023.01 출시, 33년 만의 신제품, 무가수 원액</div></div>
@@ -977,14 +978,6 @@ table.card.card-collapsed { display: none; }
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">문배주 25도</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1986(추정)</span></div><div class="idx-brand-kw">500ml</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">문배주 40도</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">1986(추정)</span></div><div class="idx-brand-kw">국가무형유산 제86-1호, 조+수수만 사용 주력 라인</div></div>
 </div>
-<div class="idx-card" style="order:7"><div class="idx-card-header">홍성양조장</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">황금보리소주</span></div><div class="idx-brand-meta"><span class="idx-abv">17·25·40도</span></div><div class="idx-brand-kw">무농약 보리 100%, 2018 전통주협회 선호도 2위</div></div>
-</div>
-<div class="idx-card" style="order:8"><div class="idx-card-header">제이앤제이브루어리</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼레드25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span></div><div class="idx-brand-kw">375ml</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼50</span></div><div class="idx-brand-meta"><span class="idx-abv">50도</span></div><div class="idx-brand-kw">375ml</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼75</span></div><div class="idx-brand-meta"><span class="idx-abv">75도</span></div><div class="idx-brand-kw">국내 시판 최고 도수, 375ml</div></div>
-</div>
 <div class="idx-card" style="order:3"><div class="idx-card-header">전주이강주(주)</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이강주 19도</span></div><div class="idx-brand-meta"><span class="idx-abv">19도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">미국 수출용, 고도주 규제 회피용 저도수판</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이강주 25도</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">원조 도수, 375/500/1000ml</div></div>
@@ -994,13 +987,21 @@ table.card.card-collapsed { display: none; }
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">감홍로</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">조선 3대 명주, 이기숙 명인(식품명인 제43호)</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">감홍로 화이트</span></div><div class="idx-brand-meta"><span class="idx-abv">43도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.01.28 출시, 8년 재증류 숙성, 이기숙 명인 제조 20주년 기념</div></div>
 </div>
+<div class="idx-card" style="order:5"><div class="idx-card-header">(주)솔송주</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">약주</span><span class="idx-brand-name">솔송주</span></div><div class="idx-brand-meta"><span class="idx-abv">13도</span><span class="idx-year">1996(추정)</span></div><div class="idx-brand-kw">정여창 가문 가양주, 식품명인 제27호</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">담솔</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">2010(추정)</span></div><div class="idx-brand-kw">솔송주 증류 후 2년 저온 숙성</div></div>
+</div>
 <div class="idx-card" style="order:6"><div class="idx-card-header">제주술익는집</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">고소리술 29도</span></div><div class="idx-brand-meta"><span class="idx-abv">29도</span><span class="idx-year">1995(추정)</span></div><div class="idx-brand-kw">375ml</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">고소리술 40도</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">1995(추정)</span></div><div class="idx-brand-kw">제주 무형문화재 제11호, 도자기 세트 주력</div></div>
 </div>
-<div class="idx-card" style="order:5"><div class="idx-card-header">(주)솔송주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">약주</span><span class="idx-brand-name">솔송주</span></div><div class="idx-brand-meta"><span class="idx-abv">13도</span><span class="idx-year">1996(추정)</span></div><div class="idx-brand-kw">정여창 가문 가양주, 식품명인 제27호</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">담솔</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">2010(추정)</span></div><div class="idx-brand-kw">솔송주 증류 후 2년 저온 숙성</div></div>
+<div class="idx-card" style="order:7"><div class="idx-card-header">홍성양조장</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">황금보리소주</span></div><div class="idx-brand-meta"><span class="idx-abv">17·25·40도</span></div><div class="idx-brand-kw">무농약 보리 100%, 2018 전통주협회 선호도 2위</div></div>
+</div>
+<div class="idx-card" style="order:8"><div class="idx-card-header">제이앤제이브루어리</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼레드25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span></div><div class="idx-brand-kw">375ml</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼50</span></div><div class="idx-brand-meta"><span class="idx-abv">50도</span></div><div class="idx-brand-kw">375ml</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼75</span></div><div class="idx-brand-meta"><span class="idx-abv">75도</span></div><div class="idx-brand-kw">국내 시판 최고 도수, 375ml</div></div>
 </div>
 <div class="idx-card" style="order:10"><div class="idx-card-header">안동소주일품(주)</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">안동소주일품</span></div><div class="idx-brand-meta"><span class="idx-abv">45·40도</span><span class="idx-year">2001</span></div><div class="idx-brand-kw">안동소주협회 회원사, 도자기병 포장</div></div>
@@ -1045,25 +1046,36 @@ table.card.card-collapsed { display: none; }
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">애</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">보리소주, 《산가요록》 맥주 주방문 재현</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">락</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.07 출시, 쌀소주</div></div>
 </div>
-<div class="idx-card" style="order:36"><div class="idx-card-header">포항불로주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">불로주</span></div><div class="idx-brand-kw">경북 포항, 2009 한국전통주품평회 금상</div></div>
+<div class="idx-card" style="order:19"><div class="idx-card-header">삼해소주가</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">삼해소주</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span></div><div class="idx-brand-kw">서울 마포, 천년 역사, 김택상 명인(식품명인 69호)</div></div>
 </div>
-<div class="idx-card" style="order:37"><div class="idx-card-header">인산가</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">월고해</span></div><div class="idx-brand-meta"><span class="idx-abv">42도</span></div><div class="idx-brand-kw">경남 함양, 오양주 1회 증류</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">적송자</span></div><div class="idx-brand-meta"><span class="idx-abv">53·72도</span></div><div class="idx-brand-kw">오양주 2회 증류</div></div>
+<div class="idx-card" style="order:20"><div class="idx-card-header">남한산성소주</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">남한산성소주</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span></div><div class="idx-brand-kw">경기 광주, 경기도 무형문화재 13호, 강석필 명인</div></div>
 </div>
-<div class="idx-card" style="order:38"><div class="idx-card-header">내외디스틸러리</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">내외21</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span></div><div class="idx-brand-kw">경남 산청, 2025 대한민국 주류대상</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">내외39</span></div><div class="idx-brand-meta"><span class="idx-abv">39도</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-card" style="order:21"><div class="idx-card-header">한주양조</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">한주</span></div><div class="idx-brand-meta"><span class="idx-abv">25·35도</span></div><div class="idx-brand-kw">경기 안성, 이성자 명인(송절주 기능보유자)</div></div>
 </div>
-<div class="idx-card" style="order:33"><div class="idx-card-header">내변산양조장</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">백제소주</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span></div><div class="idx-brand-kw">전북 부안, 옹기 8개월 숙성</div></div>
+<div class="idx-card" style="order:22"><div class="idx-card-header">술샘</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">미르40</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">2018(추정)</span></div><div class="idx-brand-kw">경기 용인, 2018 우리술 품평회 대통령상</div></div>
 </div>
-<div class="idx-card" style="order:34"><div class="idx-card-header">대마주조</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">톡 한잔 소주</span></div><div class="idx-brand-meta"><span class="idx-abv">30도</span></div><div class="idx-brand-kw">전남 영광</div></div>
+<div class="idx-card" style="order:23"><div class="idx-card-header">좋은술</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">천비향 화주</span></div><div class="idx-brand-meta"><span class="idx-abv">25·40·53도</span></div><div class="idx-brand-kw">경기 평택, 오양주 4회 증류·1년+ 숙성</div></div>
 </div>
-<div class="idx-card" style="order:35"><div class="idx-card-header">병영소주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">병영소주</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span></div><div class="idx-brand-kw">전남 강진, 식품명인 61호 김견식, 보리소주</div></div>
+<div class="idx-card" style="order:24"><div class="idx-card-header">모월</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모월 인</span></div><div class="idx-brand-meta"><span class="idx-abv">41도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">강원 원주, 2020 우리술 품평회 대통령상</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모월 로</span></div><div class="idx-brand-kw">도수 미확인</div></div>
+</div>
+<div class="idx-card" style="order:25"><div class="idx-card-header">화전일취</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화전일취</span></div><div class="idx-brand-meta"><span class="idx-abv">52·38도</span></div><div class="idx-brand-kw">강원 춘천, 소줏고리 전통 증류</div></div>
+</div>
+<div class="idx-card" style="order:26"><div class="idx-card-header">마마스팜</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모곡53</span></div><div class="idx-brand-meta"><span class="idx-abv">53도(제품명 기준)</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">강원 홍천, 향온곡·앉은뱅이밀 누룩</div></div>
+</div>
+<div class="idx-card" style="order:27"><div class="idx-card-header">옥로주전수관</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">옥로주</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span></div><div class="idx-brand-kw">경기 안산 대부도, 경기도 무형유산</div></div>
+</div>
+<div class="idx-card" style="order:28"><div class="idx-card-header">국순당여주명가</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">려</span></div><div class="idx-brand-meta"><span class="idx-abv">25·40도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">경기 여주, 고구마·쌀 증류원액, 별명 쌀려·고구려</div></div>
 </div>
 <div class="idx-card" style="order:29"><div class="idx-card-header">조은술세종</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이도 22</span></div><div class="idx-brand-meta"><span class="idx-abv">22도</span></div><div class="idx-brand-kw">충북 청주, 유기농쌀, 2016 우리술품평회 대상</div></div>
@@ -1083,38 +1095,26 @@ table.card.card-collapsed { display: none; }
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">주향담을</span></div><div class="idx-brand-meta"><span class="idx-abv">41도</span></div><div class="idx-brand-kw">3년 항아리 숙성</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">주향아라</span></div><div class="idx-brand-meta"><span class="idx-abv">55도</span></div><div class="idx-brand-kw">3년 항아리 숙성, 최고도수</div></div>
 </div>
-<div class="idx-card" style="order:19"><div class="idx-card-header">삼해소주가</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">삼해소주</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span></div><div class="idx-brand-kw">서울 마포, 천년 역사, 김택상 명인(식품명인 69호)</div></div>
+<div class="idx-card" style="order:33"><div class="idx-card-header">내변산양조장</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">백제소주</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span></div><div class="idx-brand-kw">전북 부안, 옹기 8개월 숙성</div></div>
 </div>
-<div class="idx-card" style="order:20"><div class="idx-card-header">남한산성소주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">남한산성소주</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span></div><div class="idx-brand-kw">경기 광주, 경기도 무형문화재 13호, 강석필 명인</div></div>
+<div class="idx-card" style="order:34"><div class="idx-card-header">대마주조</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">톡 한잔 소주</span></div><div class="idx-brand-meta"><span class="idx-abv">30도</span></div><div class="idx-brand-kw">전남 영광</div></div>
 </div>
-<div class="idx-card" style="order:21"><div class="idx-card-header">한주양조</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">한주</span></div><div class="idx-brand-meta"><span class="idx-abv">25·35도</span></div><div class="idx-brand-kw">경기 안성, 이성자 명인(송절주 기능보유자)</div></div>
+<div class="idx-card" style="order:35"><div class="idx-card-header">병영소주</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">병영소주</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span></div><div class="idx-brand-kw">전남 강진, 식품명인 61호 김견식, 보리소주</div></div>
 </div>
-<div class="idx-card" style="order:22"><div class="idx-card-header">술샘</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">미르40</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">2018(추정)</span></div><div class="idx-brand-kw">경기 용인, 2018 우리술 품평회 대통령상</div></div>
+<div class="idx-card" style="order:36"><div class="idx-card-header">포항불로주</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">불로주</span></div><div class="idx-brand-kw">경북 포항, 2009 한국전통주품평회 금상</div></div>
 </div>
-<div class="idx-card" style="order:23"><div class="idx-card-header">좋은술</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">천비향 화주</span></div><div class="idx-brand-meta"><span class="idx-abv">25·40·53도</span></div><div class="idx-brand-kw">경기 평택, 오양주 4회 증류·1년+ 숙성</div></div>
+<div class="idx-card" style="order:37"><div class="idx-card-header">인산가</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">월고해</span></div><div class="idx-brand-meta"><span class="idx-abv">42도</span></div><div class="idx-brand-kw">경남 함양, 오양주 1회 증류</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">적송자</span></div><div class="idx-brand-meta"><span class="idx-abv">53·72도</span></div><div class="idx-brand-kw">오양주 2회 증류</div></div>
 </div>
-<div class="idx-card" style="order:27"><div class="idx-card-header">옥로주전수관</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">옥로주</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span></div><div class="idx-brand-kw">경기 안산 대부도, 경기도 무형유산</div></div>
-</div>
-<div class="idx-card" style="order:28"><div class="idx-card-header">국순당여주명가</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">려</span></div><div class="idx-brand-meta"><span class="idx-abv">25·40도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">경기 여주, 고구마·쌀 증류원액, 별명 쌀려·고구려</div></div>
-</div>
-<div class="idx-card" style="order:24"><div class="idx-card-header">모월</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모월 인</span></div><div class="idx-brand-meta"><span class="idx-abv">41도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">강원 원주, 2020 우리술 품평회 대통령상</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모월 로</span></div><div class="idx-brand-kw">도수 미확인</div></div>
-</div>
-<div class="idx-card" style="order:25"><div class="idx-card-header">화전일취</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화전일취</span></div><div class="idx-brand-meta"><span class="idx-abv">52·38도</span></div><div class="idx-brand-kw">강원 춘천, 소줏고리 전통 증류</div></div>
-</div>
-<div class="idx-card" style="order:26"><div class="idx-card-header">마마스팜</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모곡53</span></div><div class="idx-brand-meta"><span class="idx-abv">53도(제품명 기준)</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">강원 홍천, 향온곡·앉은뱅이밀 누룩</div></div>
-</div>
-</div>
+<div class="idx-card" style="order:38"><div class="idx-card-header">내외디스틸러리</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">내외21</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span></div><div class="idx-brand-kw">경남 산청, 2025 대한민국 주류대상</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">내외39</span></div><div class="idx-brand-meta"><span class="idx-abv">39도</span></div><div class="idx-brand-kw"></div></div>
+</div></div>
 </div>
 <div class="idx-empty" id="idxEmpty">검색·필터 조건에 맞는 브랜드가 없습니다.</div>
 </div>
@@ -3578,6 +3578,31 @@ table.card.card-collapsed { display: none; }
 </div>
 <script>
 var idxFilterCat = 'all';
+function layoutMasonry(grid) {
+  if (!grid) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.idx-card')).filter(function (c) {
+    return c.style.display !== 'none';
+  });
+  var width = grid.clientWidth;
+  if (!width || cards.length === 0) { grid.style.height = ''; return; }
+  var colTarget = 255, gap = 10;
+  var cols = Math.max(1, Math.floor((width + gap) / (colTarget + gap)));
+  var colWidth = (width - gap * (cols - 1)) / cols;
+  var heights = new Array(cols).fill(0);
+  cards.forEach(function (card) {
+    card.style.position = 'absolute';
+    card.style.width = colWidth + 'px';
+    var idx = 0;
+    for (var i = 1; i < cols; i++) { if (heights[i] < heights[idx]) idx = i; }
+    card.style.left = (idx * (colWidth + gap)) + 'px';
+    card.style.top = heights[idx] + 'px';
+    heights[idx] += card.offsetHeight + gap;
+  });
+  grid.style.height = Math.max.apply(null, heights) + 'px';
+}
+function layoutAllMasonry() {
+  document.querySelectorAll('.idx-grid').forEach(layoutMasonry);
+}
 function applyIdxFilter() {
   var q = document.getElementById('idxSearch').value.trim().toLowerCase();
   var cards = document.querySelectorAll('.idx-grid .idx-card');
@@ -3600,6 +3625,7 @@ function applyIdxFilter() {
     totalVisible += cardVisible;
   });
   document.getElementById('idxEmpty').style.display = totalVisible === 0 ? 'block' : 'none';
+  layoutAllMasonry();
 }
 function setIdxFilter(cat) {
   idxFilterCat = cat;
@@ -3616,6 +3642,7 @@ function showTab(id) {
   if (panel) panel.classList.add('active');
   document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.tab === id); });
   if (id === 'region') showRegionMap();
+  if (id === 'quickindex') layoutAllMasonry();
   window.scrollTo({ top: 0, behavior: 'smooth' });
   if (typeof gtag === 'function') gtag('event', 'tab_view', { tab_name: TAB_LABELS[id] || id });
 }
@@ -3640,6 +3667,7 @@ function toggleIdxGroup(toggleEl) {
   toggleEl.classList.toggle('collapsed');
   var body = toggleEl.nextElementSibling;
   if (body) body.classList.toggle('collapsed');
+  layoutAllMasonry();
 }
 function initIdxCards() {
   document.querySelectorAll('.idx-card').forEach(function (card) {
@@ -3807,6 +3835,14 @@ initBadgeRows();
 initRegionSummaries();
 initRegionJumpNav();
 initCardAccordions();
+layoutAllMasonry();
+(function () {
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(layoutAllMasonry, 150);
+  });
+})();
 (function () {
   var id = location.hash.replace('#', '');
   if (id) showTab(id);
