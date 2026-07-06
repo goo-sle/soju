@@ -147,7 +147,7 @@ button.tab-btn {
   .tab-nav { display: none; }
 }
 
-/* ── LANGUAGE FAB ── */
+/* ── LANGUAGE FAB (26.07 비활성화 — soju.md 참고, 필요 시 주석 해제) ──
 .lang-fab {
   position: fixed; bottom: 20px; left: 20px; z-index: 1000;
   background: #1a1a2e; color: #fff; border: none; border-radius: 999px;
@@ -158,6 +158,7 @@ button.tab-btn {
 }
 .lang-fab:hover { transform: scale(1.05); }
 .lang-fab svg { width: 14px; height: 14px; flex-shrink: 0; }
+*/
 @media print {
   .lang-fab { display: none !important; }
 }
@@ -525,6 +526,7 @@ button.tab-btn {
 .idx-brand:last-child { border-bottom: none; }
 .idx-brand-top {
   display: flex;
+  justify-content: flex-start;
   align-items: baseline;
   flex-wrap: wrap;
   gap: 6px;
@@ -533,9 +535,15 @@ button.tab-btn {
   margin-bottom: 2px;
 }
 .idx-brand-name { color: #1a1a1a; }
-.idx-abv { color: #555; font-size: 8.3pt; font-weight: 600; white-space: nowrap; margin-left: auto; }
+.idx-brand-meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+.idx-abv { color: #555; font-size: 8.3pt; font-weight: 600; white-space: nowrap; }
 .idx-year { color: #999; font-size: 7.6pt; font-weight: 600; white-space: nowrap; }
-.idx-brand-name + .idx-year { margin-left: auto; }
 .idx-brand-kw { color: #666; font-size: 8.3pt; line-height: 1.4; }
 .idx-brand-kw .idx-cat { margin-right: 5px; }
 @media print {
@@ -658,6 +666,10 @@ button.tab-btn {
 .mc-t .mc-head { color: #00796b; }
 .mc-d { background: #f3e5f5; border-left: 3px solid #4a148c; }
 .mc-d .mc-head { color: #4a148c; }
+.mc-a { background: #fff3e0; border-left: 3px solid #e65100; }
+.mc-a .mc-head { color: #e65100; }
+.mc-gray { background: #f0f0f0; border-left: 3px solid #616161; }
+.mc-gray .mc-head { color: #424242; }
 .method-grid-num { gap: 12px; }
 .method-grid-stack { flex-direction: column; gap: 6px; }
 .method-grid-stack .method-card { flex: 1 1 auto; display: flex; align-items: baseline; gap: 8px; padding-top: 7px; padding-bottom: 7px; }
@@ -795,158 +807,158 @@ table.card.card-collapsed { display: none; }
 <div class="idx-group-body">
 <div class="idx-grid" id="idxGrid">
 <div class="idx-card" style="order:1"><div class="idx-card-header">하이트진로</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로25</span><span class="idx-abv">25도</span><span class="idx-year">1924</span></div><div class="idx-brand-kw">1924년 원조 브랜드 · 정통 도수 유지</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로이즈백</span><span class="idx-abv">15.7도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">두꺼비 뉴트로 · 2026.02 15.7도 리뉴얼</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참이슬 후레쉬</span><span class="idx-abv">15.7도</span><span class="idx-year">1998</span></div><div class="idx-brand-kw">No.1 스테디셀러 · 2026.06 15.7도 리뉴얼, 패키지 새단장</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참이슬 오리지널</span><span class="idx-abv">20.1도</span><span class="idx-year">1998</span></div><div class="idx-brand-kw">참이슬 정통 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로 골드(제로)</span><span class="idx-abv">15.5도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">제로슈거 · 쌀 증류원액 블렌딩, 2024년 100주년 출시</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참나무통 맑은소주</span><span class="idx-abv">22도</span><span class="idx-year">1996</span></div><div class="idx-brand-kw">오크통 숙성 블렌딩</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">자몽에이슬</span><span class="idx-abv">13도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">에이슬 1탄, 최장 스테디셀러</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">자두에이슬</span><span class="idx-abv">13도</span><span class="idx-year">2018</span></div><div class="idx-brand-kw">에이슬 2탄</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">청포도에이슬</span><span class="idx-abv">13도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">에이슬 3탄</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">아이셔에이슬</span><span class="idx-abv">13도</span><span class="idx-year">2020</span></div><div class="idx-brand-kw">2020 캔디 콜라보 1호</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">복숭아에이슬</span><span class="idx-abv">13도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">수출 전용, 26개국+</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">딸기에이슬</span><span class="idx-abv">13도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">수출 전용, 동남아 인기</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">레몬에이슬</span><span class="idx-abv">13도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.03 수출 전용</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">핵아이셔에이슬</span><span class="idx-abv">12도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.04 한정, 제로슈거</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로25</span><span class="idx-abv">25도</span><span class="idx-year">2007</span></div><div class="idx-brand-kw">편의점 증류식 소주 대중화 기본형</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로 오크43</span><span class="idx-abv">43도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">5년+ 목통숙성 원액 고도수</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로 오크25</span><span class="idx-abv">25도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">오크43 동일 원액 저도수 버전</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로 1924 헤리티지</span><span class="idx-abv">30도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">창립 100주년 기념 한정판</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로 고연산</span><span class="idx-abv">31도</span><span class="idx-year">2018</span></div><div class="idx-brand-kw">장기숙성 원액 비중 강화</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-a">수출용</span><span class="idx-brand-name">진로24</span><span class="idx-abv">24도</span></div><div class="idx-brand-kw">동남아·미국 한인시장</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">이슬露</span><span class="idx-year">1998</span></div><div class="idx-brand-kw">참이슬과 혼용되다 2009.12 참이슬로 브랜드 통일</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">두쫀쿠향에이슬</span><span class="idx-abv">12도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.03.03 한정, 두바이 쫀득쿠키 콘셉트</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">멜론에이슬</span><span class="idx-abv">13도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.04 수출 한정, 블랙 패키지</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">버터향에이슬</span><span class="idx-abv">12도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.05.11 한정, 버터떡 트렌드</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로 라이트</span><span class="idx-abv">11.7도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.07.06 한정 출시, 칼로리 25%↓ 제로슈거</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1924</span></div><div class="idx-brand-kw">1924년 원조 브랜드 · 정통 도수 유지</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로이즈백</span></div><div class="idx-brand-meta"><span class="idx-abv">15.7도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">두꺼비 뉴트로 · 2026.02 15.7도 리뉴얼</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참이슬 후레쉬</span></div><div class="idx-brand-meta"><span class="idx-abv">15.7도</span><span class="idx-year">1998</span></div><div class="idx-brand-kw">No.1 스테디셀러 · 2026.06 15.7도 리뉴얼, 패키지 새단장</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참이슬 오리지널</span></div><div class="idx-brand-meta"><span class="idx-abv">20.1도</span><span class="idx-year">1998</span></div><div class="idx-brand-kw">참이슬 정통 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로 골드(제로)</span></div><div class="idx-brand-meta"><span class="idx-abv">15.5도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">제로슈거 · 쌀 증류원액 블렌딩, 2024년 100주년 출시</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참나무통 맑은소주</span></div><div class="idx-brand-meta"><span class="idx-abv">22도</span><span class="idx-year">1996</span></div><div class="idx-brand-kw">오크통 숙성 블렌딩</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">자몽에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">13도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">에이슬 1탄, 최장 스테디셀러</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">자두에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">13도</span><span class="idx-year">2018</span></div><div class="idx-brand-kw">에이슬 2탄</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">청포도에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">13도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">에이슬 3탄</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">아이셔에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">13도</span><span class="idx-year">2020</span></div><div class="idx-brand-kw">2020 캔디 콜라보 1호</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">복숭아에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">13도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">수출 전용, 26개국+</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">딸기에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">13도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">수출 전용, 동남아 인기</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">레몬에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">13도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.03 수출 전용</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">핵아이셔에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.04 한정, 제로슈거</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2007</span></div><div class="idx-brand-kw">편의점 증류식 소주 대중화 기본형</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로 오크43</span></div><div class="idx-brand-meta"><span class="idx-abv">43도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">5년+ 목통숙성 원액 고도수</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로 오크25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">오크43 동일 원액 저도수 버전</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로 1924 헤리티지</span></div><div class="idx-brand-meta"><span class="idx-abv">30도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">창립 100주년 기념 한정판</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">일품진로 고연산</span></div><div class="idx-brand-meta"><span class="idx-abv">31도</span><span class="idx-year">2018</span></div><div class="idx-brand-kw">장기숙성 원액 비중 강화</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-a">수출용</span><span class="idx-brand-name">진로24</span></div><div class="idx-brand-meta"><span class="idx-abv">24도</span></div><div class="idx-brand-kw">동남아·미국 한인시장</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">이슬露</span></div><div class="idx-brand-meta"><span class="idx-year">1998</span></div><div class="idx-brand-kw">참이슬과 혼용되다 2009.12 참이슬로 브랜드 통일</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">두쫀쿠향에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.03.03 한정, 두바이 쫀득쿠키 콘셉트</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">멜론에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">13도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.04 수출 한정, 블랙 패키지</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">버터향에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.05.11 한정, 버터떡 트렌드</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로 라이트</span></div><div class="idx-brand-meta"><span class="idx-abv">11.7도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.07.06 한정 출시, 칼로리 25%↓ 제로슈거</div></div>
 </div>
 <div class="idx-card" style="order:2"><div class="idx-card-header">롯데주류</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">처음처럼</span><span class="idx-abv">16도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">2026.03 출시 20주년 헤리티지 리뉴얼</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">처음처럼 클래식</span><span class="idx-abv">20도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.03 신규, 2006년 원조 레시피 복원</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">새로</span><span class="idx-abv">15.7도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">제로슈거·구미호 세계관, 2026.01 리뉴얼</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">순하리 유자</span><span class="idx-abv">12도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">2014 과일소주 붐 시발점</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">순하리 복숭아</span><span class="idx-abv">12도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">스테디셀러</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">순하리 딸기</span><span class="idx-abv">12도</span><span class="idx-year">2018</span></div><div class="idx-brand-kw">봄 시즌 한정, 수출 전용으로 시작</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">새로 살구</span><span class="idx-abv">12도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.04 새로 플레이버 1탄</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">새로 다래</span><span class="idx-abv">12도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.04 새로 플레이버 2탄, 토종과일</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">새로 오미자</span><span class="idx-abv">12도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.05 새로 플레이버 3탄, 경북 문경산 오미자</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-a">수출용</span><span class="idx-brand-name">새로 리치</span><span class="idx-abv">12도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">해외 전용, 국내 미출시</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-a">수출용</span><span class="idx-brand-name">CHUM CHURUM</span><span class="idx-abv">-</span></div><div class="idx-brand-kw">처음처럼 영문 수출판</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">여울</span><span class="idx-abv">25도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.01 출시, 100% 국산원료 감압증류</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">담금용</span><span class="idx-brand-name">처음처럼 담금소주</span><span class="idx-abv">25~35도</span></div><div class="idx-brand-kw">과실주 담금 전용 고도수 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">처음처럼</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">2026.03 출시 20주년 헤리티지 리뉴얼</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">처음처럼 클래식</span></div><div class="idx-brand-meta"><span class="idx-abv">20도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.03 신규, 2006년 원조 레시피 복원</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">새로</span></div><div class="idx-brand-meta"><span class="idx-abv">15.7도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">제로슈거·구미호 세계관, 2026.01 리뉴얼</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">순하리 유자</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">2014 과일소주 붐 시발점</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">순하리 복숭아</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">스테디셀러</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">순하리 딸기</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2018</span></div><div class="idx-brand-kw">봄 시즌 한정, 수출 전용으로 시작</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">새로 살구</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.04 새로 플레이버 1탄</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">새로 다래</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.04 새로 플레이버 2탄, 토종과일</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">새로 오미자</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.05 새로 플레이버 3탄, 경북 문경산 오미자</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-a">수출용</span><span class="idx-brand-name">새로 리치</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">해외 전용, 국내 미출시</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-a">수출용</span><span class="idx-brand-name">CHUM CHURUM</span></div><div class="idx-brand-meta"><span class="idx-abv">-</span></div><div class="idx-brand-kw">처음처럼 영문 수출판</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">여울</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.01 출시, 100% 국산원료 감압증류</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">담금용</span><span class="idx-brand-name">처음처럼 담금소주</span></div><div class="idx-brand-meta"><span class="idx-abv">25~35도</span></div><div class="idx-brand-kw">과실주 담금 전용 고도수 라인</div></div>
 </div>
 <div class="idx-card" style="order:3"><div class="idx-card-header">무학</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">좋은데이</span><span class="idx-abv">15.7도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">경남 대표 소주 · 2026 'All New' 리뉴얼</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">화이트</span><span class="idx-abv">20도(단종 시점)</span><span class="idx-year">1995</span></div><div class="idx-brand-kw">좋은데이 전신 브랜드 · 2006년 좋은데이 출시 후 단종</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">좋은데이 부산갈매기16</span><span class="idx-abv">16도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.11 추가, 순한 맛 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">좋은데이 부산갈매기19</span><span class="idx-abv">19도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.03 부산 한정 출시, 진한 맛</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">청춘소주 무학</span><span class="idx-abv">16.9도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">창립 90주년 뉴트로</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">좋다카이</span><span class="idx-abv">19.5도</span><span class="idx-year">2009</span></div><div class="idx-brand-kw">2009.03 출시, 좋은데이 이전 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 블루베리</span><span class="idx-abv">13.5도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">좋은데이 컬러 시리즈 1호 · 2021.11 탄산 리뉴얼</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 유자</span><span class="idx-abv">13.5도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">일본 수출 반응 양호</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 복숭아</span><span class="idx-abv">13.5도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">컬러 시리즈 중 최다 판매</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 석류</span><span class="idx-abv">13.5도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.11 블루베리와 동시 출시</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 깔라만시</span><span class="idx-abv">12.5도</span><span class="idx-year">2018</span></div><div class="idx-brand-kw">2018 출시, 동남아 감귤류</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 민트초코</span><span class="idx-abv">12.5도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.07 출시, 호불호 극명</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">탄산주</span><span class="idx-brand-name">좋은데이 톡</span><span class="idx-abv">7도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">2022.04, 사과·파인애플·석류·블루베리 4종</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">엔조이 오리지날 사과</span><span class="idx-abv">18.5도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">무학×이마트 PB, 이마트 단독 판매</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">엔조이 오리지날 배</span><span class="idx-abv">18.5도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">무학×이마트 PB, 이마트 단독 판매</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">탄산주</span><span class="idx-brand-name">엔조이 스파클링 사과</span><span class="idx-abv">15도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">무학×이마트 PB, 오리지날 사과의 탄산 버전</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">좋은데이</span></div><div class="idx-brand-meta"><span class="idx-abv">15.7도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">경남 대표 소주 · 2026 'All New' 리뉴얼</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">화이트</span></div><div class="idx-brand-meta"><span class="idx-abv">20도(단종 시점)</span><span class="idx-year">1995</span></div><div class="idx-brand-kw">좋은데이 전신 브랜드 · 2006년 좋은데이 출시 후 단종</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">좋은데이 부산갈매기16</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.11 추가, 순한 맛 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">좋은데이 부산갈매기19</span></div><div class="idx-brand-meta"><span class="idx-abv">19도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.03 부산 한정 출시, 진한 맛</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">청춘소주 무학</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">창립 90주년 뉴트로</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">좋다카이</span></div><div class="idx-brand-meta"><span class="idx-abv">19.5도</span><span class="idx-year">2009</span></div><div class="idx-brand-kw">2009.03 출시, 좋은데이 이전 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 블루베리</span></div><div class="idx-brand-meta"><span class="idx-abv">13.5도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">좋은데이 컬러 시리즈 1호 · 2021.11 탄산 리뉴얼</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 유자</span></div><div class="idx-brand-meta"><span class="idx-abv">13.5도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">일본 수출 반응 양호</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 복숭아</span></div><div class="idx-brand-meta"><span class="idx-abv">13.5도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">컬러 시리즈 중 최다 판매</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 석류</span></div><div class="idx-brand-meta"><span class="idx-abv">13.5도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.11 블루베리와 동시 출시</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 깔라만시</span></div><div class="idx-brand-meta"><span class="idx-abv">12.5도</span><span class="idx-year">2018</span></div><div class="idx-brand-kw">2018 출시, 동남아 감귤류</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">좋은데이 민트초코</span></div><div class="idx-brand-meta"><span class="idx-abv">12.5도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.07 출시, 호불호 극명</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">탄산주</span><span class="idx-brand-name">좋은데이 톡</span></div><div class="idx-brand-meta"><span class="idx-abv">7도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">2022.04, 사과·파인애플·석류·블루베리 4종</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">엔조이 오리지날 사과</span></div><div class="idx-brand-meta"><span class="idx-abv">18.5도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">무학×이마트 PB, 이마트 단독 판매</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">엔조이 오리지날 배</span></div><div class="idx-brand-meta"><span class="idx-abv">18.5도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">무학×이마트 PB, 이마트 단독 판매</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">탄산주</span><span class="idx-brand-name">엔조이 스파클링 사과</span></div><div class="idx-brand-meta"><span class="idx-abv">15도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">무학×이마트 PB, 오리지날 사과의 탄산 버전</div></div>
 </div>
 <div class="idx-card" style="order:4"><div class="idx-card-header">보해양조</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">잎새주</span><span class="idx-abv">16도</span><span class="idx-year">2002</span></div><div class="idx-brand-kw">광주·전남 대표 소주 · 19.8도→16도까지 단계적 저도화(2024)</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">잎새주 부라더 시리즈</span><span class="idx-abv">17.5도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">부라더·부라더#소다(3도)·복받은 부라더, MZ 타깃 서브라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">여수바다</span><span class="idx-abv">16.5도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">여수밤바다→리브랜딩, 상괭이 ESG</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">아홉시반</span><span class="idx-abv">17.5도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">저도수 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">보해골드</span><span class="idx-year">1992</span></div><div class="idx-brand-kw">옛 프리미엄 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">씨티</span><span class="idx-year">1994</span></div><div class="idx-brand-kw">옛 주력 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">김삿갓</span><span class="idx-year">1996</span></div><div class="idx-brand-kw">방랑 시인 이름 차용</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">곰바우</span><span class="idx-year">1997</span></div><div class="idx-brand-kw">향토적 네이밍</div></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">잎새주</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2002</span></div><div class="idx-brand-kw">광주·전남 대표 소주 · 19.8도→16도까지 단계적 저도화(2024)</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">잎새주 부라더 시리즈</span></div><div class="idx-brand-meta"><span class="idx-abv">17.5도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">부라더·부라더#소다(3도)·복받은 부라더, MZ 타깃 서브라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">여수바다</span></div><div class="idx-brand-meta"><span class="idx-abv">16.5도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">여수밤바다→리브랜딩, 상괭이 ESG</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">아홉시반</span></div><div class="idx-brand-meta"><span class="idx-abv">17.5도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">저도수 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">보해골드</span></div><div class="idx-brand-meta"><span class="idx-year">1992</span></div><div class="idx-brand-kw">옛 프리미엄 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">씨티</span></div><div class="idx-brand-meta"><span class="idx-year">1994</span></div><div class="idx-brand-kw">옛 주력 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">김삿갓</span></div><div class="idx-brand-meta"><span class="idx-year">1996</span></div><div class="idx-brand-kw">방랑 시인 이름 차용</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">곰바우</span></div><div class="idx-brand-meta"><span class="idx-year">1997</span></div><div class="idx-brand-kw">향토적 네이밍</div></div></div>
 <div class="idx-card" style="order:15"><div class="idx-card-header">보배양조</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">하이트(구 보배양조)</span><span class="idx-abv">19도(추정)</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">전북 대표, 2013년 하이트진로 흡수합병</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">하이트(구 보배양조)</span></div><div class="idx-brand-meta"><span class="idx-abv">19도(추정)</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">전북 대표, 2013년 하이트진로 흡수합병</div></div>
 </div>
 <div class="idx-card" style="order:5"><div class="idx-card-header">대선주조</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">C1(씨원)</span><span class="idx-abv">18도</span><span class="idx-year">1996</span></div><div class="idx-brand-kw">음향숙성진동공법 · 2025.07 19도→18도 리뉴얼</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">대선</span><span class="idx-abv">16.5도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">부산 최고령 소주사, 정통 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">대선159</span><span class="idx-abv">15.9도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.01 리뉴얼, 17도 미만 부문 9년 연속 수상</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">C1블루</span><span class="idx-abv">16.5도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">2023.02 무가당 재출시, 몽드셀렉션 은상</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">강알리</span><span class="idx-abv">16도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.01 출시, 광안리 사투리</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">다이아몬드</span><span class="idx-abv">16.9도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.03 출시, 저도수 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">즐거워예</span><span class="idx-abv">16.2도</span><span class="idx-year">2011</span></div><div class="idx-brand-kw">2011.06 출시, 상황별 네이밍(조문용 '그리워예')</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">선소주</span><span class="idx-year">1982</span></div><div class="idx-brand-kw">C1 이전 주력 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">선타임(대선골드)</span><span class="idx-year">1993</span></div><div class="idx-brand-kw">C1 이전 프리미엄 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">봄봄</span><span class="idx-abv">16.7도</span><span class="idx-year">2009</span></div><div class="idx-brand-kw">2009.04.27 출시, 강동원 모델 초저도 소주</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">C1(씨원)</span></div><div class="idx-brand-meta"><span class="idx-abv">18도</span><span class="idx-year">1996</span></div><div class="idx-brand-kw">음향숙성진동공법 · 2025.07 19도→18도 리뉴얼</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">대선</span></div><div class="idx-brand-meta"><span class="idx-abv">16.5도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">부산 최고령 소주사, 정통 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">대선159</span></div><div class="idx-brand-meta"><span class="idx-abv">15.9도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.01 리뉴얼, 17도 미만 부문 9년 연속 수상</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">C1블루</span></div><div class="idx-brand-meta"><span class="idx-abv">16.5도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">2023.02 무가당 재출시, 몽드셀렉션 은상</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">강알리</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.01 출시, 광안리 사투리</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">다이아몬드</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.03 출시, 저도수 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">즐거워예</span></div><div class="idx-brand-meta"><span class="idx-abv">16.2도</span><span class="idx-year">2011</span></div><div class="idx-brand-kw">2011.06 출시, 상황별 네이밍(조문용 '그리워예')</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">선소주</span></div><div class="idx-brand-meta"><span class="idx-year">1982</span></div><div class="idx-brand-kw">C1 이전 주력 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">선타임(대선골드)</span></div><div class="idx-brand-meta"><span class="idx-year">1993</span></div><div class="idx-brand-kw">C1 이전 프리미엄 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">봄봄</span></div><div class="idx-brand-meta"><span class="idx-abv">16.7도</span><span class="idx-year">2009</span></div><div class="idx-brand-kw">2009.04.27 출시, 강동원 모델 초저도 소주</div></div>
 </div>
 <div class="idx-card" style="order:6"><div class="idx-card-header">한라산소주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">희석식</span><span class="idx-brand-name">한라산</span><span class="idx-abv">21도</span><span class="idx-year">1993</span></div><div class="idx-brand-kw">23도→21도 단계적 인하, 제주 점유율 60%대 주력</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">희석식</span><span class="idx-brand-name">한라산 순한</span><span class="idx-abv">16도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">무가당 제로슈거, 21도와 함께 현 2종 체제(2019년 한라산17 대체)</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">허벅술</span><span class="idx-abv">35도</span><span class="idx-year">1995</span></div><div class="idx-brand-kw">정상회담 건배주, 연 3만병 한정</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">한라산1950</span><span class="idx-abv">25도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">오크 숙성, 허벅술 대중화 버전</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">오늘도 부드럽게 오름</span><span class="idx-abv">16도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.01 창립 75주년 기념, 2019 단종 녹색병 부활</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">한일소주</span><span class="idx-abv">25~30도</span><span class="idx-year">1950</span></div><div class="idx-brand-kw">1993년 한라산으로 사명·브랜드 변경</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">올래소주 (한라산 올래)</span><span class="idx-abv">17.5도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">2014.09 출시, 제주소주 '올레소주'에 맞선 리브랜딩, 2019년 한라산17로 교체</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">희석식</span><span class="idx-brand-name">한라산</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span><span class="idx-year">1993</span></div><div class="idx-brand-kw">23도→21도 단계적 인하, 제주 점유율 60%대 주력</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">희석식</span><span class="idx-brand-name">한라산 순한</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">무가당 제로슈거, 21도와 함께 현 2종 체제(2019년 한라산17 대체)</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">허벅술</span></div><div class="idx-brand-meta"><span class="idx-abv">35도</span><span class="idx-year">1995</span></div><div class="idx-brand-kw">정상회담 건배주, 연 3만병 한정</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">한라산1950</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">오크 숙성, 허벅술 대중화 버전</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">오늘도 부드럽게 오름</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.01 창립 75주년 기념, 2019 단종 녹색병 부활</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">한일소주</span></div><div class="idx-brand-meta"><span class="idx-abv">25~30도</span><span class="idx-year">1950</span></div><div class="idx-brand-kw">1993년 한라산으로 사명·브랜드 변경</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">올래소주 (한라산 올래)</span></div><div class="idx-brand-meta"><span class="idx-abv">17.5도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">2014.09 출시, 제주소주 '올레소주'에 맞선 리브랜딩, 2019년 한라산17로 교체</div></div>
 </div>
 <div class="idx-card" style="order:7"><div class="idx-card-header">더맥키스컴퍼니</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">선양</span><span class="idx-abv">14.9도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">국내 희석식 최저 도수</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">이제우린</span><span class="idx-abv">17.2도</span><span class="idx-year">2018</span></div><div class="idx-brand-kw">맑을린(2005)→O2린(2008)→이제우린(2018)→2024 맑을린 환원→2025 선양린</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">선양린 高</span><span class="idx-abv">20.2도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.11 출시(당시명 이제우린 高), 가정용 PET 고도수 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">선양린</span><span class="idx-abv">16도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.05 출시, 이제우린 계보 최종 리뉴얼, 충남 청양 대표 소주</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">선양오크</span><span class="idx-abv">14.9도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.02 GS리테일 협업, 위스키 공법, 오크 블렌딩 11%</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">선양 말차</span><span class="idx-abv">14.9도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.04 GS25 단독, '말차코어' 트렌드 반영</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">착한소주 990</span><span class="idx-abv">16도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.03.31 출시, 병당 990원, 동네슈퍼 전용, 990만병 한정</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">캔소맥</span><span class="idx-brand-name">선양 오크소맥</span><span class="idx-abv">5.7도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.06 편의점 4사 동시 출시, 세계 최초 캔 소맥</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">버지니아</span><span class="idx-abv">16.5도</span></div><div class="idx-brand-kw">선양의 옛 저도수 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">맥키스 홈믹싱주</span><span class="idx-abv">21도</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">2013.03 출시, 가정용 홈믹싱 리큐르</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">맑을린</span><span class="idx-year">2005</span></div><div class="idx-brand-kw">이제우린 계보 1탄, 오투린으로 리뉴얼</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">오투린(O2린)</span><span class="idx-abv">17.8도</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">이제우린 계보 2탄, 산소 함유량 강조</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">선양</span></div><div class="idx-brand-meta"><span class="idx-abv">14.9도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">국내 희석식 최저 도수</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">이제우린</span></div><div class="idx-brand-meta"><span class="idx-abv">17.2도</span><span class="idx-year">2018</span></div><div class="idx-brand-kw">맑을린(2005)→O2린(2008)→이제우린(2018)→2024 맑을린 환원→2025 선양린</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">선양린 高</span></div><div class="idx-brand-meta"><span class="idx-abv">20.2도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.11 출시(당시명 이제우린 高), 가정용 PET 고도수 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">선양린</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.05 출시, 이제우린 계보 최종 리뉴얼, 충남 청양 대표 소주</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">선양오크</span></div><div class="idx-brand-meta"><span class="idx-abv">14.9도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.02 GS리테일 협업, 위스키 공법, 오크 블렌딩 11%</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">선양 말차</span></div><div class="idx-brand-meta"><span class="idx-abv">14.9도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.04 GS25 단독, '말차코어' 트렌드 반영</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">착한소주 990</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.03.31 출시, 병당 990원, 동네슈퍼 전용, 990만병 한정</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">캔소맥</span><span class="idx-brand-name">선양 오크소맥</span></div><div class="idx-brand-meta"><span class="idx-abv">5.7도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.06 편의점 4사 동시 출시, 세계 최초 캔 소맥</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">버지니아</span></div><div class="idx-brand-meta"><span class="idx-abv">16.5도</span></div><div class="idx-brand-kw">선양의 옛 저도수 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">맥키스 홈믹싱주</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">2013.03 출시, 가정용 홈믹싱 리큐르</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">맑을린</span></div><div class="idx-brand-meta"><span class="idx-year">2005</span></div><div class="idx-brand-kw">이제우린 계보 1탄, 오투린으로 리뉴얼</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">오투린(O2린)</span></div><div class="idx-brand-meta"><span class="idx-abv">17.8도</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">이제우린 계보 2탄, 산소 함유량 강조</div></div>
 </div>
 <div class="idx-card" style="order:8"><div class="idx-card-header">금복주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참소주</span><span class="idx-abv">16.5도</span><span class="idx-year">1994</span></div><div class="idx-brand-kw">대구·경북 대표, 2026.01 리뉴얼(나노&amp;삼투막 듀얼필터링)</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">맛있는참</span><span class="idx-abv">16.9도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">저도수 전용 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">소주왕 금복주</span><span class="idx-abv">16.9도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">2019.12 출시, '복영감' 캐릭터 라벨 복각 뉴트로</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">제왕</span><span class="idx-abv">25도</span><span class="idx-year">2015(추정)</span></div><div class="idx-brand-kw">원조 제품, 쌀+고구마 증류주</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">제왕21</span><span class="idx-abv">21도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">2017.07 출시</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">제왕16.9</span><span class="idx-abv">16.9도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">2017.11 출시, 저도수 증류식</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">백로</span><span class="idx-abv">41도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">고구마 증류주, 고도수</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">오크젠</span><span class="idx-abv">25도</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">프랑스산 오크통 10년 숙성 원액 블렌딩</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">오크젠(신)</span><span class="idx-abv">16도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.07 출시, 희석식+증류식 블렌딩</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">수퍼골드마일드</span><span class="idx-year">1992</span></div><div class="idx-brand-kw">옛 프리미엄 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">금복골드</span><span class="idx-year">1993</span></div><div class="idx-brand-kw">옛 프리미엄 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">참ISLAND</span><span class="idx-abv">19.5도</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">참소주 서브 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참소주</span></div><div class="idx-brand-meta"><span class="idx-abv">16.5도</span><span class="idx-year">1994</span></div><div class="idx-brand-kw">대구·경북 대표, 2026.01 리뉴얼(나노&amp;삼투막 듀얼필터링)</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">맛있는참</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">저도수 전용 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">소주왕 금복주</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">2019.12 출시, '복영감' 캐릭터 라벨 복각 뉴트로</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">제왕</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2015(추정)</span></div><div class="idx-brand-kw">원조 제품, 쌀+고구마 증류주</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">제왕21</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">2017.07 출시</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">제왕16.9</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">2017.11 출시, 저도수 증류식</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">백로</span></div><div class="idx-brand-meta"><span class="idx-abv">41도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">고구마 증류주, 고도수</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">오크젠</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">프랑스산 오크통 10년 숙성 원액 블렌딩</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">오크젠(신)</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.07 출시, 희석식+증류식 블렌딩</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">수퍼골드마일드</span></div><div class="idx-brand-meta"><span class="idx-year">1992</span></div><div class="idx-brand-kw">옛 프리미엄 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">금복골드</span></div><div class="idx-brand-meta"><span class="idx-year">1993</span></div><div class="idx-brand-kw">옛 프리미엄 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">참ISLAND</span></div><div class="idx-brand-meta"><span class="idx-abv">19.5도</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">참소주 서브 라인</div></div>
 </div>
 <div class="idx-card" style="order:9"><div class="idx-card-header">화요(주)</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화요17</span><span class="idx-abv">17도</span><span class="idx-year">2005</span></div><div class="idx-brand-kw">저도수, 부드러운 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화요19金</span><span class="idx-abv">19도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.06 출시, 화요17 이후 15년 만의 저도주 신제품</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화요25</span><span class="idx-abv">25도</span><span class="idx-year">2005</span></div><div class="idx-brand-kw">가장 대중적인 기본 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화요41</span><span class="idx-abv">41도</span><span class="idx-year">2005</span></div><div class="idx-brand-kw">고도수, 스트레이트·온더락용</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화요53</span><span class="idx-abv">53도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">마니아층 대상, 면세점 중심에서 확대</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-a">수출용</span><span class="idx-brand-name">화요 X.P.</span><span class="idx-abv">41도</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">Extra Premium, 오크통 5년+ 숙성, 글로벌 바·레스토랑</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화요17</span></div><div class="idx-brand-meta"><span class="idx-abv">17도</span><span class="idx-year">2005</span></div><div class="idx-brand-kw">저도수, 부드러운 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화요19金</span></div><div class="idx-brand-meta"><span class="idx-abv">19도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.06 출시, 화요17 이후 15년 만의 저도주 신제품</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화요25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2005</span></div><div class="idx-brand-kw">가장 대중적인 기본 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화요41</span></div><div class="idx-brand-meta"><span class="idx-abv">41도</span><span class="idx-year">2005</span></div><div class="idx-brand-kw">고도수, 스트레이트·온더락용</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화요53</span></div><div class="idx-brand-meta"><span class="idx-abv">53도</span><span class="idx-year">2015</span></div><div class="idx-brand-kw">마니아층 대상, 면세점 중심에서 확대</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-a">수출용</span><span class="idx-brand-name">화요 X.P.</span></div><div class="idx-brand-meta"><span class="idx-abv">41도</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">Extra Premium, 오크통 5년+ 숙성, 글로벌 바·레스토랑</div></div>
 </div>
 <div class="idx-card" style="order:10"><div class="idx-card-header">원스피리츠</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">원소주 오리지널</span><span class="idx-abv">22도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">2022.02 박재범 창업 첫 제품, 강원 원주 생산</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">원소주 스피릿</span><span class="idx-abv">24도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">2022.07 GS25 입점, 편의점 유통 확대용 · 미국·일본·유럽 등 글로벌 프리미엄 시장 동시 공략</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">원소주 클래식</span><span class="idx-abv">28도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">2022.09 출시, 자체 개발 효모 사용</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">원소주 환영30</span><span class="idx-abv">30도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.12.22 출시, 치악산 햇배 침출 한정판, 700ml</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">원소주 투고</span><span class="idx-abv">17도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">2023.05 GS25 출시, 100ml 파우치형</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">원소주 오리지널</span></div><div class="idx-brand-meta"><span class="idx-abv">22도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">2022.02 박재범 창업 첫 제품, 강원 원주 생산</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">원소주 스피릿</span></div><div class="idx-brand-meta"><span class="idx-abv">24도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">2022.07 GS25 입점, 편의점 유통 확대용 · 미국·일본·유럽 등 글로벌 프리미엄 시장 동시 공략</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">원소주 클래식</span></div><div class="idx-brand-meta"><span class="idx-abv">28도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">2022.09 출시, 자체 개발 효모 사용</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">원소주 환영30</span></div><div class="idx-brand-meta"><span class="idx-abv">30도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.12.22 출시, 치악산 햇배 침출 한정판, 700ml</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">원소주 투고</span></div><div class="idx-brand-meta"><span class="idx-abv">17도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">2023.05 GS25 출시, 100ml 파우치형</div></div>
 </div>
 <div class="idx-card" style="order:11"><div class="idx-card-header">충북소주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">NEW 시원(시원한 청풍)</span><span class="idx-abv">16도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2004 시원소주 명칭 변경→2011 롯데주류 매각→2025.12 10년 만의 리뉴얼, 알룰로스 첨가</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">NEW 시원(시원한 청풍)</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2004 시원소주 명칭 변경→2011 롯데주류 매각→2025.12 10년 만의 리뉴얼, 알룰로스 첨가</div></div>
 </div>
 <div class="idx-card" style="order:12"><div class="idx-card-header">경월주조</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">경월</span><span class="idx-abv">25도(단종 시점)</span><span class="idx-year">1926</span></div><div class="idx-brand-kw">처음처럼 전신 기업 · 1993년 두산 인수 전후 단종</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">그린소주</span><span class="idx-year">1993</span></div><div class="idx-brand-kw">경월 후속, 1999.12 뉴그린으로 대체</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">뉴그린</span><span class="idx-year">1999</span></div><div class="idx-brand-kw">그린소주 리뉴얼, 2001년경 산(山처럼)으로 대체</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">산(山처럼)</span><span class="idx-year">2001</span></div><div class="idx-brand-kw">2006년 처음처럼 출시와 함께 단종</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">경월</span></div><div class="idx-brand-meta"><span class="idx-abv">25도(단종 시점)</span><span class="idx-year">1926</span></div><div class="idx-brand-kw">처음처럼 전신 기업 · 1993년 두산 인수 전후 단종</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">그린소주</span></div><div class="idx-brand-meta"><span class="idx-year">1993</span></div><div class="idx-brand-kw">경월 후속, 1999.12 뉴그린으로 대체</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">뉴그린</span></div><div class="idx-brand-meta"><span class="idx-year">1999</span></div><div class="idx-brand-kw">그린소주 리뉴얼, 2001년경 산(山처럼)으로 대체</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">산(山처럼)</span></div><div class="idx-brand-meta"><span class="idx-year">2001</span></div><div class="idx-brand-kw">2006년 처음처럼 출시와 함께 단종</div></div>
 </div>
 <div class="idx-card" style="order:13"><div class="idx-card-header">OB맥주 제주공장</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">제주올레소주 곱들락</span><span class="idx-abv">18도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">한라산과 상표권 소송 패소 후 2017년 푸른밤으로 리뉴얼</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">제주올레소주 산도롱</span><span class="idx-abv">20.1도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">고도수 라인, 2017년 푸른밤으로 리뉴얼</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">푸른밤</span><span class="idx-abv">16.9도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">올레소주 후신, 2019 짧은밤·긴밤 통합 · 2025 OB맥주 인수</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">푸른밤 지픈밤</span><span class="idx-abv">20도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">"깊은 밤"의 제주어, 고도주 수요층 타깃</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">제주올레소주 곱들락</span></div><div class="idx-brand-meta"><span class="idx-abv">18도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">한라산과 상표권 소송 패소 후 2017년 푸른밤으로 리뉴얼</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">제주올레소주 산도롱</span></div><div class="idx-brand-meta"><span class="idx-abv">20.1도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">고도수 라인, 2017년 푸른밤으로 리뉴얼</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">푸른밤</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">올레소주 후신, 2019 짧은밤·긴밤 통합 · 2025 OB맥주 인수</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">푸른밤 지픈밤</span></div><div class="idx-brand-meta"><span class="idx-abv">20도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">"깊은 밤"의 제주어, 고도주 수요층 타깃</div></div>
 </div>
 <div class="idx-card" style="order:14"><div class="idx-card-header">세븐일레븐×최강록</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">최강록 네오25화이트</span><span class="idx-abv">25도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.01 출시, 2만병 한정</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">최강록 네오25화이트</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.01 출시, 2만병 한정</div></div>
 </div>
 </div>
 </div>
@@ -954,153 +966,153 @@ table.card.card-collapsed { display: none; }
 <div class="idx-group-body">
 <div class="idx-grid" id="idxGrid2">
 <div class="idx-card" style="order:1"><div class="idx-card-header">민속주/명인 안동소주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 45도</span><span class="idx-abv">45도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">1990년부터 주력, 조옥화→김연박 명인 계승</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 35도</span><span class="idx-abv">35도</span></div><div class="idx-brand-kw">저도수 라인, 360ml</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 25도</span><span class="idx-abv">25도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">2023.01 출시, 33년 만의 신제품, 무가수 원액</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">명인안동소주 45도</span><span class="idx-abv">45도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">박재서 명인, 주력, 호리병 하회탈 패키지</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">명인안동소주</span><span class="idx-abv">35·22도</span></div><div class="idx-brand-kw">입문용, 360ml</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 45도</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">1990년부터 주력, 조옥화→김연박 명인 계승</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 35도</span></div><div class="idx-brand-meta"><span class="idx-abv">35도</span></div><div class="idx-brand-kw">저도수 라인, 360ml</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 25도</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">2023.01 출시, 33년 만의 신제품, 무가수 원액</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">명인안동소주 45도</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">박재서 명인, 주력, 호리병 하회탈 패키지</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">명인안동소주</span></div><div class="idx-brand-meta"><span class="idx-abv">35·22도</span></div><div class="idx-brand-kw">입문용, 360ml</div></div>
 </div>
 <div class="idx-card" style="order:2"><div class="idx-card-header">문배주양조원</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">문배주 23도</span><span class="idx-abv">23도</span><span class="idx-year">1986(추정)</span></div><div class="idx-brand-kw">쌀 첨가 저도수 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">문배주 25도</span><span class="idx-abv">25도</span><span class="idx-year">1986(추정)</span></div><div class="idx-brand-kw">500ml</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">문배주 40도</span><span class="idx-abv">40도</span><span class="idx-year">1986(추정)</span></div><div class="idx-brand-kw">국가무형유산 제86-1호, 조+수수만 사용 주력 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">문배주 23도</span></div><div class="idx-brand-meta"><span class="idx-abv">23도</span><span class="idx-year">1986(추정)</span></div><div class="idx-brand-kw">쌀 첨가 저도수 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">문배주 25도</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1986(추정)</span></div><div class="idx-brand-kw">500ml</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">문배주 40도</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">1986(추정)</span></div><div class="idx-brand-kw">국가무형유산 제86-1호, 조+수수만 사용 주력 라인</div></div>
 </div>
 <div class="idx-card" style="order:7"><div class="idx-card-header">홍성양조장</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">황금보리소주</span><span class="idx-abv">17·25·40도</span></div><div class="idx-brand-kw">무농약 보리 100%, 2018 전통주협회 선호도 2위</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">황금보리소주</span></div><div class="idx-brand-meta"><span class="idx-abv">17·25·40도</span></div><div class="idx-brand-kw">무농약 보리 100%, 2018 전통주협회 선호도 2위</div></div>
 </div>
 <div class="idx-card" style="order:8"><div class="idx-card-header">제이앤제이브루어리</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼레드25</span><span class="idx-abv">25도</span></div><div class="idx-brand-kw">375ml</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼50</span><span class="idx-abv">50도</span></div><div class="idx-brand-kw">375ml</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼75</span><span class="idx-abv">75도</span></div><div class="idx-brand-kw">국내 시판 최고 도수, 375ml</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼레드25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span></div><div class="idx-brand-kw">375ml</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼50</span></div><div class="idx-brand-meta"><span class="idx-abv">50도</span></div><div class="idx-brand-kw">375ml</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">청혼75</span></div><div class="idx-brand-meta"><span class="idx-abv">75도</span></div><div class="idx-brand-kw">국내 시판 최고 도수, 375ml</div></div>
 </div>
 <div class="idx-card" style="order:3"><div class="idx-card-header">전주이강주(주)</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이강주 19도</span><span class="idx-abv">19도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">미국 수출용, 고도주 규제 회피용 저도수판</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이강주 25도</span><span class="idx-abv">25도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">원조 도수, 375/500/1000ml</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이강주 38도</span><span class="idx-abv">38도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">중국·러시아 수출용, 조선 3대 명주, 식품명인 제9호</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이강주 19도</span></div><div class="idx-brand-meta"><span class="idx-abv">19도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">미국 수출용, 고도주 규제 회피용 저도수판</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이강주 25도</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">원조 도수, 375/500/1000ml</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이강주 38도</span></div><div class="idx-brand-meta"><span class="idx-abv">38도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">중국·러시아 수출용, 조선 3대 명주, 식품명인 제9호</div></div>
 </div>
 <div class="idx-card" style="order:4"><div class="idx-card-header">감홍로(주)</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">감홍로</span><span class="idx-abv">40도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">조선 3대 명주, 이기숙 명인(식품명인 제43호)</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">감홍로 화이트</span><span class="idx-abv">43도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.01.28 출시, 8년 재증류 숙성, 이기숙 명인 제조 20주년 기념</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">감홍로</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">조선 3대 명주, 이기숙 명인(식품명인 제43호)</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">감홍로 화이트</span></div><div class="idx-brand-meta"><span class="idx-abv">43도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.01.28 출시, 8년 재증류 숙성, 이기숙 명인 제조 20주년 기념</div></div>
 </div>
 <div class="idx-card" style="order:6"><div class="idx-card-header">제주술익는집</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">고소리술 29도</span><span class="idx-abv">29도</span><span class="idx-year">1995(추정)</span></div><div class="idx-brand-kw">375ml</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">고소리술 40도</span><span class="idx-abv">40도</span><span class="idx-year">1995(추정)</span></div><div class="idx-brand-kw">제주 무형문화재 제11호, 도자기 세트 주력</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">고소리술 29도</span></div><div class="idx-brand-meta"><span class="idx-abv">29도</span><span class="idx-year">1995(추정)</span></div><div class="idx-brand-kw">375ml</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">고소리술 40도</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">1995(추정)</span></div><div class="idx-brand-kw">제주 무형문화재 제11호, 도자기 세트 주력</div></div>
 </div>
 <div class="idx-card" style="order:5"><div class="idx-card-header">(주)솔송주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">약주</span><span class="idx-brand-name">솔송주</span><span class="idx-abv">13도</span><span class="idx-year">1996(추정)</span></div><div class="idx-brand-kw">정여창 가문 가양주, 식품명인 제27호</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">담솔</span><span class="idx-abv">40도</span><span class="idx-year">2010(추정)</span></div><div class="idx-brand-kw">솔송주 증류 후 2년 저온 숙성</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">약주</span><span class="idx-brand-name">솔송주</span></div><div class="idx-brand-meta"><span class="idx-abv">13도</span><span class="idx-year">1996(추정)</span></div><div class="idx-brand-kw">정여창 가문 가양주, 식품명인 제27호</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">담솔</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">2010(추정)</span></div><div class="idx-brand-kw">솔송주 증류 후 2년 저온 숙성</div></div>
 </div>
 <div class="idx-card" style="order:10"><div class="idx-card-header">안동소주일품(주)</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">안동소주일품</span><span class="idx-abv">45·40도</span><span class="idx-year">2001</span></div><div class="idx-brand-kw">안동소주협회 회원사, 도자기병 포장</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">안동소주일품 21도</span><span class="idx-abv">21도</span></div><div class="idx-brand-kw">저도수·유리병 대중화 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">안동소주일품</span></div><div class="idx-brand-meta"><span class="idx-abv">45·40도</span><span class="idx-year">2001</span></div><div class="idx-brand-kw">안동소주협회 회원사, 도자기병 포장</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">안동소주일품 21도</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span></div><div class="idx-brand-kw">저도수·유리병 대중화 라인</div></div>
 </div>
 <div class="idx-card" style="order:11"><div class="idx-card-header">명품안동소주(주)</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">명품안동소주 45도</span><span class="idx-abv">45도</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">600mL, 2010 청와대 선물세트</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">명품안동소주</span><span class="idx-abv">40·19.8도</span></div><div class="idx-brand-kw"></div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">명품안동소주 끌림</span><span class="idx-abv">30도</span></div><div class="idx-brand-kw"></div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">참조은 안동쏘주</span><span class="idx-abv">16.9도</span></div><div class="idx-brand-kw">360mL 저도수 서브 브랜드</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">명품안동소주 45도</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">600mL, 2010 청와대 선물세트</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">명품안동소주</span></div><div class="idx-brand-meta"><span class="idx-abv">40·19.8도</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">명품안동소주 끌림</span></div><div class="idx-brand-meta"><span class="idx-abv">30도</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">참조은 안동쏘주</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span></div><div class="idx-brand-kw">360mL 저도수 서브 브랜드</div></div>
 </div>
 <div class="idx-card" style="order:12"><div class="idx-card-header">유토피아(주)</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">양반 안동소주 50도</span><span class="idx-abv">50도</span><span class="idx-year">2011</span></div><div class="idx-brand-kw">"○○년산" 숙성 연수 표기 시리즈, 60mL~3.6L 다양한 용량</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">양반 안동소주</span><span class="idx-abv">45·43·38·30·25도</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">양반 안동소주 50도</span></div><div class="idx-brand-meta"><span class="idx-abv">50도</span><span class="idx-year">2011</span></div><div class="idx-brand-kw">"○○년산" 숙성 연수 표기 시리즈, 60mL~3.6L 다양한 용량</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">양반 안동소주</span></div><div class="idx-brand-meta"><span class="idx-abv">45·43·38·30·25도</span></div><div class="idx-brand-kw"></div></div>
 </div>
 <div class="idx-card" style="order:13"><div class="idx-card-header">맹개술도가(㈜밀과노닐다)</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">진맥소주 53도</span><span class="idx-abv">53도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">밀 기반 증류식, 국가지정 증류식소주 인증</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">진맥소주</span><span class="idx-abv">40·22도</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">진맥소주 53도</span></div><div class="idx-brand-meta"><span class="idx-abv">53도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">밀 기반 증류식, 국가지정 증류식소주 인증</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">진맥소주</span></div><div class="idx-brand-meta"><span class="idx-abv">40·22도</span></div><div class="idx-brand-kw"></div></div>
 </div>
 <div class="idx-card" style="order:14"><div class="idx-card-header">(주)버버리찰떡</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">안동소주 올소</span><span class="idx-abv">25도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">찹쌀 100%, 와인 오크통 6개월 숙성</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">안동소주 올소</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">찹쌀 100%, 와인 오크통 6개월 숙성</div></div>
 </div>
 <div class="idx-card" style="order:15"><div class="idx-card-header">회곡양조장</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">회곡 안동소주</span><span class="idx-abv">22·32도</span></div><div class="idx-brand-kw">90년 3대째 가업</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">회곡 안동소주 42도</span><span class="idx-abv">42도</span></div><div class="idx-brand-kw">국화주도 별도 판매</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">회곡 안동소주</span></div><div class="idx-brand-meta"><span class="idx-abv">22·32도</span></div><div class="idx-brand-kw">90년 3대째 가업</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">회곡 안동소주 42도</span></div><div class="idx-brand-meta"><span class="idx-abv">42도</span></div><div class="idx-brand-kw">국화주도 별도 판매</div></div>
 </div>
 <div class="idx-card" style="order:16"><div class="idx-card-header">토끼소주코리아</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">토끼소주 화이트</span><span class="idx-abv">23도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">미국인 창업, 2020년 충북 충주로 생산지 이전</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">토끼소주 블랙</span><span class="idx-abv">40도</span></div><div class="idx-brand-kw">고도수 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">토끼소주 그린</span><span class="idx-abv">60도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">2022.04 한정판, 최초 오버프루프</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">토끼소주 골드</span><span class="idx-abv">46도</span></div><div class="idx-brand-kw">미국산 버진 오크통 숙성, 매출 비중 1위</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">토끼소주 가넷</span><span class="idx-abv">46도</span><span class="idx-year">2023(추정)</span></div><div class="idx-brand-kw">버진오크 1차+셰리오크 2차 숙성, 한정판</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">토끼소주 화이트</span></div><div class="idx-brand-meta"><span class="idx-abv">23도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">미국인 창업, 2020년 충북 충주로 생산지 이전</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">토끼소주 블랙</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span></div><div class="idx-brand-kw">고도수 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">토끼소주 그린</span></div><div class="idx-brand-meta"><span class="idx-abv">60도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">2022.04 한정판, 최초 오버프루프</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">토끼소주 골드</span></div><div class="idx-brand-meta"><span class="idx-abv">46도</span></div><div class="idx-brand-kw">미국산 버진 오크통 숙성, 매출 비중 1위</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">토끼소주 가넷</span></div><div class="idx-brand-meta"><span class="idx-abv">46도</span><span class="idx-year">2023(추정)</span></div><div class="idx-brand-kw">버진오크 1차+셰리오크 2차 숙성, 한정판</div></div>
 </div>
 <div class="idx-card" style="order:17"><div class="idx-card-header">케이알컴퍼니</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 17°</span><span class="idx-abv">17도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.03.01 출시, 강원 평창, 울릉도 해양심층수</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 21°</span><span class="idx-abv">21도</span></div><div class="idx-brand-kw">GS25 한정판 "독도21×울라 에디션" 기반</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 27°</span><span class="idx-abv">27도</span></div><div class="idx-brand-kw"></div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 37°</span><span class="idx-abv">37도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025 샌프란시스코 월드스피릿 골드메달 2년 연속</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 17°</span></div><div class="idx-brand-meta"><span class="idx-abv">17도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.03.01 출시, 강원 평창, 울릉도 해양심층수</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 21°</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span></div><div class="idx-brand-kw">GS25 한정판 "독도21×울라 에디션" 기반</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 27°</span></div><div class="idx-brand-meta"><span class="idx-abv">27도</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 37°</span></div><div class="idx-brand-meta"><span class="idx-abv">37도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025 샌프란시스코 월드스피릿 골드메달 2년 연속</div></div>
 </div>
 <div class="idx-card" style="order:18"><div class="idx-card-header">한국양조종합연구소</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">서</span><span class="idx-abv">45도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">고구마소주, 쑥 부재료, 경기 광명</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">애</span><span class="idx-abv">45도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">보리소주, 《산가요록》 맥주 주방문 재현</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">락</span><span class="idx-abv">40도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.07 출시, 쌀소주</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">서</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">고구마소주, 쑥 부재료, 경기 광명</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">애</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">보리소주, 《산가요록》 맥주 주방문 재현</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">락</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.07 출시, 쌀소주</div></div>
 </div>
 <div class="idx-card" style="order:36"><div class="idx-card-header">포항불로주</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">불로주</span></div><div class="idx-brand-kw">경북 포항, 2009 한국전통주품평회 금상</div></div>
 </div>
 <div class="idx-card" style="order:37"><div class="idx-card-header">인산가</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">월고해</span><span class="idx-abv">42도</span></div><div class="idx-brand-kw">경남 함양, 오양주 1회 증류</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">적송자</span><span class="idx-abv">53·72도</span></div><div class="idx-brand-kw">오양주 2회 증류</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">월고해</span></div><div class="idx-brand-meta"><span class="idx-abv">42도</span></div><div class="idx-brand-kw">경남 함양, 오양주 1회 증류</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">적송자</span></div><div class="idx-brand-meta"><span class="idx-abv">53·72도</span></div><div class="idx-brand-kw">오양주 2회 증류</div></div>
 </div>
 <div class="idx-card" style="order:38"><div class="idx-card-header">내외디스틸러리</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">내외21</span><span class="idx-abv">21도</span></div><div class="idx-brand-kw">경남 산청, 2025 대한민국 주류대상</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">내외39</span><span class="idx-abv">39도</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">내외21</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span></div><div class="idx-brand-kw">경남 산청, 2025 대한민국 주류대상</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">내외39</span></div><div class="idx-brand-meta"><span class="idx-abv">39도</span></div><div class="idx-brand-kw"></div></div>
 </div>
 <div class="idx-card" style="order:33"><div class="idx-card-header">내변산양조장</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">백제소주</span><span class="idx-abv">25도</span></div><div class="idx-brand-kw">전북 부안, 옹기 8개월 숙성</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">백제소주</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span></div><div class="idx-brand-kw">전북 부안, 옹기 8개월 숙성</div></div>
 </div>
 <div class="idx-card" style="order:34"><div class="idx-card-header">대마주조</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">톡 한잔 소주</span><span class="idx-abv">30도</span></div><div class="idx-brand-kw">전남 영광</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">톡 한잔 소주</span></div><div class="idx-brand-meta"><span class="idx-abv">30도</span></div><div class="idx-brand-kw">전남 영광</div></div>
 </div>
 <div class="idx-card" style="order:35"><div class="idx-card-header">병영소주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">병영소주</span><span class="idx-abv">40도</span></div><div class="idx-brand-kw">전남 강진, 식품명인 61호 김견식, 보리소주</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">병영소주</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span></div><div class="idx-brand-kw">전남 강진, 식품명인 61호 김견식, 보리소주</div></div>
 </div>
 <div class="idx-card" style="order:29"><div class="idx-card-header">조은술세종</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이도 22</span><span class="idx-abv">22도</span></div><div class="idx-brand-kw">충북 청주, 유기농쌀, 2016 우리술품평회 대상</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이도 25</span><span class="idx-abv">25도</span></div><div class="idx-brand-kw"></div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이도 32</span><span class="idx-abv">32도</span></div><div class="idx-brand-kw"></div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이도 42</span><span class="idx-abv">42도</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이도 22</span></div><div class="idx-brand-meta"><span class="idx-abv">22도</span></div><div class="idx-brand-kw">충북 청주, 유기농쌀, 2016 우리술품평회 대상</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이도 25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이도 32</span></div><div class="idx-brand-meta"><span class="idx-abv">32도</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">이도 42</span></div><div class="idx-brand-meta"><span class="idx-abv">42도</span></div><div class="idx-brand-kw"></div></div>
 </div>
 <div class="idx-card" style="order:30"><div class="idx-card-header">화양</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">풍정사계 동</span><span class="idx-abv">25·42도</span></div><div class="idx-brand-kw">충북 청주, 2016 우리술품평회 최우수상</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">풍정사계 동</span></div><div class="idx-brand-meta"><span class="idx-abv">25·42도</span></div><div class="idx-brand-kw">충북 청주, 2016 우리술품평회 최우수상</div></div>
 </div>
 <div class="idx-card" style="order:31"><div class="idx-card-header">강산주조</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">火(불)소주</span><span class="idx-abv">41도</span></div><div class="idx-brand-kw">충남 서천, 한산소곡주 제조사</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화백</span><span class="idx-abv">25도</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">火(불)소주</span></div><div class="idx-brand-meta"><span class="idx-abv">41도</span></div><div class="idx-brand-kw">충남 서천, 한산소곡주 제조사</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화백</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span></div><div class="idx-brand-kw"></div></div>
 </div>
 <div class="idx-card" style="order:32"><div class="idx-card-header">담을술공방</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">주향이오</span><span class="idx-abv">25도</span></div><div class="idx-brand-kw">충북 충주, 무유약 항아리 숙성</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">주향담을</span><span class="idx-abv">41도</span></div><div class="idx-brand-kw">3년 항아리 숙성</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">주향아라</span><span class="idx-abv">55도</span></div><div class="idx-brand-kw">3년 항아리 숙성, 최고도수</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">주향이오</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span></div><div class="idx-brand-kw">충북 충주, 무유약 항아리 숙성</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">주향담을</span></div><div class="idx-brand-meta"><span class="idx-abv">41도</span></div><div class="idx-brand-kw">3년 항아리 숙성</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">주향아라</span></div><div class="idx-brand-meta"><span class="idx-abv">55도</span></div><div class="idx-brand-kw">3년 항아리 숙성, 최고도수</div></div>
 </div>
 <div class="idx-card" style="order:19"><div class="idx-card-header">삼해소주가</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">삼해소주</span><span class="idx-abv">45도</span></div><div class="idx-brand-kw">서울 마포, 천년 역사, 김택상 명인(식품명인 69호)</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">삼해소주</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span></div><div class="idx-brand-kw">서울 마포, 천년 역사, 김택상 명인(식품명인 69호)</div></div>
 </div>
 <div class="idx-card" style="order:20"><div class="idx-card-header">남한산성소주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">남한산성소주</span><span class="idx-abv">40도</span></div><div class="idx-brand-kw">경기 광주, 경기도 무형문화재 13호, 강석필 명인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">남한산성소주</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span></div><div class="idx-brand-kw">경기 광주, 경기도 무형문화재 13호, 강석필 명인</div></div>
 </div>
 <div class="idx-card" style="order:21"><div class="idx-card-header">한주양조</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">한주</span><span class="idx-abv">25·35도</span></div><div class="idx-brand-kw">경기 안성, 이성자 명인(송절주 기능보유자)</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">한주</span></div><div class="idx-brand-meta"><span class="idx-abv">25·35도</span></div><div class="idx-brand-kw">경기 안성, 이성자 명인(송절주 기능보유자)</div></div>
 </div>
 <div class="idx-card" style="order:22"><div class="idx-card-header">술샘</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">미르40</span><span class="idx-abv">40도</span><span class="idx-year">2018(추정)</span></div><div class="idx-brand-kw">경기 용인, 2018 우리술 품평회 대통령상</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">미르40</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">2018(추정)</span></div><div class="idx-brand-kw">경기 용인, 2018 우리술 품평회 대통령상</div></div>
 </div>
 <div class="idx-card" style="order:23"><div class="idx-card-header">좋은술</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">천비향 화주</span><span class="idx-abv">25·40·53도</span></div><div class="idx-brand-kw">경기 평택, 오양주 4회 증류·1년+ 숙성</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">천비향 화주</span></div><div class="idx-brand-meta"><span class="idx-abv">25·40·53도</span></div><div class="idx-brand-kw">경기 평택, 오양주 4회 증류·1년+ 숙성</div></div>
 </div>
 <div class="idx-card" style="order:27"><div class="idx-card-header">옥로주전수관</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">옥로주</span><span class="idx-abv">40도</span></div><div class="idx-brand-kw">경기 안산 대부도, 경기도 무형유산</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">옥로주</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span></div><div class="idx-brand-kw">경기 안산 대부도, 경기도 무형유산</div></div>
 </div>
 <div class="idx-card" style="order:28"><div class="idx-card-header">국순당여주명가</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">려</span><span class="idx-abv">25·40도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">경기 여주, 고구마·쌀 증류원액, 별명 쌀려·고구려</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">려</span></div><div class="idx-brand-meta"><span class="idx-abv">25·40도</span><span class="idx-year">2016</span></div><div class="idx-brand-kw">경기 여주, 고구마·쌀 증류원액, 별명 쌀려·고구려</div></div>
 </div>
 <div class="idx-card" style="order:24"><div class="idx-card-header">모월</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모월 인</span><span class="idx-abv">41도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">강원 원주, 2020 우리술 품평회 대통령상</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모월 인</span></div><div class="idx-brand-meta"><span class="idx-abv">41도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">강원 원주, 2020 우리술 품평회 대통령상</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모월 로</span></div><div class="idx-brand-kw">도수 미확인</div></div>
 </div>
 <div class="idx-card" style="order:25"><div class="idx-card-header">화전일취</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화전일취</span><span class="idx-abv">52·38도</span></div><div class="idx-brand-kw">강원 춘천, 소줏고리 전통 증류</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화전일취</span></div><div class="idx-brand-meta"><span class="idx-abv">52·38도</span></div><div class="idx-brand-kw">강원 춘천, 소줏고리 전통 증류</div></div>
 </div>
 <div class="idx-card" style="order:26"><div class="idx-card-header">마마스팜</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모곡53</span><span class="idx-abv">53도(제품명 기준)</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">강원 홍천, 향온곡·앉은뱅이밀 누룩</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모곡53</span></div><div class="idx-brand-meta"><span class="idx-abv">53도(제품명 기준)</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">강원 홍천, 향온곡·앉은뱅이밀 누룩</div></div>
 </div>
 </div>
 </div>
@@ -1114,9 +1126,14 @@ table.card.card-collapsed { display: none; }
 <div class="tl-era tl-era-1">
 <div class="tl-era-head"><span class="tl-era-range">고려 말 ~ 1970년대</span><span class="tl-era-title">지역명·한자 의미 중심 작명 <span class="tl-era-desc-inline">ㅣ 지역명(안동소주)·한자 의미(眞露·大鮮) 중심. 역사·지리 기반의 직관적 작명.</span></span></div>
 <div class="tl-events">
-<div class="tl-event"><div class="tl-event-when">고려 말</div><div class="tl-event-what">원나라로부터 증류 기술 전래 → 아락(아라크) 기반 증류식 소주 시작. 안동·개성 지역 정착.</div></div>
+<div class="tl-event"><div class="tl-event-when">고려 말</div><div class="tl-event-what">원나라로부터 증류 기술 전래 → 아락(아라크) 기반 증류식 소주 시작. 안동·개성 지역 정착. 몽골어 '아르히(архи)'를 음차한 아라길(阿喇吉)·아랄길(阿剌吉)로도 불림.</div></div>
+<div class="tl-event"><div class="tl-event-when">조선시대</div><div class="tl-event-what">쌀이 귀해 소주 제조 금지 조치가 빈번히 시행됨(식량난 우려). 양반들이 작은 잔에 조금씩 음용해 '약주(藥酒)' 명칭이 유래. 조선 후기엔 아랑주로도 불림.</div></div>
+<div class="tl-event"><div class="tl-event-when">대한제국 말~일제강점기 초</div><div class="tl-event-what">세수 확보 목적 주세령 도입 → 가정에서 빚던 전통 소주가 밀주로 밀려남. 근대식 주조법·대량생산 체계를 갖춘 업체 등장.</div></div>
 <div class="tl-event"><div class="tl-event-when">1924.10</div><div class="tl-event-what">평남 용강군 진천양조상회에서 <b>진로</b> 첫 출시 (35도). 한국 최초의 근대 소주 브랜드.</div></div>
-<div class="tl-event"><div class="tl-event-when">1965.01</div><div class="tl-event-what">양곡관리법 반포 → 쌀 원료 소주 금지. 고구마·타피오카 주정 기반 <b>희석식 소주</b>로 전환.</div></div>
+<div class="tl-event"><div class="tl-event-when">1930년대 중반</div><div class="tl-event-what">태평양전쟁·중일전쟁으로 쌀이 전략물자로 공출되며 증류식 소주 원료난·가격 급등. 대만·동남아산 값싼 타피오카·당밀을 이용한 <b>희석식 소주</b>가 개발되며 시장 잠식 시작.</div></div>
+<div class="tl-event"><div class="tl-event-when">1945</div><div class="tl-event-what">일본 패망 후 미군정 수립. 일본 업체가 남긴 시설·인원을 불하받아 희석식 소주를 생산하는 국내 업체들과의 경쟁 심화.</div></div>
+<div class="tl-event"><div class="tl-event-when">1950~1953</div><div class="tl-event-what">6·25 전쟁으로 생산 시설 다수 파괴, 기술자 사망·납북 등으로 증류식 소주 업계 위태.</div></div>
+<div class="tl-event"><div class="tl-event-when">1965.01</div><div class="tl-event-what">양곡관리법 반포 → 쌀 원료 소주 금지(수출용 제외). 고구마·타피오카 주정 기반 <b>희석식 소주</b>가 확고한 대세로 자리잡음.</div></div>
 </div>
 </div>
 
@@ -1124,6 +1141,8 @@ table.card.card-collapsed { display: none; }
 <div class="tl-era-head"><span class="tl-era-range">1976 ~ 1990년대</span><span class="tl-era-title">1도1사 자도주법, 지역 소주 고착 <span class="tl-era-desc-inline">ㅣ 1도1사 자도주법 시대. 지역 소주 고착. 경월·보해 등 지역 정체성 강화.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">1976.06</div><div class="tl-event-what">국세청 훈령으로 '1도 1사' 자도주법 시행 → 시·도별 1개 업체만 허가. <b>지역 소주 브랜드 체제</b> 성립.</div></div>
+<div class="tl-event"><div class="tl-event-when">1977</div><div class="tl-event-what">통일미 보급으로 여유가 생기면서 쌀막걸리 제조 재개 허용. 다만 더 많은 쌀이 드는 증류식 소주는 여전히 엄격한 규제 대상.</div></div>
+<div class="tl-event"><div class="tl-event-when">1988</div><div class="tl-event-what">서울 올림픽을 계기로 주류 제조 규제 완화, 전통주 발굴·복원 본격화.</div></div>
 <div class="tl-event"><div class="tl-event-when">1996.12</div><div class="tl-event-what">헌법재판소, 자도주 구입제도 위헌 결정 → 소주 시장 전국 무한 경쟁 시대 개막.</div></div>
 </div>
 </div>
@@ -1139,6 +1158,8 @@ table.card.card-collapsed { display: none; }
 <div class="tl-era-head"><span class="tl-era-range">2006 ~ 2018년</span><span class="tl-era-title">긍정 감성+자연 이미지 확산 <span class="tl-era-desc-inline">ㅣ 좋은데이·잎새주·한라산 등 긍정 감성+자연 이미지 확산. 저도수 경쟁.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">2006.11</div><div class="tl-event-what"><b>좋은데이</b> 출시 (16.9도). 저도수 소주 경쟁 가속화. 전국 주요 소주사 저도수 경쟁 돌입.</div></div>
+<div class="tl-event"><div class="tl-event-when">2008</div><div class="tl-event-what">전통주 주세 절반 감면 세제 혜택 시행.</div></div>
+<div class="tl-event"><div class="tl-event-when">2013 봄</div><div class="tl-event-what">전통주 인터넷 판매 허용 → 명인 안동소주를 필두로 온라인 증류식 소주 붐 시작.</div></div>
 </div>
 </div>
 
@@ -1146,8 +1167,10 @@ table.card.card-collapsed { display: none; }
 <div class="tl-era-head"><span class="tl-era-range">2019 ~ 2024년</span><span class="tl-era-title">스토리·캐릭터·철학 중심 브랜딩 <span class="tl-era-desc-inline">ㅣ 진로이즈백(뉴트로)·새로(제로슈거+전통)·원소주(힙한 증류식) 등 스토리·캐릭터·철학 중심 브랜딩. 이름에 세계관과 마케팅 전략이 담기는 시대로 진화.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">2019.04</div><div class="tl-event-what"><b>진로이즈백</b>(두꺼비 캐릭터) 출시. 뉴트로(New-tro) 마케팅 열풍 → 복고 감성 소주 붐.</div></div>
+<div class="tl-event"><div class="tl-event-when">2020~2022</div><div class="tl-event-what">코로나19로 거리두기 시행 → 혼술 문화 확산, 위스키·증류주 관심과 함께 증류식 소주 판매 증가. 동네 편의점·슈퍼에서도 증류식 소주가 주류 코너를 차지할 만큼 보급 확대.</div></div>
 <div class="tl-event"><div class="tl-event-when">2022.02</div><div class="tl-event-what"><b>원소주</b>(박재범) 출시. 증류식 소주 편의점 진출.</div></div>
 <div class="tl-event"><div class="tl-event-when">2022.09</div><div class="tl-event-what"><b>새로</b>(롯데) 출시. 제로슈거·프리미엄 증류식 소주 붐.</div></div>
+<div class="tl-event"><div class="tl-event-when">2024</div><div class="tl-event-what"><b>40240 독도37</b>(케이알컴퍼니), 영국 International Spirits Challenge 금상 수상.</div></div>
 </div>
 </div>
 
@@ -1155,6 +1178,7 @@ table.card.card-collapsed { display: none; }
 <div class="tl-era-head"><span class="tl-era-range">2025 ~ 현재</span><span class="tl-era-title">헤리티지·리뉴얼 수식어 결합 <span class="tl-era-desc-inline">ㅣ 처음처럼 클래식(2006년 원조 레시피·이름 복원)·좋은데이 'All New' 등 헤리티지·리뉴얼 수식어를 브랜드명에 결합하는 흐름 확산.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">2025.02</div><div class="tl-event-what"><b>선양오크</b>(오크 숙성 블렌딩) 출시로 위스키 공법 접목 소주 등장.</div></div>
+<div class="tl-event"><div class="tl-event-when">2025.05</div><div class="tl-event-what"><b>40240 독도37</b>(케이알컴퍼니), 미국 샌프란시스코 World Spirits Competition 골드메달 수상 — 2024년 영국 ISC 금상에 이은 2년 연속 국제대회 최고 등급 획득.</div></div>
 <div class="tl-event"><div class="tl-event-when">2025.12</div><div class="tl-event-what"><b>원소주 환영30</b>(치악산 배 우린 30도) 출시. 프리미엄·하이브리드 소주 시대.</div></div>
 <div class="tl-event"><div class="tl-event-when">2026.01</div><div class="tl-event-what">세븐일레븐×최강록 <b>네오25화이트</b> 한정 출시. <b>새로</b> 15.7도 리뉴얼(16도→15.7도, 쌀증류주 원료 변경).</div></div>
 <div class="tl-event"><div class="tl-event-when">2026.02</div><div class="tl-event-what"><b>진로</b> 15.7도 리뉴얼.</div></div>
@@ -3542,6 +3566,8 @@ table.card.card-collapsed { display: none; }
 <div class="method-card mc-b"><div class="mc-head">주정(酒精)</div><div class="mc-body">타피오카·고구마 등 전분질 원료를 발효한 뒤 연속식 증류로 뽑아낸 95도 이상의 고순도 에탄올. 희석식 소주의 기본 원료로, 물로 희석하고 감미료를 더해 완제품이 됩니다.</div></div>
 <div class="method-card mc-t"><div class="mc-head">누룩 · 입국(粒麴)</div><div class="mc-body">곡물에 누룩곰팡이를 배양해 만든 당화·발효제. 전통 누룩은 자연 균으로 빚고, 입국은 흑국균·황국균 등을 순수 배양해 곡물에 접종한 개량형. 증류식 소주 발효의 핵심 재료입니다.</div></div>
 <div class="method-card mc-d"><div class="mc-head">상압증류 · 감압증류</div><div class="mc-body">상압증류는 일반 기압에서 끓여 곡물 향이 진하고 도수가 높게 나오는 방식. 감압증류는 압력을 낮춰 약 40~50도의 낮은 온도에서 증류해 향이 부드럽고 깔끔한 원액을 얻는 방식으로, 프리미엄 증류식 소주 일부 라인에서 채택합니다.</div></div>
+<div class="method-card mc-gray"><div class="mc-head">라벨의 "증류식 소주" 표기</div><div class="mc-body">2013년 주세율 통일을 이유로 희석식·증류식 라벨 구분 의무가 폐지돼, 희석식 소주 라벨에서는 '희석식' 문구가 대부분 사라졌다. 증류식 업체들은 지금도 '증류식 소주'를 자체 표기 중. 일부 증류식 소주는 주정을 섞기도 하니, 원재료명의 주정 포함 여부로 구분 가능.</div></div>
+<div class="method-card mc-a"><div class="mc-head">"전통소주" ≠ 무첨가</div><div class="mc-body">'전통소주'라는 이름 때문에 감미료가 전혀 없다고 오해하기 쉽지만, 실제로는 설탕을 넣고도 전통소주로 파는 제품이 적지 않다. 위스키는 설탕 등을 첨가하면 리큐르로 재분류되는 엄격한 기준이 있지만, 전통소주에는 그런 규정이 없다. 인공감미료 무첨가를 내세우면서 설탕은 넣는 제품도 있으니 원재료명을 직접 확인하는 것이 정확하다.</div></div>
 </div>
 </div>
 <div class="footer">
@@ -3789,11 +3815,13 @@ initCardAccordions();
 })();
 </script>
 
+<!-- 26.07 비활성화 (soju.md 참고, 필요 시 주석 해제)
 <button class="lang-fab" id="langFab" type="button">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 6H15.5a15.6 15.6 0 0 0-1.2-4.44A8.03 8.03 0 0 1 18.93 8ZM12 4.04c.83 1.2 1.5 2.7 1.87 3.96h-3.74c.37-1.26 1.04-2.76 1.87-3.96ZM4.26 14a8.14 8.14 0 0 1 0-4h3.38a16.7 16.7 0 0 0 0 4H4.26Zm.81 2h3.43c.3 1.62.83 3.16 1.5 4.44A8.03 8.03 0 0 1 5.07 16Zm3.43-8H5.07a8.03 8.03 0 0 1 4.94-4.44A16.06 16.06 0 0 0 8.5 8ZM12 19.96c-.83-1.2-1.5-2.7-1.87-3.96h3.74c-.37 1.26-1.04 2.76-1.87 3.96ZM13.87 14h-3.74a14.7 14.7 0 0 1 0-4h3.74a14.7 14.7 0 0 1 0 4Zm.36 5.44c.67-1.28 1.2-2.82 1.5-4.44h3.43a8.03 8.03 0 0 1-4.93 4.44ZM15.87 14a16.7 16.7 0 0 0 0-4h3.38a8.14 8.14 0 0 1 0 4h-3.38Z"/></svg>
   EN
 </button>
 <div id="google_translate_element" style="display:none"></div>
+-->
 <button class="feedback-fab" id="feedbackFab">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
   제보하기
@@ -3806,6 +3834,7 @@ initCardAccordions();
     <div class="fb-msg" id="feedbackMsg"></div>
   </form>
 </div>
+<!-- 26.07 비활성화 (soju.md 참고, 필요 시 주석 해제)
 <script>
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({ pageLanguage: 'ko', includedLanguages: 'en', autoDisplay: false }, 'google_translate_element');
@@ -3826,6 +3855,9 @@ function googleTranslateElementInit() {
   }
   langFab.addEventListener('click', function(){ triggerTranslate(15); });
 })();
+</script>
+-->
+<script>
 (function(){
   var endpoint = 'https://formspree.io/f/xkolggzz';
   var fab = document.getElementById('feedbackFab');
