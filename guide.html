@@ -562,12 +562,13 @@ button.tab-btn {
 .idx-card-count {
   display: inline-block;
   margin-left: 5px;
-  padding: 0 6px;
+  padding: 0 7px;
   border-radius: 8px;
   font-size: 8.2pt;
   font-weight: 700;
-  color: #666;
-  background: #eee;
+  color: #e94560;
+  background: rgba(233,69,96,.1);
+  border: 1px solid rgba(233,69,96,.28);
   vertical-align: middle;
 }
 
@@ -3850,7 +3851,7 @@ function initIdxCards() {
     var count = card.querySelectorAll('.idx-brand').length;
     var badge = document.createElement('span');
     badge.className = 'idx-card-count';
-    badge.textContent = count;
+    badge.textContent = count + '종';
     header.appendChild(badge);
   });
   document.querySelectorAll('.idx-brand').forEach(function (b) {
