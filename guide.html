@@ -677,6 +677,9 @@ button.tab-btn {
 .method-grid-num { gap: 12px; }
 .method-grid-stack { flex-direction: column; gap: 6px; }
 .method-grid-stack .method-card { flex: 1 1 auto; display: flex; align-items: baseline; gap: 8px; padding-top: 7px; padding-bottom: 7px; }
+.method-modal .method-grid-stack .method-card { display: grid; grid-template-columns: 152px 1fr; gap: 0; }
+.method-modal .method-grid-stack .mc-head { white-space: normal; padding-right: 10px; border-right: 1px solid rgba(0,0,0,.1); }
+.method-modal .method-grid-stack .mc-body { padding-left: 12px; }
 .method-grid-stack .mc-head { flex: 0 0 auto; white-space: nowrap; margin-bottom: 0; }
 .method-grid-stack .mc-body { flex: 1 1 auto; min-width: 0; }
 .method-card.mc-num {
@@ -695,6 +698,36 @@ button.tab-btn {
 .proc-title { font-size: 9.6pt; font-weight: 800; color: #1a1a2e; margin: 18px 0 10px; display: flex; align-items: center; gap: 7px; }
 .proc-title:first-of-type { margin-top: 10px; }
 .proc-title .swatch { width: 8px; height: 8px; border-radius: 2px; flex: 0 0 auto; }
+.sh-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.method-help-btn {
+  background: rgba(255,255,255,.2); color: #fff; border: 1px solid rgba(255,255,255,.55);
+  border-radius: 20px; padding: 4px 13px; font-size: 8.8pt; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.method-help-btn:hover { background: rgba(255,255,255,.32); }
+.method-modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(20,20,30,.55); z-index: 2000;
+  align-items: center; justify-content: center; padding: 24px;
+}
+.method-modal-overlay.open { display: flex; }
+.method-modal {
+  background: #fff; border-radius: 12px; max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto;
+  padding: 20px 22px 22px; transform: translateY(16px) scale(.97); opacity: 0;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.method-modal-overlay.open .method-modal { transform: translateY(0) scale(1); opacity: 1; }
+.method-modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.method-modal-head .mm-title { font-size: 11.8pt; font-weight: 900; color: #1a1a2e; }
+.method-modal-close {
+  background: #f1f1f4; border: none; width: 26px; height: 26px; border-radius: 50%;
+  font-size: 14px; color: #666; cursor: pointer; line-height: 1;
+}
+.method-modal-close:hover { background: #e2e2e8; color: #333; }
+@media print {
+  .method-help-btn { display: none !important; }
+  .method-modal-overlay { display: flex !important; position: static !important; background: none !important; padding: 0 !important; z-index: auto; }
+  .method-modal { transform: none !important; opacity: 1 !important; max-height: none !important; box-shadow: none !important; max-width: none; }
+  .method-modal-close { display: none !important; }
+}
 .proc-flow { position: relative; display: flex; flex-direction: column; gap: 2px; margin-bottom: 6px; page-break-inside: avoid; break-inside: avoid; }
 .proc-flow::before { content: ''; position: absolute; left: 20px; top: 20px; bottom: 20px; width: 2px; background: #e2e2e8; }
 .proc-step { position: relative; display: flex; align-items: center; padding: 6px 0; }
@@ -1037,9 +1070,9 @@ table.card.card-collapsed { display: none; }
 </div>
 <div class="idx-card" style="order:17"><div class="idx-card-header">케이알컴퍼니</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 17°</span></div><div class="idx-brand-meta"><span class="idx-abv">17도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.03.01 출시, 강원 평창, 울릉도 해양심층수</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 21°</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span></div><div class="idx-brand-kw">GS25 한정판 "독도21×울라 에디션" 기반</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 27°</span></div><div class="idx-brand-meta"><span class="idx-abv">27도</span></div><div class="idx-brand-kw"></div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 37°</span></div><div class="idx-brand-meta"><span class="idx-abv">37도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025 샌프란시스코 월드스피릿 골드메달 2년 연속</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 27°</span></div><div class="idx-brand-meta"><span class="idx-abv">27도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw"></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 37°</span></div><div class="idx-brand-meta"><span class="idx-abv">37도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">2025 샌프란시스코 월드스피릿 골드메달 2년 연속</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 21°</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span><span class="idx-year">2025.08.15</span></div><div class="idx-brand-kw">광복 80주년 기념 출시, GS25 한정판 "독도21×울라 에디션" 기반</div></div>
 </div>
 <div class="idx-card" style="order:18"><div class="idx-card-header">한국양조종합연구소</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">서</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">고구마소주, 쑥 부재료, 경기 광명</div></div>
@@ -1063,7 +1096,7 @@ table.card.card-collapsed { display: none; }
 </div>
 <div class="idx-card" style="order:24"><div class="idx-card-header">모월</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모월 인</span></div><div class="idx-brand-meta"><span class="idx-abv">41도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">강원 원주, 2020 우리술 품평회 대통령상</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모월 로</span></div><div class="idx-brand-kw">도수 미확인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모월 로</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span></div><div class="idx-brand-kw"></div></div>
 </div>
 <div class="idx-card" style="order:25"><div class="idx-card-header">화전일취</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화전일취</span></div><div class="idx-brand-meta"><span class="idx-abv">52·38도</span></div><div class="idx-brand-kw">강원 춘천, 소줏고리 전통 증류</div></div>
@@ -2260,15 +2293,7 @@ table.card.card-collapsed { display: none; }
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">40240 독도소주 21°</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
-<div class="rgH-right">
-<div class="lbl">🔤 이름 유래</div>
-<div class="ety"><b>40240 독도소주</b> 브랜드명 + 도수 <b>21</b>. GS25 단독 삼일절·광복80주년 한정판 "독도21×울라 에디션"(2026.03, 한복 입은 수호신 라벨)도 이 도수 기반.</div>
-<div class="det">강원도 쌀과 울릉도 해양심층수 사용, 생쌀 발효 후 감압증류.</div>
-</div>
-</div>
-<div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">40240 독도소주 27°</div><div class="rgH-badges"><span class="abv-badge">27도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2023</div><div class="rgH-name">40240 독도소주 27°</div><div class="rgH-badges"><span class="abv-badge">27도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>40240 독도소주</b> 브랜드명 + 도수 <b>27</b>.</div>
@@ -2276,11 +2301,19 @@ table.card.card-collapsed { display: none; }
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2025</div><div class="rgH-name">40240 독도소주 37°</div><div class="rgH-badges"><span class="abv-badge">37도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2023</div><div class="rgH-name">40240 독도소주 37°</div><div class="rgH-badges"><span class="abv-badge">37도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>40240 독도소주</b> 브랜드명 + 도수 <b>37</b>. 라인업 중 최고 도수.</div>
 <div class="det">2025년 미국 샌프란시스코 World Spirits Competition에서 2년 연속 골드메달 수상. 케이알컴퍼니는 한국해양과학기술원에 매년 1000만원씩 독도·울릉도 해양연구기금을 기부(2026.04 보도).</div>
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2025.08.15</div><div class="rgH-name">40240 독도소주 21°</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety"><b>40240 독도소주</b> 브랜드명 + 도수 <b>21</b>. GS25 단독 삼일절·광복80주년 한정판 "독도21×울라 에디션"(2026.03, 한복 입은 수호신 라벨)도 이 도수 기반.</div>
+<div class="det">2025년 8월 15일 광복 80주년을 기념해 출시. 강원도 쌀과 울릉도 해양심층수 사용, 생쌀 발효 후 감압증류.</div>
 </div>
 </div>
 </div>
@@ -2298,7 +2331,7 @@ table.card.card-collapsed { display: none; }
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">모월 로</div></div>
+<div class="rgH-left"><div class="rgH-name">모월 로</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>모월</b> + 증류식 소주 라인명 <b>로</b>.</div>
@@ -3359,6 +3392,16 @@ table.card.card-collapsed { display: none; }
 
 <div class="mfr-item">
 <span class="mfr-dot"></span>
+<span class="mfr-year">1961</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">대마주조</span><span class="mfr-region">전남 영광</span></div>
+<div class="mfr-brands">톡 한잔 소주</div>
+<div class="mfr-note">1961년 이숙여가 창업, 아들 정덕진 대표가 계승 운영.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
 <span class="mfr-year">1973</span>
 <div class="mfr-card">
 <div class="mfr-head"><span class="mfr-name">더맥키스컴퍼니</span><span class="mfr-region">충남 대전</span></div>
@@ -3399,6 +3442,16 @@ table.card.card-collapsed { display: none; }
 
 <div class="mfr-item">
 <span class="mfr-dot"></span>
+<span class="mfr-year">1994</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">한주양조</span><span class="mfr-region">경기 안성</span></div>
+<div class="mfr-brands">한주</div>
+<div class="mfr-note">이성자 명인(송절주 기능보유자)이 1994년 본격 생산체제를 갖추기 위해 설립(1973년은 시어머니로부터 기능 전수받은 해).</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
 <span class="mfr-year">1996(추정)</span>
 <div class="mfr-card">
 <div class="mfr-head"><span class="mfr-name">(주)솔송주</span><span class="mfr-region">경남 함양</span></div>
@@ -3409,11 +3462,31 @@ table.card.card-collapsed { display: none; }
 
 <div class="mfr-item">
 <span class="mfr-dot"></span>
+<span class="mfr-year">1997</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">조은술세종</span><span class="mfr-region">충북 청주</span></div>
+<div class="mfr-brands">이도</div>
+<div class="mfr-note">1997년 오송상사로 출발, 2007년 12월 농업회사법인 청주주조세종(주)으로 법인전환, 2012년 11월 현재 사명으로 변경. 유기농쌀 사용, 2016년 우리술 품평회 대상.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
 <span class="mfr-year">2005</span>
 <div class="mfr-card">
 <div class="mfr-head"><span class="mfr-name">화요(주)</span><span class="mfr-region">경기 여주</span></div>
 <div class="mfr-brands">화요17·25·41·53</div>
 <div class="mfr-note">도자기 명가 광주요 계열. 술+도자기 고급 브랜드 컨셉. 17·19·25·41·53도 + X.P. 6종 프리미엄 라인업.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2009</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">국순당여주명가</span><span class="mfr-region">경기 여주</span></div>
+<div class="mfr-brands">려</div>
+<div class="mfr-note">2009년 국순당과 여주 고구마 농가들의 공동출자로 설립. 고구마·쌀 증류원액 사용, 별명 쌀려·고구려.</div>
 </div>
 </div>
 
@@ -3439,11 +3512,81 @@ table.card.card-collapsed { display: none; }
 
 <div class="mfr-item">
 <span class="mfr-dot"></span>
+<span class="mfr-year">2010.07</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">인산가</span><span class="mfr-region">경남 함양</span></div>
+<div class="mfr-brands">월고해·적송자</div>
+<div class="mfr-note">농업회사법인 인산농장 2010년 7월 22일 설립. 함양 삼봉산 지하 200m 광천수 사용, 오양주 방식 증류식 소주.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2012</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">술샘</span><span class="mfr-region">경기 용인</span></div>
+<div class="mfr-brands">미르40</div>
+<div class="mfr-note">2012년 한국전통주연구소 졸업생 5인이 설립. 백옥쌀·전통 누룩·물만으로 빚는 600년 전통 제조법 계승. 2018년 우리술 품평회 대통령상 수상.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2013</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">좋은술</span><span class="mfr-region">경기 평택</span></div>
+<div class="mfr-brands">천비향 화주</div>
+<div class="mfr-note">2013년 이예령 대표가 평택 오성면에 설립. 오양주 방식으로 다섯 번 빚은 천비향 약주를 4회 증류 후 1년 이상 숙성.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2015(추정)</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">담을술공방</span><span class="mfr-region">충북 충주</span></div>
+<div class="mfr-brands">주향이오·주향담을·주향아라</div>
+<div class="mfr-note">도예가 이윤 대표가 설립. 자가제작 무유약 항아리 숙성이 특징.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2016</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">모월</span><span class="mfr-region">강원 원주</span></div>
+<div class="mfr-brands">모월 인·로</div>
+<div class="mfr-note">2016년 설립된 협동조합 양조장. 토토미(원주 쌀)에 첨가물 없이 밀누룩만 사용. 2020년 우리술 품평회 대통령상 수상.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2020</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">화전일취(지시울양조장)</span><span class="mfr-region">강원 춘천</span></div>
+<div class="mfr-brands">화전일취</div>
+<div class="mfr-note">2020년 창업. 꽃 향을 중시하는 춘천 전통 증류식 소주, 소줏고리 전통 증류 방식.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
 <span class="mfr-year">2021</span>
 <div class="mfr-card">
 <div class="mfr-head"><span class="mfr-name">원스피리츠</span><span class="mfr-region">강원 원주</span></div>
 <div class="mfr-brands">원소주 오리지널·스피릿·클래식</div>
 <div class="mfr-note">2021년 설립. 가수 박재범 창업. 전통 밀누룩 사용. MZ 세대 증류식 소주 대중화 선도.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2023</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">내외디스틸러리</span><span class="mfr-region">경남 산청</span></div>
+<div class="mfr-brands">내외21·내외39</div>
+<div class="mfr-note">2023년 8월 최영웅 대표·김태건 이사가 공동 설립. 2025년 대한민국 주류대상 수상.</div>
 </div>
 </div>
 
@@ -3461,11 +3604,14 @@ table.card.card-collapsed { display: none; }
 </div>
 <!-- ══════════════════ 제조 방법 ══════════════════ -->
 <div class="tab-panel" id="tab-method">
-<div class="section-header sh-teal"><svg viewBox="0 0 48 64" style="width:14px;height:19px;vertical-align:-4px" xmlns="http://www.w3.org/2000/svg"><rect x="19" y="1" width="10" height="5" rx="1" fill="#0b5e2c"/><rect x="20" y="6" width="8" height="10" rx="1" fill="#1f9d55"/><path d="M20 16L28 16L34 22L14 22Z" fill="#1f9d55"/><path d="M14 22h20v33a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z" fill="#1f9d55"/><rect x="16" y="34" width="16" height="14" fill="white"/></svg> 소주 제조 방법</div>
+<div class="section-header sh-teal sh-row">
+<span><svg viewBox="0 0 48 64" style="width:14px;height:19px;vertical-align:-4px" xmlns="http://www.w3.org/2000/svg"><rect x="19" y="1" width="10" height="5" rx="1" fill="#0b5e2c"/><rect x="20" y="6" width="8" height="10" rx="1" fill="#1f9d55"/><path d="M20 16L28 16L34 22L14 22Z" fill="#1f9d55"/><path d="M14 22h20v33a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z" fill="#1f9d55"/><rect x="16" y="34" width="16" height="14" fill="white"/></svg> 소주 제조 방법</span>
+<button class="method-help-btn" id="methodHelpBtn" type="button">보관·음용 방법</button>
+</div>
 <div class="method-grid method-grid-num">
-<div class="method-card mc-b mc-num"><span class="mc-badge">🍃 희석식</span><div class="mc-body"><b>정의</b>: 타피오카·고구마 등에서 뽑은 95도 이상 주정(연속식 증류)을 물로 희석한 뒤 감미료·산도조절제를 넣어 맛을 맞춘 소주.<br/><b>원료/공정</b>: 주정 + 정제수 + 감미료(에리스리톨·자일리톨 등) 혼합 — 단식 증류 과정이 없어 곡물 풍미는 거의 남지 않음.<br/><b>도수</b>: 통상 15~25도(2026년 다수 브랜드 15.7도대로 표준화).<br/><b>대표</b>: 참이슬·처음처럼·새로·진로</div></div>
+<div class="method-card mc-b mc-num"><span class="mc-badge">🍃 희석식</span><div class="mc-body"><b>정의</b>: 타피오카·고구마 등에서 뽑은 95도 이상 주정(연속식 증류)을 물로 희석한 뒤 감미료·산도조절제를 넣어 맛을 맞춘 소주.<br/><b>원료/공정</b>: 주정 + 정제수 + 감미료(에리스리톨·자일리톨 등) 혼합 — 단식 증류 과정이 없어 곡물 풍미는 거의 남지 않음.<br/><b>도수</b>: 통상 15~25도(2026년 다수 브랜드 15.7도대로 표준화).<br/><b>대표</b>: 참이슬·처음처럼·새로·진로<br/><b>비유</b>: 주정 큐브를 물에 희석하는 레토르트 카레.</div></div>
 <div class="method-card mc-t mc-num"><span class="mc-badge">🍑 플레이버</span><div class="mc-body"><b>정의</b>: 희석식 소주(보통 12~13도로 추가 희석)에 과일 등 향료·향미액을 첨가한 저도수 가향 소주.<br/><b>원료/공정</b>: 희석식 소주 베이스 + 과즙/향료 첨가 — 제조 공정 자체는 희석식과 동일, 향 첨가 단계만 추가.<br/><b>도수</b>: 통상 12~17도로 희석식보다 낮음.<br/><b>대표</b>: 자몽에이슬·순하리·새로 살구·좋은데이 컬러시리즈</div></div>
-<div class="method-card mc-d mc-num"><span class="mc-badge">🏺 증류식 · 전통</span><div class="mc-body"><b>정의</b>: 쌀·보리 등 곡물을 발효시킨 술덧을 단식 증류기(常压/감압)로 한 번 증류해 곡물 본연의 향과 풍미를 살린 소주. 옛 안동소주·문배주 등 전통 제법의 직계.<br/><b>원료/공정</b>: 곡물(쌀·보리·옥수수 등) 발효 → 단식 증류 1~2회 → 숙성(일부는 오크통). 연속식 증류가 아니라 풍미 손실이 적음.<br/><b>도수</b>: 17~53도로 폭이 넓음(저도수 프리미엄형~고도수 전통형).<br/><b>대표</b>: 화요·일품진로·원소주·안동소주</div></div>
+<div class="method-card mc-d mc-num"><span class="mc-badge">🏺 증류식 · 전통</span><div class="mc-body"><b>정의</b>: 쌀·보리 등 곡물을 발효시킨 술덧을 단식 증류기(常压/감압)로 한 번 증류해 곡물 본연의 향과 풍미를 살린 소주. 옛 안동소주·문배주 등 전통 제법의 직계.<br/><b>원료/공정</b>: 곡물(쌀·보리·옥수수 등) 발효 → 단식 증류 1~2회 → 숙성(일부는 오크통). 연속식 증류가 아니라 풍미 손실이 적음.<br/><b>도수</b>: 17~53도로 폭이 넓음(저도수 프리미엄형~고도수 전통형).<br/><b>대표</b>: 화요·일품진로·원소주·안동소주<br/><b>비유</b>: 재료부터 끓이는 정통 카레.</div></div>
 </div>
 
 <div class="proc-title"><span class="swatch" style="background:#1565c0"></span>🍃 희석식 소주 제조 공정</div>
@@ -3562,12 +3708,41 @@ table.card.card-collapsed { display: none; }
 
 </div>
 
-<div class="method-grid method-grid-stack" style="margin-top:16px">
+<div class="proc-title"><span class="swatch" style="background:#4a148c"></span>🏺 전통 증류기</div>
+<div class="method-grid method-grid-stack">
+<div class="method-card mc-d"><div class="mc-head">소줏고리</div><div class="mc-body">옹기로 만든 재래식 증류기. 술덧을 끓이는 솥은 은·구리·주철 등 금속 소재, 증기를 모으는 상부 그릇은 옹기·유기를 사용. 몸체와 뚜껑 사이 틈새는 반죽한 밀가루로 밀봉해 증기가 새지 않게 함.</div></div>
+<div class="method-card mc-t"><div class="mc-head">제주 고소리</div><div class="mc-body">제주도의 질그릇 증류기. 시루본(진흙 반죽)으로 이음새를 밀봉하거나, 솥뚜껑을 뒤집어 냉각수를 채우는 방식으로 증기를 식혀 증류액을 받음.</div></div>
+<div class="method-card mc-gray"><div class="mc-head">소줏돌</div><div class="mc-body">소줏고리 이전에 쓰던 도구. 대나무관으로 증류액을 받아내는 방식. 제주도에 마지막 사용례가 유물로 남아 있음.</div></div>
+</div>
+
+<div class="proc-title"><span class="swatch" style="background:#00796b"></span>📖 용어 설명</div>
+<div class="method-grid method-grid-stack">
 <div class="method-card mc-b"><div class="mc-head">주정(酒精)</div><div class="mc-body">타피오카·고구마 등 전분질 원료를 발효한 뒤 연속식 증류로 뽑아낸 95도 이상의 고순도 에탄올. 희석식 소주의 기본 원료로, 물로 희석하고 감미료를 더해 완제품이 됩니다.</div></div>
 <div class="method-card mc-t"><div class="mc-head">누룩 · 입국(粒麴)</div><div class="mc-body">곡물에 누룩곰팡이를 배양해 만든 당화·발효제. 전통 누룩은 자연 균으로 빚고, 입국은 흑국균·황국균 등을 순수 배양해 곡물에 접종한 개량형. 증류식 소주 발효의 핵심 재료입니다.</div></div>
-<div class="method-card mc-d"><div class="mc-head">상압증류 · 감압증류</div><div class="mc-body">상압증류는 일반 기압에서 끓여 곡물 향이 진하고 도수가 높게 나오는 방식. 감압증류는 압력을 낮춰 약 40~50도의 낮은 온도에서 증류해 향이 부드럽고 깔끔한 원액을 얻는 방식으로, 프리미엄 증류식 소주 일부 라인에서 채택합니다.</div></div>
+<div class="method-card mc-d"><div class="mc-head">상압증류 · 감압증류</div><div class="mc-body">상압증류는 일반 기압(85~95°C)에서 끓여 곡물 향이 진하고 도수가 높게 나오는 방식. 감압증류는 압력을 낮춰 약 40~50도의 낮은 온도에서 증류해 향이 부드럽고 깔끔한 원액을 얻는 방식으로, 프리미엄 증류식 소주 일부 라인에서 채택합니다. "감압증류는 일본식이라 비전통"이라는 통념과 달리, 감압증류 자체가 1973년 일본 후쿠오카 시라하나 주조(현 키타야)가 처음 개발한 현대 기법 — 일본에서도 원래는 상압증류가 전통이었고, 감압증류 도입 이후에야 일본 소주(소츄) 붐이 일었습니다.</div></div>
+</div>
+
+<div class="proc-title"><span class="swatch" style="background:#e65100"></span>🔍 알아두면 좋은 사실</div>
+<div class="method-grid method-grid-stack">
+<div class="method-card mc-a"><div class="mc-head">증류 횟수별 전통 명칭</div><div class="mc-body">1회 증류는 노주(露酒)·홍로(紅露), 2회 증류는 환소주 또는 감홍로(甘紅露, ⚠️브랜드 "감홍로"와는 별개의 일반 용어), 3회 증류는 삼중소주(三重燒酒)로 불렀습니다.</div></div>
 <div class="method-card mc-gray"><div class="mc-head">라벨의 "증류식 소주" 표기</div><div class="mc-body">2013년 주세율 통일을 이유로 희석식·증류식 라벨 구분 의무가 폐지돼, 희석식 소주 라벨에서는 '희석식' 문구가 대부분 사라졌다. 증류식 업체들은 지금도 '증류식 소주'를 자체 표기 중. 일부 증류식 소주는 주정을 섞기도 하니, 원재료명의 주정 포함 여부로 구분 가능.</div></div>
-<div class="method-card mc-a"><div class="mc-head">"전통소주" ≠ 무첨가</div><div class="mc-body">'전통소주'라는 이름 때문에 감미료가 전혀 없다고 오해하기 쉽지만, 실제로는 설탕을 넣고도 전통소주로 파는 제품이 적지 않다. 위스키는 설탕 등을 첨가하면 리큐르로 재분류되는 엄격한 기준이 있지만, 전통소주에는 그런 규정이 없다. 인공감미료 무첨가를 내세우면서 설탕은 넣는 제품도 있으니 원재료명을 직접 확인하는 것이 정확하다.</div></div>
+<div class="method-card mc-b"><div class="mc-head">"전통소주" ≠ 무첨가</div><div class="mc-body">'전통소주'라는 이름 때문에 감미료가 전혀 없다고 오해하기 쉽지만, 실제로는 설탕을 넣고도 전통소주로 파는 제품이 적지 않다. 위스키는 설탕 등을 첨가하면 리큐르로 재분류되는 엄격한 기준이 있지만, 전통소주에는 그런 규정이 없다. 인공감미료 무첨가를 내세우면서 설탕은 넣는 제품도 있으니 원재료명을 직접 확인하는 것이 정확하다.</div></div>
+</div>
+
+<div class="method-modal-overlay" id="methodHelpOverlay">
+<div class="method-modal">
+<div class="method-modal-head">
+<span class="mm-title">보관 및 음용 방법</span>
+<button class="method-modal-close" id="methodHelpClose" type="button" aria-label="닫기">✕</button>
+</div>
+<div class="method-grid method-grid-stack">
+<div class="method-card mc-b"><div class="mc-head">보관·음용 온도</div><div class="mc-body">증류식 소주는 위스키·브랜디처럼 냉장이 아닌 상온에서 보관·음용하는 것이 권장됩니다. 차게 마시면 곡물 향과 풍미가 잘 살아나지 않기 때문입니다.</div></div>
+<div class="method-card mc-t"><div class="mc-head">어울리는 잔</div><div class="mc-body">향을 모아주는 글렌케런(Glencairn) 등 위스키용 잔을 사용하면 증류식 소주의 향을 더 온전히 즐길 수 있습니다.</div></div>
+<div class="method-card mc-d"><div class="mc-head">물·얼음을 타도 되나요</div><div class="mc-body">희석식 소주와 달리 증류식 소주는 향이 쉽게 상하지 않아, 물이나 얼음을 타서 마셔도 무방합니다.</div></div>
+<div class="method-card mc-a"><div class="mc-head">도수대별 안주 페어링</div><div class="mc-body">25도대는 평양냉면·전·회·스시처럼 담백한 음식과, 30도대는 갈비찜·삼계탕처럼 깊은 맛의 음식과, 40도 이상 고도수는 탕류·튀김 등 기름진 음식과 잘 어울립니다.</div></div>
+<div class="method-card mc-gray"><div class="mc-head">지역 소주 × 향토 음식</div><div class="mc-body">안동소주는 안동찜닭·간고등어와, 제주 고소리술은 고등어회·고기국수와 함께 즐기는 것이 지역 전통 페어링입니다.</div></div>
+</div>
+</div>
 </div>
 </div>
 <div class="footer">
@@ -3921,6 +4096,20 @@ function googleTranslateElementInit() {
       btn.disabled = false;
     });
   });
+})();
+</script>
+<script>
+(function(){
+  var openBtn = document.getElementById('methodHelpBtn');
+  var closeBtn = document.getElementById('methodHelpClose');
+  var overlay = document.getElementById('methodHelpOverlay');
+  if (!openBtn || !overlay) return;
+  function open(){ overlay.classList.add('open'); }
+  function close(){ overlay.classList.remove('open'); }
+  openBtn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
 })();
 </script>
 </body>
