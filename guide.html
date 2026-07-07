@@ -615,6 +615,8 @@ button.tab-btn {
   .method-modal { transform: none !important; opacity: 1 !important; max-height: none !important; box-shadow: none !important; max-width: none; }
   .method-modal-close { display: none !important; }
 }
+.proc-flow-cols { display: flex; gap: 20px; align-items: flex-start; }
+.proc-flow-col { flex: 1 1 0; min-width: 0; }
 .proc-flow { position: relative; display: flex; flex-direction: column; gap: 2px; margin-bottom: 6px; page-break-inside: avoid; break-inside: avoid; }
 .proc-flow::before { content: ''; position: absolute; left: 20px; top: 20px; bottom: 20px; width: 2px; background: #e2e2e8; }
 .proc-step { position: relative; display: flex; align-items: center; padding: 6px 0; }
@@ -636,6 +638,9 @@ button.tab-btn {
 .proc-step.final .proc-desc { opacity: .9; }
 .flow-b { --flow-color: var(--c-blue); }
 .flow-d { --flow-color: var(--c-deep); }
+@media screen and (max-width: 900px) {
+  .proc-flow-cols { flex-direction: column; }
+}
 .kr-map-flex { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; }
 .kr-map-col { flex: 0 1 620px; }
 .region-rep-list {
@@ -3490,6 +3495,8 @@ button.tab-btn {
 <div class="method-card mc-d mc-num"><span class="mc-badge">🏺 증류식 · 전통</span><div class="mc-body"><b>정의</b>: 쌀·보리 등 곡물을 발효시킨 술덧을 단식 증류기(常压/감압)로 한 번 증류해 곡물 본연의 향과 풍미를 살린 소주. 옛 안동소주·문배주 등 전통 제법의 직계.<br/><b>원료/공정</b>: 곡물(쌀·보리·옥수수 등) 발효 → 단식 증류 1~2회 → 숙성(일부는 오크통). 연속식 증류가 아니라 풍미 손실이 적음.<br/><b>도수</b>: 17~53도로 폭이 넓음(저도수 프리미엄형~고도수 전통형).<br/><b>대표</b>: 화요·일품진로·원소주·안동소주<br/><b>비유</b>: 재료부터 끓이는 정통 카레.</div></div>
 </div>
 
+<div class="proc-flow-cols">
+<div class="proc-flow-col">
 <div class="proc-title"><span class="swatch" style="background:var(--c-blue)"></span>🍃 희석식 소주 제조 공정</div>
 <div class="proc-flow flow-b">
 
@@ -3537,6 +3544,8 @@ button.tab-btn {
 
 </div>
 
+</div>
+<div class="proc-flow-col">
 <div class="proc-title"><span class="swatch" style="background:var(--c-deep)"></span>🏺 증류식(전통) 소주 제조 공정</div>
 <div class="proc-flow flow-d">
 
@@ -3582,6 +3591,8 @@ button.tab-btn {
 <div class="proc-card"><div class="proc-name">병입 <span style="opacity:.8;font-weight:400">— 완성품</span></div><div class="proc-desc">17~53도로 도수를 조정한 뒤 병입해 출고합니다.</div></div>
 </div>
 
+</div>
+</div>
 </div>
 
 <div class="proc-title"><span class="swatch" style="background:var(--c-deep)"></span>🏺 전통 증류기</div>
