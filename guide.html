@@ -28,6 +28,12 @@
   gtag('config', 'G-01Z00FVDNW');
 </script>
 <style>
+:root {
+  --c-blue: #1565c0;
+  --c-teal: #00796b;
+  --c-deep: #4a148c;
+  --c-amber: #e65100;
+}
 @page { margin: 1.2cm 1.3cm; size: A4; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -123,12 +129,11 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
   vertical-align: middle;
   white-space: nowrap;
 }
-.cn:has(.disc-badge) .cn-name-badge { opacity: 0.5; }
 .exp-badge {
   font-size: 8.4pt;
   font-weight: 800;
   letter-spacing: 0.2px;
-  color: #1565c0;
+  color: var(--c-blue);
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -145,22 +150,6 @@ button.tab-btn {
 @media print {
   .tab-panel { display: block !important; }
   .tab-nav { display: none; }
-}
-
-/* ── LANGUAGE FAB (26.07 비활성화 — soju.md 참고, 필요 시 주석 해제) ──
-.lang-fab {
-  position: fixed; bottom: 20px; left: 20px; z-index: 1000;
-  background: #1a1a2e; color: #fff; border: none; border-radius: 999px;
-  padding: 10px 16px; font-size: 10.6pt; font-weight: 700; cursor: pointer;
-  box-shadow: 0 6px 18px rgba(26,26,46,.35);
-  display: flex; align-items: center; gap: 6px;
-  text-decoration: none; transition: transform .15s ease;
-}
-.lang-fab:hover { transform: scale(1.05); }
-.lang-fab svg { width: 14px; height: 14px; flex-shrink: 0; }
-*/
-@media print {
-  .lang-fab { display: none !important; }
 }
 
 /* ── FEEDBACK FAB ── */
@@ -224,10 +213,10 @@ button.tab-btn {
   display: flex; flex-wrap: wrap; align-items: center;
   justify-content: space-between; gap: 8px;
 }
-.sh-blue  { background: #1565c0; }
-.sh-teal  { background: #00796b; }
-.sh-deep  { background: #4a148c; }
-.sh-amber { background: #e65100; }
+.sh-blue  { background: var(--c-blue); }
+.sh-teal  { background: var(--c-teal); }
+.sh-deep  { background: var(--c-deep); }
+.sh-amber { background: var(--c-amber); }
 
 /* ── REGION LABEL ── */
 .region-label {
@@ -243,62 +232,11 @@ button.tab-btn {
   page-break-inside: avoid; break-inside: avoid;
   page-break-after: avoid; break-after: avoid;
 }
-.rl-blue  { background: #e3f2fd; color: #1565c0; border-bottom: 2px solid #1565c0; }
-.rl-teal  { background: #e0f2f1; color: #00796b; border-bottom: 2px solid #00796b; }
-.rl-deep  { background: #f3e5f5; color: #4a148c; border-bottom: 2px solid #4a148c; }
-.rl-amber { background: #fff3e0; color: #e65100; border-bottom: 2px solid #e65100; }
+.rl-blue  { background: #e3f2fd; color: var(--c-blue); border-bottom: 2px solid var(--c-blue); }
+.rl-teal  { background: #e0f2f1; color: var(--c-teal); border-bottom: 2px solid var(--c-teal); }
+.rl-deep  { background: #f3e5f5; color: var(--c-deep); border-bottom: 2px solid var(--c-deep); }
+.rl-amber { background: #fff3e0; color: var(--c-amber); border-bottom: 2px solid var(--c-amber); }
 
-/* ── BRAND CARD (table-based, no flex) ── */
-.card {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 5px;
-  page-break-inside: avoid; break-inside: avoid;
-}
-.card td { vertical-align: top; padding: 8px 10px; }
-.cn { /* card name cell */
-  width: 88px;
-  background: #f2f2f2;
-  white-space: nowrap;
-}
-.cn-launch-date {
-  display: block;
-  font-size: 8.4pt;
-  font-weight: 700;
-  color: #666;
-  margin-bottom: 2px;
-}
-.cn-name-badge {
-  display: inline-block;
-  margin-right: 6px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  background: #555;
-  color: #fff;
-  text-align: center;
-  font-weight: 900;
-  font-size: 7.8pt;
-  white-space: nowrap;
-}
-.ci { /* card info cell */
-  background: #fafafa;
-}
-.cb {
-  width: 62px;
-  font-weight: 900;
-  font-size: 7.8pt;
-  color: #fff;
-  text-align: center;
-  vertical-align: middle;
-  padding: 5px 3px;
-  line-height: 1.5;
-  word-break: keep-all;
-}
-.cb-b { background: #1565c0; }
-.cb-t { background: #00796b; }
-.cb-d { background: #4a148c; }
-.cb-a { background: #e65100; }
-.cb-g { background: #37474f; }
 .lbl { font-size: 8.4pt; font-weight: 700; color: #666; margin-bottom: 2px; }
 .ety { font-size: 10.1pt; color: #111; margin-bottom: 3px; }
 .det {
@@ -307,15 +245,6 @@ button.tab-btn {
   padding-top: 3px; margin-top: 2px;
 }
 
-/* accent borders */
-.ab  { border-right: 3px solid #1565c0; border-bottom: 1px solid #bbdefb; }
-.at  { border-right: 3px solid #00796b; border-bottom: 1px solid #b2dfdb; }
-.ad  { border-right: 3px solid #4a148c; border-bottom: 1px solid #e1bee7; }
-.aa  { border-right: 3px solid #e65100; border-bottom: 1px solid #ffccbc; }
-.ib  { border-bottom: 1px solid #bbdefb; }
-.it  { border-bottom: 1px solid #b2dfdb; }
-.id  { border-bottom: 1px solid #e1bee7; }
-.ia  { border-bottom: 1px solid #ffccbc; }
 
 /* ── 지역별 브랜드 상세: 매거진 카드형 아코디언 (제조사 단위 접기) ── */
 .rgH2-group {
@@ -339,10 +268,6 @@ button.tab-btn {
   page-break-inside: avoid; break-inside: avoid;
 }
 .rgH-left { flex: 0 0 128px; background: #f7f8fb; padding: 8px 10px; }
-.rgH-card.ab .rgH-left { border-left: 4px solid #1565c0; }
-.rgH-card.at .rgH-left { border-left: 4px solid #00796b; }
-.rgH-card.ad .rgH-left { border-left: 4px solid #4a148c; }
-.rgH-card.aa .rgH-left { border-left: 4px solid #e65100; }
 .rgH2-head.cat-diluted { background: #4f8fd1; }
 .rgH2-head.cat-flavor { background: #e28a4d; }
 .rgH2-head.cat-distilled { background: #9c7a5c; }
@@ -357,10 +282,6 @@ button.tab-btn {
 @media screen and (max-width: 640px) {
   .rgH-card { flex-direction: column; }
   .rgH-card .rgH-left { border-left: none !important; border-top: 4px solid #ccc; }
-  .rgH-card.ab .rgH-left { border-top-color: #1565c0; }
-  .rgH-card.at .rgH-left { border-top-color: #00796b; }
-  .rgH-card.ad .rgH-left { border-top-color: #4a148c; }
-  .rgH-card.aa .rgH-left { border-top-color: #e65100; }
   .rgH-card.cat-diluted .rgH-left { border-top-color: #4f8fd1; }
   .rgH-card.cat-flavor .rgH-left { border-top-color: #e28a4d; }
   .rgH-card.cat-distilled .rgH-left { border-top-color: #9c7a5c; }
@@ -389,10 +310,10 @@ button.tab-btn {
 .tl-event-when { flex: 0 0 62px; font-weight: 800; color: #555; }
 .tl-event-what { color: #333; }
 .tl-era-1 .tl-era-range { background: #1a1a2e; }
-.tl-era-2 .tl-era-range { background: #1565c0; }
-.tl-era-3 .tl-era-range { background: #00796b; }
-.tl-era-4 .tl-era-range { background: #e65100; }
-.tl-era-5 .tl-era-range { background: #4a148c; }
+.tl-era-2 .tl-era-range { background: var(--c-blue); }
+.tl-era-3 .tl-era-range { background: var(--c-teal); }
+.tl-era-4 .tl-era-range { background: var(--c-amber); }
+.tl-era-5 .tl-era-range { background: var(--c-deep); }
 .tl-era-6 .tl-era-range { background: #e94560; }
 @media screen and (max-width: 640px) {
   .tl-event { flex-direction: column; gap: 1px; }
@@ -425,29 +346,6 @@ button.tab-btn {
 .mfr-brands { font-size: 9pt; color: #555; margin-bottom: 5px; }
 .mfr-note { color: #333; line-height: 1.55; }
 
-/* ── COMPANY / HISTORY TABLE ── */
-.ctable {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 8px;
-  font-size: 9.5pt;
-}
-.ctable th {
-  background: #1a1a2e;
-  color: white;
-  padding: 6px 7px;
-  text-align: center;
-  border: 1px solid #333;
-}
-.ctable td {
-  padding: 5px 7px;
-  border: 1px solid #e0e0e0;
-  text-align: center;
-  vertical-align: middle;
-}
-.ctable tr:nth-child(even) td { background: #f5f5f5; }
-.ctable tr:nth-child(odd)  td { background: #fafafa; }
-.ctable td:first-child { text-align: left; }
 
 /* ── ABV TEXT (card name cell) ── */
 .abv-badge {
@@ -456,15 +354,6 @@ button.tab-btn {
   color: #666;
   white-space: nowrap;
 }
-.badge-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  margin-top: 3px;
-}
-.card-chip .cn-launch-date { display: none; }
-.card-chip .badge-row { display: inline-flex; margin-top: 0; vertical-align: middle; }
 
 /* ── QUICK INDEX TABLE ── */
 .idx-cat {
@@ -477,10 +366,10 @@ button.tab-btn {
   white-space: normal;
   max-width: 100%;
 }
-.idx-cat-b { background: #1565c0; }
-.idx-cat-t { background: #00796b; }
-.idx-cat-d { background: #4a148c; }
-.idx-cat-a { background: #e65100; }
+.idx-cat-b { background: var(--c-blue); }
+.idx-cat-t { background: var(--c-teal); }
+.idx-cat-d { background: var(--c-deep); }
+.idx-cat-a { background: var(--c-amber); }
 
 /* ── 빠른 찾기 검색/필터 툴바 ── */
 .idx-search {
@@ -490,10 +379,10 @@ button.tab-btn {
 .idx-search-inline { flex: 0 1 200px; min-width: 120px; }
 .idx-filters { display: flex; gap: 5px; flex-wrap: wrap; }
 .idx-filter-btn {
-  border: 1px solid transparent; background: #fff; color: #4a148c; border-radius: 4px;
+  border: 1px solid transparent; background: #fff; color: var(--c-deep); border-radius: 4px;
   padding: 3px 11px; font-size: 9pt; font-weight: 600; cursor: pointer; font-family: inherit;
 }
-.idx-filter-btn.active { background: #4a148c; color: #fff; border-color: #4a148c; }
+.idx-filter-btn.active { background: var(--c-deep); color: #fff; border-color: var(--c-deep); }
 .idx-empty { text-align: center; color: #999; padding: 14px; font-size: 10.1pt; display: none; }
 
 /* ── 빠른 찾기: 제조사 그리드 (JS 메이슨리 레이아웃, layoutMasonry() 참고) ── */
@@ -523,10 +412,10 @@ button.tab-btn {
   border-bottom: 1px solid #e2e2e2;
   border-left: 3px solid #ddd;
 }
-.idx-brand:has(.idx-cat-b) { border-left-color: #1565c0; }
-.idx-brand:has(.idx-cat-t) { border-left-color: #00796b; }
-.idx-brand:has(.idx-cat-d) { border-left-color: #4a148c; }
-.idx-brand:has(.idx-cat-a) { border-left-color: #e65100; }
+.idx-brand:has(.idx-cat-b) { border-left-color: var(--c-blue); }
+.idx-brand:has(.idx-cat-t) { border-left-color: var(--c-teal); }
+.idx-brand:has(.idx-cat-d) { border-left-color: var(--c-deep); }
+.idx-brand:has(.idx-cat-a) { border-left-color: var(--c-amber); }
 .idx-brand:last-child { border-bottom: none; }
 .idx-brand-top {
   display: flex;
@@ -599,10 +488,6 @@ button.tab-btn {
   body { font-size: 12px; }
   .hero { padding: 16px 10px 12px; }
   .hero-title { font-size: 17.9pt; }
-  .card, .card tbody, .card tr { display: block; width: 100%; }
-  .card td { display: block; width: 100% !important; white-space: normal; }
-  .cb { text-align: left; border-radius: 4px 4px 0 0; }
-  .cn { white-space: normal; }
 }
 
 /* ── FOOTER ── */
@@ -636,22 +521,22 @@ button.tab-btn {
 .kr-region-jeolla      { fill: #77ab7a; }
 .kr-region-gyeongsang  { fill: #ef8e59; }
 .kr-region-jeju        { fill: #d76994; }
-.kr-region-seoul:hover       { fill: #1565c0; }
-.kr-region-gangwon:hover     { fill: #4a148c; }
-.kr-region-chungcheong:hover { fill: #00796b; }
+.kr-region-seoul:hover       { fill: var(--c-blue); }
+.kr-region-gangwon:hover     { fill: var(--c-deep); }
+.kr-region-chungcheong:hover { fill: var(--c-teal); }
 .kr-region-jeolla:hover      { fill: #2e7d32; }
-.kr-region-gyeongsang:hover  { fill: #e65100; }
+.kr-region-gyeongsang:hover  { fill: var(--c-amber); }
 .kr-region-jeju:hover        { fill: #c2185b; }
 .kr-label { font-size: 30px; font-weight: 900; fill: #fff; text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: rgba(0,0,0,.55); stroke-width: 5px; stroke-linejoin: round; }
 .region-btn {
   border: none; border-radius: 14px; padding: 5px 13px;
   font-size: 9pt; font-weight: 700; color: #fff; cursor: pointer; font-family: inherit;
 }
-.rb-seoul       { background: #1565c0; }
-.rb-gangwon     { background: #4a148c; }
-.rb-chungcheong { background: #00796b; }
+.rb-seoul       { background: var(--c-blue); }
+.rb-gangwon     { background: var(--c-deep); }
+.rb-chungcheong { background: var(--c-teal); }
 .rb-jeolla      { background: #2e7d32; }
-.rb-gyeongsang  { background: #e65100; }
+.rb-gyeongsang  { background: var(--c-amber); }
 .rb-jeju        { background: #c2185b; }
 .region-detail { display: none; }
 .region-detail.active { display: block; }
@@ -665,14 +550,14 @@ button.tab-btn {
 }
 .method-card .mc-head { font-size: 10.1pt; font-weight: 900; margin-bottom: 4px; }
 .method-card .mc-body { font-size: 8.7pt; color: #333; line-height: 1.55; }
-.mc-b { background: #e3f2fd; border-left: 3px solid #1565c0; }
-.mc-b .mc-head { color: #1565c0; }
-.mc-t { background: #e0f2f1; border-left: 3px solid #00796b; }
-.mc-t .mc-head { color: #00796b; }
-.mc-d { background: #f3e5f5; border-left: 3px solid #4a148c; }
-.mc-d .mc-head { color: #4a148c; }
-.mc-a { background: #fff3e0; border-left: 3px solid #e65100; }
-.mc-a .mc-head { color: #e65100; }
+.mc-b { background: #e3f2fd; border-left: 3px solid var(--c-blue); }
+.mc-b .mc-head { color: var(--c-blue); }
+.mc-t { background: #e0f2f1; border-left: 3px solid var(--c-teal); }
+.mc-t .mc-head { color: var(--c-teal); }
+.mc-d { background: #f3e5f5; border-left: 3px solid var(--c-deep); }
+.mc-d .mc-head { color: var(--c-deep); }
+.mc-a { background: #fff3e0; border-left: 3px solid var(--c-amber); }
+.mc-a .mc-head { color: var(--c-amber); }
 .mc-gray { background: #f0f0f0; border-left: 3px solid #616161; }
 .mc-gray .mc-head { color: #424242; }
 .method-grid-num { gap: 12px; }
@@ -691,9 +576,9 @@ button.tab-btn {
   box-shadow: 0 3px 14px rgba(20, 20, 45, .06);
 }
 .method-card.mc-num .mc-badge { display: block; font-size: 11.8pt; font-weight: 900; line-height: 1.3; margin-bottom: 8px; }
-.method-card.mc-num.mc-b .mc-badge { color: #1565c0; }
-.method-card.mc-num.mc-t .mc-badge { color: #00796b; }
-.method-card.mc-num.mc-d .mc-badge { color: #4a148c; }
+.method-card.mc-num.mc-b .mc-badge { color: var(--c-blue); }
+.method-card.mc-num.mc-t .mc-badge { color: var(--c-teal); }
+.method-card.mc-num.mc-d .mc-badge { color: var(--c-deep); }
 .method-card.mc-num .mc-head { color: #1a1a2e; font-size: 10.6pt; margin-bottom: 6px; }
 .method-card.mc-num .mc-body { font-size: 8.7pt; }
 .proc-title { font-size: 9.6pt; font-weight: 800; color: #1a1a2e; margin: 18px 0 10px; display: flex; align-items: center; gap: 7px; }
@@ -735,21 +620,21 @@ button.tab-btn {
 .proc-icon {
   position: relative; z-index: 1; flex: 0 0 auto;
   width: 40px; height: 40px; border-radius: 50%;
-  background: #fff; border: 2px solid var(--flow-color, #1565c0);
+  background: #fff; border: 2px solid var(--flow-color, var(--c-blue));
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 0 0 4px #fff;
 }
-.proc-icon svg { width: 20px; height: 20px; stroke: var(--flow-color, #1565c0); fill: none; }
-.proc-icon svg.filled { fill: var(--flow-color, #1565c0); stroke: none; }
-.proc-leader { flex: 0 0 20px; height: 2px; background: var(--flow-color, #1565c0); opacity: .5; }
+.proc-icon svg { width: 20px; height: 20px; stroke: var(--flow-color, var(--c-blue)); fill: none; }
+.proc-icon svg.filled { fill: var(--flow-color, var(--c-blue)); stroke: none; }
+.proc-leader { flex: 0 0 20px; height: 2px; background: var(--flow-color, var(--c-blue)); opacity: .5; }
 .proc-card { flex: 1 1 auto; background: #f7f8fb; border-radius: 8px; padding: 7px 12px; }
 .proc-name { font-size: 9.3pt; font-weight: 800; color: #1a1a2e; margin-bottom: 2px; }
 .proc-desc { font-size: 8.7pt; color: #333; line-height: 1.5; }
-.proc-step.final .proc-card { background: var(--flow-color, #1565c0); }
+.proc-step.final .proc-card { background: var(--flow-color, var(--c-blue)); }
 .proc-step.final .proc-name, .proc-step.final .proc-desc { color: #fff; }
 .proc-step.final .proc-desc { opacity: .9; }
-.flow-b { --flow-color: #1565c0; }
-.flow-d { --flow-color: #4a148c; }
+.flow-b { --flow-color: var(--c-blue); }
+.flow-d { --flow-color: var(--c-deep); }
 .kr-map-flex { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; }
 .kr-map-col { flex: 0 1 620px; }
 .region-rep-list {
@@ -779,19 +664,8 @@ button.tab-btn {
 .region-jump-btn { padding: 3px 10px; font-size: 8.2pt; opacity: .85; }
 .region-jump-btn:hover { opacity: 1; }
 .region-jump-btn.current { opacity: .4; cursor: default; }
-.card-mini {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
-  background: #fff; border: 1px solid #e2e2e2; border-radius: 8px;
-  padding: 6px 10px; margin-bottom: 4px; cursor: pointer;
-}
-.card-mini-mfr { font-weight: 900; font-size: 8.7pt; background: #f2f2f2; padding: 2px 8px; border-radius: 6px; white-space: nowrap; }
-.card-chip { font-size: 8.4pt; background: #fafafa; border: 1px solid #eee; border-radius: 12px; padding: 2px 8px; }
-.card-mini-arrow { margin-left: auto; font-size: 9pt; color: #888; transition: transform .15s; }
-.card-mini.open .card-mini-arrow { transform: rotate(180deg); }
-table.card.card-collapsed { display: none; }
 @media print {
-  .region-jump-nav, .card-mini { display: none !important; }
-  table.card.card-collapsed { display: table !important; }
+  .region-jump-nav { display: none !important; }
 }
 @media print {
   .kr-map-nav-wrap { display: none !important; }
@@ -831,7 +705,7 @@ table.card.card-collapsed { display: none; }
 <div class="section-header sh-deep idx-header">
 <div class="idx-header-title">
 <span>🔍 빠른 찾기</span>
-<input type="text" id="idxSearch" class="idx-search idx-search-inline" placeholder="브랜드명·제조사·키워드 검색" oninput="applyIdxFilter()">
+<input type="text" id="idxSearch" class="idx-search idx-search-inline" placeholder="브랜드명·제조사·키워드 검색" oninput="applyIdxFilterDebounced()">
 </div>
 <div class="idx-filters">
 <button class="idx-filter-btn active" data-cat="all" onclick="setIdxFilter('all')">전체</button>
@@ -1253,19 +1127,19 @@ table.card.card-collapsed { display: none; }
 <div class="region-rep-list">
 <div class="region-rep-title">📍 지역 대표 소주</div>
 <div class="rep-group">
-<div class="rep-group-title" style="color:#1565c0">서울·경기</div>
+<div class="rep-group-title" style="color:var(--c-blue)">서울·경기</div>
 <div class="rep-sub"><b>서울</b>참이슬·처음처럼</div>
 <div class="rep-sub"><b>경기 여주</b>화요</div>
 <div class="rep-sub"><b>경기 파주</b>문배주·감홍로</div>
 <div class="rep-sub"><b>경기 용인</b>청혼</div>
 </div>
 <div class="rep-group">
-<div class="rep-group-title" style="color:#4a148c">강원</div>
+<div class="rep-group-title" style="color:var(--c-deep)">강원</div>
 <div class="rep-sub"><b>강원 원주</b>원소주</div>
 <div class="rep-sub"><b>강원 평창</b>40240 독도소주</div>
 </div>
 <div class="rep-group">
-<div class="rep-group-title" style="color:#00796b">충청</div>
+<div class="rep-group-title" style="color:var(--c-teal)">충청</div>
 <div class="rep-sub"><b>충남 대전</b>선양·선양린</div>
 <div class="rep-sub"><b>충북</b>NEW 시원</div>
 <div class="rep-sub"><b>충남 홍성</b>황금보리소주</div>
@@ -1277,7 +1151,7 @@ table.card.card-collapsed { display: none; }
 <div class="rep-sub"><b>전남 담양</b>추성주</div>
 </div>
 <div class="rep-group">
-<div class="rep-group-title" style="color:#e65100">경상</div>
+<div class="rep-group-title" style="color:var(--c-amber)">경상</div>
 <div class="rep-sub"><b>부산</b>대선·C1</div>
 <div class="rep-sub"><b>경남 창원</b>좋은데이</div>
 <div class="rep-sub"><b>대구·경북</b>참소주</div>
@@ -3615,7 +3489,7 @@ table.card.card-collapsed { display: none; }
 <div class="method-card mc-d mc-num"><span class="mc-badge">🏺 증류식 · 전통</span><div class="mc-body"><b>정의</b>: 쌀·보리 등 곡물을 발효시킨 술덧을 단식 증류기(常压/감압)로 한 번 증류해 곡물 본연의 향과 풍미를 살린 소주. 옛 안동소주·문배주 등 전통 제법의 직계.<br/><b>원료/공정</b>: 곡물(쌀·보리·옥수수 등) 발효 → 단식 증류 1~2회 → 숙성(일부는 오크통). 연속식 증류가 아니라 풍미 손실이 적음.<br/><b>도수</b>: 17~53도로 폭이 넓음(저도수 프리미엄형~고도수 전통형).<br/><b>대표</b>: 화요·일품진로·원소주·안동소주<br/><b>비유</b>: 재료부터 끓이는 정통 카레.</div></div>
 </div>
 
-<div class="proc-title"><span class="swatch" style="background:#1565c0"></span>🍃 희석식 소주 제조 공정</div>
+<div class="proc-title"><span class="swatch" style="background:var(--c-blue)"></span>🍃 희석식 소주 제조 공정</div>
 <div class="proc-flow flow-b">
 
 <div class="proc-step">
@@ -3662,7 +3536,7 @@ table.card.card-collapsed { display: none; }
 
 </div>
 
-<div class="proc-title"><span class="swatch" style="background:#4a148c"></span>🏺 증류식(전통) 소주 제조 공정</div>
+<div class="proc-title"><span class="swatch" style="background:var(--c-deep)"></span>🏺 증류식(전통) 소주 제조 공정</div>
 <div class="proc-flow flow-d">
 
 <div class="proc-step">
@@ -3709,21 +3583,21 @@ table.card.card-collapsed { display: none; }
 
 </div>
 
-<div class="proc-title"><span class="swatch" style="background:#4a148c"></span>🏺 전통 증류기</div>
+<div class="proc-title"><span class="swatch" style="background:var(--c-deep)"></span>🏺 전통 증류기</div>
 <div class="method-grid method-grid-stack">
 <div class="method-card mc-d"><div class="mc-head">소줏고리</div><div class="mc-body">옹기로 만든 재래식 증류기. 술덧을 끓이는 솥은 은·구리·주철 등 금속 소재, 증기를 모으는 상부 그릇은 옹기·유기를 사용. 몸체와 뚜껑 사이 틈새는 반죽한 밀가루로 밀봉해 증기가 새지 않게 함.</div></div>
 <div class="method-card mc-t"><div class="mc-head">제주 고소리</div><div class="mc-body">제주도의 질그릇 증류기. 시루본(진흙 반죽)으로 이음새를 밀봉하거나, 솥뚜껑을 뒤집어 냉각수를 채우는 방식으로 증기를 식혀 증류액을 받음.</div></div>
 <div class="method-card mc-gray"><div class="mc-head">소줏돌</div><div class="mc-body">소줏고리 이전에 쓰던 도구. 대나무관으로 증류액을 받아내는 방식. 제주도에 마지막 사용례가 유물로 남아 있음.</div></div>
 </div>
 
-<div class="proc-title"><span class="swatch" style="background:#00796b"></span>📖 용어 설명</div>
+<div class="proc-title"><span class="swatch" style="background:var(--c-teal)"></span>📖 용어 설명</div>
 <div class="method-grid method-grid-stack">
 <div class="method-card mc-b"><div class="mc-head">주정(酒精)</div><div class="mc-body">타피오카·고구마 등 전분질 원료를 발효한 뒤 연속식 증류로 뽑아낸 95도 이상의 고순도 에탄올. 희석식 소주의 기본 원료로, 물로 희석하고 감미료를 더해 완제품이 됩니다.</div></div>
 <div class="method-card mc-t"><div class="mc-head">누룩 · 입국(粒麴)</div><div class="mc-body">곡물에 누룩곰팡이를 배양해 만든 당화·발효제. 전통 누룩은 자연 균으로 빚고, 입국은 흑국균·황국균 등을 순수 배양해 곡물에 접종한 개량형. 증류식 소주 발효의 핵심 재료입니다.</div></div>
 <div class="method-card mc-d"><div class="mc-head">상압증류 · 감압증류</div><div class="mc-body">상압증류는 일반 기압(85~95°C)에서 끓여 곡물 향이 진하고 도수가 높게 나오는 방식. 감압증류는 압력을 낮춰 약 40~50도의 낮은 온도에서 증류해 향이 부드럽고 깔끔한 원액을 얻는 방식으로, 프리미엄 증류식 소주 일부 라인에서 채택합니다. "감압증류는 일본식이라 비전통"이라는 통념과 달리, 감압증류 자체가 1973년 일본 후쿠오카 시라하나 주조(현 키타야)가 처음 개발한 현대 기법 — 일본에서도 원래는 상압증류가 전통이었고, 감압증류 도입 이후에야 일본 소주(소츄) 붐이 일었습니다.</div></div>
 </div>
 
-<div class="proc-title"><span class="swatch" style="background:#e65100"></span>🔍 알아두면 좋은 사실</div>
+<div class="proc-title"><span class="swatch" style="background:var(--c-amber)"></span>🔍 알아두면 좋은 사실</div>
 <div class="method-grid method-grid-stack">
 <div class="method-card mc-a"><div class="mc-head">증류 횟수별 전통 명칭</div><div class="mc-body">1회 증류는 노주(露酒)·홍로(紅露), 2회 증류는 환소주 또는 감홍로(甘紅露, ⚠️브랜드 "감홍로"와는 별개의 일반 용어), 3회 증류는 삼중소주(三重燒酒)로 불렀습니다.</div></div>
 <div class="method-card mc-gray"><div class="mc-head">라벨의 "증류식 소주" 표기</div><div class="mc-body">2013년 주세율 통일을 이유로 희석식·증류식 라벨 구분 의무가 폐지돼, 희석식 소주 라벨에서는 '희석식' 문구가 대부분 사라졌다. 증류식 업체들은 지금도 '증류식 소주'를 자체 표기 중. 일부 증류식 소주는 주정을 섞기도 하니, 원재료명의 주정 포함 여부로 구분 가능.</div></div>
@@ -3779,12 +3653,17 @@ function layoutMasonry(grid) {
 function layoutAllMasonry() {
   document.querySelectorAll('.idx-grid').forEach(layoutMasonry);
 }
+var idxFilterTimer;
+function applyIdxFilterDebounced() {
+  clearTimeout(idxFilterTimer);
+  idxFilterTimer = setTimeout(applyIdxFilter, 120);
+}
 function applyIdxFilter() {
   var q = document.getElementById('idxSearch').value.trim().toLowerCase();
   var cards = document.querySelectorAll('.idx-grid .idx-card');
   var totalVisible = 0;
   cards.forEach(function (card) {
-    var mfr = card.querySelector('.idx-card-header').textContent.toLowerCase();
+    var mfr = card.dataset.mfrLower;
     var brands = card.querySelectorAll('.idx-brand');
     var cardVisible = 0;
     brands.forEach(function (b) {
@@ -3853,6 +3732,7 @@ function initIdxCards() {
     badge.className = 'idx-card-count';
     badge.textContent = count + '종';
     header.appendChild(badge);
+    card.dataset.mfrLower = header.textContent.toLowerCase();
   });
   document.querySelectorAll('.idx-brand').forEach(function (b) {
     var catEl = b.querySelector('.idx-cat');
@@ -3888,7 +3768,7 @@ function catKeyOf(text) {
 }
 function initRegionSummaries() {
   document.querySelectorAll('.region-detail').forEach(function (region) {
-    var mfrCount = region.querySelectorAll('.cb, .rgH2-group').length;
+    var mfrCount = region.querySelectorAll('.rgH2-group').length;
     var catCounts = {};
     var order = [];
     var current = null;
@@ -3896,8 +3776,6 @@ function initRegionSummaries() {
       if (el.classList && el.classList.contains('cat-subhead')) {
         current = catKeyOf(el.textContent);
         if (order.indexOf(current) === -1) { order.push(current); catCounts[current] = 0; }
-      } else if (el.tagName === 'TABLE' && el.classList.contains('card') && current) {
-        catCounts[current] += el.querySelectorAll('.cn').length;
       } else if (el.tagName === 'DETAILS' && el.classList.contains('rgH2-group') && current) {
         catCounts[current] += el.querySelectorAll('.rgH-card').length;
       }
@@ -3946,71 +3824,8 @@ function initRegionJumpNav() {
     region.insertBefore(nav, region.firstChild);
   });
 }
-function initCardAccordions() {
-  document.querySelectorAll('.region-detail table.card').forEach(function (table) {
-    var rows = table.querySelectorAll('tr');
-    if (!rows.length) return;
-    var cb = table.querySelector('.cb');
-    var mini = document.createElement('div');
-    mini.className = 'card-mini';
-    var head = document.createElement('span');
-    head.className = 'card-mini-mfr';
-    head.textContent = cb ? cb.textContent.trim() : '';
-    mini.appendChild(head);
-    rows.forEach(function (tr) {
-      var cn = tr.querySelector('.cn');
-      if (!cn) return;
-      var chip = document.createElement('span');
-      chip.className = 'card-chip';
-      chip.innerHTML = cn.innerHTML;
-      mini.appendChild(chip);
-    });
-    var arrow = document.createElement('span');
-    arrow.className = 'card-mini-arrow';
-    arrow.textContent = '▾';
-    mini.appendChild(arrow);
-    table.classList.add('card-collapsed');
-    mini.addEventListener('click', function () {
-      table.classList.toggle('card-collapsed');
-      mini.classList.toggle('open');
-    });
-    table.parentNode.insertBefore(mini, table);
-  });
-}
-function initBadgeRows() {
-  document.querySelectorAll('.cn').forEach(function (cn) {
-    var abv = cn.querySelector('.abv-badge');
-    var zs = cn.querySelector('.zs-badge');
-    var disc = cn.querySelector('.disc-badge');
-    var anchor = abv || zs || disc;
-    if (!anchor) return;
-    var row = document.createElement('span');
-    row.className = 'badge-row';
-    cn.insertBefore(row, anchor);
-    if (abv) row.appendChild(abv);
-    if (zs) row.appendChild(zs);
-    if (disc) row.appendChild(disc);
-  });
-}
-function initNameBadges() {
-  document.querySelectorAll('.cn').forEach(function (cn) {
-    var textNode = null;
-    for (var i = 0; i < cn.childNodes.length; i++) {
-      var n = cn.childNodes[i];
-      if (n.nodeType === 3 && n.textContent.trim() !== '') { textNode = n; break; }
-    }
-    if (!textNode) return;
-    var span = document.createElement('span');
-    span.className = 'cn-name-badge';
-    span.textContent = textNode.textContent.trim();
-    cn.replaceChild(span, textNode);
-  });
-}
-initNameBadges();
-initBadgeRows();
 initRegionSummaries();
 initRegionJumpNav();
-initCardAccordions();
 layoutAllMasonry();
 (function () {
   var resizeTimer;
@@ -4027,13 +3842,6 @@ layoutAllMasonry();
 })();
 </script>
 
-<!-- 26.07 비활성화 (soju.md 참고, 필요 시 주석 해제)
-<button class="lang-fab" id="langFab" type="button">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 6H15.5a15.6 15.6 0 0 0-1.2-4.44A8.03 8.03 0 0 1 18.93 8ZM12 4.04c.83 1.2 1.5 2.7 1.87 3.96h-3.74c.37-1.26 1.04-2.76 1.87-3.96ZM4.26 14a8.14 8.14 0 0 1 0-4h3.38a16.7 16.7 0 0 0 0 4H4.26Zm.81 2h3.43c.3 1.62.83 3.16 1.5 4.44A8.03 8.03 0 0 1 5.07 16Zm3.43-8H5.07a8.03 8.03 0 0 1 4.94-4.44A16.06 16.06 0 0 0 8.5 8ZM12 19.96c-.83-1.2-1.5-2.7-1.87-3.96h3.74c-.37 1.26-1.04 2.76-1.87 3.96ZM13.87 14h-3.74a14.7 14.7 0 0 1 0-4h3.74a14.7 14.7 0 0 1 0 4Zm.36 5.44c.67-1.28 1.2-2.82 1.5-4.44h3.43a8.03 8.03 0 0 1-4.93 4.44ZM15.87 14a16.7 16.7 0 0 0 0-4h3.38a8.14 8.14 0 0 1 0 4h-3.38Z"/></svg>
-  EN
-</button>
-<div id="google_translate_element" style="display:none"></div>
--->
 <button class="feedback-fab" id="feedbackFab">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
   제보하기
@@ -4046,29 +3854,6 @@ layoutAllMasonry();
     <div class="fb-msg" id="feedbackMsg"></div>
   </form>
 </div>
-<!-- 26.07 비활성화 (soju.md 참고, 필요 시 주석 해제)
-<script>
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({ pageLanguage: 'ko', includedLanguages: 'en', autoDisplay: false }, 'google_translate_element');
-}
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script>
-(function(){
-  var langFab = document.getElementById('langFab');
-  function triggerTranslate(attemptsLeft){
-    var sel = document.querySelector('#google_translate_element select.goog-te-combo');
-    if (sel) {
-      sel.value = 'en';
-      sel.dispatchEvent(new Event('change'));
-    } else if (attemptsLeft > 0) {
-      setTimeout(function(){ triggerTranslate(attemptsLeft - 1); }, 300);
-    }
-  }
-  langFab.addEventListener('click', function(){ triggerTranslate(15); });
-})();
-</script>
--->
 <script>
 (function(){
   var endpoint = 'https://formspree.io/f/xkolggzz';
