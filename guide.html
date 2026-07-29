@@ -165,7 +165,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-card {
   border-radius: 14px; padding: 20px; min-height: 140px; text-align: left;
   display: flex; flex-direction: column; justify-content: flex-end;
-  color: #fff; position: relative; overflow: hidden;
+  color: #fff; position: relative; overflow: hidden; cursor: pointer;
   transition: transform .2s ease, box-shadow .2s ease;
 }
 .bv-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.18); }
@@ -188,7 +188,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 @media (max-width: 760px) { .bv-more-grid { grid-template-columns: 1fr; } }
 .bv-more-card {
   border-radius: 14px; aspect-ratio: 4/3; padding: 18px; color: #fff;
-  display: flex; flex-direction: column; justify-content: flex-end;
+  display: flex; flex-direction: column; justify-content: flex-end; cursor: pointer;
   transition: transform .2s ease;
 }
 .bv-more-card:hover { transform: scale(1.02); }
@@ -593,6 +593,11 @@ button.tab-btn {
 .idx-brand:has(.idx-cat-d) { border-left-color: var(--c-deep); }
 .idx-brand:has(.idx-cat-a) { border-left-color: var(--c-amber); }
 .idx-brand:last-child { border-bottom: none; }
+.idx-brand-highlight { animation: idxHighlightPulse 1s ease-in-out 2; border-radius: 6px; }
+@keyframes idxHighlightPulse {
+  0%, 100% { box-shadow: none; }
+  50% { box-shadow: inset 0 0 0 2px var(--c-amber), 0 0 0 4px rgba(230,81,0,.15); }
+}
 .idx-brand-top {
   display: flex;
   justify-content: flex-start;
@@ -982,27 +987,27 @@ document.addEventListener('DOMContentLoaded', function(){
 <p>이 아카이브는 도수, 원료, 단종 여부까지 검증해가며 라벨을 하나씩 쌓는 기록 프로젝트다.</p>
 </div>
 <div class="bv-gallery">
-<div class="bv-card" style="background:linear-gradient(160deg,#0f3d2e,#1a5c46);">
+<div class="bv-card" style="background:linear-gradient(160deg,#0f3d2e,#1a5c46);" role="button" tabindex="0" onclick="goToQuickIndex(null,'참이슬')" onkeydown="bvKeyClick(event)">
 <div class="bv-brand">참이슬</div>
 <div class="bv-desc">희석식 · 스테디셀러</div>
 </div>
-<div class="bv-card" style="background:linear-gradient(160deg,#1c2b1f,#3a5c3f);">
+<div class="bv-card" style="background:linear-gradient(160deg,#1c2b1f,#3a5c3f);" role="button" tabindex="0" onclick="goToQuickIndex(null,'처음처럼')" onkeydown="bvKeyClick(event)">
 <div class="bv-brand">처음처럼</div>
 <div class="bv-desc">희석식 · 스테디셀러</div>
 </div>
-<div class="bv-card" style="background:linear-gradient(160deg,#5c3a1c,#8a5a2b);">
+<div class="bv-card" style="background:linear-gradient(160deg,#5c3a1c,#8a5a2b);" role="button" tabindex="0" onclick="goToQuickIndex(null,'진로이즈백')" onkeydown="bvKeyClick(event)">
 <div class="bv-brand">진로</div>
 <div class="bv-desc">복각 · 레트로 라인업</div>
 </div>
-<div class="bv-card" style="background:linear-gradient(160deg,#2b1c3a,#4a2f5c);">
+<div class="bv-card" style="background:linear-gradient(160deg,#2b1c3a,#4a2f5c);" role="button" tabindex="0" onclick="goToQuickIndex(null,'시향가')" onkeydown="bvKeyClick(event)">
 <div class="bv-brand">시향가</div>
 <div class="bv-desc">CJ제일제당 · 신제품</div>
 </div>
-<div class="bv-card" style="background:linear-gradient(160deg,#1c3a3a,#2f5c5c);">
+<div class="bv-card" style="background:linear-gradient(160deg,#1c3a3a,#2f5c5c);" role="button" tabindex="0" onclick="goToQuickIndex(null,'옥로주')" onkeydown="bvKeyClick(event)">
 <div class="bv-brand">옥로주</div>
 <div class="bv-desc">원조 복원 · 1947</div>
 </div>
-<div class="bv-card" style="background:linear-gradient(160deg,#3a1c2b,#5c2f4a);">
+<div class="bv-card" style="background:linear-gradient(160deg,#3a1c2b,#5c2f4a);" role="button" tabindex="0" onclick="goToQuickIndex(null,'선양 피치우롱')" onkeydown="bvKeyClick(event)">
 <div class="bv-brand">선양 피치우롱</div>
 <div class="bv-desc">과실주 · 신제품</div>
 </div>
@@ -1015,15 +1020,15 @@ document.addEventListener('DOMContentLoaded', function(){
 <span>3개 컬렉션</span>
 </div>
 <div class="bv-more-grid">
-<div class="bv-more-card" style="background:linear-gradient(150deg,#123,#245);">
+<div class="bv-more-card" style="background:linear-gradient(150deg,#123,#245);" role="button" tabindex="0" onclick="goToQuickIndex('증류식','')" onkeydown="bvKeyClick(event)">
 <div class="bv-more-title">증류식 소주 컬렉션</div>
 <div class="bv-more-sub">32개 라벨</div>
 </div>
-<div class="bv-more-card" style="background:linear-gradient(150deg,#321,#542);">
+<div class="bv-more-card" style="background:linear-gradient(150deg,#321,#542);" role="button" tabindex="0" onclick="goToQuickIndex(null,'단종')" onkeydown="bvKeyClick(event)">
 <div class="bv-more-title">단종 라벨 아카이브</div>
 <div class="bv-more-sub">17개 라벨</div>
 </div>
-<div class="bv-more-card" style="background:linear-gradient(150deg,#213,#425);">
+<div class="bv-more-card" style="background:linear-gradient(150deg,#213,#425);" role="button" tabindex="0" onclick="showTab('region')" onkeydown="bvKeyClick(event)">
 <div class="bv-more-title">지역소주 지도</div>
 <div class="bv-more-sub">24개 지역</div>
 </div>
@@ -4317,6 +4322,30 @@ function setIdxFilter(cat) {
     document.getElementById('idxSearch').value = '';
   }
   applyIdxFilter();
+}
+function goToQuickIndex(cat, q) {
+  showTab('quickindex');
+  document.querySelectorAll('#tab-quickindex .idx-group-toggle, #tab-quickindex .idx-group-body').forEach(function (el) { el.classList.remove('collapsed'); });
+  idxIsolatedCard = null;
+  idxFilterCat = cat || 'all';
+  document.querySelectorAll('.idx-filter-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.cat === idxFilterCat); });
+  document.getElementById('idxSearch').value = q || '';
+  applyIdxFilter();
+  if (q) {
+    setTimeout(function () {
+      var brands = document.querySelectorAll('#tab-quickindex .idx-brand');
+      var match = null;
+      for (var i = 0; i < brands.length; i++) { if (brands[i].style.display !== 'none') { match = brands[i]; break; } }
+      if (match) {
+        match.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        match.classList.add('idx-brand-highlight');
+        setTimeout(function () { match.classList.remove('idx-brand-highlight'); }, 2200);
+      }
+    }, 80);
+  }
+}
+function bvKeyClick(e) {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); }
 }
 function toggleIdxFilterPanel(force) {
   var panel = document.getElementById('idxFilterPanel');
