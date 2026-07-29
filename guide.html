@@ -130,13 +130,32 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
   cursor: var(--cur-p), pointer; user-select: none; transition: transform .15s ease;
 }
 .bv-cheers:active { transform: scale(.96); }
-.bv-glass {
-  width: 14px; height: 16px; position: relative; flex-shrink: 0;
-  border: 2px solid var(--ink); border-top: none;
-  clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%);
-  overflow: hidden; background: #fff;
+.bv-glasses { width: 34px; height: 14px; flex-shrink: 0; }
+.bv-glasses svg { display: block; overflow: visible; }
+.bv-glasses .glass-left, .bv-glasses .glass-right { will-change: transform; }
+.bv-glasses .glass-left { transform-origin: 100px 140px; }
+.bv-glasses .glass-right { transform-origin: 220px 140px; }
+.bv-glasses.clink .glass-left { animation: bv-cheer-left .6s cubic-bezier(.25,1,.5,1); }
+.bv-glasses.clink .glass-right { animation: bv-cheer-right .6s cubic-bezier(.25,1,.5,1); }
+.bv-glasses .spark-group { opacity: 0; transform: scale(.2); transform-origin: 160px 60px; }
+.bv-glasses.clink .spark-group { animation: bv-spark-pop .4s ease-out; animation-delay: .26s; }
+@keyframes bv-cheer-left {
+  0% { transform: translate(0,0) rotate(0deg); }
+  45% { transform: translate(32px,-18px) rotate(15deg); }
+  70% { transform: translate(28px,-14px) rotate(11deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
 }
-.bv-fill { position: absolute; left: 0; right: 0; bottom: 0; height: 22%; background: var(--brand-3); transition: height .35s cubic-bezier(.34,1.56,.64,1); }
+@keyframes bv-cheer-right {
+  0% { transform: translate(0,0) rotate(0deg); }
+  45% { transform: translate(-32px,-18px) rotate(-15deg); }
+  70% { transform: translate(-28px,-14px) rotate(-11deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+@keyframes bv-spark-pop {
+  0% { opacity: 0; transform: scale(.3) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.25) rotate(15deg); }
+  100% { opacity: 0; transform: scale(1) rotate(30deg); }
+}
 .bv-cheers-label { font-size: 12px; font-weight: 700; color: var(--ink); }
 .bv-cheers-count { font-family: ui-monospace, monospace; font-size: 12px; font-weight: 700; color: var(--brand); }
 .bv-cheers-hint { font-size: 11px; color: var(--ink-muted); margin-top: 6px; text-align: right; }
@@ -942,13 +961,15 @@ button.tab-btn {
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   var btn = document.getElementById('bvCheersBtn');
-  var fill = document.getElementById('bvCheersFill');
   var count = document.getElementById('bvCheersCount');
+  var glasses = document.getElementById('bvGlasses');
   var n = 0;
   function cheer(){
     n++;
     tickNumber(count, n - 1, n, 260);
-    fill.style.height = (20 + (n % 8) * 10) + '%';
+    glasses.classList.remove('clink');
+    void glasses.offsetWidth; // restart animation
+    glasses.classList.add('clink');
   }
   if (btn) {
     btn.addEventListener('click', cheer);
@@ -977,11 +998,44 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="bv-cheers-wrap">
-<div class="bv-cheers" id="bvCheersBtn" role="button" tabindex="0" aria-label="건배 카운터 누르기">
-<div class="bv-glass"><div class="bv-fill" id="bvCheersFill"></div></div>
-<div><span class="bv-cheers-label">건배</span> <span class="bv-cheers-count" id="bvCheersCount">0</span></div>
+<div class="bv-cheers" id="bvCheersBtn" role="button" tabindex="0" aria-label="짠 카운터 누르기">
+<div class="bv-glasses" id="bvGlasses">
+<svg viewBox="56 60 208 85" width="100%" height="100%">
+<defs>
+<clipPath id="bvClipGlassLeft"><path d="M 68 75 L 132 75 L 126 122 A 10 10 0 0 1 116 132 L 84 132 A 10 10 0 0 1 74 122 Z" /></clipPath>
+<clipPath id="bvClipGlassRight"><path d="M 188 75 L 252 75 L 246 122 A 10 10 0 0 1 236 132 L 204 132 A 10 10 0 0 1 194 122 Z" /></clipPath>
+</defs>
+<g class="glass-left">
+<path d="M 66 70 L 134 70 L 128 123 A 12 12 0 0 1 116 135 L 84 135 A 12 12 0 0 1 72 123 Z" fill="#ffffff" stroke="#1a1a1a" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" />
+<g clip-path="url(#bvClipGlassLeft)">
+<path d="M 60 80 L 140 80 L 140 140 L 60 140 Z" fill="#d0f0fd" opacity="0.85" />
+<path d="M 55 80 Q 80 73, 100 81 T 145 78 L 145 140 L 55 140 Z" fill="#bbeeef" opacity="0.9" />
+<path d="M 55 80 Q 80 73, 100 81 T 145 78" fill="none" stroke="#72d1f3" stroke-width="3" stroke-linecap="round" />
+</g>
+<path d="M 76 124 C 76 124 100 133 124 124" fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round" />
+</g>
+<g class="glass-right">
+<path d="M 186 70 L 254 70 L 248 123 A 12 12 0 0 1 236 135 L 204 135 A 12 12 0 0 1 192 123 Z" fill="#ffffff" stroke="#1a1a1a" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" />
+<g clip-path="url(#bvClipGlassRight)">
+<path d="M 180 80 L 260 80 L 260 140 L 180 140 Z" fill="#d0f0fd" opacity="0.85" />
+<path d="M 175 78 Q 200 84, 220 76 T 265 81 L 265 140 L 175 140 Z" fill="#bbeeef" opacity="0.9" />
+<path d="M 175 78 Q 200 84, 220 76 T 265 81" fill="none" stroke="#72d1f3" stroke-width="3" stroke-linecap="round" />
+</g>
+<path d="M 196 124 C 196 124 220 133 244 124" fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round" />
+</g>
+<g class="spark-group">
+<line x1="160" y1="48" x2="160" y2="33" stroke="#ffd100" stroke-width="5" stroke-linecap="round" />
+<line x1="160" y1="78" x2="160" y2="93" stroke="#ffd100" stroke-width="5" stroke-linecap="round" />
+<line x1="145" y1="63" x2="130" y2="63" stroke="#ffd100" stroke-width="5" stroke-linecap="round" />
+<line x1="175" y1="63" x2="190" y2="63" stroke="#ffd100" stroke-width="5" stroke-linecap="round" />
+<line x1="148" y1="51" x2="138" y2="41" stroke="#ff9800" stroke-width="4" stroke-linecap="round" />
+<line x1="172" y1="51" x2="182" y2="41" stroke="#ff9800" stroke-width="4" stroke-linecap="round" />
+</g>
+</svg>
 </div>
-<div class="bv-cheers-hint">클릭할 때마다 한 잔씩 채워져요</div>
+<div><span class="bv-cheers-label">짠</span> <span class="bv-cheers-count" id="bvCheersCount">0</span></div>
+</div>
+<div class="bv-cheers-hint">클릭할 때마다 짠! 부딪혀요</div>
 </div>
 </div>
 <div class="bv-update">
@@ -4482,6 +4536,7 @@ function showTab(id, push) {
   document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.tab === id); });
   if (push === false || sameTab) history.replaceState({ tab: id }, '', location.pathname);
   else history.pushState({ tab: id }, '', location.pathname);
+  try { sessionStorage.setItem('sojuGuideTab', id); } catch (e) {}
   if (id === 'region') showRegionMap();
   if (id === 'quickindex') {
     layoutAllMasonry();
@@ -4747,7 +4802,8 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
   });
 })();
 (function () {
-  var id = location.hash.replace('#', '');
+  var id = '';
+  try { id = sessionStorage.getItem('sojuGuideTab') || ''; } catch (e) {}
   if (id) showTab(id, false);
   history.replaceState({ tab: id || 'quickindex' }, '', location.pathname);
   try { sessionStorage.setItem('sojuGuideVisited', '1'); } catch (e) {}
