@@ -1078,15 +1078,15 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="bv-more-grid">
 <div class="bv-more-card" style="background:linear-gradient(150deg,#123,#245);" role="button" tabindex="0" onclick="goToQuickIndex('증류식','')" onkeydown="bvKeyClick(event)">
 <div class="bv-more-title">증류식 소주 컬렉션</div>
-<div class="bv-more-sub">32개 라벨</div>
+<div class="bv-more-sub" id="archDistilledCount">0개 라벨</div>
 </div>
 <div class="bv-more-card" style="background:linear-gradient(150deg,#321,#542);" role="button" tabindex="0" onclick="goToQuickIndex(null,'단종')" onkeydown="bvKeyClick(event)">
 <div class="bv-more-title">단종 라벨 아카이브</div>
-<div class="bv-more-sub">17개 라벨</div>
+<div class="bv-more-sub" id="archDiscontinuedCount">0개 라벨</div>
 </div>
 <div class="bv-more-card" style="background:linear-gradient(150deg,#213,#425);" role="button" tabindex="0" onclick="showTab('region')" onkeydown="bvKeyClick(event)">
 <div class="bv-more-title">지역소주 지도</div>
-<div class="bv-more-sub">24개 지역</div>
+<div class="bv-more-sub" id="archRegionCount">0개 지역</div>
 </div>
 </div>
 </div>
@@ -4482,8 +4482,8 @@ function showTab(id, push) {
   var panel = document.getElementById('tab-' + id);
   if (panel) panel.classList.add('active');
   document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.tab === id); });
-  if (push === false || sameTab) history.replaceState({ tab: id }, '', '#' + id);
-  else history.pushState({ tab: id }, '', '#' + id);
+  if (push === false || sameTab) history.replaceState({ tab: id }, '', location.pathname);
+  else history.pushState({ tab: id }, '', location.pathname);
   if (id === 'region') showRegionMap();
   if (id === 'quickindex') {
     layoutAllMasonry();
@@ -4499,8 +4499,8 @@ function showTab(id, push) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   if (typeof gtag === 'function') gtag('event', 'tab_view', { tab_name: TAB_LABELS[id] || id });
 }
-window.addEventListener('popstate', function () {
-  showTab(location.hash.replace('#', '') || 'quickindex', false);
+window.addEventListener('popstate', function (event) {
+  showTab((event.state && event.state.tab) || 'quickindex', false);
 });
 function setRegionIntroVisible(visible) {
   var mapWrap = document.querySelector('.kr-map-nav-wrap');
@@ -4709,6 +4709,19 @@ initRegionSummaries();
 initRegionJumpNav();
 layoutAllMasonry();
 slideInIdxCards();
+(function () {
+  var distilled = document.querySelectorAll('#tab-quickindex .idx-cat.idx-cat-d').length;
+  var discontinued = Array.prototype.filter.call(document.querySelectorAll('#tab-quickindex .idx-cat'), function (c) {
+    return c.textContent.indexOf('단종') !== -1;
+  }).length;
+  var regions = document.querySelectorAll('.rep-sub').length;
+  var distilledEl = document.getElementById('archDistilledCount');
+  var discontinuedEl = document.getElementById('archDiscontinuedCount');
+  var regionEl = document.getElementById('archRegionCount');
+  if (distilledEl) distilledEl.textContent = distilled + '개 라벨';
+  if (discontinuedEl) discontinuedEl.textContent = discontinued + '개 라벨';
+  if (regionEl) regionEl.textContent = regions + '개 지역';
+})();
 revealOnView('#tab-timeline .tl-event', 'bv-fade-in', 0.15);
 revealOnView('.bv-highlight-phrase', 'play', 0.6);
 revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
@@ -4722,7 +4735,7 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
 (function () {
   var id = location.hash.replace('#', '');
   if (id) showTab(id, false);
-  history.replaceState(null, '', id ? '/#' + id : '/');
+  history.replaceState({ tab: id || 'quickindex' }, '', location.pathname);
   try { sessionStorage.setItem('sojuGuideVisited', '1'); } catch (e) {}
 })();
 </script>
