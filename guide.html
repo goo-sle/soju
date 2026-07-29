@@ -127,7 +127,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-cheers {
   display: flex; align-items: center; gap: 6px; background: none;
   border: none; padding: 4px 2px;
-  cursor: pointer; user-select: none; transition: transform .15s ease;
+  cursor: var(--cur-p), pointer; user-select: none; transition: transform .15s ease;
 }
 .bv-cheers:active { transform: scale(.96); }
 .bv-glass {
@@ -152,7 +152,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-update-pager { display: flex; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
 .bv-update-page {
   width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--line);
-  background: #fff; color: var(--ink-muted); font-size: 11px; font-weight: 700; cursor: pointer;
+  background: #fff; color: var(--ink-muted); font-size: 11px; font-weight: 700; cursor: var(--cur-p), pointer;
 }
 .bv-update-page.active { background: var(--brand); border-color: var(--brand); color: #fff; }
 .bv-module { margin-top: 32px; }
@@ -165,7 +165,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-card {
   border-radius: 14px; padding: 20px; min-height: 140px; text-align: left;
   display: flex; flex-direction: column; justify-content: flex-end;
-  color: #fff; position: relative; overflow: hidden; cursor: pointer;
+  color: #fff; position: relative; overflow: hidden; cursor: var(--cur-p), pointer;
   transition: transform .2s ease, box-shadow .2s ease;
 }
 .bv-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.18); }
@@ -175,7 +175,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-view-all button {
   font-family: inherit; font-weight: 700; font-size: 14px; color: var(--ink);
   background: none; border: 1px solid var(--ink); border-radius: 999px;
-  padding: 10px 22px; cursor: pointer; transition: background .2s ease, color .2s ease;
+  padding: 10px 22px; cursor: var(--cur-p), pointer; transition: background .2s ease, color .2s ease;
 }
 .bv-view-all button:hover { background: var(--ink); color: #fff; }
 .bv-section-head {
@@ -188,7 +188,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 @media (max-width: 760px) { .bv-more-grid { grid-template-columns: 1fr; } }
 .bv-more-card {
   border-radius: 14px; aspect-ratio: 4/3; padding: 18px; color: #fff;
-  display: flex; flex-direction: column; justify-content: flex-end; cursor: pointer;
+  display: flex; flex-direction: column; justify-content: flex-end; cursor: var(--cur-p), pointer;
   transition: transform .2s ease;
 }
 .bv-more-card:hover { transform: scale(1.02); }
@@ -517,7 +517,7 @@ button.tab-btn {
   display: flex; align-items: center; gap: 6px; flex-shrink: 0;
   background: #fff; border: 1px solid var(--line); border-radius: 999px;
   padding: 7px 16px 7px 12px; font-family: inherit; font-weight: 700; font-size: 12px;
-  color: var(--ink); cursor: pointer; transition: background .15s ease, color .15s ease;
+  color: var(--ink); cursor: var(--cur-p), pointer; transition: background .15s ease, color .15s ease;
 }
 .idx-filter-toggle:hover { background: var(--ink); color: #fff; }
 .idx-search-wrap {
@@ -561,7 +561,7 @@ button.tab-btn {
 .idx-quicknav-chip {
   flex-shrink: 0; font-family: inherit; font-weight: 700; font-size: 12px;
   color: #fff; background: var(--ink); border: none; border-radius: 10px;
-  padding: 10px 16px; cursor: pointer; white-space: nowrap;
+  padding: 10px 16px; cursor: var(--cur-p), pointer; white-space: nowrap;
   transition: background .15s ease, transform .15s ease;
 }
 .idx-quicknav-chip:hover { background: var(--brand); transform: translateY(-1px); }
@@ -575,7 +575,7 @@ button.tab-btn {
 .idx-quicknav-arrow {
   position: absolute; top: 50%; transform: translateY(-50%); margin-top: -7px; z-index: 3;
   width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); background: #fff;
-  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; cursor: var(--cur-p), pointer;
   color: var(--ink); font-size: 14px; line-height: 1; box-shadow: 0 2px 8px rgba(0,0,0,.12);
 }
 .idx-quicknav-arrow-prev { left: 2px; }
@@ -1127,7 +1127,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <button type="button" class="idx-quicknav-arrow idx-quicknav-arrow-next" id="idxQuickNavNext" aria-label="다음" hidden>›</button>
 <div class="idx-quicknav" id="idxQuickNav"></div>
 </div>
-<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 상업 소주사 <span class="idx-group-count">15개사</span></div>
+<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 상업 소주사 <span class="idx-group-count">17개사</span></div>
 <div class="idx-group-body">
 <div class="idx-grid" id="idxGrid"><div class="idx-card" style="order:1"><div class="idx-card-header">하이트진로</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1924</span></div><div class="idx-brand-kw">1924년 원조 브랜드 · 정통 도수 유지</div></div>
@@ -4358,8 +4358,7 @@ function applyIdxFilter() {
     var brands = card.querySelectorAll('.idx-brand');
     var cardVisible = 0;
     brands.forEach(function (b) {
-      var catEl = b.querySelector('.idx-cat');
-      var cat = catEl ? catEl.textContent : '';
+      var cat = b.dataset.cat || '';
       var text = b.textContent.toLowerCase() + ' ' + mfr;
       var matchCat = (idxFilterCat === 'all') || cat.indexOf(idxFilterCat) !== -1;
       var matchText = !q || text.indexOf(q) !== -1;
@@ -4387,8 +4386,9 @@ function applyIdxFilter() {
 }
 function highlightMatch(el, q) {
   if (!el) return;
+  if (!q) { if (el.querySelector('mark')) el.textContent = el.textContent; return; }
   var text = el.textContent;
-  var idx = q ? text.toLowerCase().indexOf(q) : -1;
+  var idx = text.toLowerCase().indexOf(q);
   if (idx === -1) { el.textContent = text; return; }
   var esc = function (s) { return s.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); };
   el.innerHTML = esc(text.slice(0, idx)) + '<mark class="idx-search-hit">' + esc(text.slice(idx, idx + q.length)) + '</mark>' + esc(text.slice(idx + q.length));
@@ -4566,9 +4566,16 @@ function initIdxCards() {
   });
   document.querySelectorAll('.idx-brand').forEach(function (b) {
     var catEl = b.querySelector('.idx-cat');
-    if (catEl && catEl.textContent.indexOf('단종') !== -1) {
+    b.dataset.cat = catEl ? catEl.textContent : '';
+    if (b.dataset.cat.indexOf('단종') !== -1) {
       b.classList.add('is-discontinued');
     }
+  });
+  document.querySelectorAll('.idx-group-toggle').forEach(function (toggle) {
+    var countEl = toggle.querySelector('.idx-group-count');
+    var body = toggle.nextElementSibling;
+    if (!countEl || !body) return;
+    countEl.textContent = body.querySelectorAll('.idx-card').length + '개사';
   });
 }
 function sortIdxBrandsByYear() {
