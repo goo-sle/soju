@@ -4534,7 +4534,7 @@ layoutAllMasonry();
 (function () {
   var id = location.hash.replace('#', '');
   if (id) showTab(id);
-  history.replaceState(null, '', '/');
+  history.replaceState(null, '', id ? '/#' + id : '/');
   try { sessionStorage.setItem('sojuGuideVisited', '1'); } catch (e) {}
 })();
 </script>

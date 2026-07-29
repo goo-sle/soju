@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <script>
   try {
-    if (sessionStorage.getItem('sojuGuideVisited') === '1') {
+    var navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    var isBackForward = navEntry && navEntry.type === 'back_forward';
+    if (!isBackForward && sessionStorage.getItem('sojuGuideVisited') === '1') {
       document.documentElement.style.visibility = 'hidden';
       fetch('guide.html').then(function(r){ return r.text(); }).then(function(html){
         document.open();
