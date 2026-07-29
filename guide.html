@@ -194,6 +194,20 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-more-card:hover { transform: scale(1.02); }
 .bv-more-card .bv-more-title { font-weight: 800; font-size: 17px; }
 .bv-more-card .bv-more-sub { font-size: 12px; opacity: .8; margin-top: 2px; }
+.bv-fade-in { animation: bvFadeIn .55s ease-out backwards; }
+.bv-gallery .bv-card:nth-child(1).bv-fade-in { animation-delay: .02s; }
+.bv-gallery .bv-card:nth-child(2).bv-fade-in { animation-delay: .08s; }
+.bv-gallery .bv-card:nth-child(3).bv-fade-in { animation-delay: .14s; }
+.bv-gallery .bv-card:nth-child(4).bv-fade-in { animation-delay: .20s; }
+.bv-gallery .bv-card:nth-child(5).bv-fade-in { animation-delay: .26s; }
+.bv-gallery .bv-card:nth-child(6).bv-fade-in { animation-delay: .32s; }
+.bv-more-grid .bv-more-card:nth-child(1).bv-fade-in { animation-delay: .02s; }
+.bv-more-grid .bv-more-card:nth-child(2).bv-fade-in { animation-delay: .1s; }
+.bv-more-grid .bv-more-card:nth-child(3).bv-fade-in { animation-delay: .18s; }
+@keyframes bvFadeIn {
+  from { opacity: 0; filter: blur(8px); transform: translateY(10px); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
 @media screen and (max-width: 640px) {
   .bv-meta { align-items: flex-start; }
 }
@@ -429,12 +443,16 @@ button.tab-btn {
 }
 .tl-event-what { color: #2a2a22; line-height: 1.6; }
 .tl-event-what b { color: var(--brand); }
+#tab-timeline .tl-event { opacity: 0; filter: blur(8px); transform: translateY(10px); }
+#tab-timeline .tl-event.bv-fade-in { opacity: 1; filter: blur(0); transform: translateY(0); }
 @media screen and (max-width: 640px) {
   .tl-event { flex-direction: column; gap: 1px; }
   .tl-event-when { flex: none; }
 }
 
 /* ── 제조사 현황: 세로 스파인 타임라인 ── */
+.mfr-stats { font-size: 14px; color: var(--ink-muted); margin: 0 0 18px; }
+.mfr-stats b { color: var(--brand); font-size: 17px; font-variant-numeric: tabular-nums; }
 .mfr-timeline { position: relative; padding-left: 26px; margin: 10px 0 4px; }
 .mfr-timeline::before {
   content: '';
@@ -593,11 +611,23 @@ button.tab-btn {
 .idx-brand:has(.idx-cat-d) { border-left-color: var(--c-deep); }
 .idx-brand:has(.idx-cat-a) { border-left-color: var(--c-amber); }
 .idx-brand:last-child { border-bottom: none; }
-.idx-brand-highlight { animation: idxHighlightPulse 1s ease-in-out 2; border-radius: 6px; }
-@keyframes idxHighlightPulse {
-  0%, 100% { box-shadow: none; }
-  50% { box-shadow: inset 0 0 0 2px var(--c-amber), 0 0 0 4px rgba(230,81,0,.15); }
+.idx-brand-name-highlight {
+  padding: 0 3px; margin: 0 -3px; border-radius: 3px;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(#ffd873, #ffd873);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  animation: idxTextSweep 0.9s ease-out forwards;
 }
+@keyframes idxTextSweep { to { background-size: 100% 100%; } }
+.bv-highlight-phrase {
+  padding: 0 3px; margin: 0 -3px; border-radius: 3px;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(#ffd873, #ffd873);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+}
+.bv-highlight-phrase.play { animation: idxTextSweep 0.9s ease-out forwards; }
 .idx-brand-top {
   display: flex;
   justify-content: flex-start;
@@ -889,7 +919,7 @@ document.addEventListener('DOMContentLoaded', function(){
   var n = 0;
   function cheer(){
     n++;
-    count.textContent = n;
+    tickNumber(count, n - 1, n, 260);
     fill.style.height = (20 + (n % 8) * 10) + '%';
   }
   if (btn) {
@@ -983,7 +1013,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 <div class="bv-module">
 <h2>왜 기록하는가</h2>
-<p>참이슬과 처음처럼만 있는 게 아니다. 지역마다, 시대마다 사라지고 나타난 라벨들이 있고 그 변화 하나하나가 소주 산업의 역사다.</p>
+<p>참이슬과 처음처럼만 있는 게 아니다. <span class="bv-highlight-phrase">지역마다, 시대마다</span> 사라지고 나타난 라벨들이 있고 그 변화 하나하나가 소주 산업의 역사다.</p>
 <p>이 아카이브는 도수, 원료, 단종 여부까지 검증해가며 라벨을 하나씩 쌓는 기록 프로젝트다.</p>
 </div>
 <div class="bv-gallery">
@@ -1013,7 +1043,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="bv-view-all">
-<button type="button" onclick="showTab('quickindex')">전체보기 →</button>
+<button type="button" onclick="goToQuickIndex(null,'')">전체보기 →</button>
 </div>
 <div class="bv-section-head">
 <h2>편집팀의 다른 아카이브</h2>
@@ -3720,6 +3750,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <!-- ══════════════════ 제조사 현황 ══════════════════ -->
 <div class="tab-panel" id="tab-companies">
 <div class="section-header sh-blue"><span class="title-accent">소주</span> 제조사 현황</div>
+<div class="mfr-stats" id="mfrStats">제조사 <b id="mfrStatCompanies">0</b>곳 · 브랜드 <b id="mfrStatBrands">0</b>종</div>
 <div class="mfr-timeline">
 
 <div class="mfr-item">
@@ -4314,6 +4345,34 @@ function applyIdxFilter() {
   });
   requestAnimationFrame(function () { requestAnimationFrame(layoutAllMasonry); });
 }
+function tickNumber(el, from, to, dur) {
+  var start = performance.now();
+  function step(now) {
+    var p = Math.min(1, (now - start) / dur);
+    el.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - p, 3)));
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function revealOnView(selector, addClass, threshold) {
+  var els = document.querySelectorAll(selector);
+  if (!els.length || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add(addClass); io.unobserve(entry.target); }
+    });
+  }, { threshold: threshold || 0.15 });
+  els.forEach(function (el) { io.observe(el); });
+}
+var mfrStatsPlayed = false;
+function playMfrStats() {
+  if (mfrStatsPlayed) return;
+  mfrStatsPlayed = true;
+  var companies = document.querySelectorAll('#tab-quickindex .idx-card').length;
+  var brands = document.querySelectorAll('#tab-quickindex .idx-brand').length;
+  tickNumber(document.getElementById('mfrStatCompanies'), 0, companies, 900);
+  tickNumber(document.getElementById('mfrStatBrands'), 0, brands, 900);
+}
 function setIdxFilter(cat) {
   idxFilterCat = cat;
   document.querySelectorAll('.idx-filter-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.cat === cat); });
@@ -4338,8 +4397,13 @@ function goToQuickIndex(cat, q) {
       for (var i = 0; i < brands.length; i++) { if (brands[i].style.display !== 'none') { match = brands[i]; break; } }
       if (match) {
         match.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        match.classList.add('idx-brand-highlight');
-        setTimeout(function () { match.classList.remove('idx-brand-highlight'); }, 2200);
+        var nameEl = match.querySelector('.idx-brand-name');
+        if (nameEl) {
+          nameEl.classList.remove('idx-brand-name-highlight');
+          void nameEl.offsetWidth;
+          nameEl.classList.add('idx-brand-name-highlight');
+          setTimeout(function () { nameEl.classList.remove('idx-brand-name-highlight'); }, 2200);
+        }
       }
     }, 80);
   }
@@ -4374,6 +4438,14 @@ function showTab(id, push) {
   else history.pushState({ tab: id }, '', '#' + id);
   if (id === 'region') showRegionMap();
   if (id === 'quickindex') layoutAllMasonry();
+  if (id === 'companies') playMfrStats();
+  if (id === 'browse') {
+    document.querySelectorAll('#tab-browse .bv-card, #tab-browse .bv-more-card').forEach(function (el) {
+      el.classList.remove('bv-fade-in');
+      void el.offsetWidth;
+      el.classList.add('bv-fade-in');
+    });
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
   if (typeof gtag === 'function') gtag('event', 'tab_view', { tab_name: TAB_LABELS[id] || id });
 }
@@ -4389,9 +4461,13 @@ function setRegionIntroVisible(visible) {
   if (regionTitle) regionTitle.style.display = visible ? '' : 'none';
 }
 function showRegion(id) {
-  document.querySelectorAll('.region-detail').forEach(function (el) { el.classList.remove('active'); });
+  document.querySelectorAll('.region-detail').forEach(function (el) { el.classList.remove('active'); el.classList.remove('bv-fade-in'); });
   var panel = document.getElementById('region-' + id);
-  if (panel) panel.classList.add('active');
+  if (panel) {
+    panel.classList.add('active');
+    void panel.offsetWidth;
+    panel.classList.add('bv-fade-in');
+  }
   setRegionIntroVisible(false);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -4572,6 +4648,8 @@ layoutAllMasonry();
   history.replaceState(null, '', id ? '/#' + id : '/');
   try { sessionStorage.setItem('sojuGuideVisited', '1'); } catch (e) {}
 })();
+revealOnView('#tab-timeline .tl-event', 'bv-fade-in', 0.15);
+revealOnView('.bv-highlight-phrase', 'play', 0.6);
 </script>
 
 <button class="feedback-fab" id="feedbackFab">
