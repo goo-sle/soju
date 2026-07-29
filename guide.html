@@ -4334,17 +4334,23 @@ var TAB_LABELS = {
   browse: '둘러보기', quickindex: '빠른 찾기', timeline: '타임라인', region: '지역별 브랜드',
   companies: '제조사 현황', method: '제조 방법'
 };
-function showTab(id) {
+function showTab(id, push) {
+  var curBtn = document.querySelector('.tab-btn.active');
+  var sameTab = curBtn && curBtn.dataset.tab === id;
   document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
   var panel = document.getElementById('tab-' + id);
   if (panel) panel.classList.add('active');
   document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.tab === id); });
-  history.replaceState(null, '', '#' + id);
+  if (push === false || sameTab) history.replaceState({ tab: id }, '', '#' + id);
+  else history.pushState({ tab: id }, '', '#' + id);
   if (id === 'region') showRegionMap();
   if (id === 'quickindex') layoutAllMasonry();
   window.scrollTo({ top: 0, behavior: 'smooth' });
   if (typeof gtag === 'function') gtag('event', 'tab_view', { tab_name: TAB_LABELS[id] || id });
 }
+window.addEventListener('popstate', function () {
+  showTab(location.hash.replace('#', '') || 'quickindex', false);
+});
 function setRegionIntroVisible(visible) {
   var mapWrap = document.querySelector('.kr-map-nav-wrap');
   if (mapWrap) mapWrap.style.display = visible ? 'block' : 'none';
@@ -4533,7 +4539,7 @@ layoutAllMasonry();
 })();
 (function () {
   var id = location.hash.replace('#', '');
-  if (id) showTab(id);
+  if (id) showTab(id, false);
   history.replaceState(null, '', id ? '/#' + id : '/');
   try { sessionStorage.setItem('sojuGuideVisited', '1'); } catch (e) {}
 })();
