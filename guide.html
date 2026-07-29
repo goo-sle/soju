@@ -565,6 +565,8 @@ button.tab-btn {
   transition: background .15s ease, transform .15s ease;
 }
 .idx-quicknav-chip:hover { background: var(--brand); transform: translateY(-1px); }
+.idx-quicknav-chip-all { background: var(--brand); }
+.idx-quicknav-chip-all:hover { background: var(--brand-2); }
 .idx-quicknav-wrap { position: relative; margin-bottom: 4px; }
 .idx-quicknav-fade {
   position: absolute; top: 0; bottom: 14px; width: 40px; pointer-events: none;
@@ -4427,10 +4429,6 @@ function playRegionStats() {
 function setIdxFilter(cat) {
   idxFilterCat = cat;
   document.querySelectorAll('.idx-filter-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.cat === cat); });
-  if (cat === 'all') {
-    idxIsolatedCard = null;
-    document.getElementById('idxSearch').value = '';
-  }
   applyIdxFilter();
 }
 function goToQuickIndex(cat, q) {
@@ -4599,6 +4597,15 @@ initIdxCards();
 function initIdxQuickNav() {
   var nav = document.getElementById('idxQuickNav');
   if (!nav) return;
+  var allChip = document.createElement('button');
+  allChip.type = 'button';
+  allChip.className = 'idx-quicknav-chip idx-quicknav-chip-all';
+  allChip.textContent = '전체';
+  allChip.onclick = function () {
+    idxIsolatedCard = null;
+    applyIdxFilter();
+  };
+  nav.appendChild(allChip);
   document.querySelectorAll('#tab-quickindex .idx-card').forEach(function (card) {
     var header = card.querySelector('.idx-card-header');
     var name = header.childNodes[0].textContent.trim();
