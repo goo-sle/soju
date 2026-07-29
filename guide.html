@@ -413,6 +413,8 @@ button.tab-btn {
   color: var(--ink-muted); font-size: 15px; text-align: center;
 }
 #tab-region > .section-header { text-align: center; margin: 0 0 8px; }
+.region-stats { font-size: 14px; color: var(--ink-muted); text-align: center; margin: 0 0 10px; }
+.region-stats b { color: var(--brand); font-size: 17px; font-variant-numeric: tabular-nums; }
 .tl-era-range {
   font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
   font-size: 12px; font-weight: 900; color: #fff;
@@ -451,8 +453,6 @@ button.tab-btn {
 }
 
 /* ── 제조사 현황: 세로 스파인 타임라인 ── */
-.mfr-stats { font-size: 14px; color: var(--ink-muted); margin: 0 0 18px; }
-.mfr-stats b { color: var(--brand); font-size: 17px; font-variant-numeric: tabular-nums; }
 .mfr-timeline { position: relative; padding-left: 26px; margin: 10px 0 4px; }
 .mfr-timeline::before {
   content: '';
@@ -1512,6 +1512,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <!-- ══════════════════ 지역별 브랜드 (희석식·플레이버·증류식 통합) ══════════════════ -->
 <div class="tab-panel" id="tab-region">
 <div class="section-header sh-blue" id="regionTitle">지역별 <span class="title-accent">소주</span> 브랜드</div>
+<div class="region-stats" id="regionStats">제조사 <b id="regionStatCompanies">0</b>곳 · 브랜드 <b id="regionStatBrands">0</b>종</div>
 <div class="intro-box">지도에서 지역을 선택하면 해당 지역 소주의 정보를 모두 볼 수 있습니다.</div>
 <div class="kr-map-nav-wrap">
 <div class="kr-map-flex">
@@ -3750,7 +3751,6 @@ document.addEventListener('DOMContentLoaded', function(){
 <!-- ══════════════════ 제조사 현황 ══════════════════ -->
 <div class="tab-panel" id="tab-companies">
 <div class="section-header sh-blue"><span class="title-accent">소주</span> 제조사 현황</div>
-<div class="mfr-stats" id="mfrStats">제조사 <b id="mfrStatCompanies">0</b>곳 · 브랜드 <b id="mfrStatBrands">0</b>종</div>
 <div class="mfr-timeline">
 
 <div class="mfr-item">
@@ -4364,14 +4364,14 @@ function revealOnView(selector, addClass, threshold) {
   }, { threshold: threshold || 0.15 });
   els.forEach(function (el) { io.observe(el); });
 }
-var mfrStatsPlayed = false;
-function playMfrStats() {
-  if (mfrStatsPlayed) return;
-  mfrStatsPlayed = true;
+var regionStatsPlayed = false;
+function playRegionStats() {
+  if (regionStatsPlayed) return;
+  regionStatsPlayed = true;
   var companies = document.querySelectorAll('#tab-quickindex .idx-card').length;
   var brands = document.querySelectorAll('#tab-quickindex .idx-brand').length;
-  tickNumber(document.getElementById('mfrStatCompanies'), 0, companies, 900);
-  tickNumber(document.getElementById('mfrStatBrands'), 0, brands, 900);
+  tickNumber(document.getElementById('regionStatCompanies'), 0, companies, 900);
+  tickNumber(document.getElementById('regionStatBrands'), 0, brands, 900);
 }
 function setIdxFilter(cat) {
   idxFilterCat = cat;
@@ -4438,7 +4438,6 @@ function showTab(id, push) {
   else history.pushState({ tab: id }, '', '#' + id);
   if (id === 'region') showRegionMap();
   if (id === 'quickindex') layoutAllMasonry();
-  if (id === 'companies') playMfrStats();
   if (id === 'browse') {
     document.querySelectorAll('#tab-browse .bv-card, #tab-browse .bv-more-card').forEach(function (el) {
       el.classList.remove('bv-fade-in');
@@ -4459,6 +4458,8 @@ function setRegionIntroVisible(visible) {
   if (methodIntro) methodIntro.style.display = visible ? 'block' : 'none';
   var regionTitle = document.getElementById('regionTitle');
   if (regionTitle) regionTitle.style.display = visible ? '' : 'none';
+  var regionStats = document.getElementById('regionStats');
+  if (regionStats) regionStats.style.display = visible ? '' : 'none';
 }
 function showRegion(id) {
   document.querySelectorAll('.region-detail').forEach(function (el) { el.classList.remove('active'); el.classList.remove('bv-fade-in'); });
@@ -4474,6 +4475,7 @@ function showRegion(id) {
 function showRegionMap() {
   document.querySelectorAll('.region-detail').forEach(function (el) { el.classList.remove('active'); });
   setRegionIntroVisible(true);
+  playRegionStats();
 }
 function toggleIdxGroup(toggleEl) {
   toggleEl.classList.toggle('collapsed');
@@ -4635,6 +4637,8 @@ function initRegionJumpNav() {
 initRegionSummaries();
 initRegionJumpNav();
 layoutAllMasonry();
+revealOnView('#tab-timeline .tl-event', 'bv-fade-in', 0.15);
+revealOnView('.bv-highlight-phrase', 'play', 0.6);
 (function () {
   var resizeTimer;
   window.addEventListener('resize', function () {
@@ -4648,8 +4652,6 @@ layoutAllMasonry();
   history.replaceState(null, '', id ? '/#' + id : '/');
   try { sessionStorage.setItem('sojuGuideVisited', '1'); } catch (e) {}
 })();
-revealOnView('#tab-timeline .tl-event', 'bv-fade-in', 0.15);
-revealOnView('.bv-highlight-phrase', 'play', 0.6);
 </script>
 
 <button class="feedback-fab" id="feedbackFab">
