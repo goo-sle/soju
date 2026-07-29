@@ -464,6 +464,13 @@ button.tab-btn {
 }
 .mfr-item { position: relative; margin-bottom: 14px; page-break-inside: avoid; break-inside: avoid; }
 .mfr-item:last-child { margin-bottom: 0; }
+.mfr-item { opacity: 0; transform: scale(.85) translateY(6px); }
+.mfr-item.reveal { animation: mfrPopIn .4s cubic-bezier(.34,1.56,.64,1) both; }
+@keyframes mfrPopIn {
+  0% { opacity: 0; transform: scale(.85) translateY(6px); }
+  60% { opacity: 1; transform: scale(1.03) translateY(0); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
 .mfr-dot {
   position: absolute; left: -26px; top: 3px;
   width: 14px; height: 14px; border-radius: 50%;
@@ -650,6 +657,7 @@ button.tab-btn {
 .idx-year { color: #999; font-size: 7.6pt; font-weight: 600; white-space: nowrap; }
 .idx-brand-kw { color: #666; font-size: 8.3pt; line-height: 1.4; }
 .idx-brand-kw .idx-cat { margin-right: 5px; }
+.idx-search-hit { background: #ffd873; border-radius: 2px; padding: 0 1px; color: #1a1a1a; }
 @media print {
   .idx-search { display: none; }
   .idx-filter-toggle, .idx-filter-panel { display: none !important; }
@@ -678,13 +686,25 @@ button.tab-btn {
 
 /* ── 제조사 그룹 아코디언 ── */
 .idx-group-toggle {
-  display: flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 8px;
   cursor: var(--cur-p), pointer;
   font-size: 10.6pt; font-weight: 900; color: #1a1a2e;
-  margin: 10px 0 6px;
-  padding: 6px 4px;
-  border-bottom: 2px solid #1a1a2e;
+  margin: 14px 0 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border-left: 4px solid var(--c-blue);
+  background: rgba(21,101,192,.07);
   user-select: none;
+  transition: background .15s ease;
+}
+.idx-group-toggle:hover { background: rgba(21,101,192,.14); }
+.idx-group-toggle.idx-group-traditional { border-left-color: var(--c-deep); background: rgba(74,20,140,.07); }
+.idx-group-toggle.idx-group-traditional:hover { background: rgba(74,20,140,.14); }
+.idx-group-count {
+  display: inline-block; padding: 1px 9px; border-radius: 8px;
+  font-size: 8.6pt; font-weight: 700; color: #1a1a2e;
+  border: 1px solid rgba(26,26,46,.35);
+  white-space: nowrap;
 }
 .idx-group-toggle .arrow { display: inline-block; transition: transform 0.15s; font-size: 9pt; }
 .idx-group-toggle.collapsed .arrow { transform: rotate(-90deg); }
@@ -1013,8 +1033,8 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 <div class="bv-module">
 <h2>왜 기록하는가</h2>
-<p>참이슬과 처음처럼만 있는 게 아니다. <span class="bv-highlight-phrase">지역마다, 시대마다</span> 사라지고 나타난 라벨들이 있고 그 변화 하나하나가 소주 산업의 역사다.</p>
-<p>이 아카이브는 도수, 원료, 단종 여부까지 검증해가며 라벨을 하나씩 쌓는 기록 프로젝트다.</p>
+<p><b>참이슬과 처음처럼만 있는 게 아니다. <span class="bv-highlight-phrase">지역마다, 시대마다</span> 사라지고 나타난 라벨들이 있다.</b></p>
+<p>그 변화 하나하나가 소주 산업의 역사다. 이 아카이브는 출시일, 도수, 단종 여부까지 검증해가며 라벨을 하나씩 쌓는 기록 프로젝트다.</p>
 </div>
 <div class="bv-gallery">
 <div class="bv-card" style="background:linear-gradient(160deg,#0f3d2e,#1a5c46);" role="button" tabindex="0" onclick="goToQuickIndex(null,'참이슬')" onkeydown="bvKeyClick(event)">
@@ -1101,7 +1121,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <button type="button" class="idx-quicknav-arrow idx-quicknav-arrow-next" id="idxQuickNavNext" aria-label="다음" hidden>›</button>
 <div class="idx-quicknav" id="idxQuickNav"></div>
 </div>
-<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 상업 소주사 · 유통사 콜라보 (15개사)</div>
+<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 상업 소주사 <span class="idx-group-count">15개사</span></div>
 <div class="idx-group-body">
 <div class="idx-grid" id="idxGrid"><div class="idx-card" style="order:1"><div class="idx-card-header">하이트진로</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1924</span></div><div class="idx-brand-kw">1924년 원조 브랜드 · 정통 도수 유지</div></div>
@@ -1276,7 +1296,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">하이트(구 보배양조)</span></div><div class="idx-brand-meta"><span class="idx-abv">19도(추정)</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">전북 대표, 2013년 하이트진로 흡수합병</div></div>
 </div></div>
 </div>
-<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 전통 증류주 · 명인 양조장 (37개사)</div>
+<div class="idx-group-toggle idx-group-traditional" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 전통 증류주 · 명인 양조장 <span class="idx-group-count">37개사</span></div>
 <div class="idx-group-body">
 <div class="idx-grid" id="idxGrid2"><div class="idx-card" style="order:1"><div class="idx-card-header">민속주/명인 안동소주</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 45도</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">1988(추정)</span></div><div class="idx-brand-kw">1990년부터 주력, 조옥화→김연박 명인 계승</div></div>
@@ -4327,6 +4347,8 @@ function applyIdxFilter() {
       var matchText = !q || text.indexOf(q) !== -1;
       var show = matchCat && matchText;
       b.style.display = show ? '' : 'none';
+      highlightMatch(b.querySelector('.idx-brand-name'), q);
+      highlightMatch(b.querySelector('.idx-brand-kw'), q);
       if (show) cardVisible++;
     });
     card.style.display = cardVisible > 0 ? '' : 'none';
@@ -4345,6 +4367,14 @@ function applyIdxFilter() {
   });
   requestAnimationFrame(function () { requestAnimationFrame(layoutAllMasonry); });
 }
+function highlightMatch(el, q) {
+  if (!el) return;
+  var text = el.textContent;
+  var idx = q ? text.toLowerCase().indexOf(q) : -1;
+  if (idx === -1) { el.textContent = text; return; }
+  var esc = function (s) { return s.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); };
+  el.innerHTML = esc(text.slice(0, idx)) + '<mark class="idx-search-hit">' + esc(text.slice(idx, idx + q.length)) + '</mark>' + esc(text.slice(idx + q.length));
+}
 function tickNumber(el, from, to, dur) {
   var start = performance.now();
   function step(now) {
@@ -4354,12 +4384,15 @@ function tickNumber(el, from, to, dur) {
   }
   requestAnimationFrame(step);
 }
-function revealOnView(selector, addClass, threshold) {
+function revealOnView(selector, addClass, threshold, stagger) {
   var els = document.querySelectorAll(selector);
   if (!els.length || !('IntersectionObserver' in window)) return;
   var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) { entry.target.classList.add(addClass); io.unobserve(entry.target); }
+    var visible = entries.filter(function (e) { return e.isIntersecting; });
+    visible.forEach(function (entry, i) {
+      if (stagger) entry.target.style.animationDelay = (i * stagger) + 's';
+      entry.target.classList.add(addClass);
+      io.unobserve(entry.target);
     });
   }, { threshold: threshold || 0.15 });
   els.forEach(function (el) { io.observe(el); });
@@ -4639,6 +4672,7 @@ initRegionJumpNav();
 layoutAllMasonry();
 revealOnView('#tab-timeline .tl-event', 'bv-fade-in', 0.15);
 revealOnView('.bv-highlight-phrase', 'play', 0.6);
+revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
 (function () {
   var resizeTimer;
   window.addEventListener('resize', function () {
