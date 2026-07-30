@@ -97,7 +97,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv { max-width: 1040px; margin: 0 auto 8px; padding: 0 4px; page-break-inside: avoid; break-inside: avoid; }
 .bv-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
 .bv-tag {
-  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-family: inherit;
   font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
   color: var(--brand); border: 1px solid var(--brand); padding: 4px 10px; border-radius: 999px;
 }
@@ -189,7 +189,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 }
 .bv-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.18); }
 .bv-card .bv-brand { font-weight: 900; font-size: 20px; letter-spacing: -.01em; }
-.bv-card .bv-desc { font-size: 12px; opacity: .85; margin-top: 4px; font-family: ui-monospace, monospace; }
+.bv-card .bv-desc { font-size: 12px; opacity: .85; margin-top: 4px; font-family: inherit; }
 .bv-view-all { display: flex; justify-content: center; margin-top: 22px; }
 .bv-view-all button {
   font-family: inherit; font-weight: 700; font-size: 14px; color: var(--ink);
@@ -745,7 +745,7 @@ button.tab-btn {
 .footer {
   display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
   color: var(--ink-muted);
-  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-family: inherit;
   font-size: 8.4pt;
   letter-spacing: .01em;
   margin-top: 16px;
@@ -950,8 +950,8 @@ button.tab-btn {
 <header class="gnav">
 <a class="gnav-brand" href="/" onclick="try{sessionStorage.removeItem('sojuGuideVisited');}catch(e){}">대한민국 <span class="title-accent">소주</span> 가이드</a>
 <div class="gnav-links tab-nav">
-<button class="tab-btn" data-tab="browse" onclick="showTab('browse')">둘러보기</button>
-<button class="tab-btn active" data-tab="quickindex" onclick="showTab('quickindex')">빠른 찾기</button>
+<button class="tab-btn active" data-tab="browse" onclick="showTab('browse')">둘러보기</button>
+<button class="tab-btn" data-tab="quickindex" onclick="showTab('quickindex')">빠른 찾기</button>
 <button class="tab-btn" data-tab="timeline" onclick="showTab('timeline')">타임라인</button>
 <button class="tab-btn" data-tab="region" onclick="showTab('region')">지역별 브랜드</button>
 <button class="tab-btn" data-tab="companies" onclick="showTab('companies')">제조사 현황</button>
@@ -979,7 +979,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 <div class="page">
 <!-- ══════════════════ 둘러보기 ══════════════════ -->
-<div class="tab-panel" id="tab-browse">
+<div class="tab-panel active" id="tab-browse">
 <div class="bv">
 <div class="bv-tags">
 <span class="bv-tag">대한민국</span>
@@ -1148,7 +1148,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <!-- ══════════════════ 빠른 찾기 인덱스 ══════════════════ -->
-<div class="tab-panel active" id="tab-quickindex">
+<div class="tab-panel" id="tab-quickindex">
 <div class="section-header sh-deep idx-header">
 <button type="button" class="idx-filter-toggle" onclick="toggleIdxFilterPanel()">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -4822,7 +4822,7 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
     try { id = sessionStorage.getItem('sojuGuideTab') || ''; } catch (e) {}
   }
   if (id) showTab(id, false);
-  history.replaceState({ tab: id || 'quickindex' }, '', location.pathname);
+  history.replaceState({ tab: id || 'browse' }, '', location.pathname);
   try { sessionStorage.setItem('sojuGuideVisited', '1'); } catch (e) {}
 })();
 </script>
