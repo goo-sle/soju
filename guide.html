@@ -4815,7 +4815,12 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
 })();
 (function () {
   var id = '';
-  try { id = sessionStorage.getItem('sojuGuideTab') || ''; } catch (e) {}
+  var hashTab = (location.hash || '').slice(1);
+  if (TAB_LABELS.hasOwnProperty(hashTab)) {
+    id = hashTab;
+  } else {
+    try { id = sessionStorage.getItem('sojuGuideTab') || ''; } catch (e) {}
+  }
   if (id) showTab(id, false);
   history.replaceState({ tab: id || 'quickindex' }, '', location.pathname);
   try { sessionStorage.setItem('sojuGuideVisited', '1'); } catch (e) {}
