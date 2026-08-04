@@ -1083,7 +1083,8 @@ document.addEventListener('DOMContentLoaded', function(){
     var label = document.getElementById('bvUpdateLabel');
     if (!list || !pager) return;
     var ed = bvUpdateEditions[idx];
-    if (label) label.textContent = idx === 0 ? '📢 이번 에디션 주요 업데이트' : '📢 이전 에디션 주요 업데이트';
+    var bvUpdateMonthLabels = ['8월 에디션 주요 업데이트', '7월 에디션 주요 업데이트', '6월 에디션 주요 업데이트', '5월 에디션 주요 업데이트'];
+    if (label) label.textContent = '📢 ' + (bvUpdateMonthLabels[idx] || '이전 에디션 주요 업데이트');
     list.innerHTML = ed.items.map(function (t) { return '<li>' + t + '</li>'; }).join('');
     pager.innerHTML = '';
     if (bvUpdateEditions.length > 1) {
