@@ -156,7 +156,7 @@ def patch_guide_html(items):
     label_pat = re.compile(r'(<h2>소주 뉴스 클리핑</h2>\n<span>)[^<]*(</span>)')
     if not label_pat.search(text):
         raise SystemExit('뉴스 게시판 라벨(<span>)을 못 찾음 — guide.html 구조가 바뀌었는지 확인할 것')
-    text = label_pat.sub(rf'\g<1>Google News 자동 수집 · {today} 갱신 (최근 1개월)\g<2>', text, count=1)
+    text = label_pat.sub(rf'\g<1>Google News 자동 수집 · {today} 갱신\g<2>', text, count=1)
 
     with open(GUIDE_HTML, encoding='utf-8') as f:
         original = f.read()
