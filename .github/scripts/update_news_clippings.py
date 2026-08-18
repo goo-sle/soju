@@ -54,6 +54,7 @@ DOMAIN_NAME_FALLBACK = {
     'zdnet.co.kr': 'ZDNet Korea', 'g-enews.com': '글로벌이코노믹', 'starnewskorea.com': '스타뉴스',
     'osen.co.kr': 'OSEN', 'sportsseoul.com': '스포츠서울', 'xportsnews.com': '엑스포츠뉴스',
     'wikitree.co.kr': '위키트리', 'polinews.co.kr': '폴리뉴스',
+    'bizwatch.co.kr': '비즈워치', 'nate.com': '네이트뉴스', 'foodnews.news': '푸드뉴스',
 }
 
 
