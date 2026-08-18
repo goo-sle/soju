@@ -75,7 +75,6 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
   background: rgba(0,61,46,.05); border-bottom: 1px solid rgba(0,61,46,.14);
   padding: 10px 20px; font-size: 12px; color: var(--ink-muted); line-height: 1.6;
 }
-.top-intro-inner { white-space: nowrap; }
 .top-intro b { color: var(--brand); }
 @media screen and (max-width: 640px) {
   .top-intro { padding: 10px; }
@@ -110,7 +109,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
   max-width: 16ch; color: var(--ink); opacity: 0; animation: bvRise .7s ease forwards; text-wrap: balance;
 }
 .bv-sub {
-  margin-top: 18px; font-size: 18px; color: var(--ink-muted); white-space: nowrap;
+  margin-top: 18px; font-size: 18px; color: var(--ink-muted);
   opacity: 0; animation: bvRise .7s ease .1s forwards;
 }
 @keyframes bvRise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
@@ -180,7 +179,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-update-page.active { background: var(--brand); border-color: var(--brand); color: #fff; }
 .bv-module { margin-top: 32px; }
 .bv-module h2 { font-weight: 900; font-size: clamp(22px,3vw,30px); letter-spacing: -.02em; color: var(--ink); margin-bottom: 14px; }
-.bv-module p { color: #2a2a22; font-size: 16px; line-height: 1.7; white-space: nowrap; }
+.bv-module p { color: #2a2a22; font-size: 16px; line-height: 1.7; }
 .bv-module p + p { margin-top: 12px; }
 .bv-gallery { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 28px; }
 @media (max-width: 760px) { .bv-gallery { grid-template-columns: repeat(2,1fr); } }
@@ -597,8 +596,8 @@ button.tab-btn {
   position: absolute; top: 0; bottom: 14px; width: 40px; pointer-events: none;
   z-index: 2; transition: opacity .2s ease;
 }
-.idx-quicknav-fade-l { left: 0; background: linear-gradient(to right, var(--bg), rgba(245,243,238,0)); }
-.idx-quicknav-fade-r { right: 0; background: linear-gradient(to left, var(--bg), rgba(245,243,238,0)); }
+.idx-quicknav-fade-l { left: 0; background: linear-gradient(to right, var(--bg), color-mix(in srgb, var(--bg), transparent 100%)); }
+.idx-quicknav-fade-r { right: 0; background: linear-gradient(to left, var(--bg), color-mix(in srgb, var(--bg), transparent 100%)); }
 .idx-quicknav-arrow {
   position: absolute; top: 50%; transform: translateY(-50%); margin-top: -7px; z-index: 3;
   width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); background: #fff;
@@ -1055,7 +1054,7 @@ document.addEventListener('DOMContentLoaded', function(){
   var bvUpdateEditions = [
     {
       label: '26.08', items: [
-        '<b>금복주 참소주</b> 16.5도→15.5도 추가 인하(26.08)',
+        '<b>금복주 참소주</b> 16도→15.5도 추가 인하(26.08)',
         '<b>새로</b> \'아홉 꼬리 에디션\' 변온 라벨 한정판 출시(25.11)'
       ]
     },
@@ -1312,7 +1311,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">오투린(O2린)</span></div><div class="idx-brand-meta"><span class="idx-abv">17.8도</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">이제우린 계보 2탄, 산소 함유량 강조</div></div>
 </div>
 <div class="idx-card" style="order:8"><div class="idx-card-header">금복주</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참소주</span></div><div class="idx-brand-meta"><span class="idx-abv">15.5도</span><span class="idx-year">1994</span></div><div class="idx-brand-kw">대구·경북 대표, 2026.01 나노&amp;삼투막 듀얼필터링 리뉴얼 · 2026.08 16.5도→15.5도 인하</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참소주</span></div><div class="idx-brand-meta"><span class="idx-abv">15.5도</span><span class="idx-year">1994</span></div><div class="idx-brand-kw">대구·경북 대표, 2026.08 16도→15.5도 인하</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">맛있는참</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">저도수 전용 라인</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">소주왕 금복주</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">2019.12 출시, '복영감' 캐릭터 라벨 복각 뉴트로</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">제왕</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2015(추정)</span></div><div class="idx-brand-kw">원조 제품, 쌀+고구마 증류주</div></div>
@@ -3258,7 +3257,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>참(眞)</b> = 진짜·바른·깨끗함. 정직하고 진실된 소주라는 이미지. 참이슬의 '참'과 동일한 순우리말 어원이지만 별개의 회사에서 독립적으로 작명. 경북 지역 정서에 맞는 소박한 네이밍.</div>
-<div class="det">금복주(대구·경북 대표 주류사, 1957년 창업, 삼산물산으로 시작) 메인 브랜드. 1995년경 첫 출시(자료에 따라 1997년 설도 있음). 첨단고순도정밀여과공법 강조. 대구·경북 지역 대표 소주. 도수 변천: 17도(2019)→16.5도(2021)→16도(2024.02)→16.5도(2026.01, 나노&amp;삼투막 듀얼필터링 리뉴얼)→15.5도(2026.08, 현재).</div>
+<div class="det">금복주(대구·경북 대표 주류사, 1957년 창업, 삼산물산으로 시작) 메인 브랜드. 1995년경 첫 출시(자료에 따라 1997년 설도 있음). 첨단고순도정밀여과공법 강조. 대구·경북 지역 대표 소주. 도수 변천: 17도(2019)→16.5도(2021)→16도(2024.02)→15.5도(2026.08, 현재).</div>
 </div>
 </div>
 <div class="rgH-card cat-diluted">
@@ -4391,15 +4390,20 @@ function layoutMasonry(grid) {
   var colTarget = 255, gap = 10;
   var cols = Math.max(1, Math.floor((width + gap) / (colTarget + gap)));
   var colWidth = (width - gap * (cols - 1)) / cols;
-  var heights = new Array(cols).fill(0);
+  // 카드마다 쓰고(너비) 바로 읽는(offsetHeight) 걸 반복하면 카드 수만큼 강제 동기 리플로우가
+  // 걸림 — 쓰기 몰아서 → 읽기 몰아서(높이 전부 미리 확보) → 쓰기 몰아서(배치) 3단계로 배칭.
   cards.forEach(function (card) {
     card.style.position = 'absolute';
     card.style.width = colWidth + 'px';
+  });
+  var cardHeights = cards.map(function (card) { return card.offsetHeight; });
+  var heights = new Array(cols).fill(0);
+  cards.forEach(function (card, i) {
     var idx = 0;
-    for (var i = 1; i < cols; i++) { if (heights[i] < heights[idx]) idx = i; }
+    for (var j = 1; j < cols; j++) { if (heights[j] < heights[idx]) idx = j; }
     card.style.left = (idx * (colWidth + gap)) + 'px';
     card.style.top = heights[idx] + 'px';
-    heights[idx] += card.offsetHeight + gap;
+    heights[idx] += cardHeights[i] + gap;
   });
   grid.style.height = Math.max.apply(null, heights) + 'px';
 }
@@ -4451,6 +4455,7 @@ function applyIdxFilter() {
     totalVisible += cardVisible;
   });
   document.getElementById('idxEmpty').style.display = totalVisible === 0 ? 'block' : 'none';
+  var filterActive = !!q || idxFilterCat !== 'all';
   document.querySelectorAll('#tab-quickindex .idx-group-body').forEach(function (body) {
     var anyVisible = Array.prototype.some.call(body.querySelectorAll('.idx-card'), function (c) {
       return c.style.display !== 'none';
@@ -4458,6 +4463,14 @@ function applyIdxFilter() {
     var toggle = body.previousElementSibling;
     if (toggle && toggle.classList.contains('idx-group-toggle')) {
       toggle.style.display = anyVisible ? '' : 'none';
+      // 검색/필터 매치가 접힌 그룹 안에 있으면 자동으로 펼친다 — .collapsed는 CSS
+      // display:none 클래스라 inline style.display=''로는 안 뒤집혀서 매치가 있어도
+      // 화면엔 아무 것도 안 보이는(그런데 "결과 없음"도 안 뜨는) 버그가 있었음.
+      // 필터가 꺼진 기본 상태(전체 보기)에선 사용자가 수동으로 접어둔 그룹을 건드리지 않음.
+      if (filterActive && anyVisible) {
+        toggle.classList.remove('collapsed');
+        body.classList.remove('collapsed');
+      }
     }
     body.style.display = anyVisible ? '' : 'none';
   });
@@ -4620,25 +4633,33 @@ function showRegionMap() {
   document.querySelectorAll('.region-detail').forEach(function (el) { el.classList.remove('active'); });
   setRegionIntroVisible(true);
   playRegionStats();
-  function setRise(el, i) {
-    if (!el) return;
-    el.classList.remove('rise');
-    el.style.animationDelay = '';
-    void (el.getBBox ? el.getBBox() : el.offsetWidth);
-    el.style.animationDelay = (i * 0.04) + 's';
-    el.classList.add('rise');
-  }
   var textEls = [document.getElementById('regionTitle'), document.getElementById('regionStats'), document.querySelector('#tab-region > .intro-box'), document.querySelector('.region-rep-list'), document.querySelector('.region-rep-title')];
   var mapEls = document.querySelectorAll('.kr-region');
   var labelEls = document.querySelectorAll('.kr-label');
   var repEls = document.querySelectorAll('.rep-group');
   var i = 0;
-  textEls.forEach(function (el) { setRise(el, i); i++; });
+  var riseTargets = [];
+  textEls.forEach(function (el) { riseTargets.push([el, i]); i++; });
   mapEls.forEach(function (el, idx) {
-    setRise(el, i);
-    setRise(labelEls[idx], i);
-    setRise(repEls[idx], i);
+    riseTargets.push([el, i]);
+    riseTargets.push([labelEls[idx], i]);
+    riseTargets.push([repEls[idx], i]);
     i++;
+  });
+  // 카드마다 쓰고 바로 읽는(강제 리플로우) 패턴을 3단계로 나눠 배칭 — 쓰기 → 리플로우 1회 → 쓰기.
+  // 애니메이션 재시작 트릭이라 엘리먼트별로 개별 측정할 필요 없이 전체 리플로우 1번이면 충분.
+  riseTargets.forEach(function (t) {
+    var el = t[0];
+    if (!el) return;
+    el.classList.remove('rise');
+    el.style.animationDelay = '';
+  });
+  void document.body.offsetHeight;
+  riseTargets.forEach(function (t) {
+    var el = t[0], idx = t[1];
+    if (!el) return;
+    el.style.animationDelay = (idx * 0.04) + 's';
+    el.classList.add('rise');
   });
 }
 function toggleIdxGroup(toggleEl) {
