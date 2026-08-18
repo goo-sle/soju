@@ -22,6 +22,9 @@ from email.utils import parsedate_to_datetime
 if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
 
+KST = datetime.timezone(datetime.timedelta(hours=9))  # 크론이 21:00 UTC(=06:00 KST 다음날)에 도는데
+# datetime.date.today()는 러너의 UTC 시각을 쓰므로 라벨이 매번 KST 기준 하루 전으로 찍히는 버그가 있었음(26.08.18)
+
 GUIDE_HTML = 'guide.html'
 QUERY_TERM = '소주'
 DAYS_BACK = 30
@@ -152,7 +155,7 @@ def patch_guide_html(items):
     new_body = '\n'.join(render_li(it) for it in items)
     text = board_pat.sub(lambda m: m.group(1) + new_body + m.group(2), text, count=1)
 
-    today = datetime.date.today().strftime('%Y.%m.%d')
+    today = datetime.datetime.now(KST).strftime('%Y.%m.%d')
     label_pat = re.compile(r'(<h2>소주 뉴스 클리핑</h2>\n<span>)[^<]*(</span>)')
     if not label_pat.search(text):
         raise SystemExit('뉴스 게시판 라벨(<span>)을 못 찾음 — guide.html 구조가 바뀌었는지 확인할 것')
