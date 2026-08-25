@@ -57,6 +57,7 @@ DOMAIN_NAME_FALLBACK = {
     'bizwatch.co.kr': '비즈워치', 'nate.com': '네이트뉴스', 'foodnews.news': '푸드뉴스',
     'bntnews.co.kr': 'BNT뉴스', 'economist.co.kr': '이코노미스트',
     'cctoday.co.kr': '충청투데이', 'animalplanet.co.kr': '애니멀플래닛',
+    'investing.com': 'Investing.com', 'voi.id': 'VOI',
 }
 
 
