@@ -266,6 +266,7 @@ button.tab-btn {
   border: none; background: none;
   font-family: inherit; font-size: 10.1pt; cursor: var(--cur-p), pointer;
 }
+button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset: 2px; }
 .tab-btn.active { font-weight: 900; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
@@ -554,6 +555,7 @@ button.tab-btn {
   font-size: 10.1pt; font-family: inherit; color: var(--ink);
 }
 .idx-search::placeholder { color: #999; }
+.idx-search:focus-visible { outline: 2px solid var(--c-blue); outline-offset: 2px; }
 .idx-body { display: flex; align-items: flex-start; gap: 0; }
 .idx-content { flex: 1; min-width: 0; overflow-x: hidden; }
 .idx-filter-panel {
@@ -561,6 +563,10 @@ button.tab-btn {
   transition: width .25s ease, margin-right .25s ease;
 }
 .idx-filter-panel.open { width: 240px; margin-right: 20px; }
+@media (max-width: 640px) {
+  .idx-body { position: relative; }
+  .idx-filter-panel.open { position: absolute; top: 0; left: 0; z-index: 5; margin-right: 0; width: min(240px, calc(100vw - 40px)); }
+}
 .idx-filter-panel-inner {
   width: 240px; padding: 18px;
   background: #fff; border: 1px solid var(--line); border-radius: 12px;
@@ -4672,11 +4678,11 @@ function initIdxCards() {
   document.querySelectorAll('.idx-card').forEach(function (card) {
     var header = card.querySelector('.idx-card-header');
     var count = card.querySelectorAll('.idx-brand').length;
+    card.dataset.mfrLower = header.textContent.toLowerCase();
     var badge = document.createElement('span');
     badge.className = 'idx-card-count';
     badge.textContent = count + '종';
     header.appendChild(badge);
-    card.dataset.mfrLower = header.textContent.toLowerCase();
   });
   document.querySelectorAll('.idx-brand').forEach(function (b) {
     var catEl = b.querySelector('.idx-cat');
