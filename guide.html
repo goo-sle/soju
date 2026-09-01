@@ -247,7 +247,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
   font-size: 8.4pt;
   font-weight: 800;
   letter-spacing: 0.2px;
-  color: #999;
+  color: var(--ink-muted);
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -398,7 +398,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .rgH-card.cat-diluted .rgH-left { border-left: 4px solid #4f8fd1; }
 .rgH-card.cat-flavor .rgH-left { border-left: 4px solid #e28a4d; }
 .rgH-card.cat-distilled .rgH-left { border-left: 4px solid #9c7a5c; }
-.rgH-year { font-size: 8.2pt; font-weight: 700; color: #999; margin-bottom: 2px; }
+.rgH-year { font-size: 8.2pt; font-weight: 700; color: var(--ink-muted); margin-bottom: 2px; }
 .rgH-name { font-size: 10.1pt; font-weight: 900; color: #1a1a2e; line-height: 1.3; margin-bottom: 4px; }
 .rgH-badges { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .rgH-right { flex: 1; padding: 8px 12px; min-width: 0; }
@@ -554,7 +554,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   border: none; background: none; outline: none; width: 100%;
   font-size: 10.1pt; font-family: inherit; color: var(--ink);
 }
-.idx-search::placeholder { color: #999; }
+.idx-search::placeholder { color: var(--ink-muted); }
 .idx-search:focus-visible { outline: 2px solid var(--c-blue); outline-offset: 2px; }
 .idx-body { display: flex; align-items: flex-start; gap: 0; }
 .idx-content { flex: 1; min-width: 0; overflow-x: hidden; }
@@ -580,9 +580,9 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 }
 .idx-filter-btn:last-child { border-bottom: none; }
 .idx-filter-ico { font-size: 16px; margin-right: 4px; }
-.idx-filter-chevron { color: #999; font-size: 12px; flex-shrink: 0; }
+.idx-filter-chevron { color: var(--ink-muted); font-size: 12px; flex-shrink: 0; }
 .idx-filter-btn.active { color: var(--brand); font-weight: 900; }
-.idx-empty { text-align: center; color: #999; padding: 14px; font-size: 10.1pt; display: none; }
+.idx-empty { text-align: center; color: var(--ink-muted); padding: 14px; font-size: 10.1pt; display: none; }
 .idx-quicknav {
   display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 14px; margin-bottom: 4px;
   scrollbar-width: none;
@@ -686,7 +686,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   margin-bottom: 2px;
 }
 .idx-abv { color: #555; font-size: 8.3pt; font-weight: 600; white-space: nowrap; }
-.idx-year { color: #999; font-size: 7.6pt; font-weight: 600; white-space: nowrap; }
+.idx-year { color: var(--ink-muted); font-size: 7.6pt; font-weight: 600; white-space: nowrap; }
 .idx-brand-kw { color: #666; font-size: 8.3pt; line-height: 1.4; }
 .idx-brand-kw .idx-cat { margin-right: 5px; }
 .idx-search-hit { background: #ffd873; border-radius: 2px; padding: 0 1px; color: #1a1a1a; }
@@ -996,7 +996,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <span class="bv-tag">대한민국</span>
 <span class="bv-tag">소주</span>
 <span class="bv-tag">브랜드 가이드</span>
-<span class="bv-tag">26.08</span>
+<span class="bv-tag">26.09</span>
 </div>
 <h1 class="bv-title">대한민국 <span class="title-accent">소주</span> 가이드</h1>
 <p class="bv-sub">전국 지역소주부터 단종된 레어템까지, 라벨 한 장 한 장을 기록하는 아카이브 프로젝트.</p>
@@ -1059,6 +1059,13 @@ document.addEventListener('DOMContentLoaded', function(){
   // 새 업데이트를 반영할 땐 맨 앞(0번)에 새 항목을 추가하고, 기존 항목은 그대로 뒤로 밀리게 두세요 — 지우지 마세요.
   var bvUpdateEditions = [
     {
+      label: '26.09', items: [
+        '<b>처음처럼</b> 20주년 맞아 16도→15.7도 재인하(26.09)',
+        '<b>오비맥주</b> 소주 시장 첫 진출 — 신제품 <b>찰랑</b>(15도, 제로슈거) 추가(26.09)',
+        '성시경 주류 브랜드 <b>경(璄)</b> — 프리미엄 증류식 쌀소주 \'경소주 51도\' 신규 등재(26.09)'
+      ]
+    },
+    {
       label: '26.08', items: [
         '<b>금복주 참소주</b> 16도→15.5도 추가 인하(26.08)',
         '<b>새로</b> \'아홉 꼬리 에디션\' 변온 라벨 한정판 출시(25.11)'
@@ -1093,7 +1100,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var label = document.getElementById('bvUpdateLabel');
     if (!list || !pager) return;
     var ed = bvUpdateEditions[idx];
-    var bvUpdateMonthLabels = ['8월 에디션 주요 업데이트', '7월 에디션 주요 업데이트', '6월 에디션 주요 업데이트', '5월 에디션 주요 업데이트'];
+    var bvUpdateMonthLabels = ['9월 에디션 주요 업데이트', '8월 에디션 주요 업데이트', '7월 에디션 주요 업데이트', '6월 에디션 주요 업데이트', '5월 에디션 주요 업데이트'];
     if (label) label.textContent = '📢 ' + (bvUpdateMonthLabels[idx] || '이전 에디션 주요 업데이트');
     list.innerHTML = ed.items.map(function (t) { return '<li>' + t + '</li>'; }).join('');
     pager.innerHTML = '';
@@ -1199,7 +1206,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <button type="button" class="idx-quicknav-arrow idx-quicknav-arrow-next" id="idxQuickNavNext" aria-label="다음" hidden>›</button>
 <div class="idx-quicknav" id="idxQuickNav"></div>
 </div>
-<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 상업 소주사 <span class="idx-group-count">17개사</span></div>
+<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 상업 소주사 <span class="idx-group-count">18개사</span></div>
 <div class="idx-group-body">
 <div class="idx-grid" id="idxGrid"><div class="idx-card" style="order:1"><div class="idx-card-header">하이트진로</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1924</span></div><div class="idx-brand-kw">1924년 원조 브랜드 · 정통 도수 유지</div></div>
@@ -1232,7 +1239,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로 라이트</span></div><div class="idx-brand-meta"><span class="idx-abv">11.7도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.07.06 한정 출시, 칼로리 25%↓ 제로슈거</div></div>
 </div>
 <div class="idx-card" style="order:2"><div class="idx-card-header">롯데주류</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">처음처럼</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">2026.03 출시 20주년 헤리티지 리뉴얼</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">처음처럼</span></div><div class="idx-brand-meta"><span class="idx-abv">15.7도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">2026.03 20주년 헤리티지 리뉴얼, 2026.09 16도→15.7도 인하</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">처음처럼 클래식</span></div><div class="idx-brand-meta"><span class="idx-abv">20도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.05 신규, 2006년 원조 레시피 복원</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">새로</span></div><div class="idx-brand-meta"><span class="idx-abv">15.7도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">제로슈거·구미호 세계관, 2025.11 '아홉 꼬리 에디션' 변온 라벨 한정판 · 2026.01 16도→15.7도 인하·원료 리뉴얼(보리쌀→100% 국산 쌀 증류주)</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">순하리 유자</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">2014 과일소주 붐 시발점</div></div>
@@ -1361,8 +1368,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-card" style="order:13"><div class="idx-card-header">OB맥주 제주공장</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">제주올레소주 곱들락</span></div><div class="idx-brand-meta"><span class="idx-abv">18도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">한라산과 상표권 소송 패소 후 2017년 푸른밤으로 리뉴얼</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">제주올레소주 산도롱</span></div><div class="idx-brand-meta"><span class="idx-abv">20.1도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">고도수 라인, 2017년 푸른밤으로 리뉴얼</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">푸른밤</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">올레소주 후신, 2019 짧은밤·긴밤 통합 · 2025 OB맥주 인수</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">푸른밤</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2017</span></div><div class="idx-brand-kw">올레소주 후신, 2019 짧은밤·긴밤 통합 · 2024 OB맥주 인수</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">푸른밤 지픈밤</span></div><div class="idx-brand-meta"><span class="idx-abv">20도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">"깊은 밤"의 제주어, 고도주 수요층 타깃</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">찰랑</span></div><div class="idx-brand-meta"><span class="idx-abv">15도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">오비맥주 소주 시장 첫 진출, 제로슈거, 화산암반수·용암해수소금 사용</div></div>
 </div>
 <div class="idx-card" style="order:14"><div class="idx-card-header">세븐일레븐×최강록</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">최강록 네오25화이트</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.01 출시, 2만병 한정</div></div>
@@ -1373,6 +1381,9 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 <div class="idx-card" style="order:15"><div class="idx-card-header">보배양조</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">하이트(구 보배양조)</span></div><div class="idx-brand-meta"><span class="idx-abv">19도(추정)</span><span class="idx-year">2013</span></div><div class="idx-brand-kw">전북 대표, 2013년 하이트진로 흡수합병</div></div>
+</div>
+<div class="idx-card" style="order:16"><div class="idx-card-header">경(璄)</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">경소주 51도</span></div><div class="idx-brand-meta"><span class="idx-abv">51도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">가수 성시경 주류 브랜드 첫 제품 'First Batch', 국내산 쌀 100% 2회 증류</div></div>
 </div></div>
 </div>
 <div class="idx-group-toggle idx-group-traditional" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 전통 증류주 · 명인 양조장 <span class="idx-group-count">37개사</span></div>
@@ -1767,11 +1778,11 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">롯데주류<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2006</div><div class="rgH-name">처음처럼</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2006</div><div class="rgH-name">처음처럼</div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">사회운동가·서예가 <b>신영복 교수</b>의 글귀에서 영감. "세상과 사람을 <b>처음 만났을 때처럼</b> 순수하게". 동시에 "음주 다음 날도 몸이 처음처럼 돌아오길"이라는 이중 의미. 브랜드 네이밍은 참이슬과 마찬가지로 크로스포인트(대표 손혜원)가 담당.</div>
-<div class="det">두산경월이 2006년 2월 7일 출시. 대관령 알칼리수 사용 강조. 2009년 롯데에 인수. 2025년 7월 16.5도→16도로 인하. 2026년 3월 출시 20주년 헤리티지 리뉴얼 — 초기 디자인의 어린 새·새싹 이미지와 대관령 암반수를 형상화한 물방울 그래픽 적용, '16도' 도수 표기 전면 배치, 병목에 'Since 2006 · 20th ANNIVERSARY' 넥라벨. 신영복 교수는 사례비를 받지 않았다고 알려짐.</div>
+<div class="det">두산경월이 2006년 2월 7일 출시. 대관령 알칼리수 사용 강조. 2009년 롯데에 인수. 2025년 7월 16.5도→16도로 인하. 2026년 3월 출시 20주년 헤리티지 리뉴얼 — 초기 디자인의 어린 새·새싹 이미지와 대관령 암반수를 형상화한 물방울 그래픽 적용, '16도' 도수 표기 전면 배치, 병목에 'Since 2006 · 20th ANNIVERSARY' 넥라벨. 신영복 교수는 사례비를 받지 않았다고 알려짐. 2026년 9월 16도→15.7도로 재인하, 감미료 함량도 함께 조정.</div>
 </div>
 </div>
 <div class="rgH-card cat-diluted">
@@ -2374,6 +2385,20 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">한 글자 브랜드명 <b>려(驪)</b>. 별명으로 고구마+쌀 블렌딩 버전은 <b>'쌀려'</b>, 고구마 증류원액만 쓴 버전은 <b>'고구려'</b>로 불림.</div>
 <div class="det">경기 여주. 2009년 국순당과 여주 고구마 농가가 공동출자해 설립한 '국순당 여주명가'가 7년간 개발해 2016년 출시. 고구마·쌀 증류원액 블렌딩판과 고구마 증류원액만 쓴 판 두 종류를 각각 25도·40도로 맞춰 총 4가지 버전. 전통 누룩 사용.</div>
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">경(璄)<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2026.09.01</div><div class="rgH-name">경소주 51도</div><div class="rgH-badges"><span class="abv-badge">51도</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">가수 성시경이 만든 주류 브랜드 <b>경(璄)</b>('옥빛 경'). 첫 제품은 <b>'First Batch'</b>라는 이름으로 출시.</div>
+<div class="det">국내산 쌀 100%를 2회 증류하고 비냉각여과 방식으로 빚은 51도 프리미엄 증류식 쌀소주. 생산은 제이1 농업회사법인(경기 용인)에서 이뤄짐. 2026년 9월 1일 정식 출시. IWSC(인터내셔널 와인&amp;스피릿 컴피티션) 실버(91점), SFWSC(샌프란시스코 월드 스피릿 컴피티션) 2026 실버 수상.</div>
 </div>
 </div>
 </div>
@@ -3710,7 +3735,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="cat-subhead">🍃 희석식</div>
 
 <details class="rgH2-group">
-<summary class="rgH2-head cat-diluted">OB맥주제주공장<span class="rgH2-count">4종</span><span class="rgH2-caret">▾</span></summary>
+<summary class="rgH2-head cat-diluted">OB맥주제주공장<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
 <div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name">제주올레소주 곱들락</div><div class="rgH-badges"><span class="abv-badge">18도</span><span class="disc-badge">단종</span></div></div>
@@ -3742,6 +3767,14 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주 방언으로 <b>"깊은 밤"</b>을 뜻하는 <b>지픈밤</b>. 푸른밤보다 도수를 높인 고도주 라인임을 표현.</div>
 <div class="det">짧은밤(16.9도)과 함께 운영되는 고도수 라인("긴밤").</div>
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2026.09</div><div class="rgH-name">찰랑</div><div class="rgH-badges"><span class="abv-badge">15도</span><span class="zs-badge">Zero</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">잔에 소주가 <b>찰랑거리는</b> 모습에서 착안한 이름. 가볍고 부드럽게 즐기는 음용 경험을 표현.</div>
+<div class="det">오비맥주가 하이트진로·롯데칠성음료가 양분한 국내 소주 시장에 처음 진출하며 내놓은 15도 제로슈거 소주. 제주 화산암반수·용암해수소금을 사용. 2026년 9월말 수도권·제주 일부 식당·주점부터 출시해 반응을 보고 마트·편의점으로 확대할 계획.</div>
 </div>
 </div>
 </div>
@@ -4242,6 +4275,15 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="mfr-note">모태인 산청양조장은 1971년 설립. 2024년 8월 최영웅 대표·김태건 이사가 내외디스틸러리로 공동 설립. 2025년 대한민국 주류대상 수상.</div>
 </div>
 </div>
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2026(추정)</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">경(璄)</span><span class="mfr-region">경기 용인</span></div>
+<div class="mfr-brands">경소주 51도</div>
+<div class="mfr-note">가수 성시경이 운영하는 주류 브랜드. 생산은 제이1 농업회사법인(경기 용인)에서 담당. 2026년 9월 'First Batch'로 첫 제품 출시, 정확한 법인 설립연도는 미확인.</div>
+</div>
+</div>
 
 </div>
 </div>
@@ -4396,8 +4438,8 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 <div class="footer">
   <div class="footer-info">
-    <span>대한민국 소주 가이드<i class="footer-divider"></i>26.08 Edition</span>
-    <span><b>정리</b><i class="footer-divider"></i>Claude Sonnet 5 (2026.08 업데이트)</span>
+    <span>대한민국 소주 가이드<i class="footer-divider"></i>26.09 Edition</span>
+    <span><b>정리</b><i class="footer-divider"></i>Claude Sonnet 5 (2026.09 업데이트)</span>
     <span><b>출처</b><i class="footer-divider"></i>나무위키·위키백과·한국경제매거진·브랜딩리드·각사 보도자료 종합</span>
     <span>© GooSle 2026 소주 가이드</span>
   </div>
@@ -4627,7 +4669,7 @@ function showTab(id, push) {
   if (typeof gtag === 'function') gtag('event', 'tab_view', { tab_name: TAB_LABELS[id] || id });
 }
 window.addEventListener('popstate', function (event) {
-  showTab((event.state && event.state.tab) || 'quickindex', false);
+  showTab((event.state && event.state.tab) || 'browse', false);
 });
 function setRegionIntroVisible(visible) {
   var mapWrap = document.querySelector('.kr-map-nav-wrap');
