@@ -59,6 +59,7 @@ DOMAIN_NAME_FALLBACK = {
     'cctoday.co.kr': '충청투데이', 'animalplanet.co.kr': '애니멀플래닛',
     'investing.com': 'Investing.com', 'voi.id': 'VOI',
     'newsiesports.com': '뉴스아이이에스', 'haveagood-holiday.com': 'Holiday Travel',
+    'sisaon.co.kr': '시사오늘',
 }
 
 
