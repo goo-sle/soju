@@ -60,6 +60,7 @@ DOMAIN_NAME_FALLBACK = {
     'investing.com': 'Investing.com', 'voi.id': 'VOI',
     'newsiesports.com': '뉴스아이이에스', 'haveagood-holiday.com': 'Holiday Travel',
     'sisaon.co.kr': '시사오늘', 'tvreport.co.kr': 'TV리포트',
+    'nvp.co.kr': '뉴스비전e', 'mhnse.com': 'MHN', 'thefairnews.co.kr': '더페어',
 }
 
 
