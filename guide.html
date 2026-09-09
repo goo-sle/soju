@@ -4595,6 +4595,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <script>
 var idxFilterCat = 'all';
 var idxIsolatedCard = null;
+var idxAutoExpanded = new Set(); // 검색/필터가 자동으로 펼친 아코디언 — 필터 꺼지면 다시 접음(사용자가 직접 펼친 건 제외)
 function layoutMasonry(grid) {
   if (!grid) return;
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.idx-card')).filter(function (c) {
@@ -4646,6 +4647,7 @@ function applyIdxFilterDebounced() {
 function applyIdxFilter() {
   var q = document.getElementById('idxSearch').value.trim().toLowerCase();
   var filterActive = !!q || idxFilterCat !== 'all';
+  if (!filterActive) collapseAutoExpanded();
   var allCards = document.querySelectorAll('.idx-grid .idx-card');
   var cards = idxIsolatedCard ? [idxIsolatedCard] : Array.prototype.slice.call(allCards);
   if (idxIsolatedCard) {
@@ -4875,15 +4877,28 @@ function showRegionMap() {
   });
 }
 function toggleIdxGroup(toggleEl) {
+  idxAutoExpanded.delete(toggleEl); // 사용자가 직접 조작했으니 필터 해제 시 자동 복원 대상에서 제외
   toggleEl.classList.toggle('collapsed');
   var body = toggleEl.nextElementSibling;
   if (body) body.classList.toggle('collapsed');
   layoutAllMasonry();
 }
-// 검색/필터 매치가 접힌 아코디언(그룹 또는 제조사 카드) 안에 있으면 자동으로 펼침 — 양쪽에서 공용
+// 검색/필터 매치가 접힌 아코디언(그룹 또는 제조사 카드) 안에 있으면 자동으로 펼침 — 양쪽에서 공용.
+// 실제로 접혀있던 것만 idxAutoExpanded에 기록해뒀다가 필터 해제 시 다시 접는다.
 function expandIfCollapsed(toggleEl, bodyEl) {
-  if (toggleEl) toggleEl.classList.remove('collapsed');
-  if (bodyEl) bodyEl.classList.remove('collapsed');
+  if (!toggleEl || !bodyEl) return;
+  if (toggleEl.classList.contains('collapsed')) idxAutoExpanded.add(toggleEl);
+  toggleEl.classList.remove('collapsed');
+  bodyEl.classList.remove('collapsed');
+}
+function collapseAutoExpanded() {
+  if (!idxAutoExpanded.size) return;
+  idxAutoExpanded.forEach(function (toggleEl) {
+    var body = toggleEl.nextElementSibling;
+    toggleEl.classList.add('collapsed');
+    if (body) body.classList.add('collapsed');
+  });
+  idxAutoExpanded.clear();
 }
 function initIdxCards() {
   document.querySelectorAll('.idx-card').forEach(function (card) {
@@ -4970,9 +4985,14 @@ function initIdxQuickNav() {
     chip.className = 'idx-quicknav-chip';
     chip.textContent = name;
     chip.onclick = function () {
+      // 검색 자동 펼침(expandIfCollapsed)과 달리 이건 목적지를 직접 펼치는 내비게이션이라
+      // idxAutoExpanded에 기록하지 않음 — 안 그러면 뒤이은 applyIdxFilter()가 filterActive=false로
+      // 판단해 방금 펼친 카드를 바로 다시 접어버림.
       var groupBody = card.closest('.idx-group-body');
-      if (groupBody) expandIfCollapsed(groupBody.previousElementSibling, groupBody);
-      expandIfCollapsed(card.querySelector('.idx-card-header'), card.querySelector('.idx-card-body'));
+      if (groupBody) { groupBody.previousElementSibling.classList.remove('collapsed'); groupBody.classList.remove('collapsed'); }
+      var cardHeader = card.querySelector('.idx-card-header'), cardBody = card.querySelector('.idx-card-body');
+      if (cardHeader) cardHeader.classList.remove('collapsed');
+      if (cardBody) cardBody.classList.remove('collapsed');
       document.getElementById('idxSearch').value = '';
       idxFilterCat = 'all';
       document.querySelectorAll('.idx-filter-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.cat === 'all'); });
