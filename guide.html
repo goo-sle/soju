@@ -579,7 +579,8 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   font-size: 10.1pt; font-family: inherit; color: var(--ink);
 }
 .idx-search::placeholder { color: var(--ink-muted); }
-.idx-search:focus-visible { outline: 2px solid var(--c-blue); outline-offset: 2px; }
+.idx-search:focus-visible { outline: none; }
+.idx-search-wrap:focus-within { border-color: var(--c-blue); box-shadow: 0 0 0 3px color-mix(in srgb, var(--c-blue) 20%, transparent); }
 .idx-body { display: flex; align-items: flex-start; gap: 0; }
 .idx-content { flex: 1; min-width: 0; overflow-x: hidden; }
 .idx-filter-panel {
