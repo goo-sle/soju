@@ -425,8 +425,8 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .rgH-badges { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .rgH-right { flex: 1; padding: 8px 12px; min-width: 0; }
 .rgH-right .lbl, .rgH-right .ety, .rgH-right .det { margin-left: 0; }
-.rgH-right .chg, .rgH-right .spec { margin-top: 6px; gap: 3px; }
-.rgH-right .chg .tl-event, .rgH-right .spec .tl-event { background: none; border: none; border-radius: 0; padding: 0; }
+.rgH-right .chg, .rgH-right .spec, #brandInfoBody .tl-events { margin-top: 6px; gap: 3px; }
+.rgH-right .chg .tl-event, .rgH-right .spec .tl-event, #brandInfoBody .tl-event { background: none; border: none; border-radius: 0; padding: 0; }
 @media screen and (max-width: 640px) {
   .rgH-card { flex-direction: column; }
   .rgH-card .rgH-left { border-left: none !important; border-top: 4px solid #ccc; }
@@ -1781,7 +1781,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">진로(眞露)를 순우리말로 풀이한 참이슬 라인의 저도수 주력 제품. <b>眞(진)→참</b>, <b>露(로)→이슬</b>. 브랜드 네이밍 컨설팅업체 크로스포인트(대표 손혜원)가 명명.</div>
-<div class="det">참이슬 브랜드는 1998년 10월 19일 23도로 첫 출시(2026년 5월 기준 누적 약 413억 병 판매, 1초당 약 47병). 2006년경 기존 라인(오리지널)과 저도수 '후레쉬' 라인으로 분화(자료에 따라 2007년설도 있음). 2012년 1월 대규모 리뉴얼 때 '후레쉬'→'참이슬', '오리지널'→'참이슬 클래식'으로 명칭이 한때 뒤바뀌었다가 2017년경 현재의 '후레쉬/오리지널' 명칭으로 환원. 2026년 6월 2일 발표·6월 중순부터 순차 적용된 리뉴얼로 16도→15.7도로 조정(2024년 2월 16도 조정 후 약 2년 4개월 만). 2025년 5월 페트(400·500·640ml·1.8L)·오리지널(640ml·1.8L) 패키지를 대나무잎 곡선 줄무늬 디자인으로 새단장. 부드러운 목넘김 중심의 대중형 라인.</div>
+<div class="det">참이슬 브랜드는 1998년 10월 19일 첫 출시(2026년 5월 기준 누적 약 413억 병 판매, 1초당 약 47병). 2006년경 기존 라인(오리지널)과 저도수 '후레쉬' 라인으로 분화(자료에 따라 2007년설도 있음). 2025년 5월 페트(400·500·640ml·1.8L)·오리지널(640ml·1.8L) 패키지를 대나무잎 곡선 줄무늬 디자인으로 새단장. 부드러운 목넘김 중심의 대중형 라인.</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">1998.10</div><div class="tl-event-what">23도로 첫 출시</div></div>
 <div class="tl-event"><div class="tl-event-when">2012.01</div><div class="tl-event-what">'후레쉬' → '참이슬', '오리지널' → '참이슬 클래식'으로 명칭 교체(2017년경 후레쉬/오리지널로 환원)</div></div>
@@ -1799,7 +1799,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>진로(眞露) Is Back</b> = "진로가 돌아왔다". 1970~80년대 진로 두꺼비 마스코트·복고 디자인을 그대로 재해석한 뉴트로(New-tro) 콘셉트를 영문 슬로건형 제품명에 직접 담음.</div>
-<div class="det">2019년 4월 출시. 2026년 2월 16도→15.7도로 리뉴얼·"더 깔끔한 맛" 강조. 2026년 5월 두꺼비 캐릭터 3D화, 한자 로고→한글 서체 전환한 패키지 전면 리뉴얼과 '올뉴진로' 캠페인 진행, 흑백요리사2 최강록과 콜라보. 하늘색 투명병·두꺼비 캐릭터 복고 디자인. 뉴트로 마케팅 열풍을 주도한 제품.</div>
+<div class="det">2019년 4월 출시. 2026년 2월 리뉴얼 때 "더 깔끔한 맛"을 강조. 2026년 5월 두꺼비 캐릭터 3D화, 한자 로고→한글 서체 전환한 패키지 전면 리뉴얼과 '올뉴진로' 캠페인 진행, 흑백요리사2 최강록과 콜라보. 하늘색 투명병·두꺼비 캐릭터 복고 디자인. 뉴트로 마케팅 열풍을 주도한 제품.</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">2019.04</div><div class="tl-event-what">16도로 출시</div></div>
 <div class="tl-event"><div class="tl-event-when">2026.02</div><div class="tl-event-what">16도 → 15.7도로 리뉴얼</div></div>
@@ -1849,7 +1849,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">사회운동가·서예가 <b>신영복 교수</b>의 글귀에서 영감. "세상과 사람을 <b>처음 만났을 때처럼</b> 순수하게". 동시에 "음주 다음 날도 몸이 처음처럼 돌아오길"이라는 이중 의미. 브랜드 네이밍은 참이슬과 마찬가지로 크로스포인트(대표 손혜원)가 담당.</div>
-<div class="det">두산경월이 2006년 2월 7일 출시. 대관령 알칼리수 사용 강조. 2009년 롯데에 인수. 2025년 7월 16.5도→16도로 인하. 2026년 3월 출시 20주년 헤리티지 리뉴얼 — 초기 디자인의 어린 새·새싹 이미지와 대관령 암반수를 형상화한 물방울 그래픽 적용, '16도' 도수 표기 전면 배치, 병목에 'Since 2006 · 20th ANNIVERSARY' 넥라벨. 신영복 교수는 사례비를 받지 않았다고 알려짐. 2026년 9월 16도→15.7도로 재인하, 감미료 함량도 함께 조정.</div>
+<div class="det">두산경월이 2006년 2월 7일 출시. 대관령 알칼리수 사용 강조. 2009년 롯데에 인수. 2026년 3월 출시 20주년 헤리티지 리뉴얼 — 초기 디자인의 어린 새·새싹 이미지와 대관령 암반수를 형상화한 물방울 그래픽 적용, '16도' 도수 표기 전면 배치, 병목에 'Since 2006 · 20th ANNIVERSARY' 넥라벨. 신영복 교수는 사례비를 받지 않았다고 알려짐.</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">2025.07</div><div class="tl-event-what">16.5도 → 16도로 인하</div></div>
 <div class="tl-event"><div class="tl-event-when">2026.09</div><div class="tl-event-what">16도 → 15.7도로 재인하, 감미료 함량도 함께 조정</div></div>
@@ -1869,7 +1869,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">순우리말 <b>"새로운"</b>의 '새로'와 Zero Sugar의 <b>'로'</b>, 그리고 새로운 길(路)의 중의적 의미를 한 이름에 겹쳐 담은 네이밍. "새로운 소주, 당 제로" 메시지를 2022년 출시 시점부터 일관되게 전개.</div>
-<div class="det">구미호 캐릭터·한복·판소리 세계관 마케팅. 백자(도자기) 컨셉 민트색 투명 병. 2025년 11월 냉장 시 꼬리가 6개→9개로 바뀌는 변온 라벨 '아홉 꼬리 에디션' 한정판 출시. 2026년 1월 16도→15.7도 리뉴얼과 함께 증류주 원료를 보리쌀에서 100% 국산 쌀 증류주로 교체. 진로이즈백 뉴트로에 맞선 한국 전통 감성 브랜딩.</div>
+<div class="det">구미호 캐릭터·한복·판소리 세계관 마케팅. 백자(도자기) 컨셉 민트색 투명 병. 진로이즈백 뉴트로에 맞선 한국 전통 감성 브랜딩.</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">2022</div><div class="tl-event-what">출시 당시 16도</div></div>
 <div class="tl-event"><div class="tl-event-when">2026.01</div><div class="tl-event-what">16도 → 15.7도로 인하, 증류주 원료를 보리쌀에서 100% 국산 쌀 증류주로 교체</div></div>
@@ -2090,7 +2090,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + 도수 <b>53</b>. 화요 라인업 중 최고 도수임을 표기.</div>
-<div class="det">2015년 출시. 53도. 마니아층 대상 고도 제품. 면세점 중심 유통에서 백화점까지 확대. 2026 병오년(적마) 신년 한정판 '적마에디션' 출시(일러스트레이터 흑요석 협업, 750ml, 2025.11.25부터 편의점 스마트오더·대형마트·백화점 판매).</div>
+<div class="det">2015년 출시. 53도. 마니아층 대상 고도 제품. 면세점 중심 유통에서 백화점까지 확대.</div>
 <div class="spec tl-events">
 <div class="tl-event"><div class="tl-event-when">2025.11</div><div class="tl-event-what">'적마에디션' — 2026 병오년 신년 한정판, 일러스트레이터 흑요석 협업, 750ml</div></div>
 </div>
@@ -2863,7 +2863,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>원소주</b> + <b>클래식(Classic)</b>. 자체 개발 효모를 사용한 정통 라인임을 강조.</div>
-<div class="det">2022년 9월 엔씨소프트 '리니지W' 콜라보 한정 에디션으로 먼저 선보인 뒤(9월 21일~11월 4일 온라인몰 한정 판매), 12월 1일 일반 정식 출시. 원소주·원소주 스피릿에 이은 세 번째 제품. 375ml 21,900원. 한국식품연구원이 개발한 효모 균주를 국내 최초로 제품화, 상압증류 방식 사용.</div>
+<div class="det">2022년 12월 1일 정식 출시. 원소주·원소주 스피릿에 이은 세 번째 제품. 375ml 21,900원. 한국식품연구원이 개발한 효모 균주를 국내 최초로 제품화, 상압증류 방식 사용.</div>
 <div class="spec tl-events">
 <div class="tl-event"><div class="tl-event-when">2022.09</div><div class="tl-event-what">엔씨소프트 '리니지W' 콜라보 한정 에디션으로 선출시(9.21~11.4 온라인몰 한정 판매)</div></div>
 </div>
@@ -3024,7 +3024,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">나뭇잎 끝에 맺히는 <b>이슬</b>의 감성적 이미지. <b>잎새(나뭇잎)</b> + 이슬이 맺힌다는 자연 이미지의 합성 네이밍. 깨끗하고 맑은 소주를 표현.</div>
-<div class="det">보해양조(1950년 전남 목포 창업, 현 본사 광주광역시 및 목포, 주 공장 영암) 대표 소주. 2002년 19.8도 출시 후 18.5도(2016)→17.8도(2017)→17.3도(2019)→16.5도(2022)→16도(2024)까지 단계적 저도화. 100% 자연 감미료·인공조미료 미첨가 강조. 광주·전남 대표 소주.</div>
+<div class="det">보해양조(1950년 전남 목포 창업, 현 본사 광주광역시 및 목포, 주 공장 영암) 대표 소주. 100% 자연 감미료·인공조미료 미첨가 강조. 광주·전남 대표 소주.</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">2002</div><div class="tl-event-what">19.8도로 출시</div></div>
 <div class="tl-event"><div class="tl-event-when">2016</div><div class="tl-event-what">18.5도로 인하</div></div>
@@ -3152,7 +3152,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>네오(Neo)</b> = 새로운, <b>40</b> = 도수. 최강록 네오25화이트와 같은 '네오' 계열 네이밍.</div>
-<div class="det">2025년 6월 출시. 전통주 유통기업 우리술컴퍼니가 최강록 셰프와 협업 기획, 시향가가 생산. 세계 최초로 유기농 가루미(바로미2) 100%를 원료로 생쌀 발효 후 저온숙성·감압증류. 250ml, 2000병 한정판. 파생판 '네오40 블랙'이 2026 대한민국주류대상 프리미엄 소주 부문 대상 수상. 2026.07 뉴질랜드 첫 수출.</div>
+<div class="det">2025년 6월 출시. 전통주 유통기업 우리술컴퍼니가 최강록 셰프와 협업 기획, 시향가가 생산. 세계 최초로 유기농 가루미(바로미2) 100%를 원료로 생쌀 발효 후 저온숙성·감압증류. 250ml, 2000병 한정판. 2026.07 뉴질랜드 첫 수출.</div>
 <div class="spec tl-events">
 <div class="tl-event"><div class="tl-event-when">2026</div><div class="tl-event-what">파생판 '네오40 블랙' — 2026 대한민국주류대상 프리미엄 소주 부문 대상 수상</div></div>
 </div>
@@ -3243,7 +3243,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>C = Choice(최고의 선택)</b>, <b>1 = 1등·최고</b>. 동시에 발음이 <b>"씨원→시원"</b>하다는 이중 효과. 부산 특유의 시원하고 강한 이미지 반영.</div>
-<div class="det">대선주조(부산, 1930년 창업). 1996년 첫 출시. "시원" 또는 "시원소주"로도 불림(별도 제품 아님). 국내 최초 음향숙성진동공법(클래식 음악 음파 적용 특허 공법) 도입. 부산 점유율 1위 경쟁 중. 2025.07 13년 만에 도수·상표·성분 리뉴얼, 19도→18도로 인하.</div>
+<div class="det">대선주조(부산, 1930년 창업). "시원" 또는 "시원소주"로도 불림(별도 제품 아님). 국내 최초 음향숙성진동공법(클래식 음악 음파 적용 특허 공법) 도입. 부산 점유율 1위 경쟁 중.</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">1996</div><div class="tl-event-what">19도로 첫 출시</div></div>
 <div class="tl-event"><div class="tl-event-when">2025.07</div><div class="tl-event-what">19도 → 18도로 인하(13년 만의 도수·상표·성분 리뉴얼)</div></div>
@@ -3325,7 +3325,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">"소주 한잔 나누기 <b>좋은 날(Good Day)</b>"이라는 긍정 의미. 동시에 경상도 사투리 <b>"좋다 아이가(좋은데예)"</b>의 느낌을 담은 중의적 작명. 지역 정서와 긍정 이미지 결합.</div>
-<div class="det">무학(창원 본사, 1929년 소화주류공업사로 창업 → 무학주류로 상호 변경. 회사명은 마산의 명산 <b>무학산(舞鶴山)</b>에서 따옴). 지리산 지하 320m 암반수·72시간 산소 숙성·10단계 여과. 2006년 11월 16.9도로 출시, 16.5도(2021년 리뉴얼) → 'All New 좋은데이' 15.7도 리뉴얼(2026.03)(국내산 쌀 100% 증류주 원액·72시간 산소숙성). 경남 대표 소주. ※장례식장 버전: <b>우리가 함께했던 좋은데이</b>(흰 국화 라벨·흰색 배경, 내용물 동일).</div>
+<div class="det">무학(창원 본사, 1929년 소화주류공업사로 창업 → 무학주류로 상호 변경. 회사명은 마산의 명산 <b>무학산(舞鶴山)</b>에서 따옴). 지리산 지하 320m 암반수·72시간 산소 숙성·10단계 여과. 경남 대표 소주. ※장례식장 버전: <b>우리가 함께했던 좋은데이</b>(흰 국화 라벨·흰색 배경, 내용물 동일).</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">2006.11</div><div class="tl-event-what">16.9도로 출시</div></div>
 <div class="tl-event"><div class="tl-event-when">2021</div><div class="tl-event-what">16.5도로 리뉴얼</div></div>
@@ -3392,7 +3392,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>참(眞)</b> = 진짜·바른·깨끗함. 정직하고 진실된 소주라는 이미지. 참이슬의 '참'과 동일한 순우리말 어원이지만 별개의 회사에서 독립적으로 작명. 경북 지역 정서에 맞는 소박한 네이밍.</div>
-<div class="det">금복주(대구·경북 대표 주류사, 1957년 창업, 삼산물산으로 시작) 메인 브랜드. 1995년경 첫 출시(자료에 따라 1997년 설도 있음). 첨단고순도정밀여과공법 강조. 대구·경북 지역 대표 소주. 도수 변천: 17도(2019)→16.5도(2021)→16도(2024.02)→15.5도(2026.08, 현재).</div>
+<div class="det">금복주(대구·경북 대표 주류사, 1957년 창업, 삼산물산으로 시작) 메인 브랜드. 1995년경 첫 출시(자료에 따라 1997년 설도 있음). 첨단고순도정밀여과공법 강조. 대구·경북 지역 대표 소주.</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">2019</div><div class="tl-event-what">17도</div></div>
 <div class="tl-event"><div class="tl-event-when">2021</div><div class="tl-event-what">16.5도로 인하</div></div>
@@ -3898,7 +3898,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">창업 당시 사명 <b>한일(韓一)</b>을 제품명으로 그대로 사용.</div>
-<div class="det">25~30도. 1955년 3월 '한일 소주'로 정식 출시(1982년 30도, 1985년 25도 등 시기별 도수 변동). 1993년 '한라산 소주' 브랜드가 주력으로 출시된 뒤에도 저가 페트병 '한일'은 한동안 병행 생산되며 2000년 1월 25도→23도로 함께 인하.</div>
+<div class="det">25~30도. 1955년 3월 '한일 소주'로 정식 출시. 1993년 '한라산 소주' 브랜드가 주력으로 출시된 뒤에도 저가 페트병 '한일'은 한동안 병행 생산됨.</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">1955.03</div><div class="tl-event-what">'한일 소주'로 정식 출시</div></div>
 <div class="tl-event"><div class="tl-event-when">1982</div><div class="tl-event-what">30도로 변동</div></div>
