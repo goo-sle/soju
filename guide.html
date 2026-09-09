@@ -203,11 +203,10 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 }
 .bv-card {
   display: flex; align-items: center; gap: 14px; text-align: left;
-  padding: 14px 20px; color: inherit; cursor: var(--cur-p), pointer;
-  border-bottom: 1px solid var(--line); transition: background .15s ease;
+  padding: 14px 20px; color: inherit;
+  border-bottom: 1px solid var(--line);
 }
 .bv-card:last-child { border-bottom: none; }
-.bv-card:hover, .bv-card:focus-visible { background: var(--bg); }
 .bv-glyph {
   flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
@@ -1148,32 +1147,32 @@ document.addEventListener('DOMContentLoaded', function(){
 <p>그 변화 하나하나가 소주 산업의 역사다. 이 아카이브는 출시일, 도수, 단종 여부까지 검증해가며 라벨을 하나씩 쌓는 기록 프로젝트다.</p>
 </div>
 <div class="bv-gallery">
-<div class="bv-card" style="--ety-tint:var(--bv-chamisul)" role="button" tabindex="0" onclick="goToQuickIndex(null,'참이슬')" onkeydown="bvKeyClick(event)">
+<div class="bv-card" style="--ety-tint:var(--bv-chamisul)">
 <span class="bv-glyph" aria-hidden="true">露</span>
 <div><div class="bv-brand">참이슬</div>
 <div class="bv-desc">眞(참)+露(이슬) — 眞露(진로)를 그대로 풀면 참이슬</div></div>
 </div>
-<div class="bv-card" style="--ety-tint:var(--bv-cheoreom)" role="button" tabindex="0" onclick="goToQuickIndex(null,'처음처럼')" onkeydown="bvKeyClick(event)">
+<div class="bv-card" style="--ety-tint:var(--bv-cheoreom)">
 <span class="bv-glyph" aria-hidden="true">初</span>
 <div><div class="bv-brand">처음처럼</div>
 <div class="bv-desc">신영복 교수의 글귀 — "세상을 처음 만났을 때처럼"</div></div>
 </div>
-<div class="bv-card" style="--ety-tint:var(--bv-hwayo)" role="button" tabindex="0" onclick="goToQuickIndex(null,'화요')" onkeydown="bvKeyClick(event)">
+<div class="bv-card" style="--ety-tint:var(--bv-hwayo)">
 <span class="bv-glyph" aria-hidden="true">燒</span>
 <div><div class="bv-brand">화요</div>
 <div class="bv-desc">燒(소)를 火(불)+堯(요)로 파자 — "불로 다스린 귀한 술"</div></div>
 </div>
-<div class="bv-card" style="--ety-tint:var(--bv-ido)" role="button" tabindex="0" onclick="goToQuickIndex(null,'이도')" onkeydown="bvKeyClick(event)">
+<div class="bv-card" style="--ety-tint:var(--bv-ido)">
 <span class="bv-glyph" aria-hidden="true">祹</span>
 <div><div class="bv-brand">이도</div>
 <div class="bv-desc">세종대왕 본명 李祹 — 도수 22·32·42는 즉위·재위 상징</div></div>
 </div>
-<div class="bv-card" style="--ety-tint:var(--bv-okroju)" role="button" tabindex="0" onclick="goToQuickIndex(null,'옥로주')" onkeydown="bvKeyClick(event)">
+<div class="bv-card" style="--ety-tint:var(--bv-okroju)">
 <span class="bv-glyph" aria-hidden="true">玉</span>
 <div><div class="bv-brand">옥로주</div>
 <div class="bv-desc">玉露酒 — "옥구슬 같은 이슬로 빚은 술"</div></div>
 </div>
-<div class="bv-card" style="--ety-tint:var(--bv-gamhongro)" role="button" tabindex="0" onclick="goToQuickIndex(null,'감홍로')" onkeydown="bvKeyClick(event)">
+<div class="bv-card" style="--ety-tint:var(--bv-gamhongro)">
 <span class="bv-glyph" aria-hidden="true">紅</span>
 <div><div class="bv-brand">감홍로</div>
 <div class="bv-desc">甘紅露 — "달고 붉은 이슬", 조선 3대 명주</div></div>
@@ -4641,9 +4640,6 @@ function goToQuickIndex(cat, q) {
       }
     }, 80);
   }
-}
-function bvKeyClick(e) {
-  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); }
 }
 function toggleIdxFilterPanel(force) {
   var panel = document.getElementById('idxFilterPanel');
