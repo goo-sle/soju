@@ -656,18 +656,42 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 }
 .idx-card.slide-in { animation: idxCardSlideIn .45s ease-out both; }
 @keyframes idxCardSlideIn { to { opacity: 1; transform: translateX(0); } }
+.idx-card {
+  --card-accent: var(--accent-red);
+}
+/* 제조사 카드가 55개나 나열되니 이웃 카드끼리 구분되도록 기존 색 토큰 8개를 순환 배정 */
+.idx-grid > .idx-card:nth-child(8n+1) { --card-accent: var(--c-blue); }
+.idx-grid > .idx-card:nth-child(8n+2) { --card-accent: var(--c-amber); }
+.idx-grid > .idx-card:nth-child(8n+3) { --card-accent: var(--c-teal); }
+.idx-grid > .idx-card:nth-child(8n+4) { --card-accent: var(--accent-red); }
+.idx-grid > .idx-card:nth-child(8n+5) { --card-accent: var(--c-deep); }
+.idx-grid > .idx-card:nth-child(8n+6) { --card-accent: var(--region-jeolla); }
+.idx-grid > .idx-card:nth-child(8n+7) { --card-accent: var(--region-jeju); }
+.idx-grid > .idx-card:nth-child(8n+8) { --card-accent: var(--mc-gray); }
 .idx-card-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
   font-weight: 900;
   font-size: 10.4pt;
-  color: var(--accent-red);
+  color: var(--card-accent);
   margin-bottom: 6px;
   padding-bottom: 5px;
-  border-bottom: 2px solid var(--accent-red);
+  border-bottom: 2px solid var(--card-accent);
+  cursor: var(--cur-p), pointer;
+  user-select: none;
 }
+.idx-card-header:hover { color: color-mix(in srgb, var(--card-accent) 80%, black); }
+.idx-card-arrow { display: inline-block; transition: transform 0.15s; font-size: 9pt; order: -1; }
+.idx-card.collapsed .idx-card-arrow { transform: rotate(-90deg); }
+.idx-card-body { display: block; }
+.idx-card.collapsed .idx-card-body { display: none; }
 .idx-brand {
   padding: 6px 0 6px 8px;
   border-bottom: 1px solid #e2e2e2;
   border-left: 3px solid #ddd;
+  cursor: var(--cur-p), pointer;
 }
 .idx-brand:has(.idx-cat-b) { border-left-color: var(--c-blue); }
 .idx-brand:has(.idx-cat-t) { border-left-color: var(--c-teal); }
@@ -717,6 +741,8 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   .idx-filter-toggle, .idx-filter-panel { display: none !important; }
   .idx-grid { height: auto !important; position: static !important; }
   .idx-card { display: block !important; position: static !important; left: auto !important; top: auto !important; width: auto !important; margin-bottom: 10px; opacity: 1 !important; transform: none !important; }
+  .idx-card-body { display: block !important; }
+  .idx-card-header { cursor: default; }
   .idx-brand { display: block !important; }
   .idx-empty { display: none !important; }
 }
@@ -729,9 +755,9 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   border-radius: 8px;
   font-size: 8.2pt;
   font-weight: 700;
-  color: var(--accent-red);
-  background: rgba(233,69,96,.1);
-  border: 1px solid rgba(233,69,96,.28);
+  color: var(--card-accent, var(--accent-red));
+  background: color-mix(in srgb, var(--card-accent, var(--accent-red)) 10%, white);
+  border: 1px solid color-mix(in srgb, var(--card-accent, var(--accent-red)) 28%, white);
   vertical-align: middle;
 }
 
@@ -894,13 +920,16 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   transition: transform .2s ease, opacity .2s ease;
 }
 .method-modal-overlay.open .method-modal { transform: translateY(0) scale(1); opacity: 1; }
-.method-modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.method-modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .method-modal-head .mm-title { font-size: 11.8pt; font-weight: 900; color: var(--ink); }
 .method-modal-close {
   background: #f1f1f4; border: none; width: 26px; height: 26px; border-radius: 50%;
-  font-size: 14px; color: #666; cursor: var(--cur-p), pointer; line-height: 1;
+  font-size: 14px; color: #666; cursor: var(--cur-p), pointer; line-height: 1; flex-shrink: 0;
 }
 .method-modal-close:hover { background: #e2e2e8; color: #333; }
+.brandinfo-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 6px; }
+.brandinfo-meta:empty { display: none; }
+.brandinfo-mfr { font-size: 8.4pt; font-weight: 700; color: var(--ink-muted); }
 @media print {
   .method-help-btn { display: none !important; }
   .method-modal-overlay { display: flex !important; position: static !important; background: none !important; padding: 0 !important; z-index: auto; }
@@ -1758,6 +1787,12 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">진로(眞露)를 순우리말로 풀이한 참이슬 라인의 저도수 주력 제품. <b>眞(진)→참</b>, <b>露(로)→이슬</b>. 브랜드 네이밍 컨설팅업체 크로스포인트(대표 손혜원)가 명명.</div>
 <div class="det">참이슬 브랜드는 1998년 10월 19일 23도로 첫 출시(2026년 5월 기준 누적 약 413억 병 판매, 1초당 약 47병). 2006년경 기존 라인(오리지널)과 저도수 '후레쉬' 라인으로 분화(자료에 따라 2007년설도 있음). 2012년 1월 대규모 리뉴얼 때 '후레쉬'→'참이슬', '오리지널'→'참이슬 클래식'으로 명칭이 한때 뒤바뀌었다가 2017년경 현재의 '후레쉬/오리지널' 명칭으로 환원. 2026년 6월 2일 발표·6월 중순부터 순차 적용된 리뉴얼로 16도→15.7도로 조정(2024년 2월 16도 조정 후 약 2년 4개월 만). 2025년 5월 페트(400·500·640ml·1.8L)·오리지널(640ml·1.8L) 패키지를 대나무잎 곡선 줄무늬 디자인으로 새단장. 부드러운 목넘김 중심의 대중형 라인.</div>
+<div class="chg">
+<div class="tl-event"><div class="tl-event-when">1998.10</div><div class="tl-event-what">23도로 첫 출시</div></div>
+<div class="tl-event"><div class="tl-event-when">2012.01</div><div class="tl-event-what">'후레쉬' → '참이슬', '오리지널' → '참이슬 클래식'으로 명칭 교체(2017년경 후레쉬/오리지널로 환원)</div></div>
+<div class="tl-event"><div class="tl-event-when">2024.02</div><div class="tl-event-what">16도로 조정</div></div>
+<div class="tl-event"><div class="tl-event-when">2026.06</div><div class="tl-event-what">16도 → 15.7도로 조정</div></div>
+</div>
 </div>
 </div>
 <div class="rgH-card cat-diluted">
@@ -1766,6 +1801,10 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>진로(眞露) Is Back</b> = "진로가 돌아왔다". 1970~80년대 진로 두꺼비 마스코트·복고 디자인을 그대로 재해석한 뉴트로(New-tro) 콘셉트를 영문 슬로건형 제품명에 직접 담음.</div>
 <div class="det">2019년 4월 출시. 2026년 2월 16도→15.7도로 리뉴얼·"더 깔끔한 맛" 강조. 2026년 5월 두꺼비 캐릭터 3D화, 한자 로고→한글 서체 전환한 패키지 전면 리뉴얼과 '올뉴진로' 캠페인 진행, 흑백요리사2 최강록과 콜라보. 하늘색 투명병·두꺼비 캐릭터 복고 디자인. 뉴트로 마케팅 열풍을 주도한 제품.</div>
+<div class="chg">
+<div class="tl-event"><div class="tl-event-when">2019.04</div><div class="tl-event-what">16도로 출시</div></div>
+<div class="tl-event"><div class="tl-event-when">2026.02</div><div class="tl-event-what">16도 → 15.7도로 리뉴얼</div></div>
+</div>
 </div>
 </div>
 <div class="rgH-card cat-diluted">
@@ -1812,6 +1851,10 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">사회운동가·서예가 <b>신영복 교수</b>의 글귀에서 영감. "세상과 사람을 <b>처음 만났을 때처럼</b> 순수하게". 동시에 "음주 다음 날도 몸이 처음처럼 돌아오길"이라는 이중 의미. 브랜드 네이밍은 참이슬과 마찬가지로 크로스포인트(대표 손혜원)가 담당.</div>
 <div class="det">두산경월이 2006년 2월 7일 출시. 대관령 알칼리수 사용 강조. 2009년 롯데에 인수. 2025년 7월 16.5도→16도로 인하. 2026년 3월 출시 20주년 헤리티지 리뉴얼 — 초기 디자인의 어린 새·새싹 이미지와 대관령 암반수를 형상화한 물방울 그래픽 적용, '16도' 도수 표기 전면 배치, 병목에 'Since 2006 · 20th ANNIVERSARY' 넥라벨. 신영복 교수는 사례비를 받지 않았다고 알려짐. 2026년 9월 16도→15.7도로 재인하, 감미료 함량도 함께 조정.</div>
+<div class="chg">
+<div class="tl-event"><div class="tl-event-when">2025.07</div><div class="tl-event-what">16.5도 → 16도로 인하</div></div>
+<div class="tl-event"><div class="tl-event-when">2026.09</div><div class="tl-event-what">16도 → 15.7도로 재인하, 감미료 함량도 함께 조정</div></div>
+</div>
 </div>
 </div>
 <div class="rgH-card cat-diluted">
@@ -1828,6 +1871,13 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">순우리말 <b>"새로운"</b>의 '새로'와 Zero Sugar의 <b>'로'</b>, 그리고 새로운 길(路)의 중의적 의미를 한 이름에 겹쳐 담은 네이밍. "새로운 소주, 당 제로" 메시지를 2022년 출시 시점부터 일관되게 전개.</div>
 <div class="det">구미호 캐릭터·한복·판소리 세계관 마케팅. 백자(도자기) 컨셉 민트색 투명 병. 2025년 11월 냉장 시 꼬리가 6개→9개로 바뀌는 변온 라벨 '아홉 꼬리 에디션' 한정판 출시. 2026년 1월 16도→15.7도 리뉴얼과 함께 증류주 원료를 보리쌀에서 100% 국산 쌀 증류주로 교체. 진로이즈백 뉴트로에 맞선 한국 전통 감성 브랜딩.</div>
+<div class="chg">
+<div class="tl-event"><div class="tl-event-when">2022</div><div class="tl-event-what">출시 당시 16도</div></div>
+<div class="tl-event"><div class="tl-event-when">2026.01</div><div class="tl-event-what">16도 → 15.7도로 인하, 증류주 원료를 보리쌀에서 100% 국산 쌀 증류주로 교체</div></div>
+</div>
+<div class="spec">
+<div class="tl-event"><div class="tl-event-when">2025.11</div><div class="tl-event-what">'아홉 꼬리 에디션' — 냉장 보관 시 라벨의 꼬리가 6개→9개로 바뀌는 변온 라벨 한정판</div></div>
+</div>
 </div>
 </div>
 <div class="rgH-card cat-diluted">
@@ -2042,6 +2092,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + 도수 <b>53</b>. 화요 라인업 중 최고 도수임을 표기.</div>
 <div class="det">2015년 출시. 53도. 마니아층 대상 고도 제품. 면세점 중심 유통에서 백화점까지 확대. 2026 병오년(적마) 신년 한정판 '적마에디션' 출시(일러스트레이터 흑요석 협업, 750ml, 2025.11.25부터 편의점 스마트오더·대형마트·백화점 판매).</div>
+<div class="spec">
+<div class="tl-event"><div class="tl-event-when">2025.11</div><div class="tl-event-what">'적마에디션' — 2026 병오년 신년 한정판, 일러스트레이터 흑요석 협업, 750ml</div></div>
+</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
@@ -2812,6 +2865,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>원소주</b> + <b>클래식(Classic)</b>. 자체 개발 효모를 사용한 정통 라인임을 강조.</div>
 <div class="det">2022년 9월 엔씨소프트 '리니지W' 콜라보 한정 에디션으로 먼저 선보인 뒤(9월 21일~11월 4일 온라인몰 한정 판매), 12월 1일 일반 정식 출시. 원소주·원소주 스피릿에 이은 세 번째 제품. 375ml 21,900원. 한국식품연구원이 개발한 효모 균주를 국내 최초로 제품화, 상압증류 방식 사용.</div>
+<div class="spec">
+<div class="tl-event"><div class="tl-event-when">2022.09</div><div class="tl-event-what">엔씨소프트 '리니지W' 콜라보 한정 에디션으로 선출시(9.21~11.4 온라인몰 한정 판매)</div></div>
+</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
@@ -3090,6 +3146,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>네오(Neo)</b> = 새로운, <b>40</b> = 도수. 최강록 네오25화이트와 같은 '네오' 계열 네이밍.</div>
 <div class="det">2025년 6월 출시. 전통주 유통기업 우리술컴퍼니가 최강록 셰프와 협업 기획, 시향가가 생산. 세계 최초로 유기농 가루미(바로미2) 100%를 원료로 생쌀 발효 후 저온숙성·감압증류. 250ml, 2000병 한정판. 파생판 '네오40 블랙'이 2026 대한민국주류대상 프리미엄 소주 부문 대상 수상. 2026.07 뉴질랜드 첫 수출.</div>
+<div class="spec">
+<div class="tl-event"><div class="tl-event-when">2026</div><div class="tl-event-what">파생판 '네오40 블랙' — 2026 대한민국주류대상 프리미엄 소주 부문 대상 수상</div></div>
+</div>
 </div>
 </div>
 </div>
@@ -3178,6 +3237,10 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>C = Choice(최고의 선택)</b>, <b>1 = 1등·최고</b>. 동시에 발음이 <b>"씨원→시원"</b>하다는 이중 효과. 부산 특유의 시원하고 강한 이미지 반영.</div>
 <div class="det">대선주조(부산, 1930년 창업). 1996년 첫 출시. "시원" 또는 "시원소주"로도 불림(별도 제품 아님). 국내 최초 음향숙성진동공법(클래식 음악 음파 적용 특허 공법) 도입. 부산 점유율 1위 경쟁 중. 2025.07 13년 만에 도수·상표·성분 리뉴얼, 19도→18도로 인하.</div>
+<div class="chg">
+<div class="tl-event"><div class="tl-event-when">1996</div><div class="tl-event-what">19도로 첫 출시</div></div>
+<div class="tl-event"><div class="tl-event-when">2025.07</div><div class="tl-event-what">19도 → 18도로 인하(13년 만의 도수·상표·성분 리뉴얼)</div></div>
+</div>
 </div>
 </div>
 <div class="rgH-card cat-diluted">
@@ -3818,6 +3881,12 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">창업 당시 사명 <b>한일(韓一)</b>을 제품명으로 그대로 사용.</div>
 <div class="det">25~30도. 1955년 3월 '한일 소주'로 정식 출시(1982년 30도, 1985년 25도 등 시기별 도수 변동). 1993년 '한라산 소주' 브랜드가 주력으로 출시된 뒤에도 저가 페트병 '한일'은 한동안 병행 생산되며 2000년 1월 25도→23도로 함께 인하.</div>
+<div class="chg">
+<div class="tl-event"><div class="tl-event-when">1955.03</div><div class="tl-event-what">'한일 소주'로 정식 출시</div></div>
+<div class="tl-event"><div class="tl-event-when">1982</div><div class="tl-event-what">30도로 변동</div></div>
+<div class="tl-event"><div class="tl-event-when">1985</div><div class="tl-event-what">25도로 변동</div></div>
+<div class="tl-event"><div class="tl-event-when">2000.01</div><div class="tl-event-what">25도 → 23도로 인하</div></div>
+</div>
 </div>
 </div>
 <div class="rgH-card cat-diluted">
@@ -4465,6 +4534,18 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 </div>
+<div class="method-modal-overlay" id="brandInfoOverlay">
+<div class="method-modal">
+<div class="method-modal-head">
+<div>
+<div class="mm-title" id="brandInfoTitle"></div>
+<div class="brandinfo-meta" id="brandInfoMeta"></div>
+</div>
+<button class="method-modal-close" id="brandInfoClose" type="button" aria-label="닫기">✕</button>
+</div>
+<div id="brandInfoBody"></div>
+</div>
+</div>
 <div class="footer">
   <div class="footer-info">
     <span>대한민국 소주 가이드<i class="footer-divider"></i>26.09 Edition</span>
@@ -4527,6 +4608,7 @@ function applyIdxFilterDebounced() {
 }
 function applyIdxFilter() {
   var q = document.getElementById('idxSearch').value.trim().toLowerCase();
+  var filterActive = !!q || idxFilterCat !== 'all';
   var allCards = document.querySelectorAll('.idx-grid .idx-card');
   var cards = idxIsolatedCard ? [idxIsolatedCard] : Array.prototype.slice.call(allCards);
   if (idxIsolatedCard) {
@@ -4549,10 +4631,11 @@ function applyIdxFilter() {
       if (show) cardVisible++;
     });
     card.style.display = cardVisible > 0 ? '' : 'none';
+    // 검색/필터 매치가 접힌 회사 카드 안에 있으면 자동으로 펼친다(그룹과 동일한 규칙) — 필터 꺼진 기본 상태에선 사용자가 접어둔 카드를 건드리지 않음
+    if (filterActive && cardVisible > 0) card.classList.remove('collapsed');
     totalVisible += cardVisible;
   });
   document.getElementById('idxEmpty').style.display = totalVisible === 0 ? 'block' : 'none';
-  var filterActive = !!q || idxFilterCat !== 'all';
   document.querySelectorAll('#tab-quickindex .idx-group-body').forEach(function (body) {
     var anyVisible = Array.prototype.some.call(body.querySelectorAll('.idx-card'), function (c) {
       return c.style.display !== 'none';
@@ -4766,11 +4849,35 @@ function initIdxCards() {
   document.querySelectorAll('.idx-card').forEach(function (card) {
     var header = card.querySelector('.idx-card-header');
     var count = card.querySelectorAll('.idx-brand').length;
-    card.dataset.mfrLower = header.textContent.toLowerCase();
+    var mfrName = header.textContent.trim();
+    card.dataset.mfrLower = mfrName.toLowerCase();
+    header.dataset.mfrName = mfrName; // initIdxQuickNav()가 회사명 칩 라벨로 참조 — 아래에서 header 자식을 바꾸므로 미리 저장
+
+    var arrow = document.createElement('span');
+    arrow.className = 'idx-card-arrow';
+    arrow.textContent = '▾';
+    header.insertBefore(arrow, header.firstChild);
+
     var badge = document.createElement('span');
     badge.className = 'idx-card-count';
     badge.textContent = count + '종';
     header.appendChild(badge);
+
+    // 브랜드 목록을 별도 body로 옮겨 회사 단위 접기/펼치기 지원 — 기본은 접힘
+    var body = document.createElement('div');
+    body.className = 'idx-card-body';
+    var node = header.nextSibling;
+    while (node) {
+      var next = node.nextSibling;
+      body.appendChild(node);
+      node = next;
+    }
+    card.appendChild(body);
+    card.classList.add('collapsed');
+    header.addEventListener('click', function () {
+      card.classList.toggle('collapsed');
+      layoutAllMasonry();
+    });
   });
   document.querySelectorAll('.idx-brand').forEach(function (b) {
     var catEl = b.querySelector('.idx-cat');
@@ -4818,7 +4925,7 @@ function initIdxQuickNav() {
   nav.appendChild(allChip);
   document.querySelectorAll('#tab-quickindex .idx-card').forEach(function (card) {
     var header = card.querySelector('.idx-card-header');
-    var name = header.childNodes[0].textContent.trim();
+    var name = header.dataset.mfrName;
     var chip = document.createElement('button');
     chip.type = 'button';
     chip.className = 'idx-quicknav-chip';
@@ -4830,6 +4937,7 @@ function initIdxQuickNav() {
         var toggle = body.previousElementSibling;
         if (toggle) toggle.classList.remove('collapsed');
       }
+      card.classList.remove('collapsed');
       document.getElementById('idxSearch').value = '';
       idxFilterCat = 'all';
       document.querySelectorAll('.idx-filter-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.cat === 'all'); });
@@ -5017,6 +5125,95 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
   closeBtn.addEventListener('click', close);
   overlay.addEventListener('click', function(e){ if (e.target === overlay) close(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+})();
+</script>
+<script>
+(function(){
+  var quickTab  = document.getElementById('tab-quickindex');
+  var overlay   = document.getElementById('brandInfoOverlay');
+  var titleEl   = document.getElementById('brandInfoTitle');
+  var metaEl    = document.getElementById('brandInfoMeta');
+  var bodyEl    = document.getElementById('brandInfoBody');
+  var closeBtn  = document.getElementById('brandInfoClose');
+  if (!quickTab || !overlay) return;
+
+  function esc(s) { return s.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
+
+  // 지역별 브랜드 탭(#tab-region)의 이름유래(.ety)/상세연혁(.det)/변경이력(.chg)/스페셜에디션(.spec)을
+  // 브랜드명 기준으로 재사용 — 내용 중복 작성 안 함. .chg·.spec은 해당 사실이 있는 브랜드만 카드에 채워두면 됨(없으면 팝업에서 자동으로 숨겨짐)
+  var descByName = null;
+  function buildIndex() {
+    descByName = {};
+    document.querySelectorAll('#tab-region .rgH-card').forEach(function (card) {
+      var nameEl = card.querySelector('.rgH-name');
+      var etyEl = card.querySelector('.ety');
+      var detEl = card.querySelector('.det');
+      var chgEl = card.querySelector('.chg');
+      var specEl = card.querySelector('.spec');
+      if (nameEl && detEl) descByName[nameEl.textContent.trim()] = {
+        ety: etyEl ? etyEl.innerHTML : '',
+        det: detEl.innerHTML,
+        chg: chgEl ? chgEl.innerHTML : '',
+        spec: specEl ? specEl.innerHTML : ''
+      };
+    });
+  }
+
+  // 라벨|내용 두 칸짜리 행 — method-modal-head 아래 보관·음용법 모달과 동일한 method-grid-stack 패턴 재사용
+  function row(accentCls, label, bodyHtml) {
+    return '<div class="method-card ' + accentCls + '"><div class="mc-head">' + label + '</div><div class="mc-body">' + bodyHtml + '</div></div>';
+  }
+
+  function open(brand, name) {
+    if (!descByName) buildIndex();
+    var card    = brand.closest('.idx-card');
+    var mfrEl   = card ? card.querySelector('.idx-card-header') : null;
+    var catEl   = brand.querySelector('.idx-cat');
+    var abvEl   = brand.querySelector('.idx-abv');
+    var yearEl  = brand.querySelector('.idx-year');
+    var kwEl    = brand.querySelector('.idx-brand-kw');
+    var info    = descByName[name];
+
+    // 분류 색(희석식=파랑/플레이버=청록/증류식=보라/수출용=주황)을 팝업 전체 강조색으로 그대로 이어받음
+    var catClass = catEl && Array.prototype.slice.call(catEl.classList).filter(function (c) { return /^idx-cat-[btda]$/.test(c); })[0];
+    var accentCls = catClass ? catClass.replace('idx-cat-', 'mc-') : 'mc-gray';
+
+    var mfrName = '';
+    if (mfrEl) {
+      var mfrClone = mfrEl.cloneNode(true);
+      var countBadge = mfrClone.querySelector('.idx-card-count');
+      if (countBadge) countBadge.remove();
+      mfrName = mfrClone.textContent.trim();
+    }
+    var meta = '';
+    if (catEl) meta += catEl.outerHTML;
+    if (abvEl) meta += abvEl.outerHTML;
+    if (yearEl) meta += yearEl.outerHTML;
+    if (mfrName) meta += '<span class="brandinfo-mfr">' + esc(mfrName) + '</span>';
+
+    var rows = '';
+    if (info && info.ety) rows += row(accentCls, '이름 유래', info.ety);
+    rows += row(accentCls, '상세 연혁', info ? info.det : ('<span>' + esc(kwEl ? kwEl.textContent.trim() : '') + '</span>'));
+    if (info && info.chg) rows += row(accentCls, '변경 이력', info.chg);
+    if (info && info.spec) rows += row(accentCls, '스페셜 에디션', info.spec);
+
+    titleEl.textContent = name;
+    metaEl.innerHTML = meta;
+    bodyEl.innerHTML = '<div class="method-grid method-grid-stack">' + rows + '</div>';
+    overlay.classList.add('open');
+  }
+  function close() { overlay.classList.remove('open'); }
+
+  quickTab.addEventListener('click', function (e) {
+    var brand = e.target.closest('.idx-brand');
+    if (!brand) return;
+    var nameEl = brand.querySelector('.idx-brand-name');
+    if (!nameEl) return;
+    open(brand, nameEl.textContent.trim());
+  });
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 })();
 </script>
 </body>
