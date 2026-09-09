@@ -1872,10 +1872,12 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="det">구미호 캐릭터·한복·판소리 세계관 마케팅. 백자(도자기) 컨셉 민트색 투명 병. 진로이즈백 뉴트로에 맞선 한국 전통 감성 브랜딩.</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">2022</div><div class="tl-event-what">출시 당시 16도</div></div>
-<div class="tl-event"><div class="tl-event-when">2026.01</div><div class="tl-event-what">16도 → 15.7도로 인하, 증류주 원료를 보리쌀에서 100% 국산 쌀 증류주로 교체</div></div>
 </div>
 <div class="spec tl-events">
 <div class="tl-event"><div class="tl-event-when">2025.11</div><div class="tl-event-what">'아홉 꼬리 에디션' — 냉장 보관 시 라벨의 꼬리가 6개→9개로 바뀌는 변온 라벨 한정판</div></div>
+</div>
+<div class="chg tl-events">
+<div class="tl-event"><div class="tl-event-when">2026.01</div><div class="tl-event-what">16도 → 15.7도로 인하, 증류주 원료를 보리쌀에서 100% 국산 쌀 증류주로 교체</div></div>
 </div>
 </div>
 </div>
@@ -5161,13 +5163,14 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
       var nameEl = card.querySelector('.rgH-name');
       var etyEl = card.querySelector('.ety');
       var detEl = card.querySelector('.det');
-      var chgEl = card.querySelector('.chg');
-      var specEl = card.querySelector('.spec');
+      // 브랜드별로 .chg/.spec을 여러 개(각 1건씩)로 나눠 지역별 브랜드 탭에서 연대순으로 끼워넣을 수 있어서 전부 모아 이어붙임
+      var chgHtml = Array.prototype.map.call(card.querySelectorAll('.chg'), function (el) { return el.innerHTML; }).join('');
+      var specHtml = Array.prototype.map.call(card.querySelectorAll('.spec'), function (el) { return el.innerHTML; }).join('');
       if (nameEl && detEl) descByName[nameEl.textContent.trim()] = {
         ety: etyEl ? etyEl.innerHTML : '',
         det: detEl.innerHTML,
-        chg: chgEl ? chgEl.innerHTML : '',
-        spec: specEl ? specEl.innerHTML : ''
+        chg: chgHtml,
+        spec: specHtml
       };
     });
   }
