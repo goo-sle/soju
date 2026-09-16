@@ -62,6 +62,7 @@ DOMAIN_NAME_FALLBACK = {
     'sisaon.co.kr': '시사오늘', 'tvreport.co.kr': 'TV리포트',
     'nvp.co.kr': '뉴스비전e', 'mhnse.com': 'MHN', 'thefairnews.co.kr': '더페어',
     'ebn.co.kr': 'EBN', 'dt.co.kr': '디지털타임스',
+    'newscenterkorea.com': '뉴스센터',
 }
 
 
