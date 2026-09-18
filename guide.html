@@ -424,6 +424,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .rgH-year { font-size: 8.2pt; font-weight: 700; color: var(--ink-muted); margin-bottom: 2px; }
 .rgH-name { font-size: 10.1pt; font-weight: 900; color: var(--ink); line-height: 1.3; margin-bottom: 4px; }
 .rgH-badges { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.rgH-photo { display: block; width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 6px; margin-bottom: 6px; }
 .rgH-right { flex: 1; padding: 8px 12px; min-width: 0; }
 .rgH-right .lbl, .rgH-right .ety, .rgH-right .det { margin-left: 0; }
 .rgH-right .chg, .rgH-right .spec, #brandInfoBody .tl-events { margin-top: 6px; gap: 3px; }
@@ -943,6 +944,17 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .brandinfo-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 6px; }
 .brandinfo-meta:empty { display: none; }
 .brandinfo-mfr { font-size: 8.4pt; font-weight: 700; color: var(--ink-muted); }
+.brandinfo-head-text { flex: 1; min-width: 0; }
+.brandinfo-layout { display: flex; gap: 16px; align-items: flex-start; }
+.brandinfo-main { flex: 1; min-width: 0; }
+.brandinfo-photo-wrap { flex: 0 0 128px; width: 128px; display: flex; flex-direction: column; gap: 6px; position: sticky; top: 0; }
+.brandinfo-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; border-radius: 10px; }
+.brandinfo-photo-ph {
+  width: 100%; aspect-ratio: 3/4; border-radius: 10px; background: #f1f1f5;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; color: var(--ink-muted); text-align: center; line-height: 1.4; padding: 4px;
+}
+.brandinfo-photo-pager { display: flex; gap: 6px; justify-content: center; }
 @media print {
   .method-help-btn { display: none !important; }
   .method-modal-overlay { display: flex !important; position: static !important; background: none !important; padding: 0 !important; z-index: auto; }
@@ -4578,14 +4590,19 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 <div class="method-modal-overlay" id="brandInfoOverlay">
 <div class="method-modal">
+<div class="brandinfo-layout">
+<div class="brandinfo-photo-wrap" id="brandInfoPhotoWrap"></div>
+<div class="brandinfo-main">
 <div class="method-modal-head">
-<div>
+<div class="brandinfo-head-text">
 <div class="mm-title" id="brandInfoTitle"></div>
 <div class="brandinfo-meta" id="brandInfoMeta"></div>
 </div>
 <button class="method-modal-close" id="brandInfoClose" type="button" aria-label="닫기">✕</button>
 </div>
 <div id="brandInfoBody"></div>
+</div>
+</div>
 </div>
 </div>
 <div class="footer">
@@ -5193,8 +5210,9 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
 </script>
 <script>
 (function(){
-  var quickTab  = document.getElementById('tab-quickindex');
-  var overlay   = document.getElementById('brandInfoOverlay');
+  var quickTab   = document.getElementById('tab-quickindex');
+  var overlay    = document.getElementById('brandInfoOverlay');
+  var photoWrapEl = document.getElementById('brandInfoPhotoWrap');
   var titleEl   = document.getElementById('brandInfoTitle');
   var metaEl    = document.getElementById('brandInfoMeta');
   var bodyEl    = document.getElementById('brandInfoBody');
@@ -5210,14 +5228,21 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
       var nameEl = card.querySelector('.rgH-name');
       var etyEl = card.querySelector('.ety');
       var detEl = card.querySelector('.det');
-      // 브랜드별로 .chg/.spec을 여러 개(각 1건씩)로 나눠 지역별 브랜드 탭에서 연대순으로 끼워넣을 수 있어서 전부 모아 이어붙임
+      // 브랜드별로 .chg/.spec이 여러 개(각 1건씩) 있을 수 있어서 모아 이어붙임(연대순 배치는
+      // 편집팀이 카드 안 순서로 조정 — dev.md 참고)
       var chgHtml = Array.prototype.map.call(card.querySelectorAll('.chg'), function (el) { return el.innerHTML; }).join('');
       var specHtml = Array.prototype.map.call(card.querySelectorAll('.spec'), function (el) { return el.innerHTML; }).join('');
+      // 병 디자인이 여러 시대에 걸쳐 바뀐 브랜드는 .rgH-photo를 여러 개 넣어두면 팝업에서
+      // 사진 하단 번호 버튼(1,2,3..)으로 넘겨볼 수 있음 — 0개면 "이미지 준비중", 1개면 그냥 사진만
+      var photos = Array.prototype.map.call(card.querySelectorAll('.rgH-photo'), function (el) {
+        return { src: el.getAttribute('src'), alt: el.getAttribute('alt') || '' };
+      });
       if (nameEl && detEl) descByName[nameEl.textContent.trim()] = {
         ety: etyEl ? etyEl.innerHTML : '',
         det: detEl.innerHTML,
         chg: chgHtml,
-        spec: specHtml
+        spec: specHtml,
+        photos: photos
       };
     });
   }
@@ -5226,6 +5251,23 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
   function row(accentCls, label, bodyHtml) {
     return '<div class="method-card ' + accentCls + '"><div class="mc-head">' + label + '</div><div class="mc-body">' + bodyHtml + '</div></div>';
   }
+
+  // 사진이 여러 장이면 photoWrapEl 안에서만 이미지를 바꿔치기 — wrap 자체는 매번 다시 그려지므로
+  // 위임(delegation)으로 한 번만 등록해두고 현재 브랜드의 photos 배열은 open()이 갱신
+  var currentPhotos = [];
+  photoWrapEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.brandinfo-photo-pager button');
+    if (!btn) return;
+    var i = Number(btn.getAttribute('data-i'));
+    var photo = currentPhotos[i];
+    var imgEl = photoWrapEl.querySelector('.brandinfo-photo');
+    if (!photo || !imgEl) return;
+    imgEl.src = photo.src;
+    imgEl.alt = photo.alt;
+    photoWrapEl.querySelectorAll('.brandinfo-photo-pager button').forEach(function (b) {
+      b.classList.toggle('active', b === btn);
+    });
+  });
 
   function open(brand, name) {
     if (!descByName) buildIndex();
@@ -5253,6 +5295,20 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
     rows += row(accentCls, '상세 연혁', info ? info.det : ('<span>' + escHtml(kwEl ? kwEl.textContent.trim() : '') + '</span>'));
     if (info && info.chg) rows += row(accentCls, '변경 이력', info.chg);
     if (info && info.spec) rows += row(accentCls, '스페셜 에디션', info.spec);
+
+    currentPhotos = (info && info.photos) || [];
+    if (!currentPhotos.length) {
+      photoWrapEl.innerHTML = '<div class="brandinfo-photo-ph">이미지 준비중</div>';
+    } else {
+      var imgHtml = '<img class="brandinfo-photo" src="' + escHtml(currentPhotos[0].src) + '" alt="' + escHtml(currentPhotos[0].alt || name) + '">';
+      var pagerHtml = '';
+      if (currentPhotos.length > 1) {
+        pagerHtml = '<div class="brandinfo-photo-pager">' + currentPhotos.map(function (_, i) {
+          return '<button type="button" class="bv-update-page' + (i === 0 ? ' active' : '') + '" data-i="' + i + '">' + (i + 1) + '</button>';
+        }).join('') + '</div>';
+      }
+      photoWrapEl.innerHTML = imgHtml + pagerHtml;
+    }
 
     titleEl.textContent = name;
     metaEl.innerHTML = meta;
