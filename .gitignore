@@ -1,5 +1,5 @@
 design/
 soju.png
-report/
+report/*
+!report/images/
 team.md
-analytics/service-account.json
