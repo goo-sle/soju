@@ -46,7 +46,7 @@
   --bv-ido: #29316b;
   --bv-okroju: #2f5c5c;
   --bv-gamhongro: #7a1f30;
-  --mfr-timeline-grad: linear-gradient(#4285f4,var(--accent-red));
+  --mfr-timeline-grad: linear-gradient(var(--c-blue),var(--accent-red));
   --highlight: #ffd873;
   --timeline-dot: #1a1a2e;
   --accent-red: #e94560;
@@ -74,7 +74,7 @@ html { overflow-y: scroll; scrollbar-gutter: stable; }
 body {
   font-family: "Pretendard Variable", 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
   font-size: 10.6pt;
-  color: #1a1a1a;
+  color: var(--ink);
   background: var(--bg);
   line-height: 1.5;
 }
@@ -186,7 +186,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 }
 .bv-update-label { font-weight: 900; font-size: 13px; color: var(--ink); margin-bottom: 10px; }
 .bv-update-list { list-style: none; }
-.bv-update-list li { font-size: 14px; color: #2a2a22; line-height: 1.7; padding-left: 14px; position: relative; }
+.bv-update-list li { font-size: 14px; color: var(--ink); line-height: 1.7; padding-left: 14px; position: relative; }
 .bv-update-list li::before { content: '•'; position: absolute; left: 0; color: var(--brand-2); }
 .bv-update-list li b { color: var(--brand); }
 .bv-update-pager { display: flex; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
@@ -197,7 +197,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-update-page.active { background: var(--brand); border-color: var(--brand); color: #fff; }
 .bv-module { margin-top: 32px; }
 .bv-module h2 { font-weight: 900; font-size: clamp(22px,3vw,30px); letter-spacing: -.02em; color: var(--ink); margin-bottom: 14px; }
-.bv-module p { color: #2a2a22; font-size: 16px; line-height: 1.7; }
+.bv-module p { color: var(--ink); font-size: 16px; line-height: 1.7; }
 .bv-module p + p { margin-top: 12px; }
 .bv-gallery {
   display: flex; flex-direction: column; margin-top: 28px;
@@ -222,7 +222,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
   background: none; border: 1px solid var(--ink); border-radius: 999px;
   padding: 10px 22px; cursor: var(--cur-p), pointer; transition: background .2s ease, color .2s ease;
 }
-.bv-view-all button:hover { background: var(--ink); color: #fff; }
+@media (hover: hover) { .bv-view-all button:hover { background: var(--ink); color: #fff; } }
 .bv-view-all-arrow { margin-left: 6px; }
 .bv-section-head {
   display: flex; align-items: baseline; justify-content: space-between;
@@ -312,34 +312,34 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .feedback-fab svg { width: 14px; height: 14px; flex-shrink: 0; }
 .feedback-panel {
   position: fixed; bottom: 64px; right: 20px; z-index: 1000;
-  width: 260px; background: #fff; border: 1px solid #ddd; border-radius: 10px;
+  width: 260px; background: #fff; border: 1px solid var(--line); border-radius: 10px;
   padding: 14px; box-shadow: 0 10px 28px rgba(0,0,0,.18);
   display: none; text-align: left;
 }
 .feedback-panel.open { display: block; }
 .feedback-panel .fb-title { font-size: 10.6pt; font-weight: 800; margin-bottom: 7px; }
 .feedback-panel textarea, .feedback-panel input {
-  width: 100%; box-sizing: border-box; border: 1px solid #ddd; border-radius: 6px;
-  color: #1a1a1a; padding: 7px; font-size: 10.6pt; margin-bottom: 7px; font-family: inherit;
+  width: 100%; box-sizing: border-box; border: 1px solid var(--line); border-radius: 6px;
+  color: var(--ink); padding: 7px; font-size: 10.6pt; margin-bottom: 7px; font-family: inherit;
 }
 .feedback-panel textarea { min-height: 70px; resize: vertical; }
 .feedback-panel button[type="submit"] {
   width: 100%; background: var(--accent-red); color: #fff; border: none; border-radius: 6px;
   padding: 7px; font-size: 10.6pt; font-weight: 700; cursor: var(--cur-p), pointer;
 }
-.feedback-panel .fb-msg { font-size: 9pt; color: #888; margin-top: 5px; min-height: 12px; }
+.feedback-panel .fb-msg { font-size: 9pt; color: var(--ink-muted); margin-top: 5px; min-height: 12px; }
 @media print {
   .feedback-fab, .feedback-panel { display: none !important; }
 }
 
 /* ── INTRO BOX ── */
 .intro-box {
-  background: #f0f7ff;
-  border-left: 4px solid #4285f4;
+  background: color-mix(in srgb, var(--c-blue) 6%, white);
+  border-left: 4px solid var(--c-blue);
   padding: 9px 13px;
   margin-bottom: 12px;
   font-size: 10.1pt;
-  color: #444;
+  color: var(--ink);
   page-break-inside: avoid; break-inside: avoid;
 }
 
@@ -381,14 +381,14 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 }
 .region-label-counts { flex-basis: 100%; }
 .region-label-title { font-size: 22px; font-weight: 900; }
-.region-label-brands { font-size: 13px; font-weight: 500; color: #2a2a22; }
+.region-label-brands { font-size: 13px; font-weight: 500; color: var(--ink); }
 .rl-blue, .rl-teal, .rl-deep, .rl-amber { color: var(--ink); }
 
-.lbl { font-size: 8.4pt; font-weight: 700; color: #666; margin-bottom: 2px; }
-.ety { font-size: 10.1pt; color: #111; margin-bottom: 3px; }
+.lbl { font-size: 8.4pt; font-weight: 700; color: var(--ink-muted); margin-bottom: 2px; }
+.ety { font-size: 10.1pt; color: var(--ink); margin-bottom: 3px; }
 .det {
-  font-size: 9pt; color: #666;
-  border-top: 1px dashed #ddd;
+  font-size: 9pt; color: var(--ink-muted);
+  border-top: 1px dashed var(--line);
   padding-top: 3px; margin-top: 2px;
 }
 
@@ -496,7 +496,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   flex: 0 0 auto; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
   font-weight: 800; font-size: 12px; color: var(--brand); white-space: nowrap;
 }
-.tl-event-what { color: #2a2a22; line-height: 1.6; }
+.tl-event-what { color: var(--ink); line-height: 1.6; }
 .tl-event-what b { color: var(--brand); }
 #tab-timeline .tl-event { opacity: 0; filter: blur(8px); transform: translateY(10px); }
 #tab-timeline .tl-event.bv-fade-in { opacity: 1; filter: blur(0); transform: translateY(0); }
@@ -530,19 +530,19 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   box-shadow: 0 0 0 2px var(--timeline-dot);
 }
 .mfr-year { display: block; font-size: 10.6pt; font-weight: 900; color: var(--accent-red); margin-bottom: 3px; }
-.mfr-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: 13px; color: #2a2a22; }
+.mfr-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--ink); }
 .mfr-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
 .mfr-name { font-size: 10.6pt; font-weight: 900; color: var(--ink); }
-.mfr-region { font-size: 8.2pt; font-weight: 700; color: #555; background: #eceef3; border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
-.mfr-brands { font-size: 9pt; color: #555; margin-bottom: 5px; }
-.mfr-note { color: #333; line-height: 1.55; }
+.mfr-region { font-size: 8.2pt; font-weight: 700; color: var(--ink-muted); background: #eceef3; border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+.mfr-brands { font-size: 9pt; color: var(--ink-muted); margin-bottom: 5px; }
+.mfr-note { color: var(--ink); line-height: 1.55; }
 
 
 /* ── ABV TEXT (card name cell) ── */
 .abv-badge {
   font-size: 8.4pt;
   font-weight: 700;
-  color: #666;
+  color: var(--ink-muted);
   white-space: nowrap;
 }
 
@@ -572,7 +572,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   padding: 7px 16px 7px 12px; font-family: inherit; font-weight: 700; font-size: 12px;
   color: var(--ink); cursor: var(--cur-p), pointer; transition: background .15s ease, color .15s ease;
 }
-.idx-filter-toggle:hover { background: var(--ink); color: #fff; }
+@media (hover: hover) { .idx-filter-toggle:hover { background: var(--ink); color: #fff; } }
 .idx-search-wrap {
   display: flex; align-items: center; gap: 8px; flex: 1; min-width: 120px;
   background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px;
@@ -603,7 +603,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .idx-filters { display: flex; flex-direction: column; }
 .idx-filter-btn {
   display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  border: none; border-bottom: 1px solid #eee; background: none; color: var(--ink);
+  border: none; border-bottom: 1px solid var(--line); background: none; color: var(--ink);
   padding: 13px 2px; font-size: 14px; font-weight: 600; text-align: left; width: 100%;
   cursor: var(--cur-p), pointer;
 }
@@ -653,7 +653,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 }
 .idx-card {
   box-sizing: border-box;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--line);
   border-radius: 20px;
   padding: 14px 16px;
   background: #fff;
@@ -691,8 +691,8 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .idx-brand {
   position: relative;
   padding: 6px 22px 6px 8px;
-  border-bottom: 1px solid #e2e2e2;
-  border-left: 3px solid #ddd;
+  border-bottom: 1px solid var(--line);
+  border-left: 3px solid var(--line);
   cursor: var(--cur-p), pointer;
   transition: transform .15s ease, box-shadow .15s ease, border-left-width .15s ease;
 }
@@ -703,13 +703,23 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   transition: opacity .15s ease, transform .15s ease;
   pointer-events: none;
 }
-.idx-brand:hover {
+.idx-brand:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,.1);
   border-left-width: 5px;
   z-index: 1;
 }
-.idx-brand:hover::after { opacity: 1; transform: translate(0,-50%); }
+.idx-brand:focus-visible::after { opacity: 1; transform: translate(0,-50%); }
+/* 터치 기기는 탭 후 :hover가 고착되므로 마우스 환경에서만 */
+@media (hover: hover) {
+  .idx-brand:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    border-left-width: 5px;
+    z-index: 1;
+  }
+  .idx-brand:hover::after { opacity: 1; transform: translate(0,-50%); }
+}
 .idx-brand:has(.idx-cat-b) { border-left-color: var(--c-blue); }
 .idx-brand:has(.idx-cat-t) { border-left-color: var(--c-teal); }
 .idx-brand:has(.idx-cat-d) { border-left-color: var(--c-deep); }
@@ -740,7 +750,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   font-size: 9.3pt;
   margin-bottom: 2px;
 }
-.idx-brand-name { color: #1a1a1a; }
+.idx-brand-name { color: var(--ink); }
 .idx-brand-meta {
   display: flex;
   justify-content: flex-end;
@@ -748,11 +758,11 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   gap: 6px;
   margin-bottom: 2px;
 }
-.idx-abv { color: #555; font-size: 8.3pt; font-weight: 600; white-space: nowrap; }
+.idx-abv { color: var(--ink-muted); font-size: 8.3pt; font-weight: 600; white-space: nowrap; }
 .idx-year { color: var(--ink-muted); font-size: 7.6pt; font-weight: 600; white-space: nowrap; }
-.idx-brand-kw { color: #666; font-size: 8.3pt; line-height: 1.4; }
+.idx-brand-kw { color: var(--ink-muted); font-size: 8.3pt; line-height: 1.4; }
 .idx-brand-kw .idx-cat { margin-right: 5px; }
-.idx-search-hit { background: var(--highlight); border-radius: 2px; padding: 0 1px; color: #1a1a1a; }
+.idx-search-hit { background: var(--highlight); border-radius: 2px; padding: 0 1px; color: var(--ink); }
 @media print {
   .idx-search { display: none; }
   .idx-filter-toggle, .idx-filter-panel { display: none !important; }
@@ -884,7 +894,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   page-break-inside: avoid; break-inside: avoid;
 }
 .method-card .mc-head { font-size: 10.1pt; font-weight: 900; margin-bottom: 4px; }
-.method-card .mc-body { font-size: 8.7pt; color: #333; line-height: 1.55; }
+.method-card .mc-body { font-size: 8.7pt; color: var(--ink); line-height: 1.55; }
 .mc-b { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--c-blue); }
 .mc-b .mc-head { color: var(--c-blue); }
 .mc-t { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--c-teal); }
@@ -924,14 +934,14 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   background: #fff; color: var(--ink); border: 1px solid var(--line);
   border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 700; cursor: var(--cur-p), pointer; white-space: nowrap;
 }
-.method-help-btn:hover { background: var(--ink); color: #fff; }
+@media (hover: hover) { .method-help-btn:hover { background: var(--ink); color: #fff; } }
 .method-modal-overlay {
   display: none; position: fixed; inset: 0; background: rgba(20,20,30,.55); z-index: 2000;
   align-items: center; justify-content: center; padding: 24px;
 }
 .method-modal-overlay.open { display: flex; }
 .method-modal {
-  background: #fff; border-radius: 12px; max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto;
+  background: #fff; border-radius: 12px; max-width: 640px; width: 100%; max-height: 85vh; max-height: 85dvh; overflow-y: auto; overscroll-behavior: contain;
   padding: 20px 22px 22px; transform: translateY(16px) scale(.97); opacity: 0;
   transition: transform .2s ease, opacity .2s ease;
 }
@@ -940,9 +950,9 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .method-modal-head .mm-title { font-size: 11.8pt; font-weight: 900; color: var(--ink); }
 .method-modal-close {
   background: var(--surface-soft); border: none; width: 26px; height: 26px; border-radius: 50%;
-  font-size: 14px; color: #666; cursor: var(--cur-p), pointer; line-height: 1; flex-shrink: 0;
+  font-size: 14px; color: var(--ink-muted); cursor: var(--cur-p), pointer; line-height: 1; flex-shrink: 0;
 }
-.method-modal-close:hover { background: #e2e2e8; color: #333; }
+.method-modal-close:hover { background: var(--line); color: var(--ink); }
 .brandinfo-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 6px; }
 .brandinfo-meta:empty { display: none; }
 .brandinfo-mfr { font-size: 8.4pt; font-weight: 700; color: var(--ink-muted); }
@@ -960,6 +970,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 @media screen and (max-width: 640px) {
   .brandinfo-layout { flex-direction: column; }
   .brandinfo-photo-wrap { width: 96px; flex-basis: auto; margin: 0 auto; }
+  .method-modal-close { width: 32px; height: 32px; }
   .method-modal .method-grid-stack .method-card { grid-template-columns: 1fr; gap: 4px; }
   .method-modal .method-grid-stack .mc-head { border-right: none; padding-right: 0; }
 }
@@ -968,6 +979,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   .method-modal-overlay { display: flex !important; position: static !important; background: none !important; padding: 0 !important; z-index: auto; }
   .method-modal { transform: none !important; opacity: 1 !important; max-height: none !important; box-shadow: none !important; max-width: none; }
   .method-modal-close { display: none !important; }
+  #brandInfoOverlay { display: none !important; } /* 위 overlay 강제 표시는 보관·음용법 모달용 — 브랜드 팝업은 인쇄 제외 */
 }
 .proc-flow-cols { display: flex; gap: 20px; align-items: flex-start; }
 .proc-flow-col { flex: 1 1 0; min-width: 0; }
@@ -986,7 +998,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .proc-leader { flex: 0 0 20px; height: 2px; background: var(--flow-color, var(--c-blue)); opacity: .5; }
 .proc-card { flex: 1 1 auto; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; }
 .proc-name { font-size: 9.3pt; font-weight: 800; color: var(--ink); margin-bottom: 2px; }
-.proc-desc { font-size: 8.7pt; color: #333; line-height: 1.5; }
+.proc-desc { font-size: 8.7pt; color: var(--ink); line-height: 1.5; }
 .proc-step.final .proc-card { background: var(--flow-color, var(--c-blue)); }
 .proc-step.final .proc-name, .proc-step.final .proc-desc { color: #fff; }
 .proc-step.final .proc-desc { opacity: .9; }
@@ -1005,8 +1017,8 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .rep-group { margin-bottom: 8px; }
 .rep-group-title { font-size: 9pt; font-weight: 900; margin-bottom: 3px; }
 .rep-sub {
-  font-size: 8.2pt; color: #444; margin-bottom: 3px; line-height: 1.4;
-  padding-left: 6px; border-left: 2px solid #eee;
+  font-size: 8.2pt; color: var(--ink); margin-bottom: 3px; line-height: 1.4;
+  padding-left: 6px; border-left: 2px solid var(--line);
 }
 .rep-sub b { font-weight: 700; color: #777; margin-right: 5px; }
 /* ── 지역 페이지 개선: 요약 바 / 카테고리 내비 / 지역 점프 / 카드 아코디언 ── */
@@ -1584,7 +1596,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화전일취</span></div><div class="idx-brand-meta"><span class="idx-abv">52·38도</span></div><div class="idx-brand-kw">강원 춘천, 소줏고리 전통 증류</div></div>
 </div>
 <div class="idx-card" style="order:26"><div class="idx-card-header">마마스팜</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모곡53</span></div><div class="idx-brand-meta"><span class="idx-abv">53도(제품명 기준)</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">강원 홍천, 향온곡·앉은뱅이밀 누룩</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">모곡53</span></div><div class="idx-brand-meta"><span class="idx-abv">53도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">강원 홍천, 향온곡·앉은뱅이밀 누룩</div></div>
 </div>
 <div class="idx-card" style="order:27"><div class="idx-card-header">옥로주전수관</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식(단종)</span><span class="idx-brand-name">옥로주</span></div><div class="idx-brand-meta"><span class="idx-abv">30도</span><span class="idx-year">1947</span></div><div class="idx-brand-kw">경남 하동, 유양기가 최초 상표화한 원조 라인, 현무사각으로 계승</div></div>
@@ -2242,6 +2254,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>1924</b> = 진로 창업 연도, <b>헤리티지(Heritage)</b> = 유산·전통. 창립 100주년을 전후로 브랜드 원점을 기념하는 의미를 제품명에 직접 표기.</div>
 <div class="det">창립연도를 제품명에 새긴 헤리티지 라인. 일품진로 증류주 포트폴리오 내 프리미엄 기념 제품. 2024년 7월 출시된 한정판 "1924 헤리티지 100주년 에디션"과는 별개 정규 라인.</div>
+<div class="spec tl-events">
+<div class="tl-event"><div class="tl-event-when">2026.09</div><div class="tl-event-what">'일품진로쌀' 한정판 — 국립식량과학원과 공동 육성한 증류식 소주 전용 품종 '일품진로쌀' 100%로 3회 증류, 30도. 넥 라벨에 실제 쌀알을 담은 '황금 두꺼비' 패키지</div></div>
+</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
@@ -3016,10 +3031,10 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">마마스팜<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2024.12(추정)</div><div class="rgH-name">모곡53</div><div class="rgH-badges"><span class="abv-badge">53도(제품명 기준)</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.12(추정)</div><div class="rgH-name">모곡53</div><div class="rgH-badges"><span class="abv-badge">53도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
-<div class="ety">양조장이 자리한 지명 <b>모곡리</b> + 도수로 추정되는 숫자 <b>53</b>.</div>
+<div class="ety">양조장이 자리한 지명 <b>모곡리</b> + 도수 <b>53</b>.</div>
 <div class="det">강원 홍천. 마용옥 공장장이 직접 빚은 향온곡과 토종 앉은뱅이밀 누룩을 사용해 보리와 쌀을 섞어 고두밥을 만들고 2회 증류. 유튜버 '술익는 집'과의 콜라보로 탄생, 1차 배치 6,000병 한정판.</div>
 </div>
 </div>
@@ -3375,7 +3390,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2006.11</div><div class="rgH-name">좋은데이</div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/goodday-2006.jpg" alt="좋은데이 2006년 출시 디자인 (무학 공식 이미지)"><img class="rgH-photo" src="report/images/brands/goodday-2026.jpg" alt="좋은데이 2026년 All New 리뉴얼 디자인 (무학 공식 이미지)"><div class="rgH-year">2006.11</div><div class="rgH-name">좋은데이</div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">"소주 한잔 나누기 <b>좋은 날(Good Day)</b>"이라는 긍정 의미. 동시에 경상도 사투리 <b>"좋다 아이가(좋은데예)"</b>의 느낌을 담은 중의적 작명. 지역 정서와 긍정 이미지 결합.</div>
@@ -3877,6 +3892,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">브랜드명 <b>내외(內外)</b> + 도수 <b>21</b>.</div>
 <div class="det">경남 산청. 3대째 전승된 비법으로 삼양주 발효 후 위스키형 단식 구리 증류기로 증류, 첨가물 없이 쌀과 물로만 제조. 2025 대한민국 주류대상 프리미엄소주(25도 미만) 부문 대상 수상.</div>
+<div class="spec tl-events">
+<div class="tl-event"><div class="tl-event-when">2026.09</div><div class="tl-event-what">추석 한정 '세라믹 에디션'(500mL) — 수제 도자 잔 2개 동봉, 청자·분청 색감 손그림 라벨로 병마다 디자인이 다름</div></div>
+</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
@@ -3885,6 +3903,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>내외</b> 브랜드명 + 도수 <b>39</b>.</div>
 <div class="det">내외21과 같은 방식의 고도수 라인. 2025 대한민국 주류대상, IWSC(International Wine & Spirit Competition) 등에서 품질 인정.</div>
+<div class="spec tl-events">
+<div class="tl-event"><div class="tl-event-when">2026.09</div><div class="tl-event-what">추석 한정 '세라믹 에디션'(500mL) — 수제 도자 잔 2개 동봉, 청자·분청 색감 손그림 라벨로 병마다 디자인이 다름</div></div>
+</div>
 </div>
 </div>
 </div>
@@ -3938,7 +3959,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">잔에 소주가 <b>찰랑거리는</b> 모습에서 착안한 이름. 가볍고 부드럽게 즐기는 음용 경험을 표현.</div>
-<div class="det">오비맥주가 하이트진로·롯데칠성음료가 양분한 국내 소주 시장에 처음 진출하며 내놓은 15도 제로슈거 소주. 제주 화산암반수·용암해수소금을 사용. 2026년 9월말 수도권·제주 일부 식당·주점부터 출시해 반응을 보고 마트·편의점으로 확대할 계획.</div>
+<div class="det">오비맥주가 하이트진로·롯데칠성음료가 양분한 국내 소주 시장에 처음 진출하며 내놓은 15도 제로슈거 소주. 제주 화산암반수·용암해수소금을 사용. 2026년 9월 28일 공식 출시, 10월 초부터 수도권·제주 식당·주점에 공급해 반응을 보고 마트·편의점으로 확대할 계획.</div>
 </div>
 </div>
 </div>
@@ -3986,7 +4007,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">한라산21</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hallasan21.jpg" alt="한라산21 제품 사진 (한라산 공식 이미지)"><div class="rgH-year">2019</div><div class="rgH-name">한라산21</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주도의 상징이자 대한민국 최고봉 <b>한라산(漢拏山)</b>의 이름을 그대로 브랜드화. 제주 화산암반수·청정 자연 정체성을 이름 자체로 표현. 1950년 창업 4대째 향토기업. 1993년 4월 10일 25도로 첫 출시(직전 '한일'과 동일 도수) 후 2000년 1월 23도로 인하(현미소주 출시와 동시), 이후 20.2도까지 낮아졌다가 2010년대 초중반 한동안 23도('파란 뚜껑')·21도('흰 뚜껑') 두 제품이 병행 유통되기도 했고, 2012년 21도로 정착, 2019년 신제품 "한라산17"과 이름 통일성을 맞춰 기존 "한라산 오리지널"에서 "한라산21"로 명칭 변경.</div>
@@ -3994,7 +4015,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2023.05.10</div><div class="rgH-name">한라산 순한</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hallasan-sunhan.jpg" alt="한라산 순한 제품 사진 (한라산 공식 이미지)"><div class="rgH-year">2023.05.10</div><div class="rgH-name">한라산 순한</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>한라산</b> 브랜드명 + <b>"순하다"</b>를 결합해 저도수 라인을 직관적으로 표기. 2019년 출시된 "한라산17"(17도)을 4년 만에 대체한 후속 라인.</div>
@@ -4976,6 +4997,8 @@ function initIdxCards() {
   document.querySelectorAll('.idx-brand').forEach(function (b) {
     var catEl = b.querySelector('.idx-cat');
     b.dataset.cat = catEl ? catEl.textContent : '';
+    b.tabIndex = 0;
+    b.setAttribute('role', 'button');
     if (b.dataset.cat.indexOf('단종') !== -1) {
       b.classList.add('is-discontinued');
     }
@@ -5255,9 +5278,10 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
       var photos = Array.prototype.map.call(card.querySelectorAll('.rgH-photo'), function (el) {
         return { src: el.getAttribute('src'), alt: el.getAttribute('alt') || '' };
       });
-      if (nameEl && detEl) descByName[nameEl.textContent.trim()] = {
+      // .det가 없는 카드도 색인 — 안 그러면 같은 카드의 .ety/.chg/.spec/.rgH-photo까지 전부 버려짐
+      if (nameEl) descByName[nameEl.textContent.trim()] = {
         ety: etyEl ? etyEl.innerHTML : '',
-        det: detEl.innerHTML,
+        det: detEl ? detEl.innerHTML : '',
         chg: chgHtml,
         spec: specHtml,
         photos: photos
@@ -5310,7 +5334,9 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
 
     var rows = '';
     if (info && info.ety) rows += row(accentCls, '이름 유래', info.ety);
-    rows += row(accentCls, '상세 연혁', info ? info.det : ('<span>' + escHtml(kwEl ? kwEl.textContent.trim() : '') + '</span>'));
+    var kwText = kwEl ? kwEl.textContent.trim() : '';
+    var detHtml = (info && info.det) || (kwText ? '<span>' + escHtml(kwText) + '</span>' : '');
+    if (detHtml) rows += row(accentCls, '상세 연혁', detHtml);
     if (info && info.chg) rows += row(accentCls, '변경 이력', info.chg);
     if (info && info.spec) rows += row(accentCls, '스페셜 에디션', info.spec);
 
@@ -5335,12 +5361,18 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
   }
   function close() { overlay.classList.remove('open'); }
 
-  quickTab.addEventListener('click', function (e) {
+  function openFrom(e) {
     var brand = e.target.closest('.idx-brand');
-    if (!brand) return;
+    if (!brand) return false;
     var nameEl = brand.querySelector('.idx-brand-name');
-    if (!nameEl) return;
+    if (!nameEl) return false;
     open(brand, nameEl.textContent.trim());
+    return true;
+  }
+  quickTab.addEventListener('click', openFrom);
+  // initIdxCards()가 .idx-brand에 tabindex/role=button을 붙여둠 — 키보드로도 팝업 열기
+  quickTab.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('idx-brand') && openFrom(e)) e.preventDefault();
   });
   closeBtn.addEventListener('click', close);
   overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
