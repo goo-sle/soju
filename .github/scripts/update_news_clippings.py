@@ -26,6 +26,7 @@ KST = datetime.timezone(datetime.timedelta(hours=9))  # 크론이 21:00 UTC(=06:
 # datetime.date.today()는 러너의 UTC 시각을 쓰므로 라벨이 매번 KST 기준 하루 전으로 찍히는 버그가 있었음(26.08.18)
 
 GUIDE_HTML = 'guide.html'
+SITEMAP_XML = 'sitemap.xml'
 QUERY_TERM = '소주'
 DAYS_BACK = 30
 TARGET_COUNT = 10
@@ -178,7 +179,18 @@ def patch_guide_html(items):
         return False
     with open(GUIDE_HTML, 'w', encoding='utf-8', newline='\n') as f:
         f.write(text)
+    touch_sitemap()
     return True
+
+
+def touch_sitemap():
+    # guide 내용이 바뀌었음을 검색엔진에 알리도록 sitemap의 /guide lastmod를 오늘로 갱신
+    with open(SITEMAP_XML, encoding='utf-8') as f:
+        xml = f.read()
+    today = datetime.datetime.now(KST).strftime('%Y-%m-%d')
+    xml = re.sub(r'(<loc>[^<]*/guide</loc>\s*<lastmod>)[^<]*', rf'\g<1>{today}', xml, count=1)
+    with open(SITEMAP_XML, 'w', encoding='utf-8', newline='\n') as f:
+        f.write(xml)
 
 
 def main():

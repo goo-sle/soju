@@ -25,7 +25,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add guide.html
+          git add guide.html sitemap.xml
           if git diff --cached --quiet; then
             echo "변경 없음 — 커밋 스킵"
           else
