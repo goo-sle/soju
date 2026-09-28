@@ -30,6 +30,12 @@ SITEMAP_XML = 'sitemap.xml'
 QUERY_TERM = '소주'
 DAYS_BACK = 30
 TARGET_COUNT = 10
+# 사건·사고·범죄 기사 제외 — 제목에 '소주'가 들어가도 브랜드·산업 아카이브 톤과 안 맞음(26.09.28 "분유에 소주 탄 친부" 등 노출).
+# 제목 부분 문자열 매칭이라 너무 짧은/흔한 말(예: '사고' → "사고 싶은")은 넣지 말 것
+EXCLUDE_TITLE = re.compile(
+    r'학대|폭행|살인|살해|숨져|숨진|사망|시신|추행|성폭|강간|징역|실형|구속|체포|기소|혐의|'
+    r'흉기|방화|마약|음주운전|만취|협박|자살|투신|유기|아동|피의자|검거|경찰|재판|선고|중독|휘둘|난동|행패|주취|폭력'
+)
 SIM_THRESHOLD = 0.12  # 이 이상이면 같은 사건으로 보고 제외(제목 문자 바이그램 자카드 유사도) — 실측상 같은 사건 재보도는 0.14~0.6대, 서로 다른 사건은 0~0.03대로 갈림(26.08.13 실데이터로 보정)
 
 # Google News RSS의 <source> 태그가 매체명 대신 그냥 도메인을 줄 때가 있어서
@@ -38,6 +44,7 @@ SIM_THRESHOLD = 0.12  # 이 이상이면 같은 사건으로 보고 제외(제�
 DOMAIN_NAME_FALLBACK = {
     'kmib.co.kr': '국민일보', 'hani.co.kr': '한겨레', 'daum.net': '다음뉴스',
     'v.daum.net': '다음뉴스', 'news.naver.com': '네이버뉴스', 'n.news.naver.com': '네이버뉴스',
+    'financialpost.co.kr': '파이낸셜포스트',
     'chosun.com': '조선일보', 'joongang.co.kr': '중앙일보', 'joins.com': '중앙일보',
     'donga.com': '동아일보', 'hankookilbo.com': '한국일보', 'hankyung.com': '한국경제',
     'mk.co.kr': '매일경제', 'seoul.co.kr': '서울신문', 'heraldcorp.com': '헤럴드경제',
@@ -108,6 +115,8 @@ def parse_items(xml_bytes, cutoff):
         source = resolve_source_name(source, source_url)
         if QUERY_TERM not in title:
             continue  # 본문에만 매칭되고 제목엔 '소주'가 없는 관련 낮은 결과 제외
+        if EXCLUDE_TITLE.search(title):
+            continue
         try:
             dt = parsedate_to_datetime(pub)
         except (TypeError, ValueError):

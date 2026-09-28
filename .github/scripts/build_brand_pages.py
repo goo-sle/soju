@@ -85,7 +85,7 @@ def section(title, body):
 def render(b, siblings):
     e = html.escape
     abv = b['abv']
-    title = '%s%s · %s | 한국 소주 가이드' % (b['name'], ' 도수 ' + abv if abv else '', b['company'])
+    title = '%s%s · %s | 대한민국 소주 가이드' % (b['name'], ' 도수 ' + abv if abv else '', b['company'])
     summary = strip_tags(b['det']) or b['kw']
     desc = '%s(%s) — %s%s. %s' % (b['name'], b['company'], b['cat'], ', ' + abv if abv else '', summary)
     desc = desc[:155]
@@ -99,7 +99,7 @@ def render(b, siblings):
         photo = '<img class="photo" src="../%s" alt="%s">' % (e(src), e(alt or b['name']))
     sib = ''.join('<li><a href="%s">%s</a></li>' % (s['slug'], e(s['name'])) for s in siblings)
     breadcrumb = ('{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":['
-                  '{"@type":"ListItem","position":1,"name":"한국 소주 가이드","item":"%s/guide"},'
+                  '{"@type":"ListItem","position":1,"name":"대한민국 소주 가이드","item":"%s/guide"},'
                   '{"@type":"ListItem","position":2,"name":"%s","item":"%s"}]}') % (SITE, b['name'].replace('"', ''), url)
 
     return '''<!DOCTYPE html>
@@ -110,7 +110,7 @@ def render(b, siblings):
 <title>{title}</title>
 <link rel="canonical" href="{url}">
 <meta name="description" content="{desc}">
-<meta property="og:site_name" content="한국 소주 가이드">
+<meta property="og:site_name" content="대한민국 소주 가이드">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="article">
@@ -123,8 +123,13 @@ def render(b, siblings):
 :root{{--ink:#17170F;--muted:#6E6858;--line:#DCD6C6;--bg:#F5F3EE;--brand:#003D2E;--brand-2:#0B8457;--cat-diluted:#4f8fd1;--cat-flavor:#e28a4d;--cat-distilled:#9c7a5c}}
 *{{box-sizing:border-box}}
 body{{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",'Noto Sans KR',sans-serif;line-height:1.7}}
-main{{max-width:760px;margin:0 auto;padding:24px 16px 64px}}
-nav{{font-size:14px;margin-bottom:20px}} nav a{{color:var(--brand-2);text-decoration:none}}
+main{{max-width:760px;margin:0 auto;padding:8px 16px 64px}}
+/* guide.html .gnav와 같은 상단 메뉴 — 검색으로 바로 들어온 방문자도 같은 사이트로 인식하게 */
+.gnav{{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding:16px 20px;margin-bottom:20px;border-bottom:1px solid var(--line)}}
+.gnav-brand{{font-weight:900;font-size:18px;color:var(--ink);text-decoration:none;white-space:nowrap}} .gnav-brand span{{color:var(--brand-2)}}
+.gnav-links{{display:flex;flex-wrap:wrap;gap:6px 22px}} .gnav-links a{{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px}} .gnav-links a:hover{{color:var(--brand)}}
+@media (max-width:640px){{.gnav{{padding:14px 16px}} .gnav-links{{gap:4px 16px}} .gnav-links a{{font-size:13px}}}}
+.back{{font-size:14px;margin:0 0 16px}} .back a{{color:var(--brand-2);text-decoration:none}}
 h1{{font-size:clamp(26px,5vw,36px);font-weight:900;margin:0 0 4px;letter-spacing:-.02em}}
 .kw{{color:var(--muted);margin:0 0 20px}}
 .top{{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;margin-bottom:24px}}
@@ -138,13 +143,16 @@ ul{{margin:0;padding-left:18px}} a{{color:var(--brand-2)}}
 </style>
 </head>
 <body>
+<header class="gnav">
+<a class="gnav-brand" href="../">대한민국 <span>소주</span> 가이드</a>
+<nav class="gnav-links"><a href="../guide#browse">둘러보기</a><a href="../guide#quickindex">빠른 찾기</a><a href="../guide#timeline">타임라인</a><a href="../guide#region">지역별 브랜드</a><a href="../guide#companies">제조사 현황</a><a href="../guide#method">제조 방법</a></nav>
+</header>
 <main>
-<nav><a href="../guide">← 한국 소주 가이드</a></nav>
 <h1>{name}</h1>
 <p class="kw">{kw}</p>
 <div class="top">{photo}<dl>{facts}</dl></div>
 {sections}
-<nav><a href="../guide#region">지역별 소주 브랜드 전체 보기 →</a></nav>
+<p class="back"><a href="../guide#region">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>
