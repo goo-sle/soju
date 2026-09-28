@@ -21,11 +21,14 @@ jobs:
       - name: Fetch news and patch guide.html
         run: python .github/scripts/update_news_clippings.py
 
+      - name: Rebuild brand pages
+        run: python .github/scripts/build_brand_pages.py
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add guide.html sitemap.xml
+          git add -A guide.html sitemap.xml brand
           if git diff --cached --quiet; then
             echo "변경 없음 — 커밋 스킵"
           else

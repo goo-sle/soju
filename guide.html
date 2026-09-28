@@ -424,6 +424,9 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .rgH-card.cat-distilled .rgH-left { border-left: 4px solid var(--cat-distilled); }
 .rgH-year { font-size: 8.2pt; font-weight: 700; color: var(--ink-muted); margin-bottom: 2px; }
 .rgH-name { font-size: 10.1pt; font-weight: 900; color: var(--ink); line-height: 1.3; margin-bottom: 4px; }
+.rgH-name a { color: inherit; text-decoration: none; }
+.rgH-name a:hover { text-decoration: underline; }
+.brandinfo-link { font-size: 8.4pt; font-weight: 700; color: var(--brand-2); }
 .rgH-badges { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .rgH-photo { display: block; width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 6px; margin-bottom: 6px; }
 .rgH-photo ~ .rgH-photo { display: none; } /* 지역별 브랜드 탭 미니 카드는 1장만 — 여러 장은 팝업 사진 페이지 넘기기에서만 보여줌 */
@@ -1811,7 +1814,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">하이트진로<span class="rgH2-count">9종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/jinro25.jpg" alt="진로25 제품 사진 (하이트진로 공식 이미지)"><div class="rgH-year">1993</div><div class="rgH-name">진로25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/jinro25.jpg" alt="진로25 제품 사진 (하이트진로 공식 이미지)"><div class="rgH-year">1993</div><div class="rgH-name"><a href="brand/진로25">진로25</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">창업지 <b>진지리(眞池里)</b>의 '진(眞)' + 증류 시 이슬처럼 맺히는 '로(露)'. 1924년 10월 3일 평남 용강군 진지리에 <b>진천(眞泉)양조상회</b>를 설립하며 출발. 한자 <b>眞露 = "참된 이슬"</b>. ※ "나아갈 길 進路" 설도 있으나 지명+증류 이슬 합성어가 공식 유래.</div>
@@ -1819,7 +1822,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1996</div><div class="rgH-name">참나무통 맑은소주</div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1996</div><div class="rgH-name"><a href="brand/참나무통-맑은소주">참나무통 맑은소주</a></div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>참나무(Oak)</b>통 숙성이라는 제조 공법을 제품명에 직접 표기. "참나무"의 순우리말 + "맑은"이라는 청정 이미지 결합. 위스키식 오크 숙성을 소주에 도입했다는 컨셉을 이름으로 명확히 전달.</div>
@@ -1827,7 +1830,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1998</div><div class="rgH-name">참이슬 오리지널</div><div class="rgH-badges"><span class="abv-badge">20.1도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1998</div><div class="rgH-name"><a href="brand/참이슬-오리지널">참이슬 오리지널</a></div><div class="rgH-badges"><span class="abv-badge">20.1도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">참이슬 본래 라인의 정통 콘셉트 제품. 참이슬 브랜드의 기본 풍미와 이미지를 유지.</div>
@@ -1835,7 +1838,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/chamisul-fresh.jpg" alt="참이슬 후레쉬 제품 사진 (하이트진로 공식 이미지)"><div class="rgH-year">1998.10.19</div><div class="rgH-name">참이슬 후레쉬</div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/chamisul-fresh.jpg" alt="참이슬 후레쉬 제품 사진 (하이트진로 공식 이미지)"><div class="rgH-year">1998.10.19</div><div class="rgH-name"><a href="brand/참이슬-후레쉬">참이슬 후레쉬</a></div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">진로(眞露)를 순우리말로 풀이한 참이슬 라인의 저도수 주력 제품. <b>眞(진)→참</b>, <b>露(로)→이슬</b>. 브랜드 네이밍 컨설팅업체 크로스포인트(대표 손혜원)가 명명.</div>
@@ -1853,7 +1856,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2019.04</div><div class="rgH-name">진로이즈백</div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2019.04</div><div class="rgH-name"><a href="brand/진로이즈백">진로이즈백</a></div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>진로(眞露) Is Back</b> = "진로가 돌아왔다". 1970~80년대 진로 두꺼비 마스코트·복고 디자인을 그대로 재해석한 뉴트로(New-tro) 콘셉트를 영문 슬로건형 제품명에 직접 담음.</div>
@@ -1865,7 +1868,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2024</div><div class="rgH-name">진로 골드(제로)</div><div class="rgH-badges"><span class="abv-badge">15.5도</span><span class="zs-badge">Zero</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024</div><div class="rgH-name"><a href="brand/진로-골드-제로">진로 골드(제로)</a></div><div class="rgH-badges"><span class="abv-badge">15.5도</span><span class="zs-badge">Zero</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>진로(眞露)</b> 브랜드에 <b>Gold(황금·최고 등급)</b>를 결합해 2024년 출시한 프리미엄 네이밍. 부드러운 제로슈거 콘셉트와 정통 진로 이미지를 동시에 강조.</div>
@@ -1873,7 +1876,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2001</div><div class="rgH-name">진로24</div><div class="rgH-badges"><span class="abv-badge">24도</span><span class="exp-badge">수출용</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2001</div><div class="rgH-name"><a href="brand/진로24">진로24</a></div><div class="rgH-badges"><span class="abv-badge">24도</span><span class="exp-badge">수출용</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">진로 브랜드명 + 도수 <b>24</b>를 그대로 표기. 내수용 진로25(25도)와 구분되는 수출 전용 규격임을 숫자로 명확히 표시.</div>
@@ -1881,7 +1884,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2026.07.06</div><div class="rgH-name">진로 라이트</div><div class="rgH-badges"><span class="abv-badge">11.7도</span><span class="zs-badge">Zero</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.07.06</div><div class="rgH-name"><a href="brand/진로-라이트">진로 라이트</a></div><div class="rgH-badges"><span class="abv-badge">11.7도</span><span class="zs-badge">Zero</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>진로</b> 브랜드명 + <b>라이트(Light)</b>. 칼로리를 낮췄다는 의미를 영문 그대로 사용한 직관적 네이밍.</div>
@@ -1889,7 +1892,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1998</div><div class="rgH-name">이슬露</div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1998</div><div class="rgH-name"><a href="brand/이슬露">이슬露</a></div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">진로(眞露)의 <b>"이슬 로(露)"</b>를 상품명으로 사용. 참이슬과 같은 어원 계열.</div>
@@ -1903,7 +1906,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">롯데주류<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/chumchurum-2006.jpg" alt="처음처럼 2006년 출시 당시 라벨 디자인 (롯데칠성음료 공식 이미지)"><img class="rgH-photo" src="report/images/brands/chumchurum-2024.jpg" alt="처음처럼 2024년 리뉴얼 라벨 디자인 (롯데칠성음료 공식 이미지)"><div class="rgH-year">2006</div><div class="rgH-name">처음처럼</div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/chumchurum-2006.jpg" alt="처음처럼 2006년 출시 당시 라벨 디자인 (롯데칠성음료 공식 이미지)"><img class="rgH-photo" src="report/images/brands/chumchurum-2024.jpg" alt="처음처럼 2024년 리뉴얼 라벨 디자인 (롯데칠성음료 공식 이미지)"><div class="rgH-year">2006</div><div class="rgH-name"><a href="brand/처음처럼">처음처럼</a></div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">사회운동가·서예가 <b>신영복 교수</b>의 글귀에서 영감. "세상과 사람을 <b>처음 만났을 때처럼</b> 순수하게". 동시에 "음주 다음 날도 몸이 처음처럼 돌아오길"이라는 이중 의미. 브랜드 네이밍은 참이슬과 마찬가지로 크로스포인트(대표 손혜원)가 담당.</div>
@@ -1915,7 +1918,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2006</div><div class="rgH-name">CHUM CHURUM</div><div class="rgH-badges"><span class="exp-badge">수출용</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2006</div><div class="rgH-name"><a href="brand/CHUM-CHURUM">CHUM CHURUM</a></div><div class="rgH-badges"><span class="exp-badge">수출용</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">처음처럼의 한글 발음을 그대로 로마자로 표기한 수출 브랜드명. 현지에서 한국어 발음이 주는 이국적 매력을 그대로 살림.</div>
@@ -1923,7 +1926,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/saero-2022.jpg" alt="새로 2022년 출시 당시 라벨 디자인 (롯데칠성음료 공식 이미지)"><img class="rgH-photo" src="report/images/brands/saero-2026.jpg" alt="새로 2026년 현행 라벨 디자인, 15.7도 표기 (롯데칠성음료 공식 이미지)"><div class="rgH-year">2022</div><div class="rgH-name">새로</div><div class="rgH-badges"><span class="abv-badge">15.7도</span><span class="zs-badge">Zero</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/saero-2022.jpg" alt="새로 2022년 출시 당시 라벨 디자인 (롯데칠성음료 공식 이미지)"><img class="rgH-photo" src="report/images/brands/saero-2026.jpg" alt="새로 2026년 현행 라벨 디자인, 15.7도 표기 (롯데칠성음료 공식 이미지)"><div class="rgH-year">2022</div><div class="rgH-name"><a href="brand/새로">새로</a></div><div class="rgH-badges"><span class="abv-badge">15.7도</span><span class="zs-badge">Zero</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">순우리말 <b>"새로운"</b>의 '새로'와 Zero Sugar의 <b>'로'</b>, 그리고 새로운 길(路)의 중의적 의미를 한 이름에 겹쳐 담은 네이밍. "새로운 소주, 당 제로" 메시지를 2022년 출시 시점부터 일관되게 전개.</div>
@@ -1940,7 +1943,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2026.05</div><div class="rgH-name">처음처럼 클래식</div><div class="rgH-badges"><span class="abv-badge">20도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.05</div><div class="rgH-name"><a href="brand/처음처럼-클래식">처음처럼 클래식</a></div><div class="rgH-badges"><span class="abv-badge">20도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>처음처럼</b> 브랜드명에 <b>클래식(Classic)</b>을 더해 2006년 출시 당시의 '원조' 정체성을 강조. 20주년을 맞아 그 시절 그대로의 맛을 복원했다는 의미를 이름에 직접 담음.</div>
@@ -1948,7 +1951,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-name">처음처럼 담금소주</div><div class="rgH-badges"><span class="abv-badge">25~35도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/처음처럼-담금소주">처음처럼 담금소주</a></div><div class="rgH-badges"><span class="abv-badge">25~35도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>처음처럼</b> 브랜드명 + 과실주 등을 직접 <b>담그는(담금)</b> 용도임을 그대로 표기. 음용용이 아닌 재료의 보존·추출을 위한 고도수 전용 제품임을 이름에서 명확히 구분.</div>
@@ -1964,7 +1967,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-flavor">롯데주류<span class="rgH2-count">7종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2015.03</div><div class="rgH-name">순하리 유자</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2015.03</div><div class="rgH-name"><a href="brand/순하리-유자">순하리 유자</a></div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>순하리</b> = "순하다(부드럽다)"의 어근 순(純)에서 파생. 도수가 낮고 부드럽다는 의미를 이름에 직접 담은 네이밍. 처음처럼 계열 플레이버 서브 브랜드로 출범.</div>
@@ -1972,7 +1975,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2015.07</div><div class="rgH-name">순하리 복숭아</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2015.07</div><div class="rgH-name"><a href="brand/순하리-복숭아">순하리 복숭아</a></div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>순하리</b> + <b>복숭아(Peach)</b>. 유자 시리즈 성공 후 확장. 복숭아의 달콤하고 부드러운 이미지가 순하리 브랜드 컨셉과 일치.</div>
@@ -1980,7 +1983,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2017.12</div><div class="rgH-name">순하리 딸기</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2017.12</div><div class="rgH-name"><a href="brand/순하리-딸기">순하리 딸기</a></div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>순하리</b> + <b>딸기(Strawberry)</b>. 계절 한정 제품으로 출발해 정규 라인업에 편입. 딸기의 상큼·달콤 이중 이미지를 순하리 플레이버로 구현.</div>
@@ -1988,7 +1991,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2024.04</div><div class="rgH-name">새로 살구</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.04</div><div class="rgH-name"><a href="brand/새로-살구">새로 살구</a></div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>새로</b>(메인 브랜드) + <b>살구(Apricot)</b>. 새로의 제로슈거 컨셉을 유지하면서 살구의 달콤·새콤한 과일 향으로 플레이버 라인 확장. 살구의 은은하고 부드러운 이미지가 새로 브랜드 감성과 조화.</div>
@@ -1996,7 +1999,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2025.04</div><div class="rgH-name">새로 다래</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.04</div><div class="rgH-name"><a href="brand/새로-다래">새로 다래</a></div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>새로</b> + <b>다래(Wild Kiwi, 한국 야생 다래)</b>. 키위 원종인 한국 토종 과일 다래를 선택해 한국적 자연 재료 강조. 새로의 전통·자연 감성 브랜딩에 맞춰 외래 과일 대신 토종 과일 채택.</div>
@@ -2004,7 +2007,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2026.05</div><div class="rgH-name">새로 오미자</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.05</div><div class="rgH-name"><a href="brand/새로-오미자">새로 오미자</a></div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>새로</b> + <b>오미자(五味子)</b>. 경북 문경산 오미자를 사용해 상큼하고 쌉쌀한 맛을 살린 새로 플레이버 3탄.</div>
@@ -2012,7 +2015,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2024</div><div class="rgH-name">새로 리치</div><div class="rgH-badges"><span class="abv-badge">12도</span><span class="exp-badge">수출용</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024</div><div class="rgH-name"><a href="brand/새로-리치">새로 리치</a></div><div class="rgH-badges"><span class="abv-badge">12도</span><span class="exp-badge">수출용</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>새로</b> + <b>리치(Lychee)</b>. 해외 소비자 취향을 겨냥한 수출 전용 플레이버.</div>
@@ -2026,7 +2029,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-flavor">하이트진로<span class="rgH2-count">11종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name">자몽에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name"><a href="brand/자몽에이슬">자몽에이슬</a></div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>자몽(Grapefruit)</b> + <b>에이슬</b>(참이슬의 '이슬'에서 파생된 플레이버 시리즈 공통 접미사). 과일명을 그대로 붙여 맛을 직관적으로 표현. 에이슬 시리즈의 사실상 원조.</div>
@@ -2034,7 +2037,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2018.01</div><div class="rgH-name">자두에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span><span class="exp-badge">수출용</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2018.01</div><div class="rgH-name"><a href="brand/자두에이슬">자두에이슬</a></div><div class="rgH-badges"><span class="abv-badge">13도</span><span class="exp-badge">수출용</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>자두(Plum)</b> + <b>에이슬</b>. 한국인에게 친숙한 여름 과일 자두를 전면에 내세워 계절감·향수 마케팅. 에이슬 시리즈 확장 제품.</div>
@@ -2042,7 +2045,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2020</div><div class="rgH-name">아이셔에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2020</div><div class="rgH-name"><a href="brand/아이셔에이슬">아이셔에이슬</a></div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>아이셔(Sour Candy·오리온 캔디)</b> + <b>에이슬</b>. 오리온 '아이셔' 캔디와의 컬래버레이션으로 탄생. 과일이 아닌 <b>캔디 브랜드</b>를 소주와 결합한 최초 시도. 소주류 콜라보 마케팅의 포문을 열었다는 평가.</div>
@@ -2050,7 +2053,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2025.03</div><div class="rgH-name">레몬에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span><span class="exp-badge">수출용</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.03</div><div class="rgH-name"><a href="brand/레몬에이슬">레몬에이슬</a></div><div class="rgH-badges"><span class="abv-badge">13도</span><span class="exp-badge">수출용</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>레몬(Lemon)</b> + <b>에이슬</b>. 글로벌 플레이버 주류 트렌드 조사를 통해 선정된 레몬 풍미를 에이슬 라인으로 구현. 영문명 <b>JINRO LEMON</b>으로 브랜드 세계화 강조.</div>
@@ -2058,7 +2061,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2025.04</div><div class="rgH-name">핵아이셔에이슬</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.04</div><div class="rgH-name"><a href="brand/핵아이셔에이슬">핵아이셔에이슬</a></div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>핵아이셔(오리온 캔디)</b> + <b>에이슬</b>. 아이셔에이슬의 후속 한정 협업작으로 "핵"은 기존 아이셔에이슬보다 강한 신맛을 의미. 기존 아이셔에이슬 시리즈 3번째 제품. 두꺼비 캐릭터가 신맛에 윙크하는 패키지 디자인.</div>
@@ -2066,7 +2069,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2026.04</div><div class="rgH-name">멜론에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span><span class="zs-badge">한정판</span><span class="exp-badge">수출용</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.04</div><div class="rgH-name"><a href="brand/멜론에이슬">멜론에이슬</a></div><div class="rgH-badges"><span class="abv-badge">13도</span><span class="zs-badge">한정판</span><span class="exp-badge">수출용</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>멜론(Melon)</b> + <b>에이슬</b>. 자두·딸기·복숭아·레몬에 이은 에이슬 시리즈 다섯 번째 수출 전용 제품(전체 7번째). 글로벌 주류 트렌드 조사를 바탕으로 멜론의 달콤한 풍미를 선택.</div>
@@ -2074,7 +2077,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2026.03.03</div><div class="rgH-name">두쫀쿠향에이슬</div><div class="rgH-badges"><span class="abv-badge">12도</span><span class="zs-badge">한정판</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.03.03</div><div class="rgH-name"><a href="brand/두쫀쿠향에이슬">두쫀쿠향에이슬</a></div><div class="rgH-badges"><span class="abv-badge">12도</span><span class="zs-badge">한정판</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>두쫀쿠</b>(두바이 쫀득쿠키·SNS 유행 디저트) + <b>에이슬</b>. 유행하는 디저트 맛을 그대로 소주 이름에 붙인 콜라보 네이밍.</div>
@@ -2082,7 +2085,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2026.05.11</div><div class="rgH-name">버터향에이슬</div><div class="rgH-badges"><span class="abv-badge">12도</span><span class="zs-badge">한정판</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.05.11</div><div class="rgH-name"><a href="brand/버터향에이슬">버터향에이슬</a></div><div class="rgH-badges"><span class="abv-badge">12도</span><span class="zs-badge">한정판</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>버터(떡)</b> 향 트렌드 + <b>에이슬</b>. 두쫀쿠향에이슬에 이은 올해 두 번째 디저트 감성 한정판임을 이어가는 네이밍.</div>
@@ -2090,7 +2093,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name">청포도에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name"><a href="brand/청포도에이슬">청포도에이슬</a></div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>청포도(Green Grape)</b> + <b>에이슬</b>. 청포도의 신선하고 상큼한 이미지를 통해 가볍고 깔끔한 음용 경험 강조. 에이슬 시리즈 중 가장 청량한 컨셉.</div>
@@ -2098,7 +2101,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2022</div><div class="rgH-name">복숭아에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span><span class="exp-badge">수출용</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2022</div><div class="rgH-name"><a href="brand/복숭아에이슬">복숭아에이슬</a></div><div class="rgH-badges"><span class="abv-badge">13도</span><span class="exp-badge">수출용</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>복숭아(Peach)</b> + <b>에이슬</b>. 플레이버 소주 시장 전체에서 가장 인기 높은 복숭아 풍미를 에이슬 라인으로 출시. 수출 전용 제품으로 동남아·미주·일본 공략.</div>
@@ -2106,7 +2109,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">딸기에이슬</div><div class="rgH-badges"><span class="abv-badge">13도</span><span class="exp-badge">수출용</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name"><a href="brand/딸기에이슬">딸기에이슬</a></div><div class="rgH-badges"><span class="abv-badge">13도</span><span class="exp-badge">수출용</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>딸기(Strawberry)</b> + <b>에이슬</b>. 베트남 등 동남아시아에서 딸기가 고급 과일 이미지를 가진 데 착안해 수출 전용으로 개발. 현지 반응 확인 후 일부 국내 역출시.</div>
@@ -2122,7 +2125,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">화요<span class="rgH2-count">7종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name">화요25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name"><a href="brand/화요25">화요25</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">소주의 <b>燒(소)</b>자를 파자(破字): <b>火(화, 불)</b> + <b>堯(요, 높을·훌륭할)</b>. "불로 다스린 귀한 술"이라는 철학적 의미. 도자기 명가 광주요(廣州窯)에서 만들어 술+도자기 고급 컨셉 구현. 도수 <b>25</b>는 2005년 브랜드 출시 시점의 기본 라인임을 표기.</div>
@@ -2130,7 +2133,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name">화요41</div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name"><a href="brand/화요41">화요41</a></div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + 도수 <b>41</b>. 고도수 프리미엄 라인임을 표기.</div>
@@ -2138,7 +2141,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2010</div><div class="rgH-name">화요17</div><div class="rgH-badges"><span class="abv-badge">17도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2010</div><div class="rgH-name"><a href="brand/화요17">화요17</a></div><div class="rgH-badges"><span class="abv-badge">17도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + 도수 <b>17</b>. 저도수 프리미엄 라인임을 표기.</div>
@@ -2146,7 +2149,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2015</div><div class="rgH-name">화요53</div><div class="rgH-badges"><span class="abv-badge">53도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2015</div><div class="rgH-name"><a href="brand/화요53">화요53</a></div><div class="rgH-badges"><span class="abv-badge">53도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + 도수 <b>53</b>. 화요 라인업 중 최고 도수임을 표기.</div>
@@ -2157,7 +2160,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2025.06.26</div><div class="rgH-name">화요19金</div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.06.26</div><div class="rgH-name"><a href="brand/화요19金">화요19金</a></div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + 도수 <b>19</b> + <b>金(금)</b>을 결합. 목통 증류원액을 더한 프리미엄 저도주임을 금빛으로 표현.</div>
@@ -2165,7 +2168,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2026.08</div><div class="rgH-name">화요진심</div><div class="rgH-badges"><span class="abv-badge">35도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.08</div><div class="rgH-name"><a href="brand/화요진심">화요진심</a></div><div class="rgH-badges"><span class="abv-badge">35도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화요</b> 브랜드명 + <b>진심</b>.</div>
@@ -2173,7 +2176,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2013</div><div class="rgH-name">화요 X.P.</div><div class="rgH-badges"><span class="abv-badge">41도</span><span class="exp-badge">수출용</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2013</div><div class="rgH-name"><a href="brand/화요-X-P">화요 X.P.</a></div><div class="rgH-badges"><span class="abv-badge">41도</span><span class="exp-badge">수출용</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>X.P.</b> = Extra Premium 약자. 화요 라인업 중 최고급 수출 타깃 제품임을 영문 약어로 표기.</div>
@@ -2187,7 +2190,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">한국양조종합연구소<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2020(추정)</div><div class="rgH-name">서</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2020(추정)</div><div class="rgH-name"><a href="brand/서">서</a></div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">브랜드명 <b>양조학당</b>의 첫 증류식 소주 제품에 붙인 한 글자 이름. 부재료 <b>쑥</b>과 고구마 향을 강조.</div>
@@ -2195,7 +2198,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2020(추정)</div><div class="rgH-name">애</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2020(추정)</div><div class="rgH-name"><a href="brand/애">애</a></div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">양조학당의 두 번째 증류식 소주 제품에 붙인 한 글자 이름. 고문헌 《산가요록(山家要錄)》의 '맥주(麥酒)' 주방문을 재현했다는 뜻에서 보리를 상징하는 이름을 붙임.</div>
@@ -2203,7 +2206,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2024.07</div><div class="rgH-name">락</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.07</div><div class="rgH-name"><a href="brand/락">락</a></div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">양조학당의 세 번째 증류식 소주 제품에 붙인 한 글자 이름.</div>
@@ -2217,7 +2220,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">감홍로(주)<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name">감홍로</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name"><a href="brand/감홍로">감홍로</a></div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>甘(감, 달 감)</b> + <b>紅(홍, 붉을 홍)</b> + <b>露(로, 이슬 로)</b> = <b>"달고 붉은 이슬"</b>. 용안육·진피·정향 등 한약재를 넣어 빚어 붉은빛을 띠고 달콤한 향이 나는 특성을 이름으로 표현. 조선 3대 명주 중 하나.</div>
@@ -2225,7 +2228,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2026.01.28</div><div class="rgH-name">감홍로 화이트</div><div class="rgH-badges"><span class="abv-badge">43도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.01.28</div><div class="rgH-name"><a href="brand/감홍로-화이트">감홍로 화이트</a></div><div class="rgH-badges"><span class="abv-badge">43도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>감홍로</b> 브랜드명 + <b>화이트(White)</b>. 기존 붉은빛 감홍로보다 맑고 깨끗한 색·맛을 강조한 프리미엄 라인명.</div>
@@ -2239,7 +2242,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">하이트진로<span class="rgH2-count">8종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/ilpoom-jinro25.jpg" alt="일품진로25 제품 사진 (하이트진로 공식 이미지)"><div class="rgH-year">2007</div><div class="rgH-name">일품진로25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/ilpoom-jinro25.jpg" alt="일품진로25 제품 사진 (하이트진로 공식 이미지)"><div class="rgH-year">2007</div><div class="rgH-name"><a href="brand/일품진로25">일품진로25</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>一品(일품)</b> = 으뜸가는 품질·최고 등급. 진로의 기술을 집약한 프리미엄 라인임을 한자로 직접 표현. 조선시대 관직 품계 '일품'에서 온 고급스러운 이미지 차용.</div>
@@ -2247,7 +2250,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2023.07</div><div class="rgH-name">일품진로 오크43</div><div class="rgH-badges"><span class="abv-badge">43도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2023.07</div><div class="rgH-name"><a href="brand/일품진로-오크43">일품진로 오크43</a></div><div class="rgH-badges"><span class="abv-badge">43도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>오크(Oak)</b> 캐스크 숙성 공법 + <b>43</b>도 도수를 제품명에 직접 표기. 고도수 프리미엄 포지셔닝을 숫자로 명확히 전달.</div>
@@ -2255,7 +2258,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2024.05</div><div class="rgH-name">일품진로 오크25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.05</div><div class="rgH-name"><a href="brand/일품진로-오크25">일품진로 오크25</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">오크43과 동일한 <b>오크(Oak)</b> 숙성 콘셉트를 유지하면서 <b>25</b>도 저도수로 재구성한 명칭.</div>
@@ -2263,7 +2266,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2024</div><div class="rgH-name">일품진로 1924 헤리티지</div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024</div><div class="rgH-name"><a href="brand/일품진로-1924-헤리티지">일품진로 1924 헤리티지</a></div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>1924</b> = 진로 창업 연도, <b>헤리티지(Heritage)</b> = 유산·전통. 창립 100주년을 전후로 브랜드 원점을 기념하는 의미를 제품명에 직접 표기.</div>
@@ -2274,7 +2277,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2018</div><div class="rgH-name">일품진로 고연산</div><div class="rgH-badges"><span class="abv-badge">31도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2018</div><div class="rgH-name"><a href="brand/일품진로-고연산">일품진로 고연산</a></div><div class="rgH-badges"><span class="abv-badge">31도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>고연산(高年産)</b> = 오래 숙성된 원액의 비중을 높였다는 뜻을 그대로 제품명에 사용. 위스키의 '숙성연산' 표기 문화를 증류식 소주에 접목.</div>
@@ -2282,7 +2285,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2024.09.03</div><div class="rgH-name">일품진로 24년산</div><div class="rgH-badges"><span class="abv-badge">31도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.09.03</div><div class="rgH-name"><a href="brand/일품진로-24년산">일품진로 24년산</a></div><div class="rgH-badges"><span class="abv-badge">31도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>일품진로</b> 브랜드명 + <b>24년산</b>(오크통 24년 이상 숙성 원액을 사용했다는 뜻). 위스키 숙성연산 표기 방식을 그대로 차용.</div>
@@ -2290,7 +2293,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2024.09.03</div><div class="rgH-name">일품진로 24년산 캐스크 스트렝스</div><div class="rgH-badges"><span class="abv-badge">38.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.09.03</div><div class="rgH-name"><a href="brand/일품진로-24년산-캐스크-스트렝스">일품진로 24년산 캐스크 스트렝스</a></div><div class="rgH-badges"><span class="abv-badge">38.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>캐스크 스트렝스(Cask Strength)</b> = 오크통 병입 단계에서 물을 타지 않고 숙성 원액을 그대로 담는 양조 기법. 위스키 용어를 그대로 제품명에 사용.</div>
@@ -2298,7 +2301,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2026.07.16</div><div class="rgH-name">일품진로 26년산</div><div class="rgH-badges"></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.07.16</div><div class="rgH-name"><a href="brand/일품진로-26년산">일품진로 26년산</a></div><div class="rgH-badges"></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>일품진로</b> 브랜드명 + <b>26년산</b>(오크통 26년 이상 숙성 원액을 사용했다는 뜻). 24년산에 이은 연산 상향판.</div>
@@ -2312,7 +2315,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">롯데주류<span class="rgH2-count">4종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2016.05</div><div class="rgH-name">대장부</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2016.05</div><div class="rgH-name"><a href="brand/대장부">대장부</a></div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">"기개가 있고 씩씩한 사내"를 뜻하는 <b>대장부(大丈夫)</b>에서 따옴.</div>
@@ -2320,7 +2323,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2016.09</div><div class="rgH-name">대장부21</div><div class="rgH-badges"><span class="abv-badge">21도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2016.09</div><div class="rgH-name"><a href="brand/대장부21">대장부21</a></div><div class="rgH-badges"><span class="abv-badge">21도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>대장부</b> 브랜드명 + 도수 <b>21</b>. 공용병을 사용해 가격을 낮춘 대중형 라인.</div>
@@ -2328,7 +2331,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2020.04</div><div class="rgH-name">대장부23</div><div class="rgH-badges"><span class="abv-badge">23도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2020.04</div><div class="rgH-name"><a href="brand/대장부23">대장부23</a></div><div class="rgH-badges"><span class="abv-badge">23도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>대장부</b> 브랜드명 + 도수 <b>23</b>. 대장부 라인업의 중간 도수 제품.</div>
@@ -2336,7 +2339,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2024.01</div><div class="rgH-name">여울</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.01</div><div class="rgH-name"><a href="brand/여울">여울</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">물이 굽이쳐 흐르는 <b>여울</b>(강·바다의 빠른 물살 구간)에서 따온 순우리말. 쌀이 발효·증류되며 맑게 정제되는 과정을 물 흐름의 이미지로 표현.</div>
@@ -2350,7 +2353,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">문배주양조원<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1990</div><div class="rgH-name">문배주 23도</div><div class="rgH-badges"><span class="abv-badge">23도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1990</div><div class="rgH-name"><a href="brand/문배주-23도">문배주 23도</a></div><div class="rgH-badges"><span class="abv-badge">23도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">술의 향기가 <b>문배나무(돌배나무)</b> 과실 향과 유사해 붙여진 이름. 실제로 배가 들어가지 않지만 기장쌀·수수·밀을 발효·증류하는 과정에서 자연적으로 배향(梨香)이 발생. 재료가 아닌 <b>향기로 이름 지은 술</b>.</div>
@@ -2358,7 +2361,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1990</div><div class="rgH-name">문배주 25도</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1990</div><div class="rgH-name"><a href="brand/문배주-25도">문배주 25도</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>문배주</b> 브랜드명 + 도수 <b>25</b>. 500ml 용량의 표준형 라인.</div>
@@ -2366,7 +2369,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1990</div><div class="rgH-name">문배주 40도</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1990</div><div class="rgH-name"><a href="brand/문배주-40도">문배주 40도</a></div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>문배주</b> 브랜드명 + 도수 <b>40</b>. 조와 수수만 사용해 빚은 전통 주력 라인.</div>
@@ -2380,7 +2383,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">CJ제일제당<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2026.07</div><div class="rgH-name">자리 문배술24</div><div class="rgH-badges"><span class="abv-badge">24도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.07</div><div class="rgH-name"><a href="brand/자리-문배술24">자리 문배술24</a></div><div class="rgH-badges"><span class="abv-badge">24도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>자리</b> = 사람이 모여 술과 음식을 나누는 '자리' 문화에서 착안한 브랜드명. <b>문배술24</b>는 국가무형유산 문배술을 원료로 도수를 24도로 낮춘 버전임을 표기.</div>
@@ -2388,7 +2391,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2026.07</div><div class="rgH-name">자리 가무치24</div><div class="rgH-badges"><span class="abv-badge">24도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.07</div><div class="rgH-name"><a href="brand/자리-가무치24">자리 가무치24</a></div><div class="rgH-badges"><span class="abv-badge">24도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>자리</b> 브랜드명 + <b>가무치</b>(제품 고유 명칭, 정확한 어원 미확인). '문배술24'와 짝을 이루는 쌀소주 라인.</div>
@@ -2402,7 +2405,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">제이앤제이브루어리<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2021.03</div><div class="rgH-name">청혼레드25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2021.03</div><div class="rgH-name"><a href="brand/청혼레드25">청혼레드25</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>청혼(靑魂 또는 淸魂)</b> — "맑고 청정한 혼(魂)이 담긴 술"이라는 의미. 고도수 소주에 깊은 정신적 가치를 부여한 네이밍.</div>
@@ -2410,7 +2413,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2024.08</div><div class="rgH-name">청혼50</div><div class="rgH-badges"><span class="abv-badge">50도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.08</div><div class="rgH-name"><a href="brand/청혼50">청혼50</a></div><div class="rgH-badges"><span class="abv-badge">50도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>청혼</b> 브랜드명 + 도수 <b>50</b>. 청혼 라인업의 중간 도수 제품.</div>
@@ -2418,7 +2421,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2026</div><div class="rgH-name">청혼75</div><div class="rgH-badges"><span class="abv-badge">75도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026</div><div class="rgH-name"><a href="brand/청혼75">청혼75</a></div><div class="rgH-badges"><span class="abv-badge">75도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>청혼</b> 브랜드명 + 도수 <b>75</b>. 청혼 라인업 중 최고 도수.</div>
@@ -2432,7 +2435,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">삼해소주가<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2016(추정)</div><div class="rgH-name">삼해소주</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2016(추정)</div><div class="rgH-name"><a href="brand/삼해소주">삼해소주</a></div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">정월 첫 해일(亥日, 돼지날)에 빚기 시작해 매월 해일마다 세 번 덧술하는 <b>삼해주(三亥酒)</b> 제조법에서 유래. 이를 증류한 소주라 <b>삼해소주</b>.</div>
@@ -2446,7 +2449,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">남한산성소주<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2001</div><div class="rgH-name">남한산성소주</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2001</div><div class="rgH-name"><a href="brand/남한산성소주">남한산성소주</a></div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">경기 광주 <b>남한산성</b> 일대에서 전승된 지명 기반 브랜드명.</div>
@@ -2460,7 +2463,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">한주양조<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">한주</div><div class="rgH-badges"><span class="abv-badge">25·35도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/한주">한주</a></div><div class="rgH-badges"><span class="abv-badge">25·35도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">땀을 내듯 증류시킨다는 뜻의 <b>한주(汗酒)</b>, 이슬같이 받아낸다는 의미의 <b>로주(露酒)</b>로도 불림.</div>
@@ -2474,7 +2477,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">술샘<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2018(추정)</div><div class="rgH-name">미르40</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2018(추정)</div><div class="rgH-name"><a href="brand/미르40">미르40</a></div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">전설 속 신령한 동물 <b>미르(용의 순우리말)</b> + 도수 <b>40</b>.</div>
@@ -2488,7 +2491,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">좋은술<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">천비향 화주</div><div class="rgH-badges"><span class="abv-badge">25·40·53도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/천비향-화주">천비향 화주</a></div><div class="rgH-badges"><span class="abv-badge">25·40·53도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">평택 오양주(五釀酒) 약주 <b>천비향(天秘香)</b>을 증류한 술이라는 뜻의 <b>화주(火酒)</b>.</div>
@@ -2502,7 +2505,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">옥로주전수관<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1947</div><div class="rgH-name">옥로주</div><div class="rgH-badges"><span class="abv-badge">30도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1947</div><div class="rgH-name"><a href="brand/옥로주">옥로주</a></div><div class="rgH-badges"><span class="abv-badge">30도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>玉露酒(옥로주)</b> = "옥구슬 같은 이슬로 빚은 술"이라는 뜻. 술을 증류할 때 액화된 증기가 옥구슬 같은 이슬방울로 떨어지는 모습에서 착안.</div>
@@ -2510,7 +2513,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2023</div><div class="rgH-name">옥로주 현무사각</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2023</div><div class="rgH-name"><a href="brand/옥로주-현무사각">옥로주 현무사각</a></div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>玉露酒(옥로주)</b> = "옥구슬 같은 이슬로 빚은 술"이라는 뜻. <b>현무(玄武)사각</b>은 독자 개발한 사각 도자 주병 이름.</div>
@@ -2518,7 +2521,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2026.02(추정)</div><div class="rgH-name">옥로주 ART</div><div class="rgH-badges"><span class="abv-badge">45도</span><span class="zs-badge">한정판</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.02(추정)</div><div class="rgH-name"><a href="brand/옥로주-ART">옥로주 ART</a></div><div class="rgH-badges"><span class="abv-badge">45도</span><span class="zs-badge">한정판</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>옥로주</b> 브랜드명 + 전통과 예술의 만남을 내세운 <b>ART</b> 콜라보 콘셉트.</div>
@@ -2532,7 +2535,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">국순당여주명가<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name">려</div><div class="rgH-badges"><span class="abv-badge">25·40도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name"><a href="brand/려">려</a></div><div class="rgH-badges"><span class="abv-badge">25·40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">한 글자 브랜드명 <b>려(驪)</b>. 별명으로 고구마+쌀 블렌딩 버전은 <b>'쌀려'</b>, 고구마 증류원액만 쓴 버전은 <b>'고구려'</b>로 불림.</div>
@@ -2546,7 +2549,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">경(璄)<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2026.09.01</div><div class="rgH-name">경소주 51도</div><div class="rgH-badges"><span class="abv-badge">51도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.09.01</div><div class="rgH-name"><a href="brand/경소주-51도">경소주 51도</a></div><div class="rgH-badges"><span class="abv-badge">51도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">가수 성시경이 만든 주류 브랜드 <b>경(璄)</b>('옥빛 경'). 첫 제품은 <b>'First Batch'</b>라는 이름으로 출시.</div>
@@ -2568,7 +2571,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">더맥키스컴퍼니<span class="rgH2-count">15종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1994</div><div class="rgH-name">선양그린</div><div class="rgH-badges"><span class="abv-badge">23도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1994</div><div class="rgH-name"><a href="brand/선양그린">선양그린</a></div><div class="rgH-badges"><span class="abv-badge">23도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">회사명 <b>선양</b> + 친환경·청정 이미지의 <b>그린(Green)</b>. 국내 최초로 녹색 소주병을 사용한 제품.</div>
@@ -2576,7 +2579,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name">맑을린</div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2005</div><div class="rgH-name"><a href="brand/맑을린">맑을린</a></div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">"맑고 깨끗함 + <b>린(순수함)</b>". 이제우린 계보의 첫 이름.</div>
@@ -2584,7 +2587,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name">오투린(O2린)</div><div class="rgH-badges"><span class="abv-badge">17.8도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name"><a href="brand/오투린-O2린">오투린(O2린)</a></div><div class="rgH-badges"><span class="abv-badge">17.8도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">O₂(산소) + <b>린(순수함)</b>. 높은 산소 함유량을 강조한 리뉴얼 네이밍.</div>
@@ -2592,7 +2595,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2009.11.10</div><div class="rgH-name">버지니아</div><div class="rgH-badges"><span class="abv-badge">16.5도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2009.11.10</div><div class="rgH-name"><a href="brand/버지니아">버지니아</a></div><div class="rgH-badges"><span class="abv-badge">16.5도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">미국 지명 <b>버지니아(Virginia)</b>를 차용한 이국적 영문 브랜딩. 원래 이름은 "O2버지니아".</div>
@@ -2600,7 +2603,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2013.03</div><div class="rgH-name">맥키스 홈믹싱주</div><div class="rgH-badges"><span class="abv-badge">21도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2013.03</div><div class="rgH-name"><a href="brand/맥키스-홈믹싱주">맥키스 홈믹싱주</a></div><div class="rgH-badges"><span class="abv-badge">21도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">회사명 <b>맥키스(MacKiss)</b> + 가정에서 직접 섞어 마시는 <b>홈믹싱(Home Mixing)</b> 콘셉트를 결합한 명칭.</div>
@@ -2608,7 +2611,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2018.10</div><div class="rgH-name">이제우린</div><div class="rgH-badges"><span class="abv-badge">17.2도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2018.10</div><div class="rgH-name"><a href="brand/이제우린">이제우린</a></div><div class="rgH-badges"><span class="abv-badge">17.2도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>"이제 우리 한잔 하자"</b>는 정감 있는 표현. 2005년 '맑을린' 출시 → 2008년 높은 산소(O₂) 함유를 강조한 '오투린(O2린)'으로 리뉴얼 → 2018년 10월 '이제우린'으로 변경. 이름마다 시대 마케팅 반영.</div>
@@ -2616,7 +2619,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2021.11</div><div class="rgH-name">선양린 高</div><div class="rgH-badges"><span class="abv-badge">20.2도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2021.11</div><div class="rgH-name"><a href="brand/선양린-高">선양린 高</a></div><div class="rgH-badges"><span class="abv-badge">20.2도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>선양린</b> 브랜드 + 높을 <b>高</b>를 더해 고도수 라인임을 한자로 직관적으로 표기. 출시 당시 이름은 '이제우린 高'.</div>
@@ -2624,7 +2627,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2023.03.02</div><div class="rgH-name">선양</div><div class="rgH-badges"><span class="abv-badge">14.9도</span><span class="zs-badge">Zero</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2023.03.02</div><div class="rgH-name"><a href="brand/선양">선양</a></div><div class="rgH-badges"><span class="abv-badge">14.9도</span><span class="zs-badge">Zero</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">대전·충청 지역 소주 회사 <b>선양주조(鮮釀酒造)</b>의 회사명을 제품명으로 직접 사용(리브랜딩). '선양(鮮釀)'은 <b>"신선하게 빚다"</b>는 한자 의미.</div>
@@ -2632,7 +2635,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2025.02.27</div><div class="rgH-name">선양오크</div><div class="rgH-badges"><span class="abv-badge">14.9도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.02.27</div><div class="rgH-name"><a href="brand/선양오크">선양오크</a></div><div class="rgH-badges"><span class="abv-badge">14.9도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>선양</b> 브랜드 + <b>오크(Oak)</b> 캐스크 숙성 콘셉트를 전면화한 명칭. 쌀 증류식 소주 원액을 오크통에 6개월~10년 숙성 후 희석식 소주에 11% 블렌딩한 하이브리드 설계.</div>
@@ -2640,7 +2643,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2025.05.22</div><div class="rgH-name">선양린</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.05.22</div><div class="rgH-name"><a href="brand/선양린">선양린</a></div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">회사명 <b>선양</b> + <b>린(순수함)</b>. 맑을린→오투린→이제우린으로 이어지던 계보가 2024년 '맑을린'으로 먼저 환원됐다가, 2025년 선양 브랜드 디자인에 맞춰 '선양린'으로 최종 리뉴얼.</div>
@@ -2648,7 +2651,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2026.03.31</div><div class="rgH-name">착한소주 990</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.03.31</div><div class="rgH-name"><a href="brand/착한소주-990">착한소주 990</a></div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">소비자에게 <b>착한</b> 가격(990원)을 제공한다는 의미를 그대로 제품명에 담음. 모델비·마케팅비를 줄여 가격 인하분을 반영했다는 점을 강조.</div>
@@ -2656,7 +2659,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2026.04.22</div><div class="rgH-name">선양 말차</div><div class="rgH-badges"><span class="abv-badge">14.9도</span><span class="zs-badge">Zero</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.04.22</div><div class="rgH-name"><a href="brand/선양-말차">선양 말차</a></div><div class="rgH-badges"><span class="abv-badge">14.9도</span><span class="zs-badge">Zero</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>선양</b> 브랜드 + 일본식 가루녹차 <b>말차(抹茶)</b>를 접목한 명칭. '말차코어' 트렌드를 반영해 희석식 소주에 말차 향을 더한 국내 최초 시도.</div>
@@ -2664,7 +2667,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2026.06.10</div><div class="rgH-name">선양 오크소맥</div><div class="rgH-badges"><span class="abv-badge">5.7도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.06.10</div><div class="rgH-name"><a href="brand/선양-오크소맥">선양 오크소맥</a></div><div class="rgH-badges"><span class="abv-badge">5.7도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>선양 오크</b> + <b>소맥(소주+맥주)</b>. 소주와 맥주를 섞는 수고 없이 한 캔으로 즐기도록 만든 프리미엄 캔 소맥.</div>
@@ -2672,7 +2675,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2026.07.22</div><div class="rgH-name">선양 피치우롱</div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.07.22</div><div class="rgH-name"><a href="brand/선양-피치우롱">선양 피치우롱</a></div><div class="rgH-badges"><span class="abv-badge">12도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>피치(Peach, 복숭아)</b> + <b>우롱(烏龍)차</b>를 합친 명칭. 복숭아 농축액과 우롱차를 소주에 혼합한 가향 라인.</div>
@@ -2680,7 +2683,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2026.09.17</div><div class="rgH-name">선양 추사</div><div class="rgH-badges"><span class="abv-badge">14.9도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.09.17</div><div class="rgH-name"><a href="brand/선양-추사">선양 추사</a></div><div class="rgH-badges"><span class="abv-badge">14.9도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">충남 예산과 연고가 깊은 조선 후기 학자 <b>추사 김정희</b>의 호에서 딴 지역 연고 네이밍(추정) — 예산 사과를 원료로 쓴 지역성을 강조.</div>
@@ -2694,7 +2697,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">충북소주<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2025.12</div><div class="rgH-name">NEW 시원(시원한 청풍)</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.12</div><div class="rgH-name"><a href="brand/NEW-시원-시원한-청풍">NEW 시원(시원한 청풍)</a></div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">충북의 명소 <b>청풍명월(淸風明月)</b>에서 '청풍(淸風, 맑은 바람)'을 따옴. 충북 자연 청정 이미지 + 소주를 마실 때의 시원한 느낌을 결합한 이중 표현. 최신 리뉴얼판은 "새롭다"는 의미의 <b>NEW</b>를 더해 "시원" 이미지를 재차 강조.</div>
@@ -2710,7 +2713,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">토끼소주코리아<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name">토끼소주 화이트</div><div class="rgH-badges"><span class="abv-badge">23도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name"><a href="brand/토끼소주-화이트">토끼소주 화이트</a></div><div class="rgH-badges"><span class="abv-badge">23도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">창업자 브랜든 힐(Brandon Hill)이 한국에서 보낸 2011년 토끼해의 경험과, 달에 사는 토끼가 나오는 한국 설화에서 착안한 <b>토끼(Tokki)</b>.</div>
@@ -2718,7 +2721,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">토끼소주 블랙</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/토끼소주-블랙">토끼소주 블랙</a></div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>토끼소주</b> 브랜드 + <b>블랙(Black)</b>, 고도수 라인임을 색상으로 구분.</div>
@@ -2726,7 +2729,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2022.04</div><div class="rgH-name">토끼소주 그린</div><div class="rgH-badges"><span class="abv-badge">60도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2022.04</div><div class="rgH-name"><a href="brand/토끼소주-그린">토끼소주 그린</a></div><div class="rgH-badges"><span class="abv-badge">60도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>토끼소주</b> 브랜드 + <b>그린(Green)</b>, 고도수 라인임을 색상으로 구분.</div>
@@ -2734,7 +2737,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">토끼소주 골드</div><div class="rgH-badges"><span class="abv-badge">46도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/토끼소주-골드">토끼소주 골드</a></div><div class="rgH-badges"><span class="abv-badge">46도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>토끼소주</b> 브랜드 + <b>골드(Gold)</b>, 오크 숙성으로 술이 머금는 금빛을 표현.</div>
@@ -2742,7 +2745,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2023(추정)</div><div class="rgH-name">토끼소주 가넷</div><div class="rgH-badges"><span class="abv-badge">46도</span><span class="zs-badge">한정판</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2023(추정)</div><div class="rgH-name"><a href="brand/토끼소주-가넷">토끼소주 가넷</a></div><div class="rgH-badges"><span class="abv-badge">46도</span><span class="zs-badge">한정판</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>토끼소주</b> 브랜드 + <b>가넷(Garnet)</b>, 셰리 오크 숙성이 더하는 붉은빛을 보석 이름으로 표현.</div>
@@ -2756,7 +2759,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">홍성양조장<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">황금보리소주</div><div class="rgH-badges"><span class="abv-badge">17·25·40도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/황금보리소주">황금보리소주</a></div><div class="rgH-badges"><span class="abv-badge">17·25·40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">김제평야에서 재배되는 <b>황금빛 보리(황금보리)</b>를 원료로 사용한 데서 그대로 이름. 원료명이 제품명이 된 직관적 작명. 재료의 귀함과 황금색 이미지 강조.</div>
@@ -2770,7 +2773,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">조은술세종<span class="rgH2-count">4종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">이도 22</div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/이도-22">이도 22</a></div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">세종대왕의 본명 <b>이도(李祹)</b> + 도수 <b>22</b> = 세종이 왕위에 즉위한 나이(22세)를 상징.</div>
@@ -2778,7 +2781,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">이도 25</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/이도-25">이도 25</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이도</b> 브랜드명 + 도수 <b>25</b>.</div>
@@ -2786,7 +2789,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">이도 32</div><div class="rgH-badges"><span class="abv-badge">32도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/이도-32">이도 32</a></div><div class="rgH-badges"><span class="abv-badge">32도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이도</b> + 도수 <b>32</b> = 세종의 재위 기간(32년)을 상징.</div>
@@ -2794,7 +2797,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">이도 42</div><div class="rgH-badges"><span class="abv-badge">42도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/이도-42">이도 42</a></div><div class="rgH-badges"><span class="abv-badge">42도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이도</b> + 도수 <b>42</b> = 세종의 전성기였던 1442년을 상징.</div>
@@ -2808,7 +2811,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">화양<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">풍정사계 동</div><div class="rgH-badges"><span class="abv-badge">25·42도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/풍정사계-동">풍정사계 동</a></div><div class="rgH-badges"><span class="abv-badge">25·42도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>풍정사계(楓井四季)</b> = 청주 풍정리 + 사계절. 봄(청주)·여름(과하주)·가을(탁주)·겨울(증류식 소주, <b>동冬</b>)에 각각 술을 빗댄 라인업 이름.</div>
@@ -2822,7 +2825,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">강산주조<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">火(불)소주</div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/火-불-소주">火(불)소주</a></div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">한자 <b>火(불)</b>을 그대로 제품명에 써서 증류주 특유의 강한 화기(火氣)를 표현.</div>
@@ -2830,7 +2833,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">화백</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/화백">화백</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>火(불)소주</b>의 도수를 낮춘 버전에 붙인 별도 이름 <b>화백</b>.</div>
@@ -2844,7 +2847,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">담을술공방<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">주향이오</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/주향이오">주향이오</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>주향(酎薌)</b> = 술주(酎)+향기향(薌), "향기로운 술". <b>이오</b>는 라이트 버전임을 나타내는 서브명.</div>
@@ -2852,7 +2855,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">주향담을</div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/주향담을">주향담을</a></div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>주향</b> + 양조장명 <b>담을(술공방)</b>.</div>
@@ -2860,7 +2863,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">주향아라</div><div class="rgH-badges"><span class="abv-badge">55도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/주향아라">주향아라</a></div><div class="rgH-badges"><span class="abv-badge">55도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>주향</b> + <b>아라</b>(고도수 최상급 라인을 나타내는 서브명).</div>
@@ -2882,7 +2885,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">경월주조<span class="rgH2-count">4종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1926.06</div><div class="rgH-name">경월</div><div class="rgH-badges"><span class="abv-badge">25도(단종 시점)</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1926.06</div><div class="rgH-name"><a href="brand/경월">경월</a></div><div class="rgH-badges"><span class="abv-badge">25도(단종 시점)</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">강원 지역명에서 따온 이름. <b>京(경)</b>은 강릉(경강의 경), <b>月(월)</b>은 달. <b>"강릉의 달빛"</b>, 대관령 청정 자연과 달빛 이미지 표현. 강원도 지역 소주의 역사적 원형.</div>
@@ -2890,7 +2893,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1993.11</div><div class="rgH-name">그린소주</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1993.11</div><div class="rgH-name"><a href="brand/그린소주">그린소주</a></div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">1993년 두산이 경월을 인수하며 친환경·청정 이미지를 강조한 <b>"그린(Green)"</b>으로 개명.</div>
@@ -2898,7 +2901,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1999.12</div><div class="rgH-name">뉴그린</div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1999.12</div><div class="rgH-name"><a href="brand/뉴그린">뉴그린</a></div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">그린소주 + <b>"New"</b>. 리뉴얼 후속 라인임을 이름에 직접 표기.</div>
@@ -2906,7 +2909,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2001</div><div class="rgH-name">산(山처럼)</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2001</div><div class="rgH-name"><a href="brand/산-山처럼">산(山처럼)</a></div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">강원도의 산악 지형 이미지를 형상화한 <b>산(山)</b>.</div>
@@ -2922,7 +2925,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">원스피리츠<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2022.02.25</div><div class="rgH-name">원소주 오리지널</div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2022.02.25</div><div class="rgH-name"><a href="brand/원소주-오리지널">원소주 오리지널</a></div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">생산지 <b>강원도 원주(原州)</b>의 '원' + "원래의·근원의·순수한"이라는 <b>原(원)</b>의 의미 중첩. 한국 전통 밀누룩(진주곡자)을 사용해 뿌리로 돌아간다는 철학도 포함.</div>
@@ -2930,7 +2933,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2022.07.12</div><div class="rgH-name">원소주 스피릿</div><div class="rgH-badges"><span class="abv-badge">24도</span><span class="exp-badge">수출용</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2022.07.12</div><div class="rgH-name"><a href="brand/원소주-스피릿">원소주 스피릿</a></div><div class="rgH-badges"><span class="abv-badge">24도</span><span class="exp-badge">수출용</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>원소주</b> + <b>스피릿(Spirit)</b>. 오리지널보다 한 단계 높은 도수로 편의점 유통에 맞춰 재설계된 라인임을 표현.</div>
@@ -2938,7 +2941,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2022.12.01</div><div class="rgH-name">원소주 클래식</div><div class="rgH-badges"><span class="abv-badge">28도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2022.12.01</div><div class="rgH-name"><a href="brand/원소주-클래식">원소주 클래식</a></div><div class="rgH-badges"><span class="abv-badge">28도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>원소주</b> + <b>클래식(Classic)</b>. 자체 개발 효모를 사용한 정통 라인임을 강조.</div>
@@ -2949,7 +2952,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2025.12.22</div><div class="rgH-name">원소주 환영30</div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.12.22</div><div class="rgH-name"><a href="brand/원소주-환영30">원소주 환영30</a></div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>환영(歡迎)</b> = 반갑게 맞이함 + 도수 <b>30</b>. 치악산 배 향을 가미해 손님을 맞이하는 향 중심 한정판이라는 의미.</div>
@@ -2957,7 +2960,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2023.05.17</div><div class="rgH-name">원소주 투고</div><div class="rgH-badges"><span class="abv-badge">17도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2023.05.17</div><div class="rgH-name"><a href="brand/원소주-투고">원소주 투고</a></div><div class="rgH-badges"><span class="abv-badge">17도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>원소주</b> + <b>투고(To Go)</b>. 캠핑·피크닉·페스티벌 등 야외에서 간편히 들고 다니며 마실 수 있는 파우치형이라는 뜻을 그대로 담음.</div>
@@ -2971,7 +2974,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">케이알컴퍼니<span class="rgH2-count">4종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2021.03.01</div><div class="rgH-name">40240 독도소주 17°</div><div class="rgH-badges"><span class="abv-badge">17도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2021.03.01</div><div class="rgH-name"><a href="brand/40240-독도소주-17">40240 독도소주 17°</a></div><div class="rgH-badges"><span class="abv-badge">17도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>40240</b>은 독도의 우편번호(2014년 도로명주소 개편 후 부여). 동해와 독도가 한국 고유 영토임을 세계에 알리려는 취지로 지은 이름.</div>
@@ -2979,7 +2982,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2023</div><div class="rgH-name">40240 독도소주 27°</div><div class="rgH-badges"><span class="abv-badge">27도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2023</div><div class="rgH-name"><a href="brand/40240-독도소주-27">40240 독도소주 27°</a></div><div class="rgH-badges"><span class="abv-badge">27도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>40240 독도소주</b> 브랜드명 + 도수 <b>27</b>.</div>
@@ -2987,7 +2990,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2023</div><div class="rgH-name">40240 독도소주 37°</div><div class="rgH-badges"><span class="abv-badge">37도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2023</div><div class="rgH-name"><a href="brand/40240-독도소주-37">40240 독도소주 37°</a></div><div class="rgH-badges"><span class="abv-badge">37도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>40240 독도소주</b> 브랜드명 + 도수 <b>37</b>. 라인업 중 최고 도수.</div>
@@ -2995,7 +2998,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2025.08.15</div><div class="rgH-name">40240 독도소주 21°</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.08.15</div><div class="rgH-name"><a href="brand/40240-독도소주-21">40240 독도소주 21°</a></div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>40240 독도소주</b> 브랜드명 + 도수 <b>21</b>. GS25 단독 삼일절·광복80주년 한정판 "독도21×울라 에디션"(2026.03, 한복 입은 수호신 라벨)도 이 도수 기반.</div>
@@ -3009,7 +3012,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">모월<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2020(추정)</div><div class="rgH-name">모월 인</div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2020(추정)</div><div class="rgH-name"><a href="brand/모월-인">모월 인</a></div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">양조장명 <b>모월(母月)</b> = 치악산의 옛 이름 "어머니 같고 달 같은 산"에서 유래 + 증류식 소주 라인명 <b>인</b>.</div>
@@ -3017,7 +3020,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">모월 로</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/모월-로">모월 로</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>모월</b> + 증류식 소주 라인명 <b>로</b>.</div>
@@ -3031,7 +3034,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">화전일취<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">화전일취</div><div class="rgH-badges"><span class="abv-badge">52·38도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/화전일취">화전일취</a></div><div class="rgH-badges"><span class="abv-badge">52·38도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>화전일취(花前一醉)</b> = "꽃 앞에서 한번 취한다"는 뜻의 한자 조어. 꽃 향을 중시하는 춘천 전통 증류식 소주.</div>
@@ -3045,7 +3048,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">마마스팜<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2024.12(추정)</div><div class="rgH-name">모곡53</div><div class="rgH-badges"><span class="abv-badge">53도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.12(추정)</div><div class="rgH-name"><a href="brand/모곡53">모곡53</a></div><div class="rgH-badges"><span class="abv-badge">53도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">양조장이 자리한 지명 <b>모곡리</b> + 도수 <b>53</b>.</div>
@@ -3067,7 +3070,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">보해양조<span class="rgH2-count">8종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1992</div><div class="rgH-name">보해골드</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1992</div><div class="rgH-name"><a href="brand/보해골드">보해골드</a></div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">보해 브랜드명 + <b>골드(Gold)</b>를 결합한 프리미엄 네이밍.</div>
@@ -3075,7 +3078,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1994</div><div class="rgH-name">씨티</div><div class="rgH-badges"><span class="abv-badge">23도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1994</div><div class="rgH-name"><a href="brand/씨티">씨티</a></div><div class="rgH-badges"><span class="abv-badge">23도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">영어 <b>City(도시)</b>의 음차. 도시적이고 세련된 이미지를 표현한 영문 네이밍.</div>
@@ -3083,7 +3086,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1996</div><div class="rgH-name">김삿갓</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1996</div><div class="rgH-name"><a href="brand/김삿갓">김삿갓</a></div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">조선 후기 방랑 시인 <b>김삿갓(김병연)</b>의 이름을 그대로 차용한 향토적 네이밍.</div>
@@ -3091,7 +3094,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1997</div><div class="rgH-name">곰바우</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1997</div><div class="rgH-name"><a href="brand/곰바우">곰바우</a></div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">순박하고 듬직한 이미지의 <b>"곰"</b> + 전라도 사투리 어미 <b>"바우"</b>를 결합한 향토적 네이밍.</div>
@@ -3099,7 +3102,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2002</div><div class="rgH-name">잎새주</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2002</div><div class="rgH-name"><a href="brand/잎새주">잎새주</a></div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">나뭇잎 끝에 맺히는 <b>이슬</b>의 감성적 이미지. <b>잎새(나뭇잎)</b> + 이슬이 맺힌다는 자연 이미지의 합성 네이밍. 깨끗하고 맑은 소주를 표현.</div>
@@ -3115,7 +3118,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2014.04</div><div class="rgH-name">아홉시반</div><div class="rgH-badges"><span class="abv-badge">17.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2014.04</div><div class="rgH-name"><a href="brand/아홉시반">아홉시반</a></div><div class="rgH-badges"><span class="abv-badge">17.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>"밤 9시 반"</b> — 퇴근 후 하루 마무리, 친구와 한잔하기 좋은 시간대를 브랜드화. 일상 속 소주 한잔의 여유로운 순간을 직접적으로 표현한 감성 네이밍.</div>
@@ -3123,7 +3126,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2015</div><div class="rgH-name">잎새주 부라더 시리즈</div><div class="rgH-badges"><span class="abv-badge">17.5도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2015</div><div class="rgH-name"><a href="brand/잎새주-부라더-시리즈">잎새주 부라더 시리즈</a></div><div class="rgH-badges"><span class="abv-badge">17.5도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">영어 <b>Brother(형·동생)</b>의 한글 음차. 친근한 형·동생 사이의 가벼운 술자리 정서를 MZ세대 어휘로 표현한 서브 브랜드명.</div>
@@ -3131,7 +3134,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">여수바다</div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name"><a href="brand/여수바다">여수바다</a></div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">버스커버스커의 노래 제목이자 전남 여수 야경의 정서를 가져온 <b>여수밤바다</b>에서 출발. 2019년 로코노미(로컬+이코노미) 전략으로 인지도를 확보한 뒤 <b>여수바다</b>로 리브랜딩하며, 멸종위기 해양동물 <b>상괭이</b> 보호 메시지를 전면에 내세운 ESG 커뮤니케이션으로 확장.</div>
@@ -3149,7 +3152,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">보배양조<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-name">하이트(구 보배양조)</div><div class="rgH-badges"><span class="abv-badge">19도(추정)</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/하이트-구-보배양조">하이트(구 보배양조)</a></div><div class="rgH-badges"><span class="abv-badge">19도(추정)</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">영어 <b>High(높을) + -ite</b>(접미사). "높은 품질"의 영어식 작명. 전북 지역 소주였으나 하이트맥주와 동일 명칭으로 혼동이 생기는 유명한 에피소드 보유.</div>
@@ -3165,7 +3168,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">이강주(주)<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1991</div><div class="rgH-name">이강주 25도</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1991</div><div class="rgH-name"><a href="brand/이강주-25도">이강주 25도</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이(梨, 배)</b> + <b>강(薑, 생강)</b> + <b>주(酒, 술)</b>. 배(梨)와 생강(薑)을 넣어 빚은 술이라는 뜻을 한자로 직접 표현. 조선 3대 명주 중 하나로, 황해도·전라도 지역 전통 배 산지와 생강 산지를 반영한 작명.</div>
@@ -3173,7 +3176,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2006</div><div class="rgH-name">이강주 19도</div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2006</div><div class="rgH-name"><a href="brand/이강주-19도">이강주 19도</a></div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이강주</b> 브랜드명 + 도수 <b>19</b>.</div>
@@ -3181,7 +3184,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name">이강주 38도</div><div class="rgH-badges"><span class="abv-badge">38도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name"><a href="brand/이강주-38도">이강주 38도</a></div><div class="rgH-badges"><span class="abv-badge">38도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이강주</b> 브랜드명 + 도수 <b>38</b>.</div>
@@ -3195,7 +3198,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">추성고을<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1993</div><div class="rgH-name">추성주</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1993</div><div class="rgH-name"><a href="brand/추성주">추성주</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>추성(秋城)</b> = 담양 금성면 연동사 인근 지역의 옛 지명. 약 1천 년 역사를 가진 담양 연동사 유래 약술을 복원한 데서 지명을 브랜드화. 쌀·구기자·오미자 등 10여 종 한약재 사용, 25도 약소주.</div>
@@ -3209,7 +3212,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">세븐일레븐×최강록<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2026.01</div><div class="rgH-name">최강록 네오25화이트</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="zs-badge">한정판</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.01</div><div class="rgH-name"><a href="brand/최강록-네오25화이트">최강록 네오25화이트</a></div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="zs-badge">한정판</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>네오(Neo)</b> = 새로운, <b>25</b> = 도수, <b>화이트(White)</b> = 맑고 깨끗한 쌀술 이미지. '흑백요리사'로 유명한 <b>최강록 셰프</b>(별명 '조림의 신')와 협업해 새로운 프리미엄 증류식 소주임을 직관적으로 표현.</div>
@@ -3223,7 +3226,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">시향가<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2024.01</div><div class="rgH-name">숙희59</div><div class="rgH-badges"><span class="abv-badge">59도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.01</div><div class="rgH-name"><a href="brand/숙희59">숙희59</a></div><div class="rgH-badges"><span class="abv-badge">59도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">양숙희 대표의 이름 <b>숙희</b> + 도수 <b>59</b>.</div>
@@ -3231,7 +3234,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2025.06</div><div class="rgH-name">네오40</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.06</div><div class="rgH-name"><a href="brand/네오40">네오40</a></div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>네오(Neo)</b> = 새로운, <b>40</b> = 도수. 최강록 네오25화이트와 같은 '네오' 계열 네이밍.</div>
@@ -3248,7 +3251,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">내변산양조장<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">백제소주</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/백제소주">백제소주</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">전북 부안 일대의 옛 백제 지역 정체성을 강조한 <b>백제(百濟)소주</b>.</div>
@@ -3262,7 +3265,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">대마주조<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">톡 한잔 소주</div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/톡-한잔-소주">톡 한잔 소주</a></div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">가볍게 "톡" 털어 마시는 "한잔"이라는 뜻의 순우리말 조합 네이밍.</div>
@@ -3276,7 +3279,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">병영소주<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">병영소주</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/병영소주">병영소주</a></div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">조선 태종(1417년) 전라병영성이 있던 <b>병영(兵營)</b> 지역명에서 유래. 병마절도사가 즐겨 마셨다는 유래.</div>
@@ -3298,7 +3301,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">대선주조<span class="rgH2-count">11종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1965(추정)</div><div class="rgH-name">대선</div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1965(추정)</div><div class="rgH-name"><a href="brand/대선">대선</a></div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">회사명 <b>大鮮釀造(대선양조)</b>에서 유래. '大鮮'은 창업 당시 일제강점기에 "大朝鮮(대조선)"을 줄여 민족 자긍심을 담으려 했다는 설이 전해짐. ※ "大(클 대) + 鮮(고울 선) = 크고 훌륭한 술" 해석도 병존. 1930년 창립, 부산 최고령 소주사.</div>
@@ -3306,7 +3309,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1982</div><div class="rgH-name">선소주</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1982</div><div class="rgH-name"><a href="brand/선소주">선소주</a></div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">회사명 <b>大鮮(대선)</b>의 "선(鮮)"을 그대로 제품명화.</div>
@@ -3314,7 +3317,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1993</div><div class="rgH-name">선타임(대선골드)</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1993</div><div class="rgH-name"><a href="brand/선타임-대선골드">선타임(대선골드)</a></div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>선(鮮)</b> + <b>타임(Time)</b>. "대선골드"라는 별칭으로도 불림.</div>
@@ -3322,7 +3325,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1996</div><div class="rgH-name">C1(씨원)</div><div class="rgH-badges"><span class="abv-badge">18도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1996</div><div class="rgH-name"><a href="brand/C1-씨원">C1(씨원)</a></div><div class="rgH-badges"><span class="abv-badge">18도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>C = Choice(최고의 선택)</b>, <b>1 = 1등·최고</b>. 동시에 발음이 <b>"씨원→시원"</b>하다는 이중 효과. 부산 특유의 시원하고 강한 이미지 반영.</div>
@@ -3334,7 +3337,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2009.04.27</div><div class="rgH-name">봄봄</div><div class="rgH-badges"><span class="abv-badge">16.7도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2009.04.27</div><div class="rgH-name"><a href="brand/봄봄">봄봄</a></div><div class="rgH-badges"><span class="abv-badge">16.7도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>봄봄</b>은 봄의 계절감·설렘을 반복 표현한 저도주 네이밍.</div>
@@ -3342,7 +3345,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2011.06</div><div class="rgH-name">즐거워예</div><div class="rgH-badges"><span class="abv-badge">16.2도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2011.06</div><div class="rgH-name"><a href="brand/즐거워예">즐거워예</a></div><div class="rgH-badges"><span class="abv-badge">16.2도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">경상도 사투리 "즐겁다" + 호칭 어미 <b>"-예"</b>. 조문용으로는 "그리워예"처럼 상황별 네이밍을 시도한 저도주 라인.</div>
@@ -3350,7 +3353,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name">C1블루</div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name"><a href="brand/C1블루">C1블루</a></div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>C1(씨원)</b> 메인 브랜드에 <b>Blue(청색·깔끔함)</b>를 결합. 부드럽고 청량한 소주라는 이미지를 색상으로 표현. 2014년 출시 당시 맑고 투명한 파란빛 병 디자인으로 화제.</div>
@@ -3358,7 +3361,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2021.03</div><div class="rgH-name">다이아몬드</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2021.03</div><div class="rgH-name"><a href="brand/다이아몬드">다이아몬드</a></div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>다이아몬드(Diamond)</b>. 보석의 대명사로 통하는 이름을 그대로 차용해 맑고 반짝이는 저도수 소주 이미지를 표현.</div>
@@ -3366,7 +3369,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2024.01</div><div class="rgH-name">강알리</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.01</div><div class="rgH-name"><a href="brand/강알리">강알리</a></div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>강알리</b> = <b>광안리(廣安里)</b>의 부산 사투리 발음. 부산 사람들이 "광안리"를 "강알리"로 발음하는 것에서 착안. 메인 카피도 "붓산(부산)", "턱별한(특별한)" 등 부산 사투리를 활용해 향토 정체성 극대화.</div>
@@ -3374,7 +3377,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2025.01</div><div class="rgH-name">대선159</div><div class="rgH-badges"><span class="abv-badge">15.9도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.01</div><div class="rgH-name"><a href="brand/대선159">대선159</a></div><div class="rgH-badges"><span class="abv-badge">15.9도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>대선</b> 브랜드명 + 도수 <b>15.9</b>를 그대로 결합한 직관적 네이밍. 저도수 라인임을 숫자로 명시.</div>
@@ -3382,7 +3385,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2026.02</div><div class="rgH-name">부산</div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.02</div><div class="rgH-name"><a href="brand/부산">부산</a></div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">지역명 <b>부산(釜山)</b>을 그대로 브랜드명으로 사용. 향토 정체성을 전면에 내세운 네이밍.</div>
@@ -3396,7 +3399,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">무학<span class="rgH2-count">6종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/white.jpg" alt="화이트 제품 사진 (무학 공식 이미지)"><div class="rgH-year">1995</div><div class="rgH-name">화이트</div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/white.jpg" alt="화이트 제품 사진 (무학 공식 이미지)"><div class="rgH-year">1995</div><div class="rgH-name"><a href="brand/화이트">화이트</a></div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">영어 <b>White(하얀, 순수한)</b>. 깨끗하고 순수한 소주 이미지를 흰색과 영어 직관적 표기로 표현. 희석식 소주 중 영어 이름을 사용한 초기 사례 중 하나.</div>
@@ -3404,7 +3407,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/goodday-2006.jpg" alt="좋은데이 2006년 출시 디자인 (무학 공식 이미지)"><img class="rgH-photo" src="report/images/brands/goodday-2026.jpg" alt="좋은데이 2026년 All New 리뉴얼 디자인 (무학 공식 이미지)"><div class="rgH-year">2006.11</div><div class="rgH-name">좋은데이</div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/goodday-2006.jpg" alt="좋은데이 2006년 출시 디자인 (무학 공식 이미지)"><img class="rgH-photo" src="report/images/brands/goodday-2026.jpg" alt="좋은데이 2026년 All New 리뉴얼 디자인 (무학 공식 이미지)"><div class="rgH-year">2006.11</div><div class="rgH-name"><a href="brand/좋은데이">좋은데이</a></div><div class="rgH-badges"><span class="abv-badge">15.7도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">"소주 한잔 나누기 <b>좋은 날(Good Day)</b>"이라는 긍정 의미. 동시에 경상도 사투리 <b>"좋다 아이가(좋은데예)"</b>의 느낌을 담은 중의적 작명. 지역 정서와 긍정 이미지 결합.</div>
@@ -3417,7 +3420,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2009.03</div><div class="rgH-name">좋다카이</div><div class="rgH-badges"><span class="abv-badge">19.5도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2009.03</div><div class="rgH-name"><a href="brand/좋다카이">좋다카이</a></div><div class="rgH-badges"><span class="abv-badge">19.5도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">경상도 사투리 <b>"좋다카이"</b>(좋다고 말하다)를 그대로 제품명화.</div>
@@ -3425,7 +3428,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2019.10</div><div class="rgH-name">청춘소주 무학</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2019.10</div><div class="rgH-name"><a href="brand/청춘소주-무학">청춘소주 무학</a></div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>청춘(靑春)</b> = 젊음·꽃다운 시절 + <b>무학(舞鶴)</b> = 학이 춤추다(회사명). 뉴트로 열풍에 맞춰 무학 창립 90주년(2019년)을 기념해 옛 감성을 현대적으로 해석한 복고 감성 제품. 1929년 창업 당시로의 회귀를 "청춘"으로 표현.</div>
@@ -3433,7 +3436,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2024.03</div><div class="rgH-name">좋은데이 부산갈매기19</div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.03</div><div class="rgH-name"><a href="brand/좋은데이-부산갈매기19">좋은데이 부산갈매기19</a></div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> 모 브랜드 + 부산의 상징 <b>갈매기</b>. 부산 바닷가에서 흔히 볼 수 있는 갈매기의 활기차고 역동적인 이미지를 차용해 부산 전용 소주임을 직관적으로 표현.</div>
@@ -3441,7 +3444,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2024.11</div><div class="rgH-name">좋은데이 부산갈매기16</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2024.11</div><div class="rgH-name"><a href="brand/좋은데이-부산갈매기16">좋은데이 부산갈매기16</a></div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>부산갈매기19</b>와 동일한 네이밍 콘셉트에 더 낮은 도수 <b>16</b>을 결합한 순한 맛 버전.</div>
@@ -3455,7 +3458,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">금복주<span class="rgH2-count">12종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1992</div><div class="rgH-name">수퍼골드마일드</div><div class="rgH-badges"><span class="abv-badge">15도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1992</div><div class="rgH-name"><a href="brand/수퍼골드마일드">수퍼골드마일드</a></div><div class="rgH-badges"><span class="abv-badge">15도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>수퍼(Super)</b> + <b>골드(Gold)</b> + <b>마일드(Mild)</b>를 조합한 프리미엄·저자극 이미지의 영문 네이밍.</div>
@@ -3463,7 +3466,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1993</div><div class="rgH-name">금복골드</div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1993</div><div class="rgH-name"><a href="brand/금복골드">금복골드</a></div><div class="rgH-badges"><span class="abv-badge">25도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">금복주 브랜드명 + <b>골드(Gold)</b>를 결합한 프리미엄 네이밍.</div>
@@ -3471,7 +3474,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1995(추정)</div><div class="rgH-name">참소주</div><div class="rgH-badges"><span class="abv-badge">15.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1995(추정)</div><div class="rgH-name"><a href="brand/참소주">참소주</a></div><div class="rgH-badges"><span class="abv-badge">15.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>참(眞)</b> = 진짜·바른·깨끗함. 정직하고 진실된 소주라는 이미지. 참이슬의 '참'과 동일한 순우리말 어원이지만 별개의 회사에서 독립적으로 작명. 경북 지역 정서에 맞는 소박한 네이밍.</div>
@@ -3485,7 +3488,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name">참ISLAND</div><div class="rgH-badges"><span class="abv-badge">19.5도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name"><a href="brand/참ISLAND">참ISLAND</a></div><div class="rgH-badges"><span class="abv-badge">19.5도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>참소주</b> 브랜드명 + 영어 <b>"ISLAND"</b>를 결합한 네이밍.</div>
@@ -3493,7 +3496,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name">제왕</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name"><a href="brand/제왕">제왕</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>제왕(帝王)</b> = 임금 중의 임금. 쌀과 고구마를 함께 증류한 고급 증류주임을 강조하는 격조 있는 네이밍.</div>
@@ -3501,7 +3504,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2017.07</div><div class="rgH-name">제왕21</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2017.07</div><div class="rgH-name"><a href="brand/제왕21">제왕21</a></div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>제왕</b> 브랜드명 + 도수 <b>21</b>을 결합한 후속 라인.</div>
@@ -3509,7 +3512,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2017.11.01</div><div class="rgH-name">제왕16.9</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2017.11.01</div><div class="rgH-name"><a href="brand/제왕16-9">제왕16.9</a></div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>제왕</b> 브랜드명 + 도수 <b>16.9</b>를 결합한 저도수 라인.</div>
@@ -3517,7 +3520,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2019.12</div><div class="rgH-name">소주왕 금복주</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2019.12</div><div class="rgH-name"><a href="brand/소주왕-금복주">소주왕 금복주</a></div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">옛 금복주 캐릭터 <b>"복영감"</b>의 레트로 라벨을 그대로 복각하며 "소주왕"이라는 왕(王) 칭호를 더해 뉴트로 향수를 자극하는 네이밍.</div>
@@ -3525,7 +3528,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2021.09</div><div class="rgH-name">백로</div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2021.09</div><div class="rgH-name"><a href="brand/백로">백로</a></div><div class="rgH-badges"><span class="abv-badge">41도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">한국의 전통적인 흰 새 <b>백로(白鷺)</b>에서 따온 이름. 맑고 깨끗한 고구마 증류 원액의 이미지를 흰 새의 청정함으로 표현.</div>
@@ -3533,7 +3536,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2025.07.02</div><div class="rgH-name">오크젠(신)</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.07.02</div><div class="rgH-name"><a href="brand/오크젠-신">오크젠(신)</a></div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">기존 <b>오크젠</b> 브랜드를 희석식 소주 도수대로 재구성한 신규 버전.</div>
@@ -3541,7 +3544,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">맛있는참</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name"><a href="brand/맛있는참">맛있는참</a></div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>맛있는</b>(형용사) + <b>참(眞, 진짜·올바름)</b>. "진짜 맛있는 소주"라는 직관적 의미. 기존 참소주 브랜드를 저도수 시장 대응을 위해 별도 라인으로 출시. 부드러움·맛을 전면에 내세운 네이밍.</div>
@@ -3549,7 +3552,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name">오크젠</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name"><a href="brand/오크젠">오크젠</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>오크(Oak)</b> 숙성 + <b>Zen(젠, 정제됨)</b>을 결합한 프리미엄 네이밍.</div>
@@ -3565,7 +3568,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-flavor">무학<span class="rgH2-count">10종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name">좋은데이 블루베리</div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name"><a href="brand/좋은데이-블루베리">좋은데이 블루베리</a></div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> 모 브랜드에 색상명+과일명을 병기하는 컬러 시리즈 전략. <b>블루</b>는 블루베리 과실색에서 직관적으로 가져옴. 각 색상이 곧 맛을 연상시키는 설계.</div>
@@ -3573,7 +3576,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name">좋은데이 유자</div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name"><a href="brand/좋은데이-유자">좋은데이 유자</a></div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + <b>유자(Yuzu)</b>. 한국·일본 공통 인기 과일 유자를 플레이버로 채택. 향기로운 유자향이 '좋은 날'이라는 브랜드 감성과 잘 맞아떨어짐.</div>
@@ -3581,7 +3584,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name">좋은데이 복숭아</div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2015(추정)</div><div class="rgH-name"><a href="brand/좋은데이-복숭아">좋은데이 복숭아</a></div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + <b>복숭아(Peach)</b>. 플레이버 소주 시장 전체에서 가장 선호도 높은 복숭아 풍미를 좋은데이 라인으로 출시.</div>
@@ -3589,7 +3592,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2016.03</div><div class="rgH-name">엔조이 오리지날 사과</div><div class="rgH-badges"><span class="abv-badge">18.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2016.03</div><div class="rgH-name"><a href="brand/엔조이-오리지날-사과">엔조이 오리지날 사과</a></div><div class="rgH-badges"><span class="abv-badge">18.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>엔조이(Enjoy)</b> = 즐기다. 이마트 단독 PB 리큐르 소주 시리즈 공통명.</div>
@@ -3597,7 +3600,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2016.05</div><div class="rgH-name">엔조이 오리지날 배</div><div class="rgH-badges"><span class="abv-badge">18.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2016.05</div><div class="rgH-name"><a href="brand/엔조이-오리지날-배">엔조이 오리지날 배</a></div><div class="rgH-badges"><span class="abv-badge">18.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>엔조이</b> + <b>배(Pear)</b>. 오리지날 사과의 후속 과일 라인.</div>
@@ -3605,7 +3608,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name">엔조이 스파클링 사과</div><div class="rgH-badges"><span class="abv-badge">15도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2016</div><div class="rgH-name"><a href="brand/엔조이-스파클링-사과">엔조이 스파클링 사과</a></div><div class="rgH-badges"><span class="abv-badge">15도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>엔조이 오리지날</b>의 탄산주(스파클링) 버전.</div>
@@ -3613,7 +3616,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2018</div><div class="rgH-name">좋은데이 깔라만시</div><div class="rgH-badges"><span class="abv-badge">12.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2018</div><div class="rgH-name"><a href="brand/좋은데이-깔라만시">좋은데이 깔라만시</a></div><div class="rgH-badges"><span class="abv-badge">12.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + <b>깔라만시(Calamansi)</b>. 필리핀·동남아 원산 소형 감귤류 깔라만시를 한국 주류에 도입. 2018년 열대과일 트렌드와 건강식 관심을 반영한 이색 조합.</div>
@@ -3621,7 +3624,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2021.07</div><div class="rgH-name">좋은데이 민트초코</div><div class="rgH-badges"><span class="abv-badge">12.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2021.07</div><div class="rgH-name"><a href="brand/좋은데이-민트초코">좋은데이 민트초코</a></div><div class="rgH-badges"><span class="abv-badge">12.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + <b>민트초코(Mint Choco)</b>. 2021년 MZ세대 민트초코 열풍에 편승한 이색 기획. 과일이 아닌 과자·디저트 맛을 소주에 적용한 이례적 시도. 소주의 플레이버 경계를 과일 이상으로 확장.</div>
@@ -3629,7 +3632,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2021.11</div><div class="rgH-name">좋은데이 석류</div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2021.11</div><div class="rgH-name"><a href="brand/좋은데이-석류">좋은데이 석류</a></div><div class="rgH-badges"><span class="abv-badge">13.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + <b>석류(Pomegranate)</b>. 여성 건강 이미지가 강한 석류를 소재로 컬러 시리즈를 확장.</div>
@@ -3637,7 +3640,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-flavor">
-<div class="rgH-left"><div class="rgH-year">2022.04</div><div class="rgH-name">좋은데이 톡</div><div class="rgH-badges"><span class="abv-badge">7도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2022.04</div><div class="rgH-name"><a href="brand/좋은데이-톡">좋은데이 톡</a></div><div class="rgH-badges"><span class="abv-badge">7도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>좋은데이</b> + 탄산이 <b>"톡"</b> 쏘는 느낌을 표현한 의성어. 컬러 시리즈보다 도수를 낮추고 탄산을 더한 저도수 탄산주 라인명.</div>
@@ -3653,7 +3656,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">민속주안동소주<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1990</div><div class="rgH-name">민속주 안동소주 45도</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1990</div><div class="rgH-name"><a href="brand/민속주-안동소주-45도">민속주 안동소주 45도</a></div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>안동소주</b>는 특정 브랜드명이 아닌 안동 지역 증류식 소주 전체의 통칭(고려 말 원나라 군대 주둔 시 전해진 아라크 증류 기술이 안동 반가 문화에 정착). 그중 <b>민속주 안동소주</b>는 '민속주'(국가 지정 전통 민속주) 수식어로 전통 제조법 고수를 강조한 명칭.</div>
@@ -3661,7 +3664,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2023</div><div class="rgH-name">민속주 안동소주 25도</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2023</div><div class="rgH-name"><a href="brand/민속주-안동소주-25도">민속주 안동소주 25도</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>민속주 안동소주</b> 브랜드명 + 도수 <b>25</b>. 45도 단일제품 체제를 33년 만에 깬 첫 신제품.</div>
@@ -3669,7 +3672,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">민속주 안동소주 35도</div><div class="rgH-badges"><span class="abv-badge">35도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/민속주-안동소주-35도">민속주 안동소주 35도</a></div><div class="rgH-badges"><span class="abv-badge">35도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>민속주 안동소주</b> 브랜드명 + 도수 <b>35</b>.</div>
@@ -3683,7 +3686,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">명인안동소주<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1992</div><div class="rgH-name">명인안동소주 45도</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1992</div><div class="rgH-name"><a href="brand/명인안동소주-45도">명인안동소주 45도</a></div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>안동소주</b>는 특정 브랜드명이 아닌 안동 지역 증류식 소주 전체의 통칭. 그중 <b>명인안동소주</b>는 박재서 명인 개인을 브랜드화한 명칭으로, 같은 안동소주 중에서도 쌀누룩·감압증류 방식으로 누룩향을 줄여 현대적 풍미를 낸 점이 특징.</div>
@@ -3691,7 +3694,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1993.06</div><div class="rgH-name">명인안동소주 35·22·19도</div><div class="rgH-badges"><span class="abv-badge">35·22·19도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1993.06</div><div class="rgH-name"><a href="brand/명인안동소주-35-22-19도">명인안동소주 35·22·19도</a></div><div class="rgH-badges"><span class="abv-badge">35·22·19도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>명인안동소주</b> 브랜드명 + 도수별 라인업.</div>
@@ -3705,7 +3708,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">(주)솔송주<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1996</div><div class="rgH-name">솔송주</div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1996</div><div class="rgH-name"><a href="brand/솔송주">솔송주</a></div><div class="rgH-badges"><span class="abv-badge">13도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>솔(소나무·솔잎)</b> + <b>송(松, 소나무)</b> + <b>주(酒)</b>. 솔잎(소나무 잎)을 원료로 사용했다는 것을 이름 자체에 이중으로 표현(순우리말 "솔" + 한자 "松"). 원래 이름은 '송순주'였으나 동명 브랜드와 구분을 위해 '솔송주'로 명칭 변경.</div>
@@ -3713,7 +3716,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2010(추정)</div><div class="rgH-name">담솔</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2010(추정)</div><div class="rgH-name"><a href="brand/담솔">담솔</a></div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>담(맑다/담그다)</b> + <b>솔</b>. 솔송주를 증류해 맑게 정제한 고급 증류주라는 의미를 담은 이름.</div>
@@ -3727,7 +3730,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">안동소주일품(주)<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2001</div><div class="rgH-name">안동소주일품</div><div class="rgH-badges"><span class="abv-badge">45·40도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2001</div><div class="rgH-name"><a href="brand/안동소주일품">안동소주일품</a></div><div class="rgH-badges"><span class="abv-badge">45·40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">농업회사법인 <b>안동소주일품(주)</b>의 사명을 브랜드명으로 그대로 사용. 1997년 "푸른영농조합법인"으로 설립, 2002년 현재 사명으로 변경한 안동소주협회 회원사.</div>
@@ -3735,7 +3738,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">안동소주일품 21도</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/안동소주일품-21도">안동소주일품 21도</a></div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>안동소주일품</b> 브랜드명 + 도수 <b>21</b>. 저도수 유리병 라인.</div>
@@ -3749,7 +3752,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">명품안동소주(주)<span class="rgH2-count">4종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name">명품안동소주 45도</div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2008</div><div class="rgH-name"><a href="brand/명품안동소주-45도">명품안동소주 45도</a></div><div class="rgH-badges"><span class="abv-badge">45도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">농업회사법인 <b>명품안동소주(주)</b>의 사명을 브랜드명으로 그대로 사용.</div>
@@ -3757,21 +3760,21 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">명품안동소주</div><div class="rgH-badges"><span class="abv-badge">40·19.8도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/명품안동소주">명품안동소주</a></div><div class="rgH-badges"><span class="abv-badge">40·19.8도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>명품안동소주</b> 브랜드명 + 도수별 라인업.</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">명품안동소주 끌림</div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/명품안동소주-끌림">명품안동소주 끌림</a></div><div class="rgH-badges"><span class="abv-badge">30도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>명품안동소주</b> 30도 라인의 제품명 <b>"끌림"</b>.</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">참조은 안동쏘주</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/참조은-안동쏘주">참조은 안동쏘주</a></div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">명품안동소주의 저도수 서브 브랜드명 <b>"참조은"</b>.</div>
@@ -3785,7 +3788,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">유토피아(주)<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2011</div><div class="rgH-name">양반 안동소주 50도</div><div class="rgH-badges"><span class="abv-badge">50도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2011</div><div class="rgH-name"><a href="brand/양반-안동소주-50도">양반 안동소주 50도</a></div><div class="rgH-badges"><span class="abv-badge">50도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">농업회사법인 <b>유토피아(주)</b>의 브랜드명 <b>"양반"</b> — 안동 전통 반가(班家) 문화를 표상.</div>
@@ -3793,7 +3796,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">양반 안동소주</div><div class="rgH-badges"><span class="abv-badge">45·43·38·30·25도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/양반-안동소주">양반 안동소주</a></div><div class="rgH-badges"><span class="abv-badge">45·43·38·30·25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>양반 안동소주</b> 브랜드명 + 도수별 라인업.</div>
@@ -3807,7 +3810,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">(주)버버리찰떡<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2016.12</div><div class="rgH-name">안동소주 올소</div><div class="rgH-badges"><span class="abv-badge">20·35도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2016.12</div><div class="rgH-name"><a href="brand/안동소주-올소">안동소주 올소</a></div><div class="rgH-badges"><span class="abv-badge">20·35도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">'모두'를 뜻하는 순우리말 <b>올</b> + <b>소주</b>를 결합한 명칭으로 추정.</div>
@@ -3821,7 +3824,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">맹개술도가(㈜밀과노닐다)<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">진맥소주 53도</div><div class="rgH-badges"><span class="abv-badge">53도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name"><a href="brand/진맥소주-53도">진맥소주 53도</a></div><div class="rgH-badges"><span class="abv-badge">53도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">조선시대 문헌 『수운잡방』 기록을 근거로 복원한 밀 기반 증류식 소주. <b>진맥(眞麥)</b>은 "진짜 밀"이라는 의미.</div>
@@ -3832,7 +3835,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">진맥소주</div><div class="rgH-badges"><span class="abv-badge">40·22도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/진맥소주">진맥소주</a></div><div class="rgH-badges"><span class="abv-badge">40·22도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>진맥소주</b> 브랜드명 + 도수별 라인업.</div>
@@ -3846,7 +3849,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">회곡양조장<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">회곡 안동소주</div><div class="rgH-badges"><span class="abv-badge">22·32도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/회곡-안동소주">회곡 안동소주</a></div><div class="rgH-badges"><span class="abv-badge">22·32도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제조사 <b>회곡양조장</b>의 지명·상호를 브랜드명으로 그대로 사용.</div>
@@ -3854,7 +3857,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">회곡 안동소주 42도</div><div class="rgH-badges"><span class="abv-badge">42도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/회곡-안동소주-42도">회곡 안동소주 42도</a></div><div class="rgH-badges"><span class="abv-badge">42도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>회곡 안동소주</b> 브랜드명 + 도수 <b>42</b>.</div>
@@ -3868,7 +3871,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">포항불로주<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">불로주</div><div class="rgH-badges"><span class="abv-badge">45·35도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/불로주">불로주</a></div><div class="rgH-badges"><span class="abv-badge">45·35도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">늙지 않는다는 뜻의 <b>불로(不老)</b> — 장수를 기원하는 전통적 길상(吉祥) 네이밍.</div>
@@ -3882,7 +3885,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">인산가<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">월고해</div><div class="rgH-badges"><span class="abv-badge">42도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/월고해">월고해</a></div><div class="rgH-badges"><span class="abv-badge">42도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>월고해(月古海)</b> — 달·오래됨·바다를 엮은 시적 조어.</div>
@@ -3890,7 +3893,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">적송자</div><div class="rgH-badges"><span class="abv-badge">53·72도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/적송자">적송자</a></div><div class="rgH-badges"><span class="abv-badge">53·72도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>적송자(赤松子)</b> — 중국 신화 속 신선의 이름을 딴 고도수 프리미엄 라인 네이밍.</div>
@@ -3904,7 +3907,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">내외디스틸러리<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">내외21</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/내외21">내외21</a></div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">브랜드명 <b>내외(內外)</b> + 도수 <b>21</b>.</div>
@@ -3915,7 +3918,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name">내외39</div><div class="rgH-badges"><span class="abv-badge">39도</span></div></div>
+<div class="rgH-left"><div class="rgH-name"><a href="brand/내외39">내외39</a></div><div class="rgH-badges"><span class="abv-badge">39도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>내외</b> 브랜드명 + 도수 <b>39</b>.</div>
@@ -3932,7 +3935,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">오미나라<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2021.08</div><div class="rgH-name">키소주 38·22·16.5도</div><div class="rgH-badges"><span class="abv-badge">38·22·16.5도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2021.08</div><div class="rgH-name"><a href="brand/키소주-38-22-16-5도">키소주 38·22·16.5도</a></div><div class="rgH-badges"><span class="abv-badge">38·22·16.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>키(KHEE)</b> 브랜드명 + 도수별 라인업.</div>
@@ -3940,7 +3943,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2026.07.03</div><div class="rgH-name">키소맥</div><div class="rgH-badges"><span class="abv-badge">6도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.07.03</div><div class="rgH-name"><a href="brand/키소맥">키소맥</a></div><div class="rgH-badges"><span class="abv-badge">6도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>키</b>소주 + <b>소맥</b>(소주+맥주).</div>
@@ -3962,7 +3965,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">OB맥주제주공장<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name">제주올레소주 곱들락</div><div class="rgH-badges"><span class="abv-badge">18도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name"><a href="brand/제주올레소주-곱들락">제주올레소주 곱들락</a></div><div class="rgH-badges"><span class="abv-badge">18도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주 올레길에서 이름 착안. <b>곱들락</b>은 제주 방언으로 순한 맛을 뜻하는 기본형 라인.</div>
@@ -3970,7 +3973,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name">제주올레소주 산도롱</div><div class="rgH-badges"><span class="abv-badge">20.1도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name"><a href="brand/제주올레소주-산도롱">제주올레소주 산도롱</a></div><div class="rgH-badges"><span class="abv-badge">20.1도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주 올레길에서 이름 착안. <b>산도롱</b>은 제주 방언으로 독한 맛을 뜻하는 고도수 라인.</div>
@@ -3978,7 +3981,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2017.09</div><div class="rgH-name">푸른밤</div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2017.09</div><div class="rgH-name"><a href="brand/푸른밤">푸른밤</a></div><div class="rgH-badges"><span class="abv-badge">16.9도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주의 <b>푸른 밤바다</b> 정취를 차용한 명칭. 2014년 '제주 올레소주'를 전신으로 하며, 한라산소주와 상표권 분쟁 이후 브랜드를 '푸른밤'으로 재정렬해 2017년 9월 공식 출시.</div>
@@ -3986,7 +3989,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name">푸른밤 지픈밤</div><div class="rgH-badges"><span class="abv-badge">20.1도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2019</div><div class="rgH-name"><a href="brand/푸른밤-지픈밤">푸른밤 지픈밤</a></div><div class="rgH-badges"><span class="abv-badge">20.1도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주 방언으로 <b>"깊은 밤"</b>을 뜻하는 <b>지픈밤</b>. 푸른밤보다 도수를 높인 고도주 라인임을 표현.</div>
@@ -3994,7 +3997,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2026.09</div><div class="rgH-name">찰랑</div><div class="rgH-badges"><span class="abv-badge">15도</span><span class="zs-badge">Zero</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2026.09</div><div class="rgH-name"><a href="brand/찰랑">찰랑</a></div><div class="rgH-badges"><span class="abv-badge">15도</span><span class="zs-badge">Zero</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">잔에 소주가 <b>찰랑거리는</b> 모습에서 착안한 이름. 가볍고 부드럽게 즐기는 음용 경험을 표현.</div>
@@ -4008,7 +4011,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">한라산소주<span class="rgH2-count">7종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1950</div><div class="rgH-name">한일소주</div><div class="rgH-badges"><span class="abv-badge">25~30도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1950</div><div class="rgH-name"><a href="brand/한일소주">한일소주</a></div><div class="rgH-badges"><span class="abv-badge">25~30도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">창업 당시 사명 <b>한일(韓一)</b>을 제품명으로 그대로 사용.</div>
@@ -4022,7 +4025,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">1997.10</div><div class="rgH-name">한라산물 순한소주</div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1997.10</div><div class="rgH-name"><a href="brand/한라산물-순한소주">한라산물 순한소주</a></div><div class="rgH-badges"><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">'한라산'+제주 물의 청정 이미지를 담은 '물'+저도수 포지셔닝을 그대로 드러낸 '순한소주'의 결합. 초록병 디자인 때문에 오리지널(투명병, 통칭 '하얀거')과 대비돼 '파란거'라는 애칭으로 20년 넘게 통용됨.</div>
@@ -4030,7 +4033,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2000.01.05</div><div class="rgH-name">한라산 현미소주</div><div class="rgH-badges"><span class="abv-badge">23도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2000.01.05</div><div class="rgH-name"><a href="brand/한라산-현미소주">한라산 현미소주</a></div><div class="rgH-badges"><span class="abv-badge">23도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">원료로 쓴 <b>현미(玄米)</b>를 그대로 제품명에 사용.</div>
@@ -4038,7 +4041,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2014.09</div><div class="rgH-name">올래소주 (한라산 올래)</div><div class="rgH-badges"><span class="abv-badge">17.5도</span><span class="disc-badge">단종</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2014.09</div><div class="rgH-name"><a href="brand/올래소주-한라산-올래">올래소주 (한라산 올래)</a></div><div class="rgH-badges"><span class="abv-badge">17.5도</span><span class="disc-badge">단종</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주어 <b>올레</b>(집으로 이어지는 골목길)를 브랜드화.</div>
@@ -4046,7 +4049,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hallasan21.jpg" alt="한라산21 제품 사진 (한라산 공식 이미지)"><div class="rgH-year">2019</div><div class="rgH-name">한라산21</div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hallasan21.jpg" alt="한라산21 제품 사진 (한라산 공식 이미지)"><div class="rgH-year">2019</div><div class="rgH-name"><a href="brand/한라산21">한라산21</a></div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제주도의 상징이자 대한민국 최고봉 <b>한라산(漢拏山)</b>의 이름을 그대로 브랜드화. 제주 화산암반수·청정 자연 정체성을 이름 자체로 표현. 1950년 창업 4대째 향토기업. 1993년 4월 10일 25도로 첫 출시(직전 '한일'과 동일 도수) 후 2000년 1월 23도로 인하(현미소주 출시와 동시), 이후 20.2도까지 낮아졌다가 2010년대 초중반 한동안 23도('파란 뚜껑')·21도('흰 뚜껑') 두 제품이 병행 유통되기도 했고, 2012년 21도로 정착, 2019년 신제품 "한라산17"과 이름 통일성을 맞춰 기존 "한라산 오리지널"에서 "한라산21"로 명칭 변경.</div>
@@ -4054,7 +4057,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hallasan-sunhan.jpg" alt="한라산 순한 제품 사진 (한라산 공식 이미지)"><div class="rgH-year">2023.05.10</div><div class="rgH-name">한라산 순한</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hallasan-sunhan.jpg" alt="한라산 순한 제품 사진 (한라산 공식 이미지)"><div class="rgH-year">2023.05.10</div><div class="rgH-name"><a href="brand/한라산-순한">한라산 순한</a></div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>한라산</b> 브랜드명 + <b>"순하다"</b>를 결합해 저도수 라인을 직관적으로 표기. 2019년 출시된 "한라산17"(17도)을 4년 만에 대체한 후속 라인.</div>
@@ -4062,7 +4065,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><div class="rgH-year">2025.01</div><div class="rgH-name">오늘도 부드럽게 오름</div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2025.01</div><div class="rgH-name"><a href="brand/오늘도-부드럽게-오름">오늘도 부드럽게 오름</a></div><div class="rgH-badges"><span class="abv-badge">16도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>오름</b> = 제주 방언으로 화산 분출로 생긴 <b>기생화산(소형 화산 언덕)</b>. 제주 전역에 360여 개가 있어 제주의 상징적 지형. 창립 75주년을 맞아 <b>"도민과 함께 밝은 미래로 다시 올라선다"</b>는 의지를 표현. 한라산 윗세오름의 산세와 떠오르는 태양을 병 라벨에 형상화.</div>
@@ -4078,7 +4081,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">한라산소주<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1995.01.03</div><div class="rgH-name">허벅술</div><div class="rgH-badges"><span class="abv-badge">35도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1995.01.03</div><div class="rgH-name"><a href="brand/허벅술">허벅술</a></div><div class="rgH-badges"><span class="abv-badge">35도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>허벅</b>은 제주 방언으로 <b>물을 길어 나르는 전통 항아리(옹기 항아리)</b>를 뜻함. 제주 여성들이 물을 길어 나르던 허벅의 이미지로 제주 전통·여성성·청정수 이미지를 동시에 표현. 제주 고유 언어가 이름이 된 사례. 병 외부에는 제주 서예가 소암 현중화 선생의 친필이 새겨짐.</div>
@@ -4086,7 +4089,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2023.11.03</div><div class="rgH-name">한라산1950</div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">2023.11.03</div><div class="rgH-name"><a href="brand/한라산1950">한라산1950</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>1950</b> = 한라산소주 창립 연도(1950년) + 한라산 실제 해발고도 <b>1,950m</b>의 이중 의미. 창업의 역사와 제주 최고봉의 높이를 동시에 담은 중의적 네이밍.</div>
@@ -4100,7 +4103,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">제주술익는집<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1995(추정)</div><div class="rgH-name">고소리술 29도</div><div class="rgH-badges"><span class="abv-badge">29도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1995(추정)</div><div class="rgH-name"><a href="brand/고소리술-29도">고소리술 29도</a></div><div class="rgH-badges"><span class="abv-badge">29도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>고소리</b>는 제주 방언으로 <b>소줏고리(증류 기구)</b>를 뜻함. 즉 "소줏고리로 만든 술"이라는 제조 도구 자체가 제품명이 된 케이스. 제주 고유의 언어·문화가 담긴 이름.</div>
@@ -4108,7 +4111,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1995(추정)</div><div class="rgH-name">고소리술 40도</div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-left"><div class="rgH-year">1995(추정)</div><div class="rgH-name"><a href="brand/고소리술-40도">고소리술 40도</a></div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>고소리술</b> 브랜드명 + 도수 <b>40</b>. 도자기 세트로 출시하는 주력 라인.</div>
@@ -5327,7 +5330,8 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
         det: detEl ? detEl.innerHTML : '',
         chg: chgHtml,
         spec: specHtml,
-        photos: photos
+        photos: photos,
+        href: nameEl.querySelector('a') ? nameEl.querySelector('a').getAttribute('href') : '' // build_brand_pages.py가 건 브랜드 상세 페이지 링크
       };
     });
   }
@@ -5374,6 +5378,7 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
     if (abvEl) meta += abvEl.outerHTML;
     if (yearEl) meta += yearEl.outerHTML;
     if (mfrName) meta += '<span class="brandinfo-mfr">' + escHtml(mfrName) + '</span>';
+    if (info && info.href) meta += '<a class="brandinfo-link" href="' + escHtml(info.href) + '">상세 페이지 →</a>';
 
     var rows = '';
     if (info && info.ety) rows += row(accentCls, '이름 유래', info.ety);
