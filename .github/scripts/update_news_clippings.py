@@ -145,7 +145,7 @@ def dedupe(items, target_count, threshold):
 def render_li(it):
     title = html.escape(it['title'])
     source = html.escape(it['source'])
-    date = it['date'].astimezone(datetime.timezone.utc).strftime('%Y.%m.%d')
+    date = it['date'].astimezone(KST).strftime('%Y.%m.%d')
     link = html.escape(it['link'], quote=True)
     return (
         f'<li class="bv-news-item"><a href="{link}" target="_blank" rel="noopener">'

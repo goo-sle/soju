@@ -88,7 +88,7 @@ a,.feedback-fab,.feedback-panel button[type="submit"]{ cursor:url("data:image/pn
     padding:24px; text-decoration:none;
     transition:transform .15s ease;
   }
-  .bento .cta:hover{ transform:translateY(-2px); }
+  @media (hover:hover){ .bento .cta:hover{ transform:translateY(-2px); } }
   .bento .cta .go{ font-size:28px; font-weight:800; }
   .bento .cta .sub{ font-size:13px; color:#aaa; }
   .card{
@@ -97,7 +97,7 @@ a,.feedback-fab,.feedback-panel button[type="submit"]{ cursor:url("data:image/pn
     text-decoration:none; font-weight:700;
     transition:transform .15s ease;
   }
-  .card:hover{ transform:translateY(-2px); }
+  @media (hover:hover){ .card:hover{ transform:translateY(-2px); } }
   .card .ico{ font-size:24px; }
   .card .name{ font-size:14px; }
   .c1{ background:#bcd9ff; grid-column:span 2; }
@@ -136,7 +136,7 @@ a,.feedback-fab,.feedback-panel button[type="submit"]{ cursor:url("data:image/pn
     display:flex; align-items:center; gap:6px;
     transition:transform .15s ease;
   }
-  .feedback-fab:hover{ transform:scale(1.05); }
+  @media (hover:hover){ .feedback-fab:hover{ transform:scale(1.05); } }
   .feedback-fab svg{ width:16px; height:16px; flex-shrink:0; }
   .feedback-panel{
     position:fixed; bottom:78px; right:20px; z-index:1000;
