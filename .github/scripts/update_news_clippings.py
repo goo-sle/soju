@@ -63,6 +63,7 @@ DOMAIN_NAME_FALLBACK = {
     'nvp.co.kr': '뉴스비전e', 'mhnse.com': 'MHN', 'thefairnews.co.kr': '더페어',
     'ebn.co.kr': 'EBN', 'dt.co.kr': '디지털타임스',
     'newscenterkorea.com': '뉴스센터',
+    'kookje.co.kr': '국제신문', 'ccdailynews.com': '충청일보',
 }
 
 
