@@ -93,10 +93,16 @@ def render(b, siblings):
 
     facts = [('분류', b['cat']), ('도수', abv), ('출시', b['year']), ('제조사', b['company']), ('지역', b['region'])]
     facts_html = ''.join('<div><dt>%s</dt><dd>%s</dd></div>' % (k, e(v)) for k, v in facts if v)
-    photo = ''
+    photo = more = og_image = ''
     if b['photos']:
         src, alt = b['photos'][0]
         photo = '<img class="photo" src="../%s" alt="%s">' % (e(src), e(alt or b['name']))
+        og_image = '\n<meta property="og:image" content="%s/%s">' % (SITE, e(src))
+    if len(b['photos']) > 1:
+        # 시대별 사진(guide 팝업의 페이지 넘기기 대상)은 대표 사진 아래 썸네일 줄로 — 캡션은 alt에서 출처 괄호만 뗌
+        more = '<div class="more">%s</div>' % ''.join(
+            '<figure><img src="../%s" alt="%s" loading="lazy"><figcaption>%s</figcaption></figure>'
+            % (e(src), e(alt), e(re.sub(r'\s*\([^)]*이미지\)$', '', alt))) for src, alt in b['photos'][1:])
     sib = ''.join('<li><a href="%s">%s</a></li>' % (s['slug'], e(s['name'])) for s in siblings)
     breadcrumb = ('{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":['
                   '{"@type":"ListItem","position":1,"name":"대한민국 소주 가이드","item":"%s/guide"},'
@@ -108,6 +114,7 @@ def render(b, siblings):
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{title}</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="canonical" href="{url}">
 <meta name="description" content="{desc}">
 <meta property="og:site_name" content="대한민국 소주 가이드">
@@ -115,12 +122,12 @@ def render(b, siblings):
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{url}">
-<meta property="og:locale" content="ko_KR">
+<meta property="og:locale" content="ko_KR">{og_image}
 <script type="application/ld+json">{breadcrumb}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-01Z00FVDNW"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-01Z00FVDNW');</script>
 <style>
-:root{{--ink:#17170F;--muted:#6E6858;--line:#DCD6C6;--bg:#F5F3EE;--brand:#003D2E;--brand-2:#0B8457;--cat-diluted:#4f8fd1;--cat-flavor:#e28a4d;--cat-distilled:#9c7a5c}}
+:root{{--ink:#17170F;--muted:#6E6858;--line:#DCD6C6;--bg:#F5F3EE;--brand:#003D2E;--brand-2:#0A7A50;--cat-diluted:#4f8fd1;--cat-flavor:#e28a4d;--cat-distilled:#9c7a5c}}
 *{{box-sizing:border-box}}
 body{{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",'Noto Sans KR',sans-serif;line-height:1.7}}
 main{{max-width:760px;margin:0 auto;padding:8px 16px 64px}}
@@ -134,6 +141,8 @@ h1{{font-size:clamp(26px,5vw,36px);font-weight:900;margin:0 0 4px;letter-spacing
 .kw{{color:var(--muted);margin:0 0 20px}}
 .top{{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;margin-bottom:24px}}
 .photo{{width:180px;aspect-ratio:3/4;object-fit:cover;border-radius:8px;background:#fff}}
+.more{{display:flex;flex-wrap:wrap;gap:12px;margin:-8px 0 24px}} .more figure{{margin:0;width:110px}}
+.more img{{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px;background:#fff}} .more figcaption{{font-size:12px;line-height:1.4;word-break:keep-all;color:var(--muted);margin-top:4px}}
 dl{{flex:1;min-width:220px;margin:0;display:grid;gap:6px;border-left:4px solid var(--{cat_cls},var(--line));padding-left:14px}}
 dl div{{display:flex;gap:12px}} dt{{width:52px;color:var(--muted);font-weight:700}} dd{{margin:0;font-weight:700}}
 section{{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:14px}}
@@ -150,14 +159,14 @@ ul{{margin:0;padding-left:18px}} a{{color:var(--brand-2)}}
 <main>
 <h1>{name}</h1>
 <p class="kw">{kw}</p>
-<div class="top">{photo}<dl>{facts}</dl></div>
+<div class="top">{photo}<dl>{facts}</dl></div>{more}
 {sections}
 <p class="back"><a href="../guide#region">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>
 '''.format(title=e(title), url=url, desc=e(desc), breadcrumb=breadcrumb, cat_cls=b['cat_cls'],
-           name=e(b['name']), kw=e(b['kw']), photo=photo, facts=facts_html,
+           name=e(b['name']), kw=e(b['kw']), photo=photo, more=more, og_image=og_image, facts=facts_html,
            sections=section('이름 유래', b['ety']) + section('상세 연혁', b['det']) +
            section('변경 이력', b['chg']) + section('스페셜 에디션', b['spec']) +
            section('%s의 다른 소주' % e(b['company']), sib and '<ul>%s</ul>' % sib))
