@@ -3,4 +3,4 @@ Allow: /
 
 Sitemap: https://xn--9l4b29k.kro.kr/sitemap.xml
 
-#DaumWebMasterTool:9908f36b7ca9d4f539653c3b049a7ce518c34114482d7beef6659fa1d0867347:n2D93vW3XW4Kmae1+d0oZQ==
+#DaumWebMasterTool:df7be68fa0933dcdb3da1f82ef59283ecd43691267c8d8fe669cb805816bbfee:n2D93vW3XW4Kmae1+d0oZQ==
