@@ -3,3 +3,5 @@ soju.png
 report/*
 !report/images/
 team.md
+.claude/
+skills-lock.json
