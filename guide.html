@@ -409,7 +409,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   padding: 6px 12px; cursor: var(--cur-p), pointer; list-style: none;
 }
 .rgH2-head::-webkit-details-marker { display: none; }
-.rgH2-head:hover { filter: brightness(1.08); }
+@media (hover: hover) { .rgH2-head:hover { background: var(--surface-soft); } }
 .rgH2-count { font-size: 8.2pt; font-weight: 700; background: var(--bg); color: var(--ink); padding: 1px 7px; border-radius: 999px; }
 .rgH2-caret { margin-left: auto; font-size: 9pt; color: var(--ink-muted); transition: transform .15s; }
 .rgH2-group[open] .rgH2-caret { transform: rotate(180deg); }
@@ -558,7 +558,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   display: inline-block;
   padding: 1px 6px;
   border-radius: 8px;
-  font-size: 7.6pt;
+  font-size: 8.25pt;
   font-weight: 800;
   color: #fff;
   white-space: normal;
@@ -632,7 +632,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 }
 @media (hover: hover) { .idx-quicknav-chip:hover { background: var(--brand); transform: translateY(-1px); } }
 .idx-quicknav-chip-all { background: var(--brand); }
-.idx-quicknav-chip-all:hover { background: var(--brand-2); }
+@media (hover: hover) { .idx-quicknav-chip-all:hover { background: var(--brand-2); } }
 .idx-quicknav-wrap { position: relative; margin-bottom: 4px; }
 .idx-quicknav-fade {
   position: absolute; top: 0; bottom: 14px; width: 40px; pointer-events: none;
@@ -766,7 +766,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   margin-bottom: 2px;
 }
 .idx-abv { color: var(--ink-muted); font-size: 8.3pt; font-weight: 600; white-space: nowrap; }
-.idx-year { color: var(--ink-muted); font-size: 7.6pt; font-weight: 600; white-space: nowrap; }
+.idx-year { color: var(--ink-muted); font-size: 8.25pt; font-weight: 600; white-space: nowrap; }
 .idx-brand-kw { color: var(--ink-muted); font-size: 8.3pt; line-height: 1.4; }
 .idx-brand-kw .idx-cat { margin-right: 5px; }
 .idx-search-hit { background: var(--highlight); border-radius: 2px; padding: 0 1px; color: var(--ink); }
@@ -816,7 +816,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .idx-group-count {
   display: inline-block; padding: 1px 9px; border-radius: 8px;
   font-size: 8.6pt; font-weight: 700; color: var(--ink);
-  border: 1px solid rgba(26,26,46,.35);
+  border: 1px solid color-mix(in srgb, var(--timeline-dot) 35%, transparent);
   white-space: nowrap;
 }
 .idx-group-toggle .arrow, .idx-card-header .arrow { display: inline-block; transition: transform 0.15s; font-size: 9pt; }
@@ -1404,6 +1404,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">C1블루</span></div><div class="idx-brand-meta"><span class="idx-abv">16.5도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">2023.02 무가당 재출시, 몽드셀렉션 은상</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">강알리</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">2024.01 출시, 광안리 사투리</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">다이아몬드</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">2021.03 출시, 저도수 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">고급소주</span></div><div class="idx-brand-meta"><span class="idx-abv">16.7도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">2019.06.14 출시, 벌꿀 함량 3배·투명 병</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">즐거워예</span></div><div class="idx-brand-meta"><span class="idx-abv">16.2도</span><span class="idx-year">2011</span></div><div class="idx-brand-kw">2011.06 출시, 상황별 네이밍(조문용 '그리워예')</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">선소주</span></div><div class="idx-brand-meta"><span class="idx-year">1982</span></div><div class="idx-brand-kw">C1 이전 주력 라인</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">선타임(대선골드)</span></div><div class="idx-brand-meta"><span class="idx-year">1993</span></div><div class="idx-brand-kw">C1 이전 프리미엄 라인</div></div>
@@ -3122,7 +3123,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">나뭇잎 끝에 맺히는 <b>이슬</b>의 감성적 이미지. <b>잎새(나뭇잎)</b> + 이슬이 맺힌다는 자연 이미지의 합성 네이밍. 깨끗하고 맑은 소주를 표현.</div>
-<div class="det">보해양조(1950년 전남 목포 창업, 현 본사 광주광역시 및 목포, 주 공장 영암) 대표 소주. 100% 자연 감미료·인공조미료 미첨가 강조. 광주·전남 대표 소주.</div>
+<div class="det">보해양조(1950년 전남 목포 창업, 현 본사 광주광역시 및 목포, 주 공장 영암) 대표 소주. 100% 자연 감미료·인공조미료 미첨가 강조. 광주·전남 대표 소주. 2025년 7월에는 병 없이 파우치에 담은 5L·10L 대용량 '잎새주 파티팩'을 출시했다.</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">2002</div><div class="tl-event-what">19.8도로 출시</div></div>
 <div class="tl-event"><div class="tl-event-when">2016</div><div class="tl-event-what">18.5도로 인하</div></div>
@@ -3130,6 +3131,11 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="tl-event"><div class="tl-event-when">2019</div><div class="tl-event-what">17.3도로 인하</div></div>
 <div class="tl-event"><div class="tl-event-when">2022</div><div class="tl-event-what">16.5도로 인하</div></div>
 <div class="tl-event"><div class="tl-event-when">2024</div><div class="tl-event-what">16도로 인하</div></div>
+</div>
+<div class="spec tl-events">
+<div class="tl-event"><div class="tl-event-when">2024</div><div class="tl-event-what">'택시운전사×잎새주' — 5·18 민주화운동 기념 한정 라벨, 이후 매년 5월 새 디자인으로 출시</div></div>
+<div class="tl-event"><div class="tl-event-when">2025.12</div><div class="tl-event-what">크리스마스 에디션 — 잎새주 360mL·파티팩 5L 연말 한정 라벨, 은목서 심볼 트리와 병오년 붉은 말 일러스트</div></div>
+<div class="tl-event"><div class="tl-event-when">2026.04</div><div class="tl-event-what">'택시운전사×잎새주' 3번째 에디션 — 광주권 한정 유통, GS25 200mL 예약 판매</div></div>
 </div>
 </div>
 </div>
@@ -3184,7 +3190,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">이강주(주)<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">1991</div><div class="rgH-name"><a href="brand/이강주-25도">이강주 25도</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/igangju-25.jpg" alt="이강주 25도 제품 사진 (전주이강주 공식 이미지, 현행 디자인)" loading="lazy"><div class="rgH-year">1991</div><div class="rgH-name"><a href="brand/이강주-25도">이강주 25도</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이(梨, 배)</b> + <b>강(薑, 생강)</b> + <b>주(酒, 술)</b>. 배(梨)와 생강(薑)을 넣어 빚은 술이라는 뜻을 한자로 직접 표현. 조선 3대 명주 중 하나로, 황해도·전라도 지역 전통 배 산지와 생강 산지를 반영한 작명.</div>
@@ -3192,7 +3198,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2006</div><div class="rgH-name"><a href="brand/이강주-19도">이강주 19도</a></div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/igangju-19.jpg" alt="이강주 19도 제품 사진 (전주이강주 공식 이미지)" loading="lazy"><div class="rgH-year">2006</div><div class="rgH-name"><a href="brand/이강주-19도">이강주 19도</a></div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이강주</b> 브랜드명 + 도수 <b>19</b>.</div>
@@ -3200,7 +3206,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2014</div><div class="rgH-name"><a href="brand/이강주-38도">이강주 38도</a></div><div class="rgH-badges"><span class="abv-badge">38도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/igangju-38.jpg" alt="이강주 38도 '명작' 도자기 병 제품 사진 (전주이강주 공식 이미지)" loading="lazy"><div class="rgH-year">2014</div><div class="rgH-name"><a href="brand/이강주-38도">이강주 38도</a></div><div class="rgH-badges"><span class="abv-badge">38도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>이강주</b> 브랜드명 + 도수 <b>38</b>.</div>
@@ -3314,7 +3320,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="cat-subhead">🍃 희석식</div>
 
 <details class="rgH2-group">
-<summary class="rgH2-head cat-diluted">대선주조<span class="rgH2-count">11종</span><span class="rgH2-caret">▾</span></summary>
+<summary class="rgH2-head cat-diluted">대선주조<span class="rgH2-count">12종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
 <div class="rgH-left"><img class="rgH-photo" src="report/images/brands/daesun-2024.jpg" alt="대선 2024 리뉴얼 디자인 제품 사진 (대선주조 공식 이미지)" loading="lazy"><div class="rgH-year">1965(추정)</div><div class="rgH-name"><a href="brand/대선">대선</a></div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
@@ -3374,6 +3380,12 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>C1(씨원)</b> 메인 브랜드에 <b>Blue(청색·깔끔함)</b>를 결합. 부드럽고 청량한 소주라는 이미지를 색상으로 표현. 2014년 출시 당시 맑고 투명한 파란빛 병 디자인으로 화제.</div>
 <div class="det">2014~2016년 출시 → 단종 후 2022년 재출시(무가당). 음향진동숙성공법(클래식 음악 음파 적용)으로 숙성. 야자숯·대나무숯 5중 수처리. 몽드 셀렉션 은상 수상 이력.</div>
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><div class="rgH-year">2019.06.14</div><div class="rgH-name"><a href="brand/고급소주">고급소주</a></div><div class="rgH-badges"><span class="abv-badge">16.7도</span></div></div>
+<div class="rgH-right">
+<div class="det">2019년 6월 14일 유흥업소용으로 먼저 출시. 20·30세대를 겨냥해 기존 C1·대선(16.9도)보다 0.2도 낮춘 16.7도, 벌꿀 함량을 3배로 늘리고 듀얼숙성공법을 적용, 투명 병에 담았다.</div>
 </div>
 </div>
 <div class="rgH-card cat-diluted">
@@ -4933,7 +4945,9 @@ function showTab(id, push) {
   if (typeof gtag === 'function') gtag('event', 'tab_view', { tab_name: TAB_LABELS[id] || id });
 }
 window.addEventListener('popstate', function (event) {
-  showTab((event.state && event.state.tab) || 'browse', false);
+  var st = event.state || {};
+  showTab(st.tab || 'browse', false);
+  if (st.region) showRegion(st.region, false);
 });
 function setRegionIntroVisible(visible) {
   var mapWrap = document.querySelector('.kr-map-nav-wrap');
@@ -4945,7 +4959,10 @@ function setRegionIntroVisible(visible) {
   var regionStats = document.getElementById('regionStats');
   if (regionStats) regionStats.style.display = visible ? '' : 'none';
 }
-function showRegion(id) {
+function showRegion(id, push) {
+  var state = { tab: 'region', region: id };
+  if (push === false) history.replaceState(state, '', location.pathname);
+  else history.pushState(state, '', location.pathname);
   document.querySelectorAll('.region-detail').forEach(function (el) {
     el.classList.remove('active');
     Array.prototype.forEach.call(el.children, function (child) { child.classList.remove('bv-fade-in'); });
@@ -5233,14 +5250,20 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
 })();
 (function () {
   var id = '';
+  var region = '';
   var hashTab = (location.hash || '').slice(1);
   if (TAB_LABELS.hasOwnProperty(hashTab)) {
     id = hashTab;
+  } else if (/^region-/.test(hashTab) && document.getElementById(hashTab)) {
+    id = 'region';
+    region = hashTab.slice(7);
   } else {
     try { id = sessionStorage.getItem('sojuGuideTab') || ''; } catch (e) {}
+    if (id === 'region' && history.state && history.state.region) region = history.state.region;
   }
   if (id) showTab(id, false);
-  history.replaceState({ tab: id || 'browse' }, '', location.pathname);
+  if (region) showRegion(region, false);
+  else history.replaceState({ tab: id || 'browse' }, '', location.pathname);
   try { sessionStorage.setItem('sojuGuideVisited', '1'); } catch (e) {}
 })();
 </script>
@@ -5293,16 +5316,23 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
 })();
 </script>
 <script>
+// 모달이 열린 동안 오버레이→body 경로의 형제 요소를 inert로 막아 Tab 포커스가 배경으로 빠지지 않게 함(aria-modal 실제 동작)
+function setModalInert(overlay, on) {
+  for (var el = overlay; el.parentElement && el !== document.body; el = el.parentElement) {
+    Array.prototype.forEach.call(el.parentElement.children, function (sib) { if (sib !== el) sib.inert = on; });
+  }
+}
 (function(){
   var openBtn = document.getElementById('methodHelpBtn');
   var closeBtn = document.getElementById('methodHelpClose');
   var overlay = document.getElementById('methodHelpOverlay');
   if (!openBtn || !overlay) return;
   var lastFocus = null; // 닫을 때 포커스를 돌려놓을 요소(열기 버튼)
-  function open(){ lastFocus = document.activeElement; overlay.classList.add('open'); closeBtn.focus(); }
+  function open(){ lastFocus = document.activeElement; overlay.classList.add('open'); setModalInert(overlay, true); closeBtn.focus(); }
   function close(){
     if (!overlay.classList.contains('open')) return; // Esc는 모달이 닫혀 있어도 들어옴 — 포커스를 빼앗지 않게
     overlay.classList.remove('open');
+    setModalInert(overlay, false);
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
   openBtn.addEventListener('click', open);
@@ -5423,12 +5453,14 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
     bodyEl.innerHTML = '<div class="method-grid method-grid-stack">' + rows + '</div>';
     lastFocus = document.activeElement;
     overlay.classList.add('open');
+    setModalInert(overlay, true);
     closeBtn.focus();
   }
   var lastFocus = null; // 닫을 때 포커스를 돌려놓을 요소(팝업을 연 .idx-brand 행)
   function close() {
     if (!overlay.classList.contains('open')) return; // Esc는 팝업이 닫혀 있어도 들어옴 — 포커스를 빼앗지 않게
     overlay.classList.remove('open');
+    setModalInert(overlay, false);
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
 

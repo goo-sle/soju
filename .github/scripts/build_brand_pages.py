@@ -46,6 +46,7 @@ def parse(text):
     brands = []
     regions = re.split(r'<div class="region-detail" id="region-', text)[1:]
     for reg in regions:
+        region_id = reg.split('"')[0]
         region = first(r'<div class="region-label-title">([^<]*)</div>', reg).strip()
         for grp in re.split(r'<details class="rgH2-group">', reg)[1:]:
             company = strip_tags(first(r'<summary class="rgH2-head[^"]*">(.*?)<span', grp))
@@ -57,7 +58,7 @@ def parse(text):
                 cat_cls = card.split('"')[0]
                 cat, kw = idx.get(name, (CAT_LABEL.get(cat_cls, ''), ''))
                 brands.append({
-                    'name': name, 'slug': slugify(name), 'region': region, 'company': company,
+                    'name': name, 'slug': slugify(name), 'region': region, 'region_id': region_id, 'company': company,
                     'cat': cat, 'cat_cls': cat_cls, 'kw': kw,
                     'year': strip_tags(first(r'<div class="rgH-year">(.*?)</div>', card)),
                     'abv': strip_tags(first(r'<span class="abv-badge">(.*?)</span>', card)),
@@ -161,12 +162,12 @@ ul{{margin:0;padding-left:18px}} a{{color:var(--brand-2)}}
 <p class="kw">{kw}</p>
 <div class="top">{photo}<dl>{facts}</dl></div>{more}
 {sections}
-<p class="back"><a href="../guide#region">지역별 소주 브랜드 전체 보기 →</a></p>
+<p class="back"><a href="../guide#region-{region_id}">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>
 '''.format(title=e(title), url=url, desc=e(desc), breadcrumb=breadcrumb, cat_cls=b['cat_cls'],
-           name=e(b['name']), kw=e(b['kw']), photo=photo, more=more, og_image=og_image, facts=facts_html,
+           name=e(b['name']), region_id=b['region_id'], kw=e(b['kw']), photo=photo, more=more, og_image=og_image, facts=facts_html,
            sections=section('이름 유래', b['ety']) + section('상세 연혁', b['det']) +
            section('변경 이력', b['chg']) + section('스페셜 에디션', b['spec']) +
            section('%s의 다른 소주' % e(b['company']), sib and '<ul>%s</ul>' % sib))
