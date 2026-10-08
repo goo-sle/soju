@@ -787,23 +787,25 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .idx-brand-kw .idx-cat { margin-right: 5px; }
 /* 빠른 찾기 라벨형 브랜드 줄 (26.10 리디자인): 원형 사진 + 이름 + 빨간 도수 배지 */
 .idx-brand {
-  display: grid; grid-template-columns: 52px 1fr; column-gap: 10px; align-items: center;
-  margin: 0 0 8px; padding: 6px 22px 6px 6px; background: #fff;
+  display: grid; grid-template-columns: 40px 1fr; column-gap: 8px; row-gap: 1px; align-items: center;
+  margin: 0 0 6px; padding: 5px 20px 5px 5px; background: #fff;
   border: 2px solid var(--brand); border-radius: 40px 12px 12px 40px;
 }
 .idx-brand:last-child { border-bottom: 2px solid var(--brand); margin-bottom: 0; }
 .idx-brand:has(.idx-cat) { border-left-color: var(--brand); }
 @media (hover: hover) { .idx-brand:hover { border-left-width: 2px; } }
 .idx-brand:focus-visible { border-left-width: 2px; }
-.idx-brand > :not(.idx-photo) { grid-column: 2; }
+/* 1줄: 분류 배지·상품명, 2줄: 설명. 도수·연도는 클릭 팝업에서 보이므로 목록에선 숨김(팝업·정렬이 읽으므로 DOM은 유지) */
+.idx-brand .idx-brand-top { grid-column: 2; align-items: center; gap: 5px; margin: 0; }
+.idx-brand .idx-brand-kw { grid-column: 2; }
+.idx-brand .idx-brand-meta { display: none; }
 .idx-photo {
-  grid-column: 1; grid-row: 1 / span 3; width: 52px; height: 52px; border-radius: 50%;
-  border: 3px solid var(--brand-3); background: var(--surface-soft); object-fit: cover;
-  display: grid; place-content: center; font-family: "Do Hyeon", sans-serif; font-size: 20px; color: var(--brand);
+  grid-column: 1; grid-row: 1 / span 2; width: 40px; height: 40px; border-radius: 50%;
+  border: 2px solid var(--brand-3); background: var(--surface-soft); object-fit: cover;
+  display: grid; place-content: center; font-family: "Do Hyeon", sans-serif; font-size: 16px; color: var(--brand);
 }
 .idx-brand-name { font-family: "Do Hyeon", sans-serif; font-weight: 400; font-size: 11.5pt; color: var(--brand); }
 .idx-brand-meta { justify-content: flex-start; }
-.idx-abv { background: var(--accent-red-ink); color: #fff; border-radius: 999px; padding: 0 8px; font-weight: 700; }
 .idx-search-hit { background: var(--highlight); border-radius: 2px; padding: 0 1px; color: var(--ink); }
 @media print {
   .idx-search { display: none; }
