@@ -34,6 +34,7 @@
   --c-teal: #00796b;
   --c-deep: #4a148c;
   --c-amber: #e65100;
+  --c-amber-ink: color-mix(in srgb, var(--c-amber) 85%, black);
   --ink: #17170F;
   --ink-muted: #6E6858;
   --line: #DCD6C6;
@@ -51,6 +52,7 @@
   --highlight: #ffd873;
   --timeline-dot: #1a1a2e;
   --accent-red: #e94560;
+  --accent-red-ink: color-mix(in srgb, var(--accent-red) 85%, black);
   --cat-diluted: #4f8fd1;
   --cat-flavor: #e28a4d;
   --cat-distilled: #9c7a5c;
@@ -244,7 +246,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
   padding: 16px 20px; text-decoration: none; color: inherit; cursor: var(--cur-p), pointer;
   transition: background .15s ease;
 }
-.bv-news-item a:hover { background: var(--bg); }
+@media (hover: hover) { .bv-news-item a:hover { background: var(--bg); } }
 .bv-news-title { font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.5; }
 .bv-news-meta { display: flex; align-items: baseline; gap: 10px; flex-shrink: 0; white-space: nowrap; }
 .bv-news-source { font-size: 12px; font-weight: 700; color: var(--brand); }
@@ -306,7 +308,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 /* ── FEEDBACK FAB ── */
 .feedback-fab {
   position: fixed; bottom: 20px; right: 20px; z-index: 1000;
-  background: var(--accent-red); color: #fff; border: none; border-radius: 999px;
+  background: var(--accent-red-ink); color: #fff; border: none; border-radius: 999px;
   padding: 10px 16px; font-size: 10.6pt; font-weight: 700; cursor: var(--cur-p), pointer;
   box-shadow: 0 6px 18px color-mix(in srgb, var(--accent-red) 40%, transparent);
   display: flex; align-items: center; gap: 6px;
@@ -328,7 +330,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 }
 .feedback-panel textarea { min-height: 70px; resize: vertical; }
 .feedback-panel button[type="submit"] {
-  width: 100%; background: var(--accent-red); color: #fff; border: none; border-radius: 6px;
+  width: 100%; background: var(--accent-red-ink); color: #fff; border: none; border-radius: 6px;
   padding: 7px; font-size: 10.6pt; font-weight: 700; cursor: var(--cur-p), pointer;
 }
 .feedback-panel .fb-msg { font-size: 9pt; color: var(--ink-muted); margin-top: 5px; min-height: 12px; }
@@ -485,9 +487,9 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .tl-era-1 .tl-era-range { background: var(--timeline-dot); }
 .tl-era-2 .tl-era-range { background: var(--c-blue); }
 .tl-era-3 .tl-era-range { background: var(--c-teal); }
-.tl-era-4 .tl-era-range { background: var(--c-amber); }
+.tl-era-4 .tl-era-range { background: var(--c-amber-ink); }
 .tl-era-5 .tl-era-range { background: var(--c-deep); }
-.tl-era-6 .tl-era-range { background: var(--accent-red); }
+.tl-era-6 .tl-era-range { background: var(--accent-red-ink); }
 .tl-era-1::before { background: var(--timeline-dot); }
 .tl-era-2::before { background: var(--c-blue); }
 .tl-era-3::before { background: var(--c-teal); }
@@ -536,7 +538,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   background: var(--timeline-dot); border: 3px solid #fff;
   box-shadow: 0 0 0 2px var(--timeline-dot);
 }
-.mfr-year { display: block; font-size: 10.6pt; font-weight: 900; color: var(--accent-red); margin-bottom: 3px; }
+.mfr-year { display: block; font-size: 10.6pt; font-weight: 900; color: var(--accent-red-ink); margin-bottom: 3px; }
 .mfr-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--ink); }
 .mfr-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
 .mfr-name { font-size: 10.6pt; font-weight: 900; color: var(--ink); }
@@ -567,7 +569,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .idx-cat-b { background: var(--c-blue); }
 .idx-cat-t { background: var(--c-teal); }
 .idx-cat-d { background: var(--c-deep); }
-.idx-cat-a { background: var(--c-amber); }
+.idx-cat-a { background: var(--c-amber-ink); }
 
 /* ── 빠른 찾기 검색/필터 툴바 (Behance 스타일) ── */
 .idx-header.section-header {
@@ -810,9 +812,9 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   user-select: none;
   transition: background .15s ease;
 }
-.idx-group-toggle:hover { background: color-mix(in srgb, var(--c-blue) 14%, transparent); }
+@media (hover: hover) { .idx-group-toggle:hover { background: color-mix(in srgb, var(--c-blue) 14%, transparent); } }
 .idx-group-toggle.idx-group-traditional { border-left-color: var(--c-deep); background: color-mix(in srgb, var(--c-deep) 7%, transparent); }
-.idx-group-toggle.idx-group-traditional:hover { background: color-mix(in srgb, var(--c-deep) 14%, transparent); }
+@media (hover: hover) { .idx-group-toggle.idx-group-traditional:hover { background: color-mix(in srgb, var(--c-deep) 14%, transparent); } }
 .idx-group-count {
   display: inline-block; padding: 1px 9px; border-radius: 8px;
   font-size: 8.6pt; font-weight: 700; color: var(--ink);
@@ -888,7 +890,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .rb-gangwon     { background: var(--c-deep); }
 .rb-chungcheong { background: var(--c-teal); }
 .rb-jeolla      { background: var(--region-jeolla); }
-.rb-gyeongsang  { background: var(--c-amber); }
+.rb-gyeongsang  { background: var(--c-amber-ink); }
 .rb-jeju        { background: var(--region-jeju); }
 .region-detail { display: none; }
 .region-detail.active { display: block; }
@@ -909,7 +911,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .mc-d { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--c-deep); }
 .mc-d .mc-head { color: var(--c-deep); }
 .mc-a { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--c-amber); }
-.mc-a .mc-head { color: var(--c-amber); }
+.mc-a .mc-head { color: var(--c-amber-ink); }
 .mc-gray { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--mc-gray); }
 .mc-gray .mc-head { color: var(--ink); }
 .method-grid-num { gap: 12px; }
@@ -959,7 +961,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   background: var(--surface-soft); border: none; width: 26px; height: 26px; border-radius: 50%;
   font-size: 14px; color: var(--ink-muted); cursor: var(--cur-p), pointer; line-height: 1; flex-shrink: 0;
 }
-.method-modal-close:hover { background: var(--line); color: var(--ink); }
+@media (hover: hover) { .method-modal-close:hover { background: var(--line); color: var(--ink); } }
 .brandinfo-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 6px; }
 .brandinfo-meta:empty { display: none; }
 .brandinfo-mfr { font-size: 8.4pt; font-weight: 700; color: var(--ink-muted); }
@@ -1039,7 +1041,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 }
 .region-jump-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 16px; }
 .region-jump-btn { padding: 6px 14px; font-size: 12px; }
-.region-jump-btn:hover { border-color: var(--brand); }
+@media (hover: hover) { .region-jump-btn:hover { border-color: var(--brand); } }
 .region-jump-btn.current { cursor: default; }
 @media print {
   .region-jump-nav { display: none !important; }
@@ -1161,6 +1163,11 @@ document.addEventListener('DOMContentLoaded', function(){
 (function () {
   // 새 업데이트를 반영할 땐 맨 앞(0번)에 새 항목을 추가하고, 기존 항목은 그대로 뒤로 밀리게 두세요 — 지우지 마세요.
   var bvUpdateEditions = [
+    {
+      label: '26.10', items: [
+        '<b>대선</b> 부산 북항 상어 \'부캉이 에디션\' 한정 라벨 출시(26.10)'
+      ]
+    },
     {
       label: '26.09', items: [
         '<b>처음처럼</b> 20주년 맞아 16도→15.7도 재인하(26.09)',
@@ -1856,8 +1863,10 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="tl-event"><div class="tl-event-when">2026.06</div><div class="tl-event-what">16도 → 15.7도로 조정</div></div>
 </div>
 <div class="spec tl-events">
+<div class="tl-event"><div class="tl-event-when">2026.05</div><div class="tl-event-what">'제주 에디션' — 돌하르방 두꺼비와 유채꽃밭·한라산·돌담길을 담은 3종 라벨, 약 4개월간 제주 지역 식당·주점 한정 판매</div></div>
 <div class="tl-event"><div class="tl-event-when">2026.06</div><div class="tl-event-what">진로×LA다저스 한정판 — 참이슬 후레쉬+에이슬 6종을 묶은 미국(캘리포니아 남부) 한인마트 전용 세트, 다저스 협업 소주잔 포함</div></div>
 <div class="tl-event"><div class="tl-event-when">2026.07</div><div class="tl-event-what">'이슬라이브페스티벌 에디션' — 9.12 인천 송도달빛축제공원 참이슬 뮤직 페스티벌 연계, 이슬방울·두꺼비 캐릭터 공연 일러스트 패키지</div></div>
+<div class="tl-event"><div class="tl-event-when">2026.07</div><div class="tl-event-what">'부산 에디션' — 광안대교를 담은 여름 성수기 부산 지역 한정 라벨</div></div>
 </div>
 </div>
 </div>
@@ -3328,6 +3337,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">회사명 <b>大鮮釀造(대선양조)</b>에서 유래. '大鮮'은 창업 당시 일제강점기에 "大朝鮮(대조선)"을 줄여 민족 자긍심을 담으려 했다는 설이 전해짐. ※ "大(클 대) + 鮮(고울 선) = 크고 훌륭한 술" 해석도 병존. 1930년 창립, 부산 최고령 소주사.</div>
 <div class="det">1965년 양곡관리법 개정으로 쌀 소주 생산이 금지되며 25도 희석식 '大鮮'으로 첫 생산. 2017년 뉴트로 감성으로 재출시해 부산 돌풍. 정통 라인. 원적외선 숙성공법(특허) + 증류식소주원액 블렌딩. 토마틴·벌꿀 첨가 단맛. 2011년 BN그룹 인수, 부산 점유율 1위 경쟁 중.</div>
+<div class="spec tl-events">
+<div class="tl-event"><div class="tl-event-when">2026.10</div><div class="tl-event-what">'부캉이 에디션' — 부산 북항 친수공원 인공수로의 상어 '부캉이'(누적 방문객 100만 명 돌파 기념)가 파도를 타는 한정 라벨</div></div>
+</div>
 </div>
 </div>
 <div class="rgH-card cat-diluted">
@@ -3963,7 +3975,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">오미나라<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2021.08</div><div class="rgH-name"><a href="brand/키소주-38-22-16-5도">키소주 38·22·16.5도</a></div><div class="rgH-badges"><span class="abv-badge">38·22·16.5도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/khee-soju.jpg" alt="키소주 38도 제품 사진 (KHEE 공식 이미지)" loading="lazy"><div class="rgH-year">2021.08</div><div class="rgH-name"><a href="brand/키소주-38-22-16-5도">키소주 38·22·16.5도</a></div><div class="rgH-badges"><span class="abv-badge">38·22·16.5도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>키(KHEE)</b> 브랜드명 + 도수별 라인업.</div>
@@ -4919,8 +4931,8 @@ var TAB_LABELS = {
   companies: '제조사 현황', method: '제조 방법'
 };
 function showTab(id, push) {
-  var curBtn = document.querySelector('.tab-btn.active');
-  var sameTab = curBtn && curBtn.dataset.tab === id;
+  var cur = history.state || {};
+  var sameTab = cur.tab === id && !cur.region; // 지역 상세 → 지도는 다른 화면이라 push
   document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
   var panel = document.getElementById('tab-' + id);
   if (panel) panel.classList.add('active');
@@ -4961,7 +4973,7 @@ function setRegionIntroVisible(visible) {
 }
 function showRegion(id, push) {
   var state = { tab: 'region', region: id };
-  if (push === false) history.replaceState(state, '', location.pathname);
+  if (push === false || (history.state || {}).region === id) history.replaceState(state, '', location.pathname);
   else history.pushState(state, '', location.pathname);
   document.querySelectorAll('.region-detail').forEach(function (el) {
     el.classList.remove('active');
