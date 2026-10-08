@@ -307,12 +307,12 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .bv-table { margin-top: 36px; background: #2F6E50; border-radius: 16px; padding: 30px 28px 38px; }
 .bv-table h2 { color: #F2FFF6; }
 .bv-table .bv-pol-lead { color: #CFE6D8; }
-.bv-pol { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.bv-pol { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
 .bv-pol figure { margin: 0; background: #fff; padding: 8px 8px 10px; border-radius: 3px; transform: rotate(var(--r, 0deg)); box-shadow: 0 10px 18px -12px rgba(0,0,0,.45); }
 .bv-pol img { display: block; width: 100%; aspect-ratio: 3/4; object-fit: cover; }
 .bv-pol figcaption { font-family: "Nanum Pen Script", cursive; font-size: 24px; text-align: center; line-height: 1.2; margin-top: 6px; color: var(--ink); }
 .bv-pol figure:nth-child(1) { --r: -2deg; } .bv-pol figure:nth-child(2) { --r: 1.5deg; }
-.bv-pol figure:nth-child(3) { --r: -1deg; } .bv-pol figure:nth-child(4) { --r: 2deg; }
+.bv-pol figure:nth-child(3) { --r: -1deg; } .bv-pol figure:nth-child(4) { --r: 2deg; } .bv-pol figure:nth-child(5) { --r: -1.5deg; }
 @media screen and (max-width: 640px) {
   .bv-pol { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .bv-menu { padding: 22px 18px; }
@@ -1281,6 +1281,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <h2>지역마다 다른 첫 잔</h2>
 <p class="bv-pol-lead">여행 가면 그 동네 소주부터 찾게 되는 이유.</p>
 <div class="bv-pol">
+<figure><img src="report/images/brands/chamisul-fresh.jpg" alt="참이슬 후레쉬 제품 사진" loading="lazy"><figcaption>서울 참이슬</figcaption></figure>
 <figure><img src="report/images/brands/hallasan21.jpg" alt="한라산 제품 사진" loading="lazy"><figcaption>제주 한라산</figcaption></figure>
 <figure><img src="report/images/brands/daesun-2024.jpg" alt="대선 제품 사진" loading="lazy"><figcaption>부산 대선</figcaption></figure>
 <figure><img src="report/images/brands/goodday-2026.jpg" alt="좋은데이 제품 사진" loading="lazy"><figcaption>경남 좋은데이</figcaption></figure>
