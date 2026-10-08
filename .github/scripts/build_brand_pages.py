@@ -34,7 +34,7 @@ def first(pat, s, default=''):
 
 
 def blocks(cls, card):
-    # .chg/.spec는 카드 안에 여러 개일 수 있음 — 팝업(buildIndex)과 같이 이어붙임
+    # .chg/.spec는 카드 안에 여러 개일 수 있음 — 전부 이어붙여 상세 페이지의 한 섹션으로
     return ''.join(re.findall(r'<div class="%s tl-events">\n(.*?)\n</div>' % cls, card, re.DOTALL))
 
 

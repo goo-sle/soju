@@ -5376,8 +5376,8 @@ function setModalInert(overlay, on) {
   var closeBtn  = document.getElementById('brandInfoClose');
   if (!quickTab || !overlay) return;
 
-  // 지역별 브랜드 탭(#tab-region)의 이름유래(.ety)/상세연혁(.det)/변경이력(.chg)/스페셜에디션(.spec)을
-  // 브랜드명 기준으로 재사용 — 내용 중복 작성 안 함. .chg·.spec은 해당 사실이 있는 브랜드만 카드에 채워두면 됨(없으면 팝업에서 자동으로 숨겨짐)
+  // 지역별 브랜드 탭(#tab-region)의 이름유래(.ety)/상세연혁(.det)을 브랜드명 기준으로 재사용 — 내용 중복 작성 안 함.
+  // 팝업은 이름 유래·상세 연혁만 보여주고, 변경 이력·스페셜 에디션 등 나머지는 브랜드 상세 페이지에서 확인
   var descByName = null;
   function buildIndex() {
     descByName = {};
@@ -5385,21 +5385,15 @@ function setModalInert(overlay, on) {
       var nameEl = card.querySelector('.rgH-name');
       var etyEl = card.querySelector('.ety');
       var detEl = card.querySelector('.det');
-      // 브랜드별로 .chg/.spec이 여러 개(각 1건씩) 있을 수 있어서 모아 이어붙임(연대순 배치는
-      // 편집팀이 카드 안 순서로 조정 — dev.md 참고)
-      var chgHtml = Array.prototype.map.call(card.querySelectorAll('.chg'), function (el) { return el.innerHTML; }).join('');
-      var specHtml = Array.prototype.map.call(card.querySelectorAll('.spec'), function (el) { return el.innerHTML; }).join('');
       // 병 디자인이 여러 시대에 걸쳐 바뀐 브랜드는 .rgH-photo를 여러 개 넣어두면 팝업에서
       // 사진 하단 번호 버튼(1,2,3..)으로 넘겨볼 수 있음 — 0개면 "이미지 준비중", 1개면 그냥 사진만
       var photos = Array.prototype.map.call(card.querySelectorAll('.rgH-photo'), function (el) {
         return { src: el.getAttribute('src'), alt: el.getAttribute('alt') || '' };
       });
-      // .det가 없는 카드도 색인 — 안 그러면 같은 카드의 .ety/.chg/.spec/.rgH-photo까지 전부 버려짐
+      // .det가 없는 카드도 색인 — 안 그러면 같은 카드의 .ety/.rgH-photo까지 전부 버려짐
       if (nameEl) descByName[nameEl.textContent.trim()] = {
         ety: etyEl ? etyEl.innerHTML : '',
         det: detEl ? detEl.innerHTML : '',
-        chg: chgHtml,
-        spec: specHtml,
         photos: photos,
         href: nameEl.querySelector('a') ? nameEl.querySelector('a').getAttribute('href') : '' // build_brand_pages.py가 건 브랜드 상세 페이지 링크
       };
@@ -5455,8 +5449,6 @@ function setModalInert(overlay, on) {
     var kwText = kwEl ? kwEl.textContent.trim() : '';
     var detHtml = (info && info.det) || (kwText ? '<span>' + escHtml(kwText) + '</span>' : '');
     if (detHtml) rows += row(accentCls, '상세 연혁', detHtml);
-    if (info && info.chg) rows += row(accentCls, '변경 이력', info.chg);
-    if (info && info.spec) rows += row(accentCls, '스페셜 에디션', info.spec);
 
     currentPhotos = (info && info.photos) || [];
     if (!currentPhotos.length) {
