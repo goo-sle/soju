@@ -93,7 +93,7 @@ a,.feedback-fab,.feedback-panel button[type="submit"]{ cursor:url("data:image/pn
   }
   .bento .cta{
     grid-column:span 2; grid-row:span 3;
-    background:#111; color:#fff;
+    background:color-mix(in srgb, var(--brand) 55%, black); color:#fff;
     border-radius:20px;
     display:flex; flex-direction:column; justify-content:flex-end;
     padding:24px; text-decoration:none;
@@ -108,13 +108,13 @@ a,.feedback-fab,.feedback-panel button[type="submit"]{ cursor:url("data:image/pn
   .bento .cta .labels img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(.9); transition:filter .3s ease; }
   .bento .cta::after{
     content:""; position:absolute; inset:0; z-index:-1;
-    background:linear-gradient(to top, rgba(17,17,17,.92) 0%, rgba(17,17,17,.55) 38%, rgba(17,17,17,0) 70%);
+    background:linear-gradient(to top, color-mix(in srgb, color-mix(in srgb, var(--brand) 55%, black) 92%, transparent) 0%, color-mix(in srgb, color-mix(in srgb, var(--brand) 55%, black) 55%, transparent) 38%, transparent 70%);
   }
   @media (hover:hover){ .bento .cta:hover .labels img{ filter:saturate(1.1); } }
   .bento .cta .eyebrow{ font-size:12px; font-weight:700; color:#BFD0F2; margin-bottom:6px; }
   @media (hover:hover){ .bento .cta:hover{ transform:translateY(-2px); } }
   .bento .cta .go{ font-size:28px; font-weight:800; }
-  .bento .cta .sub{ font-size:13px; color:#aaa; }
+  .bento .cta .sub{ font-size:13px; color:rgba(255,255,255,.75); }
   .card{
     border-radius:20px; padding:18px; color:#111;
     display:flex; flex-direction:column; justify-content:space-between;
@@ -150,9 +150,9 @@ a,.feedback-fab,.feedback-panel button[type="submit"]{ cursor:url("data:image/pn
   }
   .stat-chip b{ font-weight:800; margin-left:4px; }
   .stat-chip.stat-today{ color:var(--brand-2); }
-  .stat-chip.stat-total{ color:#3a6df0; }
+  .stat-chip.stat-total{ color:var(--brand); }
   .stat-chip.stat-today b{ color:var(--brand-2); }
-  .stat-chip.stat-total b{ color:#1d4fc4; }
+  .stat-chip.stat-total b{ color:var(--brand); }
   .feedback-fab{
     position:fixed; bottom:20px; right:20px; z-index:1000;
     background:var(--brand); color:#fff; border:none; border-radius:999px;

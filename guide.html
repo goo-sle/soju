@@ -197,6 +197,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
   background: #fff; color: var(--ink-muted); font-size: 11px; font-weight: 700; cursor: var(--cur-p), pointer;
 }
 .bv-update-page.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+@media (pointer: coarse) { .bv-update-page { width: 28px; height: 28px; } }
 .bv-module { margin-top: 32px; }
 .bv-module h2 { font-weight: 500; font-size: clamp(22px,3vw,30px); letter-spacing: -.02em; color: var(--brand); margin-bottom: 14px; }
 .bv-module p { color: var(--ink); font-size: 16px; line-height: 1.7; }
@@ -208,10 +209,9 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-why .bv-module h2 { font-weight: 300; font-size: clamp(32px,4.4vw,50px); line-height: 1.15; margin-bottom: 18px; }
 .bv-why .bv-module p { color: var(--ink-muted); }
 .bv-why .bv-module p b { color: var(--ink); }
-.bv-notes { display: flex; flex-direction: column; gap: 16px; }
+.bv-notes { display: flex; flex-direction: column; gap: 12px; }
 .bv-note { display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 4px; padding: 13px 16px;
   box-shadow: 0 2px 0 rgba(0,0,0,.06), 0 10px 18px -14px color-mix(in srgb, var(--brand) 40%, transparent); rotate: var(--r, 0deg); }
-.bv-notes { gap: 12px; }
 .bv-note:nth-child(odd) { --r: -1.5deg; } .bv-note:nth-child(even) { --r: 1.2deg; margin-left: 18px; }
 .bv-note-region { font-weight: 600; color: var(--ink-muted); margin-right: 6px; }
 .bv-note::before { content: ""; flex: 0 0 auto; align-self: flex-start; width: 7px; height: 7px; margin-top: 7px; border-radius: 50%; background: var(--brand); }
@@ -709,16 +709,18 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   cursor: var(--cur-p), pointer;
   user-select: none;
 }
-.idx-card-header:hover { color: color-mix(in srgb, var(--card-accent) 80%, black); }
+@media (hover: hover) { .idx-card-header:hover { color: color-mix(in srgb, var(--card-accent) 80%, black); } }
 .idx-card-header .arrow { order: -1; }
+/* 빠른 찾기 라벨형 브랜드 줄 (26.10 리디자인): 원형 사진 + 이름 */
 .idx-brand {
   position: relative;
-  padding: 6px 22px 6px 8px;
-  border-bottom: 1px solid var(--line);
-  border-left: 3px solid var(--line);
+  display: grid; grid-template-columns: 40px 1fr; column-gap: 8px; row-gap: 1px; align-items: center;
+  margin: 0 0 6px; padding: 5px 20px 5px 5px; background: #fff;
+  border: 2px solid var(--brand); border-radius: 40px 12px 12px 40px;
   cursor: var(--cur-p), pointer;
-  transition: transform .15s ease, box-shadow .15s ease, border-left-width .15s ease;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
+.idx-brand:last-child { margin-bottom: 0; }
 .idx-brand::after {
   content: '›';
   position: absolute; right: 8px; top: 50%; transform: translate(4px,-50%);
@@ -729,7 +731,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .idx-brand:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,.1);
-  border-left-width: 5px;
   z-index: 1;
 }
 .idx-brand:focus-visible::after { opacity: 1; transform: translate(0,-50%); }
@@ -738,16 +739,10 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   .idx-brand:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,.1);
-    border-left-width: 5px;
     z-index: 1;
   }
   .idx-brand:hover::after { opacity: 1; transform: translate(0,-50%); }
 }
-.idx-brand:has(.idx-cat-b) { border-left-color: var(--c-blue); }
-.idx-brand:has(.idx-cat-t) { border-left-color: var(--c-teal); }
-.idx-brand:has(.idx-cat-d) { border-left-color: var(--c-deep); }
-.idx-brand:has(.idx-cat-a) { border-left-color: var(--c-amber); }
-.idx-brand:last-child { border-bottom: none; }
 .idx-brand-jump { animation: idxJumpRing 1.6s ease-out; border-radius: 8px; }
 @keyframes idxJumpRing {
   0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c-blue) 40%, transparent); }
@@ -773,10 +768,10 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   font-size: 9.3pt;
   margin-bottom: 2px;
 }
-.idx-brand-name { color: var(--ink); }
+.idx-brand-name { font-family: "Do Hyeon", sans-serif; font-weight: 400; font-size: 11.5pt; color: var(--brand); }
 .idx-brand-meta {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: baseline;
   gap: 6px;
   margin-bottom: 2px;
@@ -785,16 +780,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .idx-year { color: var(--ink-muted); font-size: 8.25pt; font-weight: 600; white-space: nowrap; }
 .idx-brand-kw { color: var(--ink-muted); font-size: 8.3pt; line-height: 1.4; }
 .idx-brand-kw .idx-cat { margin-right: 5px; }
-/* 빠른 찾기 라벨형 브랜드 줄 (26.10 리디자인): 원형 사진 + 이름 + 빨간 도수 배지 */
-.idx-brand {
-  display: grid; grid-template-columns: 40px 1fr; column-gap: 8px; row-gap: 1px; align-items: center;
-  margin: 0 0 6px; padding: 5px 20px 5px 5px; background: #fff;
-  border: 2px solid var(--brand); border-radius: 40px 12px 12px 40px;
-}
-.idx-brand:last-child { border-bottom: 2px solid var(--brand); margin-bottom: 0; }
-.idx-brand:has(.idx-cat) { border-left-color: var(--brand); }
-@media (hover: hover) { .idx-brand:hover { border-left-width: 2px; } }
-.idx-brand:focus-visible { border-left-width: 2px; }
 /* 1줄: 분류 배지·상품명, 2줄: 설명. 도수·연도는 클릭 팝업에서 보이므로 목록에선 숨김(팝업·정렬이 읽으므로 DOM은 유지) */
 .idx-brand .idx-brand-top { grid-column: 2; align-items: center; gap: 5px; margin: 0; }
 .idx-brand .idx-brand-kw { grid-column: 2; }
@@ -804,8 +789,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   border: 2px solid var(--brand-3); background: var(--surface-soft); object-fit: cover;
   display: grid; place-content: center; font-family: "Do Hyeon", sans-serif; font-size: 16px; color: var(--brand);
 }
-.idx-brand-name { font-family: "Do Hyeon", sans-serif; font-weight: 400; font-size: 11.5pt; color: var(--brand); }
-.idx-brand-meta { justify-content: flex-start; }
 .idx-search-hit { background: var(--highlight); border-radius: 2px; padding: 0 1px; color: var(--ink); }
 @media print {
   .idx-search { display: none; }
@@ -813,7 +796,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
   .idx-grid { height: auto !important; position: static !important; }
   .idx-card { display: block !important; position: static !important; left: auto !important; top: auto !important; width: auto !important; margin-bottom: 10px; opacity: 1 !important; transform: none !important; }
   .idx-card-header { cursor: default; }
-  .idx-brand { display: block !important; }
+  .idx-brand { display: grid !important; }
   .idx-empty { display: none !important; }
 }
 
@@ -1250,17 +1233,18 @@ document.addEventListener('DOMContentLoaded', function(){
     var m = /^\d{2}\.(\d{2})$/.exec(ed.label);
     if (label) label.textContent = '📢 ' + (m ? parseInt(m[1], 10) + '월' : ed.label) + ' 에디션 주요 업데이트';
     list.innerHTML = ed.items.map(function (t) { return '<li>' + t + '</li>'; }).join('');
-    pager.innerHTML = '';
-    if (bvUpdateEditions.length > 1) {
+    // 버튼은 처음 한 번만 만들고 이후엔 .active만 바꿈 — 매번 다시 만들면 누른 버튼의 키보드 포커스가 사라짐
+    if (!pager.children.length && bvUpdateEditions.length > 1) {
       bvUpdateEditions.forEach(function (_, i) {
         var btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'bv-update-page' + (i === idx ? ' active' : '');
+        btn.className = 'bv-update-page';
         btn.textContent = i + 1;
         btn.onclick = function () { renderBvUpdate(i); };
         pager.appendChild(btn);
       });
     }
+    Array.prototype.forEach.call(pager.children, function (btn, i) { btn.classList.toggle('active', i === idx); });
   }
   renderBvUpdate(0);
 })();
@@ -3802,7 +3786,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">안동소주일품(주)<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-year">2001</div><div class="rgH-name"><a href="brand/안동소주일품">안동소주일품</a></div><div class="rgH-badges"><span class="abv-badge">45·40도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/andong-ilpoom-40.jpg" alt="안동소주일품 40도 유리병 제품 사진 (안동소주일품 공식 이미지)" loading="lazy"><div class="rgH-year">2001</div><div class="rgH-name"><a href="brand/안동소주일품">안동소주일품</a></div><div class="rgH-badges"><span class="abv-badge">45·40도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">농업회사법인 <b>안동소주일품(주)</b>의 사명을 브랜드명으로 그대로 사용. 1997년 "푸른영농조합법인"으로 설립, 2002년 현재 사명으로 변경한 안동소주협회 회원사.</div>
@@ -3810,7 +3794,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><div class="rgH-name"><a href="brand/안동소주일품-21도">안동소주일품 21도</a></div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/andong-ilpoom-21.jpg" alt="안동소주일품 21도 제품 사진 (안동소주일품 공식 이미지)" loading="lazy"><div class="rgH-name"><a href="brand/안동소주일품-21도">안동소주일품 21도</a></div><div class="rgH-badges"><span class="abv-badge">21도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>안동소주일품</b> 브랜드명 + 도수 <b>21</b>. 저도수 유리병 라인.</div>
@@ -3960,8 +3944,8 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-left"><div class="rgH-name"><a href="brand/월고해">월고해</a></div><div class="rgH-badges"><span class="abv-badge">42도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
-<div class="ety"><b>월고해(月古海)</b> — 달·오래됨·바다를 엮은 시적 조어.</div>
-<div class="det">경남 함양. 오양주 방식으로 찹쌀·멥쌀·누룩을 45일 발효, 90일 숙성 후 1회 증류해 42도로 완성. 함양 삼봉산 지하 200m 광천수 사용. 농업회사법인 인산농장(2010.07 설립)의 인산가 브랜드 제품.</div>
+<div class="ety"><b>월고해(越苦海)</b> — '고해(苦海, 괴로움의 바다)를 넘는다(越)'는 뜻.</div>
+<div class="det">경남 함양. 오양주 방식으로 찹쌀·멥쌀·누룩을 45일 발효, 90일 숙성 후 1회 증류해 42도로 완성. 증류 후 약 2년 숙성. 함양 삼봉산 지하 200m 광천수 사용. 농업회사법인 인산농장(2010.07 설립)의 인산가 브랜드 제품.</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
@@ -3969,7 +3953,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>적송자(赤松子)</b> — 중국 신화 속 신선의 이름을 딴 고도수 프리미엄 라인 네이밍.</div>
-<div class="det">월고해와 같은 방식으로 45일 발효·90일 숙성한 술덧을 2회 증류해 53도·72도 두 도수로 출시. 인산가 라인업 중 최고 도수.</div>
+<div class="det">월고해와 같은 방식으로 45일 발효·90일 숙성한 술덧을 2회 증류하고 약 2년 숙성해 53도·72도 두 도수로 출시. 인산가 라인업 중 최고 도수.</div>
 </div>
 </div>
 </div>
@@ -4834,7 +4818,7 @@ function applyIdxFilter() {
     var cardVisible = 0;
     brands.forEach(function (b) {
       var cat = b.dataset.cat || '';
-      var text = b.textContent.toLowerCase() + ' ' + mfr;
+      var text = b.dataset.search + ' ' + mfr;
       var matchCat = (idxFilterCat === 'all') || cat.indexOf(idxFilterCat) !== -1;
       var matchText = !q || text.indexOf(q) !== -1;
       var show = matchCat && matchText;
@@ -5089,6 +5073,8 @@ function initIdxCards() {
   });
   document.querySelectorAll('.idx-brand').forEach(function (b) {
     var name = (b.querySelector('.idx-brand-name') || {}).textContent || '';
+    // 검색 대상: 요소별 텍스트를 공백으로 이어 저장 — textContent 통째로 쓰면 이름·도수 경계("식진")나 사진 대체 글자까지 매칭됨
+    b.dataset.search = Array.prototype.map.call(b.querySelectorAll('.idx-cat, .idx-brand-name, .idx-abv, .idx-year, .idx-brand-kw'), function (el) { return el.textContent; }).join(' ').toLowerCase();
     var src = photoByName[name.trim()], ph;
     if (src) { ph = document.createElement('img'); ph.src = src; ph.alt = ''; ph.loading = 'lazy'; }
     else { ph = document.createElement('span'); ph.textContent = name.trim().charAt(0); ph.setAttribute('aria-hidden', 'true'); }
