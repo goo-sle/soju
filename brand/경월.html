@@ -27,7 +27,6 @@ main{max-width:760px;margin:0 auto;padding:8px 16px 64px}
 .gnav-brand{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:18px;color:var(--brand);text-decoration:none;white-space:nowrap}
 .gnav-links{display:flex;flex-wrap:wrap;gap:6px 22px} .gnav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px} .gnav-links a:hover{color:var(--brand)}
 @media (max-width:640px){.gnav{padding:14px 16px} .gnav-links{gap:4px 16px} .gnav-links a{font-size:13px}}
-.back{font-size:14px;margin:0 0 16px} .back a{color:var(--brand-2);text-decoration:none}
 h1,h2{font-family:"Hahmlet","Pretendard Variable",serif}
 h1{font-size:clamp(26px,5vw,36px);font-weight:700;margin:0 0 4px;letter-spacing:-.02em}
 .kw{color:var(--muted);margin:0 0 20px}
@@ -41,6 +40,8 @@ section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:
 h2{font-size:17px;font-weight:900;margin:0 0 8px}
 .tl-event{display:flex;gap:12px;padding:2px 0} .tl-event-when{flex:none;width:72px;font-weight:700;color:var(--muted)}
 ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
+/* 같은 회사 다른 소주: 세로 목록 대신 줄바꿈되는 칩 */
+.sib{display:flex;flex-wrap:wrap;gap:6px;padding:0;list-style:none} .sib a{display:block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:14px;text-decoration:none} .sib a:hover{border-color:var(--brand-2)}
 </style>
 </head>
 <body>
@@ -54,9 +55,8 @@ ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
 <div class="top"><dl><div><dt>분류</dt><dd>희석식(단종)</dd></div><div><dt>도수</dt><dd>25도(단종 시점)</dd></div><div><dt>출시</dt><dd>1926.06</dd></div><div><dt>제조사</dt><dd>경월주조</dd></div><div><dt>지역</dt><dd>강원도</dd></div></dl></div>
 <section><h2>이름 유래</h2>강원 지역명에서 따온 이름. <b>京(경)</b>은 강릉(경강의 경), <b>月(월)</b>은 달. <b>"강릉의 달빛"</b>, 대관령 청정 자연과 달빛 이미지 표현. 강원도 지역 소주의 역사적 원형.</section>
 <section><h2>상세 연혁</h2>강릉 지역 기업가 최준집이 1926년 6월 강릉합동주조㈜를 설립한 것이 모태. 1976년 1도1사 체제에서 강원 대표로 살아남은 브랜드. 1993년 두산 인수 후 '그린소주'로 개명, 2009년 두산주류가 롯데주류에 인수되며 최종적으로 '처음처럼'으로 대체됨. 처음처럼 탄생의 모태 기업.</section>
-<section><h2>경월주조의 다른 소주</h2><ul><li><a href="그린소주">그린소주</a></li><li><a href="뉴그린">뉴그린</a></li><li><a href="산-山처럼">산(山처럼)</a></li></ul></section>
+<section><h2>경월주조의 다른 소주</h2><ul class="sib"><li><a href="그린소주">그린소주</a></li><li><a href="뉴그린">뉴그린</a></li><li><a href="산-山처럼">산(山처럼)</a></li></ul></section>
 
-<p class="back"><a href="../guide#region-gangwon">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>

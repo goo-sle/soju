@@ -28,7 +28,6 @@ main{max-width:760px;margin:0 auto;padding:8px 16px 64px}
 .gnav-brand{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:18px;color:var(--brand);text-decoration:none;white-space:nowrap}
 .gnav-links{display:flex;flex-wrap:wrap;gap:6px 22px} .gnav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px} .gnav-links a:hover{color:var(--brand)}
 @media (max-width:640px){.gnav{padding:14px 16px} .gnav-links{gap:4px 16px} .gnav-links a{font-size:13px}}
-.back{font-size:14px;margin:0 0 16px} .back a{color:var(--brand-2);text-decoration:none}
 h1,h2{font-family:"Hahmlet","Pretendard Variable",serif}
 h1{font-size:clamp(26px,5vw,36px);font-weight:700;margin:0 0 4px;letter-spacing:-.02em}
 .kw{color:var(--muted);margin:0 0 20px}
@@ -42,6 +41,8 @@ section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:
 h2{font-size:17px;font-weight:900;margin:0 0 8px}
 .tl-event{display:flex;gap:12px;padding:2px 0} .tl-event-when{flex:none;width:72px;font-weight:700;color:var(--muted)}
 ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
+/* 같은 회사 다른 소주: 세로 목록 대신 줄바꿈되는 칩 */
+.sib{display:flex;flex-wrap:wrap;gap:6px;padding:0;list-style:none} .sib a{display:block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:14px;text-decoration:none} .sib a:hover{border-color:var(--brand-2)}
 </style>
 </head>
 <body>
@@ -55,9 +56,8 @@ ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
 <div class="top"><img class="photo" src="../report/images/brands/oakzen-2025.jpg" alt="오크젠(신) 제품 사진 (금복주 공식 이미지)"><dl><div><dt>분류</dt><dd>증류식</dd></div><div><dt>도수</dt><dd>16도</dd></div><div><dt>출시</dt><dd>2025.07.02</dd></div><div><dt>제조사</dt><dd>금복주</dd></div><div><dt>지역</dt><dd>경상도</dd></div></dl></div>
 <section><h2>이름 유래</h2>기존 <b>오크젠</b> 브랜드를 희석식 소주 도수대로 재구성한 신규 버전.</section>
 <section><h2>상세 연혁</h2>2025년 7월 2일 출시. 희석식 소주에 증류식 원액을 블렌딩한 하이브리드 설계.</section>
-<section><h2>금복주의 다른 소주</h2><ul><li><a href="수퍼골드마일드">수퍼골드마일드</a></li><li><a href="금복골드">금복골드</a></li><li><a href="참소주">참소주</a></li><li><a href="참ISLAND">참ISLAND</a></li><li><a href="제왕">제왕</a></li><li><a href="제왕21">제왕21</a></li><li><a href="제왕16-9">제왕16.9</a></li><li><a href="소주왕-금복주">소주왕 금복주</a></li><li><a href="백로">백로</a></li><li><a href="맛있는참">맛있는참</a></li><li><a href="오크젠">오크젠</a></li></ul></section>
+<section><h2>금복주의 다른 소주</h2><ul class="sib"><li><a href="수퍼골드마일드">수퍼골드마일드</a></li><li><a href="금복골드">금복골드</a></li><li><a href="참소주">참소주</a></li><li><a href="참ISLAND">참ISLAND</a></li><li><a href="제왕">제왕</a></li><li><a href="제왕21">제왕21</a></li><li><a href="제왕16-9">제왕16.9</a></li><li><a href="소주왕-금복주">소주왕 금복주</a></li><li><a href="백로">백로</a></li><li><a href="맛있는참">맛있는참</a></li><li><a href="오크젠">오크젠</a></li></ul></section>
 
-<p class="back"><a href="../guide#region-gyeongsang">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>

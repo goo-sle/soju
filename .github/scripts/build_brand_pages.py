@@ -138,7 +138,6 @@ main{{max-width:760px;margin:0 auto;padding:8px 16px 64px}}
 .gnav-brand{{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:18px;color:var(--brand);text-decoration:none;white-space:nowrap}}
 .gnav-links{{display:flex;flex-wrap:wrap;gap:6px 22px}} .gnav-links a{{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px}} .gnav-links a:hover{{color:var(--brand)}}
 @media (max-width:640px){{.gnav{{padding:14px 16px}} .gnav-links{{gap:4px 16px}} .gnav-links a{{font-size:13px}}}}
-.back{{font-size:14px;margin:0 0 16px}} .back a{{color:var(--brand-2);text-decoration:none}}
 h1,h2{{font-family:"Hahmlet","Pretendard Variable",serif}}
 h1{{font-size:clamp(26px,5vw,36px);font-weight:700;margin:0 0 4px;letter-spacing:-.02em}}
 .kw{{color:var(--muted);margin:0 0 20px}}
@@ -152,6 +151,8 @@ section{{background:#fff;border:1px solid var(--line);border-radius:10px;padding
 h2{{font-size:17px;font-weight:900;margin:0 0 8px}}
 .tl-event{{display:flex;gap:12px;padding:2px 0}} .tl-event-when{{flex:none;width:72px;font-weight:700;color:var(--muted)}}
 ul{{margin:0;padding-left:18px}} a{{color:var(--brand-2)}}
+/* 같은 회사 다른 소주: 세로 목록 대신 줄바꿈되는 칩 */
+.sib{{display:flex;flex-wrap:wrap;gap:6px;padding:0;list-style:none}} .sib a{{display:block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:14px;text-decoration:none}} .sib a:hover{{border-color:var(--brand-2)}}
 </style>
 </head>
 <body>
@@ -164,15 +165,14 @@ ul{{margin:0;padding-left:18px}} a{{color:var(--brand-2)}}
 <p class="kw">{kw}</p>
 <div class="top">{photo}<dl>{facts}</dl></div>{more}
 {sections}
-<p class="back"><a href="../guide#region-{region_id}">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>
 '''.format(title=e(title), url=url, desc=e(desc), breadcrumb=breadcrumb, cat_cls=b['cat_cls'],
-           name=e(b['name']), region_id=b['region_id'], kw=e(b['kw']), photo=photo, more=more, og_image=og_image, facts=facts_html,
+           name=e(b['name']), kw=e(b['kw']), photo=photo, more=more, og_image=og_image, facts=facts_html,
            sections=section('이름 유래', b['ety']) + section('상세 연혁', b['det']) +
            section('변경 이력', b['chg']) + section('스페셜 에디션', b['spec']) +
-           section('%s의 다른 소주' % e(b['company']), sib and '<ul>%s</ul>' % sib))
+           section('%s의 다른 소주' % e(b['company']), sib and '<ul class="sib">%s</ul>' % sib))
 
 
 def update_sitemap(changed, all_slugs, today):

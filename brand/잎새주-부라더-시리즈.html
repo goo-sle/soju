@@ -27,7 +27,6 @@ main{max-width:760px;margin:0 auto;padding:8px 16px 64px}
 .gnav-brand{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:18px;color:var(--brand);text-decoration:none;white-space:nowrap}
 .gnav-links{display:flex;flex-wrap:wrap;gap:6px 22px} .gnav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px} .gnav-links a:hover{color:var(--brand)}
 @media (max-width:640px){.gnav{padding:14px 16px} .gnav-links{gap:4px 16px} .gnav-links a{font-size:13px}}
-.back{font-size:14px;margin:0 0 16px} .back a{color:var(--brand-2);text-decoration:none}
 h1,h2{font-family:"Hahmlet","Pretendard Variable",serif}
 h1{font-size:clamp(26px,5vw,36px);font-weight:700;margin:0 0 4px;letter-spacing:-.02em}
 .kw{color:var(--muted);margin:0 0 20px}
@@ -41,6 +40,8 @@ section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:
 h2{font-size:17px;font-weight:900;margin:0 0 8px}
 .tl-event{display:flex;gap:12px;padding:2px 0} .tl-event-when{flex:none;width:72px;font-weight:700;color:var(--muted)}
 ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
+/* 같은 회사 다른 소주: 세로 목록 대신 줄바꿈되는 칩 */
+.sib{display:flex;flex-wrap:wrap;gap:6px;padding:0;list-style:none} .sib a{display:block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:14px;text-decoration:none} .sib a:hover{border-color:var(--brand-2)}
 </style>
 </head>
 <body>
@@ -54,9 +55,8 @@ ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
 <div class="top"><dl><div><dt>분류</dt><dd>희석식(단종)</dd></div><div><dt>도수</dt><dd>17.5도</dd></div><div><dt>출시</dt><dd>2015</dd></div><div><dt>제조사</dt><dd>보해양조</dd></div><div><dt>지역</dt><dd>전라도</dd></div></dl></div>
 <section><h2>이름 유래</h2>영어 <b>Brother(형·동생)</b>의 한글 음차. 친근한 형·동생 사이의 가벼운 술자리 정서를 MZ세대 어휘로 표현한 서브 브랜드명.</section>
 <section><h2>상세 연혁</h2>2015년 출시된 잎새주의 MZ 타깃 변형 서브라인. <b>부라더</b>(저도수 베이스)·<b>부라더#소다</b>(2015.09, 3도 탄산주)·<b>복받은 부라더</b>(2015.10, 복분자 과즙 첨가) 3종으로 확장됐다가 현재는 단종된 것으로 추정.</section>
-<section><h2>보해양조의 다른 소주</h2><ul><li><a href="보해골드">보해골드</a></li><li><a href="씨티">씨티</a></li><li><a href="김삿갓">김삿갓</a></li><li><a href="곰바우">곰바우</a></li><li><a href="잎새주">잎새주</a></li><li><a href="아홉시반">아홉시반</a></li><li><a href="여수바다">여수바다</a></li></ul></section>
+<section><h2>보해양조의 다른 소주</h2><ul class="sib"><li><a href="보해골드">보해골드</a></li><li><a href="씨티">씨티</a></li><li><a href="김삿갓">김삿갓</a></li><li><a href="곰바우">곰바우</a></li><li><a href="잎새주">잎새주</a></li><li><a href="아홉시반">아홉시반</a></li><li><a href="여수바다">여수바다</a></li></ul></section>
 
-<p class="back"><a href="../guide#region-jeolla">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>

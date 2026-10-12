@@ -28,7 +28,6 @@ main{max-width:760px;margin:0 auto;padding:8px 16px 64px}
 .gnav-brand{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:18px;color:var(--brand);text-decoration:none;white-space:nowrap}
 .gnav-links{display:flex;flex-wrap:wrap;gap:6px 22px} .gnav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px} .gnav-links a:hover{color:var(--brand)}
 @media (max-width:640px){.gnav{padding:14px 16px} .gnav-links{gap:4px 16px} .gnav-links a{font-size:13px}}
-.back{font-size:14px;margin:0 0 16px} .back a{color:var(--brand-2);text-decoration:none}
 h1,h2{font-family:"Hahmlet","Pretendard Variable",serif}
 h1{font-size:clamp(26px,5vw,36px);font-weight:700;margin:0 0 4px;letter-spacing:-.02em}
 .kw{color:var(--muted);margin:0 0 20px}
@@ -42,6 +41,8 @@ section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:
 h2{font-size:17px;font-weight:900;margin:0 0 8px}
 .tl-event{display:flex;gap:12px;padding:2px 0} .tl-event-when{flex:none;width:72px;font-weight:700;color:var(--muted)}
 ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
+/* 같은 회사 다른 소주: 세로 목록 대신 줄바꿈되는 칩 */
+.sib{display:flex;flex-wrap:wrap;gap:6px;padding:0;list-style:none} .sib a{display:block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:14px;text-decoration:none} .sib a:hover{border-color:var(--brand-2)}
 </style>
 </head>
 <body>
@@ -55,9 +56,8 @@ ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
 <div class="top"><img class="photo" src="../report/images/brands/moonbae-23.jpg" alt="문배주 23도 제품 사진 (문배주양조원 공식 이미지)"><dl><div><dt>분류</dt><dd>증류식</dd></div><div><dt>도수</dt><dd>23도</dd></div><div><dt>출시</dt><dd>1990</dd></div><div><dt>제조사</dt><dd>문배주양조원</dd></div><div><dt>지역</dt><dd>서울 · 경기</dd></div></dl></div>
 <section><h2>이름 유래</h2>술의 향기가 <b>문배나무(돌배나무)</b> 과실 향과 유사해 붙여진 이름. 실제로 배가 들어가지 않지만 기장쌀·수수·밀을 발효·증류하는 과정에서 자연적으로 배향(梨香)이 발생. 재료가 아닌 <b>향기로 이름 지은 술</b>.</section>
 <section><h2>상세 연혁</h2>쌀을 첨가해 부드럽게 만든 저도수 라인. 평안도 전통주, 국가무형유산 제86-1호. 이경찬 명인이 1986년 무형문화재로 지정받았으나 주세법 개정 후인 1990년에야 서울(현 경기 김포)에서 상업 생산 시작. 1988년 8대 민속주 지정. 제조사 문배주양조원은 경기 김포에 위치.</section>
-<section><h2>문배주양조원의 다른 소주</h2><ul><li><a href="문배주-25도">문배주 25도</a></li><li><a href="문배주-40도">문배주 40도</a></li></ul></section>
+<section><h2>문배주양조원의 다른 소주</h2><ul class="sib"><li><a href="문배주-25도">문배주 25도</a></li><li><a href="문배주-40도">문배주 40도</a></li></ul></section>
 
-<p class="back"><a href="../guide#region-seoul">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>

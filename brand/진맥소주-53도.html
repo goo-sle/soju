@@ -28,7 +28,6 @@ main{max-width:760px;margin:0 auto;padding:8px 16px 64px}
 .gnav-brand{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:18px;color:var(--brand);text-decoration:none;white-space:nowrap}
 .gnav-links{display:flex;flex-wrap:wrap;gap:6px 22px} .gnav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px} .gnav-links a:hover{color:var(--brand)}
 @media (max-width:640px){.gnav{padding:14px 16px} .gnav-links{gap:4px 16px} .gnav-links a{font-size:13px}}
-.back{font-size:14px;margin:0 0 16px} .back a{color:var(--brand-2);text-decoration:none}
 h1,h2{font-family:"Hahmlet","Pretendard Variable",serif}
 h1{font-size:clamp(26px,5vw,36px);font-weight:700;margin:0 0 4px;letter-spacing:-.02em}
 .kw{color:var(--muted);margin:0 0 20px}
@@ -42,6 +41,8 @@ section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:
 h2{font-size:17px;font-weight:900;margin:0 0 8px}
 .tl-event{display:flex;gap:12px;padding:2px 0} .tl-event-when{flex:none;width:72px;font-weight:700;color:var(--muted)}
 ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
+/* 같은 회사 다른 소주: 세로 목록 대신 줄바꿈되는 칩 */
+.sib{display:flex;flex-wrap:wrap;gap:6px;padding:0;list-style:none} .sib a{display:block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:14px;text-decoration:none} .sib a:hover{border-color:var(--brand-2)}
 </style>
 </head>
 <body>
@@ -56,9 +57,8 @@ ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
 <section><h2>이름 유래</h2>조선시대 문헌 『수운잡방』 기록을 근거로 복원한 밀 기반 증류식 소주. <b>진맥(眞麥)</b>은 "진짜 밀"이라는 의미.</section>
 <section><h2>상세 연혁</h2>500mL. 2019년 출시. 낙동강변 맹개마을에서 직접 재배한 100% 유기농 통밀 사용 — 안동 지역에서 드물게 쌀이 아닌 밀을 원료로 쓰는 증류식 소주. 국가지정 증류식소주 인증(인증번호 국가지정-가-204). 박성호 대표는 농식품부장관상(2020)·대통령 표창(2021)·경북도지사 표창(2023) 수상.</section>
 <section><h2>스페셜 에디션</h2><div class="tl-event"><div class="tl-event-when">2025.01</div><div class="tl-event-what">'시인의 바위' — 2021년 증류 원액을 Ex-칼바도스 프렌치 오크 캐스크에서 숙성한 캐스크 스트렝스 54.5도, 500ml, 220병 한정</div></div></section>
-<section><h2>맹개술도가(㈜밀과노닐다)의 다른 소주</h2><ul><li><a href="진맥소주">진맥소주</a></li></ul></section>
+<section><h2>맹개술도가(㈜밀과노닐다)의 다른 소주</h2><ul class="sib"><li><a href="진맥소주">진맥소주</a></li></ul></section>
 
-<p class="back"><a href="../guide#region-gyeongsang">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>

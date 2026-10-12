@@ -28,7 +28,6 @@ main{max-width:760px;margin:0 auto;padding:8px 16px 64px}
 .gnav-brand{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:18px;color:var(--brand);text-decoration:none;white-space:nowrap}
 .gnav-links{display:flex;flex-wrap:wrap;gap:6px 22px} .gnav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px} .gnav-links a:hover{color:var(--brand)}
 @media (max-width:640px){.gnav{padding:14px 16px} .gnav-links{gap:4px 16px} .gnav-links a{font-size:13px}}
-.back{font-size:14px;margin:0 0 16px} .back a{color:var(--brand-2);text-decoration:none}
 h1,h2{font-family:"Hahmlet","Pretendard Variable",serif}
 h1{font-size:clamp(26px,5vw,36px);font-weight:700;margin:0 0 4px;letter-spacing:-.02em}
 .kw{color:var(--muted);margin:0 0 20px}
@@ -42,6 +41,8 @@ section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:
 h2{font-size:17px;font-weight:900;margin:0 0 8px}
 .tl-event{display:flex;gap:12px;padding:2px 0} .tl-event-when{flex:none;width:72px;font-weight:700;color:var(--muted)}
 ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
+/* 같은 회사 다른 소주: 세로 목록 대신 줄바꿈되는 칩 */
+.sib{display:flex;flex-wrap:wrap;gap:6px;padding:0;list-style:none} .sib a{display:block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:14px;text-decoration:none} .sib a:hover{border-color:var(--brand-2)}
 </style>
 </head>
 <body>
@@ -55,9 +56,8 @@ ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
 <div class="top"><img class="photo" src="../report/images/brands/lemon-eseul.jpg" alt="레몬에이슬(수출 전용) 제품 사진 (하이트진로 공식 이미지)"><dl><div><dt>분류</dt><dd>플레이버</dd></div><div><dt>도수</dt><dd>13도</dd></div><div><dt>출시</dt><dd>2025.03</dd></div><div><dt>제조사</dt><dd>하이트진로</dd></div><div><dt>지역</dt><dd>서울 · 경기</dd></div></dl></div>
 <section><h2>이름 유래</h2><b>레몬(Lemon)</b> + <b>에이슬</b>. 글로벌 플레이버 주류 트렌드 조사를 통해 선정된 레몬 풍미를 에이슬 라인으로 구현. 영문명 <b>JINRO LEMON</b>으로 브랜드 세계화 강조.</section>
 <section><h2>상세 연혁</h2>2025년 3월 수출 전용 출시. 에이슬 시리즈 6번째 제품·수출 전용 4번째. 일본 → 미국·중국·베트남 등 26개국 이상 순차 판매. 새콤한 레몬 향 구현.</section>
-<section><h2>하이트진로의 다른 소주</h2><ul><li><a href="진로25">진로25</a></li><li><a href="참나무통-맑은소주">참나무통 맑은소주</a></li><li><a href="참이슬-오리지널">참이슬 오리지널</a></li><li><a href="참이슬-후레쉬">참이슬 후레쉬</a></li><li><a href="진로이즈백">진로이즈백</a></li><li><a href="진로-골드-제로">진로 골드(제로)</a></li><li><a href="진로24">진로24</a></li><li><a href="진로-라이트">진로 라이트</a></li><li><a href="이슬露">이슬露</a></li><li><a href="자몽에이슬">자몽에이슬</a></li><li><a href="자두에이슬">자두에이슬</a></li><li><a href="아이셔에이슬">아이셔에이슬</a></li><li><a href="핵아이셔에이슬">핵아이셔에이슬</a></li><li><a href="멜론에이슬">멜론에이슬</a></li><li><a href="두쫀쿠향에이슬">두쫀쿠향에이슬</a></li><li><a href="버터향에이슬">버터향에이슬</a></li><li><a href="청포도에이슬">청포도에이슬</a></li><li><a href="복숭아에이슬">복숭아에이슬</a></li><li><a href="딸기에이슬">딸기에이슬</a></li><li><a href="일품진로25">일품진로25</a></li><li><a href="일품진로-오크43">일품진로 오크43</a></li><li><a href="일품진로-오크25">일품진로 오크25</a></li><li><a href="일품진로-1924-헤리티지">일품진로 1924 헤리티지</a></li><li><a href="일품진로-고연산">일품진로 고연산</a></li><li><a href="일품진로-24년산">일품진로 24년산</a></li><li><a href="일품진로-24년산-캐스크-스트렝스">일품진로 24년산 캐스크 스트렝스</a></li><li><a href="일품진로-마일드">일품진로 마일드</a></li><li><a href="일품진로-26년산">일품진로 26년산</a></li></ul></section>
+<section><h2>하이트진로의 다른 소주</h2><ul class="sib"><li><a href="진로25">진로25</a></li><li><a href="참나무통-맑은소주">참나무통 맑은소주</a></li><li><a href="참이슬-오리지널">참이슬 오리지널</a></li><li><a href="참이슬-후레쉬">참이슬 후레쉬</a></li><li><a href="진로이즈백">진로이즈백</a></li><li><a href="진로-골드-제로">진로 골드(제로)</a></li><li><a href="진로24">진로24</a></li><li><a href="진로-라이트">진로 라이트</a></li><li><a href="이슬露">이슬露</a></li><li><a href="자몽에이슬">자몽에이슬</a></li><li><a href="자두에이슬">자두에이슬</a></li><li><a href="아이셔에이슬">아이셔에이슬</a></li><li><a href="핵아이셔에이슬">핵아이셔에이슬</a></li><li><a href="멜론에이슬">멜론에이슬</a></li><li><a href="두쫀쿠향에이슬">두쫀쿠향에이슬</a></li><li><a href="버터향에이슬">버터향에이슬</a></li><li><a href="청포도에이슬">청포도에이슬</a></li><li><a href="복숭아에이슬">복숭아에이슬</a></li><li><a href="딸기에이슬">딸기에이슬</a></li><li><a href="일품진로25">일품진로25</a></li><li><a href="일품진로-오크43">일품진로 오크43</a></li><li><a href="일품진로-오크25">일품진로 오크25</a></li><li><a href="일품진로-1924-헤리티지">일품진로 1924 헤리티지</a></li><li><a href="일품진로-고연산">일품진로 고연산</a></li><li><a href="일품진로-24년산">일품진로 24년산</a></li><li><a href="일품진로-24년산-캐스크-스트렝스">일품진로 24년산 캐스크 스트렝스</a></li><li><a href="일품진로-마일드">일품진로 마일드</a></li><li><a href="일품진로-26년산">일품진로 26년산</a></li></ul></section>
 
-<p class="back"><a href="../guide#region-seoul">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>

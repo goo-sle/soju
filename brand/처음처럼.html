@@ -28,7 +28,6 @@ main{max-width:760px;margin:0 auto;padding:8px 16px 64px}
 .gnav-brand{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:18px;color:var(--brand);text-decoration:none;white-space:nowrap}
 .gnav-links{display:flex;flex-wrap:wrap;gap:6px 22px} .gnav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px} .gnav-links a:hover{color:var(--brand)}
 @media (max-width:640px){.gnav{padding:14px 16px} .gnav-links{gap:4px 16px} .gnav-links a{font-size:13px}}
-.back{font-size:14px;margin:0 0 16px} .back a{color:var(--brand-2);text-decoration:none}
 h1,h2{font-family:"Hahmlet","Pretendard Variable",serif}
 h1{font-size:clamp(26px,5vw,36px);font-weight:700;margin:0 0 4px;letter-spacing:-.02em}
 .kw{color:var(--muted);margin:0 0 20px}
@@ -42,6 +41,8 @@ section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:
 h2{font-size:17px;font-weight:900;margin:0 0 8px}
 .tl-event{display:flex;gap:12px;padding:2px 0} .tl-event-when{flex:none;width:72px;font-weight:700;color:var(--muted)}
 ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
+/* 같은 회사 다른 소주: 세로 목록 대신 줄바꿈되는 칩 */
+.sib{display:flex;flex-wrap:wrap;gap:6px;padding:0;list-style:none} .sib a{display:block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:14px;text-decoration:none} .sib a:hover{border-color:var(--brand-2)}
 </style>
 </head>
 <body>
@@ -57,9 +58,8 @@ ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
 <section><h2>상세 연혁</h2>두산경월이 2006년 2월 7일 출시. 대관령 알칼리수 사용 강조. 2009년 롯데에 인수. 2026년 3월 출시 20주년 헤리티지 리뉴얼 — 초기 디자인의 어린 새·새싹 이미지와 대관령 암반수를 형상화한 물방울 그래픽 적용, '16도' 도수 표기 전면 배치, 병목에 'Since 2006 · 20th ANNIVERSARY' 넥라벨. 신영복 교수는 사례비를 받지 않았다고 알려짐.</section>
 <section><h2>변경 이력</h2><div class="tl-event"><div class="tl-event-when">2025.07</div><div class="tl-event-what">16.5도 → 16도로 인하</div></div>
 <div class="tl-event"><div class="tl-event-when">2026.09</div><div class="tl-event-what">16도 → 15.7도로 재인하, 감미료 함량도 함께 조정</div></div></section>
-<section><h2>롯데주류의 다른 소주</h2><ul><li><a href="CHUM-CHURUM">CHUM CHURUM</a></li><li><a href="새로">새로</a></li><li><a href="처음처럼-클래식">처음처럼 클래식</a></li><li><a href="처음처럼-담금소주">처음처럼 담금소주</a></li><li><a href="순하리-유자">순하리 유자</a></li><li><a href="순하리-복숭아">순하리 복숭아</a></li><li><a href="순하리-딸기">순하리 딸기</a></li><li><a href="새로-살구">새로 살구</a></li><li><a href="새로-다래">새로 다래</a></li><li><a href="새로-오미자">새로 오미자</a></li><li><a href="새로-리치">새로 리치</a></li><li><a href="대장부">대장부</a></li><li><a href="대장부21">대장부21</a></li><li><a href="대장부23">대장부23</a></li><li><a href="여울">여울</a></li></ul></section>
+<section><h2>롯데주류의 다른 소주</h2><ul class="sib"><li><a href="CHUM-CHURUM">CHUM CHURUM</a></li><li><a href="새로">새로</a></li><li><a href="처음처럼-클래식">처음처럼 클래식</a></li><li><a href="처음처럼-담금소주">처음처럼 담금소주</a></li><li><a href="순하리-유자">순하리 유자</a></li><li><a href="순하리-복숭아">순하리 복숭아</a></li><li><a href="순하리-딸기">순하리 딸기</a></li><li><a href="새로-살구">새로 살구</a></li><li><a href="새로-다래">새로 다래</a></li><li><a href="새로-오미자">새로 오미자</a></li><li><a href="새로-리치">새로 리치</a></li><li><a href="대장부">대장부</a></li><li><a href="대장부21">대장부21</a></li><li><a href="대장부23">대장부23</a></li><li><a href="여울">여울</a></li></ul></section>
 
-<p class="back"><a href="../guide#region-seoul">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>

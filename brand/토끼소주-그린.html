@@ -27,7 +27,6 @@ main{max-width:760px;margin:0 auto;padding:8px 16px 64px}
 .gnav-brand{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:18px;color:var(--brand);text-decoration:none;white-space:nowrap}
 .gnav-links{display:flex;flex-wrap:wrap;gap:6px 22px} .gnav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px} .gnav-links a:hover{color:var(--brand)}
 @media (max-width:640px){.gnav{padding:14px 16px} .gnav-links{gap:4px 16px} .gnav-links a{font-size:13px}}
-.back{font-size:14px;margin:0 0 16px} .back a{color:var(--brand-2);text-decoration:none}
 h1,h2{font-family:"Hahmlet","Pretendard Variable",serif}
 h1{font-size:clamp(26px,5vw,36px);font-weight:700;margin:0 0 4px;letter-spacing:-.02em}
 .kw{color:var(--muted);margin:0 0 20px}
@@ -41,6 +40,8 @@ section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:
 h2{font-size:17px;font-weight:900;margin:0 0 8px}
 .tl-event{display:flex;gap:12px;padding:2px 0} .tl-event-when{flex:none;width:72px;font-weight:700;color:var(--muted)}
 ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
+/* 같은 회사 다른 소주: 세로 목록 대신 줄바꿈되는 칩 */
+.sib{display:flex;flex-wrap:wrap;gap:6px;padding:0;list-style:none} .sib a{display:block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:14px;text-decoration:none} .sib a:hover{border-color:var(--brand-2)}
 </style>
 </head>
 <body>
@@ -54,9 +55,8 @@ ul{margin:0;padding-left:18px} a{color:var(--brand-2)}
 <div class="top"><dl><div><dt>분류</dt><dd>증류식</dd></div><div><dt>도수</dt><dd>60도</dd></div><div><dt>출시</dt><dd>2022.04</dd></div><div><dt>제조사</dt><dd>토끼소주코리아</dd></div><div><dt>지역</dt><dd>충청도</dd></div></dl></div>
 <section><h2>이름 유래</h2><b>토끼소주</b> 브랜드 + <b>그린(Green)</b>, 고도수 라인임을 색상으로 구분.</section>
 <section><h2>상세 연혁</h2>2022년 4월 한정판 출시. 토끼소주 최초의 오버프루프(over-proof, 통상 병입 도수를 넘는 고도수) 제품.</section>
-<section><h2>토끼소주코리아의 다른 소주</h2><ul><li><a href="토끼소주-화이트">토끼소주 화이트</a></li><li><a href="토끼소주-블랙">토끼소주 블랙</a></li><li><a href="토끼소주-골드">토끼소주 골드</a></li><li><a href="토끼소주-가넷">토끼소주 가넷</a></li></ul></section>
+<section><h2>토끼소주코리아의 다른 소주</h2><ul class="sib"><li><a href="토끼소주-화이트">토끼소주 화이트</a></li><li><a href="토끼소주-블랙">토끼소주 블랙</a></li><li><a href="토끼소주-골드">토끼소주 골드</a></li><li><a href="토끼소주-가넷">토끼소주 가넷</a></li></ul></section>
 
-<p class="back"><a href="../guide#region-chungcheong">지역별 소주 브랜드 전체 보기 →</a></p>
 </main>
 </body>
 </html>
