@@ -76,17 +76,20 @@ DOMAIN_NAME_FALLBACK = {
 }
 
 
+def bare_domain(s):
+    return re.sub(r'^(https?://)?(www\.|m\.|v\.)?', '', s.strip(), flags=re.I).split('/')[0].lower()
+
+
 def resolve_source_name(source, source_url):
-    domain = ''
-    if source_url:
-        domain = re.sub(r'^https?://(www\.|m\.|v\.)?', '', source_url).split('/')[0].lower()
-    looks_like_domain = bool(re.fullmatch(r'[a-z0-9.-]+\.[a-z]{2,}', source, re.I))
-    if not looks_like_domain:
+    # RSS <source> 텍스트가 매체명 대신 'https://www.x.com/'·'www.x.co.kr' 꼴로 올 때가 있음
+    src_domain = bare_domain(source)
+    if not re.fullmatch(r'[a-z0-9.-]+\.[a-z]{2,}', src_domain):
         return source
+    domain = bare_domain(source_url) if source_url else src_domain
     for known_domain, name in DOMAIN_NAME_FALLBACK.items():
         if domain == known_domain or domain.endswith('.' + known_domain):
             return name
-    return source
+    return src_domain
 
 
 def fetch_rss(days_back):

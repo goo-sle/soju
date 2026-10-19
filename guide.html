@@ -315,6 +315,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .bv-pol figure:nth-child(3) { --r: -1deg; } .bv-pol figure:nth-child(4) { --r: 2deg; } .bv-pol figure:nth-child(5) { --r: -1.5deg; }
 @media screen and (max-width: 640px) {
   .bv-pol { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .bv-pol figure:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 6px); }
   .bv-menu { padding: 22px 18px; }
   .bv-table { padding: 24px 16px 30px; }
 }
@@ -896,12 +897,14 @@ button.tab-btn:focus-visible { outline: 2px solid var(--c-blue); outline-offset:
 .kr-region-jeolla      { fill: #77ab7a; }
 .kr-region-gyeongsang  { fill: #ef8e59; }
 .kr-region-jeju        { fill: #d76994; }
-.kr-region-seoul:hover       { fill: var(--c-blue); }
-.kr-region-gangwon:hover     { fill: var(--c-deep); }
-.kr-region-chungcheong:hover { fill: var(--c-teal); }
-.kr-region-jeolla:hover      { fill: var(--region-jeolla); }
-.kr-region-gyeongsang:hover  { fill: var(--c-amber); }
-.kr-region-jeju:hover        { fill: var(--region-jeju); }
+@media (hover: hover) {
+  .kr-region-seoul:hover       { fill: var(--c-blue); }
+  .kr-region-gangwon:hover     { fill: var(--c-deep); }
+  .kr-region-chungcheong:hover { fill: var(--c-teal); }
+  .kr-region-jeolla:hover      { fill: var(--region-jeolla); }
+  .kr-region-gyeongsang:hover  { fill: var(--c-amber); }
+  .kr-region-jeju:hover        { fill: var(--region-jeju); }
+}
 .kr-label { font-size: 30px; font-weight: 900; fill: #fff; text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: rgba(0,0,0,.55); stroke-width: 5px; stroke-linejoin: round; }
 .region-btn {
   border: none; border-radius: 8px; padding: 6px 14px;
@@ -1281,7 +1284,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <ul class="bv-news-board">
 <li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE5oaVVZZHpiNDFubmVKR1dkRXd3Z0VZLXFHdGFOalV0Yi1EekVBOHMxZmdaMTFpUk5PbjhIakdRUlg2VzJNTW1EdlVMengyaHNzeUZ5cmlHNmFBbHRzMWxhbFRZdlRuUdIBZkFVX3lxTE5oaVVZZHpiNDFubmVKR1dkRXd3Z0VZLXFHdGFOalV0Yi1EekVBOHMxZmdaMTFpUk5PbjhIakdRUlg2VzJNTW1EdlVMengyaHNzeUZ5cmlHNmFBbHRzMWxhbFRZdlRuUQ?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">“소주야 형님이라 불러” 위스키, 매출 ‘첫 역전’</span><span class="bv-news-meta"><span class="bv-news-source">동아일보</span><span class="bv-news-date">2026.10.19</span></span></a></li>
 <li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTFBrckttaEFzeEpwYnZhd0NHcm5MaWpQTjEwTGpEN3hwNHoteG5zQ3lnZHNPZXgtckZTY2ZONkg4VmVJcDNYOEYzY2VzRUluTk9TVllSWWR5UTRGNXVlYVB6ZnMxeWZjSkNwQ0VrZnBB?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">&quot;안동소주와 日 사케의 만남&quot;…경북도, 한일 문화교류 넓힌다</span><span class="bv-news-meta"><span class="bv-news-source">국제뉴스</span><span class="bv-news-date">2026.10.18</span></span></a></li>
-<li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE9wSTR2YjFmZGR6WlRySVRsMEVSNk9YbUZncVpPZXYyTDhDWllqeElzZkN2RXBLQThoTlFxcjU3YVlzd3ZOMzIzSklNQVlvNTBGQ1Z3ZHFlZWpzdVJRdEozOWZPcVFYYkdYQjdndTdn?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">소주 한 병에 6천 원, &quot;안 마신다 안 마셔, &quot;건강·돈 챙기는 MZ, 호프집 줄줄이 폐업(동영상)</span><span class="bv-news-meta"><span class="bv-news-source">www.4ihjnews.com</span><span class="bv-news-date">2026.10.18</span></span></a></li>
+<li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE9wSTR2YjFmZGR6WlRySVRsMEVSNk9YbUZncVpPZXYyTDhDWllqeElzZkN2RXBLQThoTlFxcjU3YVlzd3ZOMzIzSklNQVlvNTBGQ1Z3ZHFlZWpzdVJRdEozOWZPcVFYYkdYQjdndTdn?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">소주 한 병에 6천 원, &quot;안 마신다 안 마셔, &quot;건강·돈 챙기는 MZ, 호프집 줄줄이 폐업(동영상)</span><span class="bv-news-meta"><span class="bv-news-source">4ihjnews.com</span><span class="bv-news-date">2026.10.18</span></span></a></li>
 <li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE5WdVNuRHJoT3IteEpGQ182ZF9aNGgtZUlwWWw3S2dQZlROOXVVMllOaXZBZ09ZV1FoUlJyS01FMkJsQXdjZzY1X2FHbFdpTG5WenNLSC14OVhFeVpIRHpaMk5ibjdqXzJXMVHSAVRBVV95cUxPQzBFV1ZHXzFQY3VXaWR4WVp2cDV1a2hKajVVdURieUVpWXZwamp6MlNISUFVc3FyeFY5RnJYcERQaFhtSEFiSnp3U3JaNzI4cHliXzE?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">소주 제친 위스키…마트는 80종 할인, 편의점은 1만원대 경쟁</span><span class="bv-news-meta"><span class="bv-news-source">세계일보</span><span class="bv-news-date">2026.10.18</span></span></a></li>
 <li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMiREFVX3lxTFBpckctT2RaSlBHOTl3b3RMZURCSnV3bXZkd2N1ZXpyZmZfQ1RVUG9kekxGb1hVTHpCeGd6NU93djNvZ1lZ?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">&quot;문턱은 낮게, 시작은 즐겁게&quot;… 스마트 공냉식 소주고리 만든 글로벌사이버대 김경섭 양조학 교수</span><span class="bv-news-meta"><span class="bv-news-source">얼리어답터뉴스</span><span class="bv-news-date">2026.10.17</span></span></a></li>
 <li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE1RblRjUFM1MS1oTTR6allTNUdPNHFKZnRHSGtMR3VvYjJCTWtRMzhBSUpSVmh4U1RfSDUzZlFwSXJmQ1ppZE1oN01WOXJIVzhKYXN0Zl9xU1kwRER3aURJNDFOUjdwcXdO?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">&#x27;가정용&#x27; 소주·맥주가 왜 축제장에?… &#x27;서산6년근인삼 페스타&#x27; 주류 불법유통 논란</span><span class="bv-news-meta"><span class="bv-news-source">한국NGO신문</span><span class="bv-news-date">2026.10.17</span></span></a></li>
@@ -1624,6 +1627,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 27°</span></div><div class="idx-brand-meta"><span class="idx-abv">27도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw"></div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 37°</span></div><div class="idx-brand-meta"><span class="idx-abv">37도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">2025 샌프란시스코 월드스피릿 골드메달 2년 연속</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">40240 독도소주 21°</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span><span class="idx-year">2025.08.15</span></div><div class="idx-brand-kw">광복 80주년 기념 출시, GS25 한정판 "독도21×울라 에디션" 기반</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">아리랑소주 19·45도</span></div><div class="idx-brand-meta"><span class="idx-abv">19·45도</span><span class="idx-year">2026.08.15</span></div><div class="idx-brand-kw">광복절 출시, 두 도수를 이으면 1945, 국산 쌀 증류식</div></div>
 </div>
 <div class="idx-card" style="order:18"><div class="idx-card-header">한국양조종합연구소</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">서</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">2020(추정)</span></div><div class="idx-brand-kw">고구마소주, 쑥 부재료, 경기 광명</div></div>
@@ -3227,14 +3231,14 @@ document.addEventListener('DOMContentLoaded', function(){
 </details>
 
 <details class="rgH2-group">
-<summary class="rgH2-head cat-distilled">케이알컴퍼니<span class="rgH2-count">4종</span><span class="rgH2-caret">▾</span></summary>
+<summary class="rgH2-head cat-distilled">케이알컴퍼니<span class="rgH2-count">5종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
 <div class="rgH-left"><img class="rgH-photo" src="report/images/brands/dokdo-17.jpg" alt="40240 독도소주 17° 제품 사진 (케이알컴퍼니 공식 이미지)" loading="lazy"><div class="rgH-year">2021.03.01</div><div class="rgH-name"><a href="brand/40240-독도소주-17">40240 독도소주 17°</a></div><div class="rgH-badges"><span class="abv-badge">17도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>40240</b>은 독도의 우편번호(2014년 도로명주소 개편 후 부여). 동해와 독도가 한국 고유 영토임을 세계에 알리려는 취지로 지은 이름.</div>
-<div class="det">2021년 3월 1일 삼일절에 맞춰 첫 출시, 3일 만에 한정 수량 3,100세트 완판. 국내산 쌀 증류원액에 정제 주정과 감미료(에리스리톨)를 더해 부드럽게 만든 저도수 라인. 강원도 쌀과 울릉도 해양심층수 사용. 제조사 케이알컴퍼니(주)농업회사법인은 강원도 평창군 평창농공단지 소재.</div>
+<div class="det">2021년 3월 1일 삼일절에 맞춰 첫 출시, 3일 만에 한정 수량 3,100세트 완판. 국내산 쌀 증류원액에 정제 주정과 감미료(에리스리톨)를 더해 부드럽게 만든 저도수 라인. 강원도 쌀과 울릉도 해양심층수 사용. 2026 IWSC(영국 국제와인·주류품평회) 은메달. 제조사 케이알컴퍼니(주)농업회사법인은 강원도 평창군 평창농공단지 소재.</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
@@ -3242,7 +3246,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>40240 독도소주</b> 브랜드명 + 도수 <b>27</b>.</div>
-<div class="det">강원도 쌀과 울릉도 해양심층수 사용, 생쌀 발효 후 감압증류.</div>
+<div class="det">강원도 쌀과 울릉도 해양심층수 사용, 생쌀 발효 후 감압증류. 2026 IWSC(영국 국제와인·주류품평회) 은메달.</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
@@ -3250,7 +3254,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>40240 독도소주</b> 브랜드명 + 도수 <b>37</b>. 라인업 중 최고 도수.</div>
-<div class="det">2025년 미국 샌프란시스코 World Spirits Competition에서 2년 연속 골드메달 수상. 케이알컴퍼니는 한국해양과학기술원에 매년 1000만원씩 독도·울릉도 해양연구기금을 기부(2026.04 보도).</div>
+<div class="det">2025년 미국 샌프란시스코 World Spirits Competition에서 2년 연속 골드메달 수상. 2026 IWSC(영국 국제와인·주류품평회) 동메달. 케이알컴퍼니는 한국해양과학기술원에 매년 1000만원씩 독도·울릉도 해양연구기금을 기부(2026.04 보도).</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
@@ -3258,10 +3262,18 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>40240 독도소주</b> 브랜드명 + 도수 <b>21</b>.</div>
-<div class="det">2025년 8월 15일 광복 80주년을 기념해 출시. 강원도 쌀과 울릉도 해양심층수 사용, 생쌀 발효 후 감압증류.</div>
+<div class="det">2025년 8월 15일 광복 80주년을 기념해 출시. 강원도 쌀과 울릉도 해양심층수 사용, 생쌀 발효 후 감압증류. 2026 IWSC(영국 국제와인·주류품평회) 동메달.</div>
 <div class="spec tl-events">
 <div class="tl-event"><div class="tl-event-when">2026.03</div><div class="tl-event-what">'독도21×울라 에디션' — 삼일절 107주년 기념, 한복 입고 태극기를 든 울릉도·독도 수호신 '울라' 라벨, GS25 단독</div></div>
 </div>
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2026.08.15</div><div class="rgH-name"><a href="brand/아리랑소주-19-45도">아리랑소주 19·45도</a></div><div class="rgH-badges"><span class="abv-badge">19·45도</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">두 도수 <b>19</b>와 <b>45</b>를 이으면 광복의 해 <b>1945</b>가 된다. 광복절에 맞춘 이름·도수 구성.</div>
+<div class="det">2026년 8월 15일 광복절에 출시한 케이알컴퍼니의 두 번째 브랜드. 국내산 쌀 100% 증류식 소주로, 19도는 한식에 곁들이는 '다이닝 소주', 45도는 해외 바·칵테일용 '코리안 라이스 스피릿'으로 내놓았다. 2026년 10월 제51회 정선아리랑제 행사주로 쓰였다.</div>
 </div>
 </div>
 </div>
@@ -3737,14 +3749,15 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-diluted">무학<span class="rgH2-count">7종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/white.jpg" alt="화이트 제품 사진 (무학 공식 이미지)" loading="lazy"><div class="rgH-year">1995.01</div><div class="rgH-name"><a href="brand/화이트">화이트</a></div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/white-1995.jpg" alt="화이트 1995년 출시 디자인 (무학 공식 이미지)" loading="lazy"><img class="rgH-photo" src="report/images/brands/white-2007.jpg" alt="화이트 2007년 리뉴얼 디자인 (무학 공식 이미지)" loading="lazy"><img class="rgH-photo" src="report/images/brands/white.jpg" alt="화이트 2014년 리뉴얼 디자인 (무학 공식 이미지)" loading="lazy"><div class="rgH-year">1995.01</div><div class="rgH-name"><a href="brand/화이트">화이트</a></div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">영어 <b>White(하얀, 순수한)</b>. 깨끗하고 순수한 소주 이미지를 흰색과 영어 직관적 표기로 표현. 희석식 소주 중 영어 이름을 사용한 초기 사례 중 하나.</div>
 <div class="det">1995년 23도 '100% 쌀 소주'로 출시되어 좋은데이 출시 전 무학의 대표 브랜드였음. 이후 여러 차례 리뉴얼을 거쳐 현재 19도. 좋은데이와 함께 무학의 양대 소주 브랜드로 운영 중.</div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">1995.01</div><div class="tl-event-what">23도 '100% 쌀 소주'로 출시</div></div>
-<div class="tl-event"><div class="tl-event-when">현재</div><div class="tl-event-what">여러 차례 리뉴얼을 거쳐 19도</div></div>
+<div class="tl-event"><div class="tl-event-when">2007</div><div class="tl-event-what">19.9도로 리뉴얼(지리산 천연 암반수)</div></div>
+<div class="tl-event"><div class="tl-event-when">2014</div><div class="tl-event-what">19도로 리뉴얼</div></div>
 </div>
 </div>
 </div>
@@ -4969,8 +4982,8 @@ document.addEventListener('DOMContentLoaded', function(){
 <span class="mfr-year">2023(추정)</span>
 <div class="mfr-card">
 <div class="mfr-head"><span class="mfr-name">케이알컴퍼니</span><span class="mfr-region">강원 평창</span></div>
-<div class="mfr-brands">40240 독도소주 17°·21°·27°·37°</div>
-<div class="mfr-note">2023년 2월 이후 설립(대표 임진욱). 독도 우편번호 "40240"을 새긴 브랜드명. 강원 쌀+울릉도 해양심층수 사용. 2025 샌프란시스코 World Spirits Competition 골드메달 2년 연속.</div>
+<div class="mfr-brands">40240 독도소주 17°·21°·27°·37°, 아리랑소주 19·45도</div>
+<div class="mfr-note">2023년 2월 이후 설립(대표 임진욱). 독도 우편번호 "40240"을 새긴 브랜드명. 강원 쌀+울릉도 해양심층수 사용. 2025 샌프란시스코 World Spirits Competition 골드메달 2년 연속. 2026년 1~9월 독도소주·아리랑소주 누적 50만 병 판매.</div>
 </div>
 </div>
 
