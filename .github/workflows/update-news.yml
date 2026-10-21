@@ -24,11 +24,19 @@ jobs:
       - name: Rebuild brand pages
         run: python .github/scripts/build_brand_pages.py
 
+      - name: Update visitor stats from GA4
+        continue-on-error: true  # 실패해도 뉴스 갱신은 커밋되게
+        env:
+          GA4_SA_KEY: ${{ secrets.GA4_SA_KEY }}
+        run: |
+          pip install -q google-auth requests
+          python .github/scripts/update_stats.py
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A guide.html sitemap.xml brand
+          git add -A guide.html sitemap.xml brand stats.json
           if git diff --cached --quiet; then
             echo "변경 없음 — 커밋 스킵"
           else

@@ -215,40 +215,17 @@ a,.feedback-fab,.feedback-panel button[type="submit"]{ cursor:url("data:image/pn
     </div>
     </div>
     <div class="stats-row">
-      <span class="stat-chip stat-today">오늘 방문 <b id="statToday">-</b></span>
+      <span class="stat-chip stat-today">어제 방문 <b id="statToday">-</b></span>
       <span class="stat-chip stat-total">전체 방문 <b id="statTotal">-</b></span>
     </div>
     <div class="copyright-note">© 2026 goosle · 무단 전재·재배포 금지</div>
   </div>
   <script>
-    (function(){
-      var ns = 'higherad-soju-guide';
-      var d = new Date();
-      var dayKey = 'd' + d.getFullYear() + String(d.getMonth()+1).padStart(2,'0') + String(d.getDate()).padStart(2,'0');
-      var elToday = document.getElementById('statToday');
-      var elTotal = document.getElementById('statTotal');
-      function call(action, key){
-        return fetch('https://abacus.jasoncameron.dev/' + action + '/' + ns + '/' + key)
-          .then(function(r){ return r.json(); })
-          .then(function(d){ return d.value; });
-      }
-      var visitedTotal = localStorage.getItem('sojuVisitedTotal') === '1';
-      var visitedToday = localStorage.getItem('sojuVisitedDay') === dayKey;
-
-      var totalP = visitedTotal ? call('get', 'total') : call('hit', 'total').then(function(v){
-        localStorage.setItem('sojuVisitedTotal', '1');
-        return v;
-      });
-      var todayP = visitedToday ? call('get', dayKey) : call('hit', dayKey).then(function(v){
-        localStorage.setItem('sojuVisitedDay', dayKey);
-        return v;
-      });
-
-      Promise.all([todayP, totalP]).then(function(v){
-        elToday.textContent = v[0];
-        elTotal.textContent = v[1];
-      }).catch(function(){});
-    })();
+    // stats.json: GA4 방문자 수, 매일 06:00 update-news.yml이 갱신
+    fetch('stats.json', {cache: 'no-cache'}).then(function(r){ return r.json(); }).then(function(s){
+      document.getElementById('statToday').textContent = s.yesterday;
+      document.getElementById('statTotal').textContent = s.total;
+    }).catch(function(){});
   </script>
 
   <button class="feedback-fab" id="feedbackFab">
