@@ -21,7 +21,10 @@ def users(session, start):
     resp = session.post(
         f"https://analyticsdata.googleapis.com/v1beta/properties/{GA4_PROPERTY_ID}:runReport",
         json={"dateRanges": [{"startDate": start, "endDate": "yesterday"}],
-              "metrics": [{"name": "totalUsers"}]},
+              "metrics": [{"name": "totalUsers"}],
+              # 실제 도메인만 — 로컬 서버(localhost) 미리보기 제외
+              "dimensionFilter": {"filter": {"fieldName": "hostName",
+                                             "stringFilter": {"matchType": "ENDS_WITH", "value": "kro.kr"}}}},
     )
     resp.raise_for_status()
     rows = resp.json().get("rows", [])
