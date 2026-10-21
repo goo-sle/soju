@@ -46,7 +46,6 @@ def parse(text):
     brands = []
     regions = re.split(r'<div class="region-detail" id="region-', text)[1:]
     for reg in regions:
-        region_id = reg.split('"')[0]
         region = first(r'<div class="region-label-title">([^<]*)</div>', reg).strip()
         for grp in re.split(r'<details class="rgH2-group">', reg)[1:]:
             company = strip_tags(first(r'<summary class="rgH2-head[^"]*">(.*?)<span', grp))
@@ -58,7 +57,7 @@ def parse(text):
                 cat_cls = card.split('"')[0]
                 cat, kw = idx.get(name, (CAT_LABEL.get(cat_cls, ''), ''))
                 brands.append({
-                    'name': name, 'slug': slugify(name), 'region': region, 'region_id': region_id, 'company': company,
+                    'name': name, 'slug': slugify(name), 'region': region, 'company': company,
                     'cat': cat, 'cat_cls': cat_cls, 'kw': kw,
                     'year': strip_tags(first(r'<div class="rgH-year">(.*?)</div>', card)),
                     'abv': strip_tags(first(r'<span class="abv-badge">(.*?)</span>', card)),
@@ -131,6 +130,7 @@ def render(b, siblings):
 <style>
 :root{{--ink:#252A33;--muted:#5F6672;--line:#DDE3EC;--bg:#F4F6F8;--brand:#22408C;--brand-2:#2F57B0;--cat-diluted:#4f8fd1;--cat-flavor:#e28a4d;--cat-distilled:#9c7a5c}}
 *{{box-sizing:border-box}}
+:focus-visible{{outline:2px solid var(--brand-2);outline-offset:2px}}
 body{{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",'Noto Sans KR',sans-serif;line-height:1.7}}
 main{{max-width:760px;margin:0 auto;padding:8px 16px 64px}}
 /* guide.html .gnav와 같은 상단 메뉴 — 검색으로 바로 들어온 방문자도 같은 사이트로 인식하게 */
