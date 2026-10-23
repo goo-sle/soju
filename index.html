@@ -60,6 +60,7 @@ a,.feedback-fab,.feedback-panel button[type="submit"]{ cursor:url("data:image/pn
   }
   body{
     margin:0; min-height:100vh;
+    word-break:keep-all; overflow-wrap:anywhere;
     background:var(--bg);
     color:var(--ink);
     font-family:"Pretendard Variable",'Noto Sans CJK KR','Noto Sans KR',sans-serif;
@@ -223,7 +224,9 @@ a,.feedback-fab,.feedback-panel button[type="submit"]{ cursor:url("data:image/pn
   <script>
     // stats.json: GA4 방문자 수, 매일 06:00 update-news.yml이 갱신
     fetch('stats.json', {cache: 'no-cache'}).then(function(r){ return r.json(); }).then(function(s){
-      document.getElementById('statToday').textContent = s.yesterday;
+      // GA 갱신이 실패하면 stats.json이 옛 날짜로 남음 → KST 어제 값일 때만 "어제 방문"으로 표시
+      var kstYesterday = new Date(Date.now() + 9 * 3600e3 - 86400e3).toISOString().slice(0, 10);
+      document.getElementById('statToday').textContent = s.date === kstYesterday ? s.yesterday : '-';
       document.getElementById('statTotal').textContent = s.total;
     }).catch(function(){});
   </script>
