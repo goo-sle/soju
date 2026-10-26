@@ -5582,7 +5582,7 @@ function initIdxCards() {
   document.querySelectorAll('.idx-brand').forEach(function (b) {
     var name = (b.querySelector('.idx-brand-name') || {}).textContent || '';
     // 검색 대상: 요소별 텍스트를 공백으로 이어 저장 — textContent 통째로 쓰면 이름·도수 경계("식진")나 사진 대체 글자까지 매칭됨
-    b.dataset.search = Array.prototype.map.call(b.querySelectorAll('.idx-cat, .idx-brand-name, .idx-abv, .idx-year, .idx-brand-kw'), function (el) { return el.textContent; }).join(' ').toLowerCase();
+    b.dataset.search = Array.prototype.map.call(b.querySelectorAll('.idx-brand-name, .idx-abv, .idx-year, .idx-brand-kw'), function (el) { return el.textContent; }).join(' ').toLowerCase();
     var src = photoByName[name.trim()], ph;
     if (src) { ph = document.createElement('img'); ph.src = src; ph.alt = ''; ph.loading = 'lazy'; }
     else { ph = document.createElement('span'); ph.textContent = name.trim().charAt(0); ph.setAttribute('aria-hidden', 'true'); }
