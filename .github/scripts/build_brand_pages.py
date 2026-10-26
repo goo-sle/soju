@@ -129,6 +129,7 @@ def render(b, siblings):
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-01Z00FVDNW');</script>
 <style>
 :root{{--ink:#252A33;--muted:#5F6672;--line:#DDE3EC;--bg:#F4F6F8;--brand:#22408C;--brand-2:#2F57B0;--cat-diluted:#4f8fd1;--cat-flavor:#e28a4d;--cat-distilled:#9c7a5c}}
+::selection{{background:color-mix(in srgb,var(--brand) 18%,transparent)}}
 *{{box-sizing:border-box}}
 :focus-visible{{outline:2px solid var(--brand-2);outline-offset:2px}}
 body{{margin:0;word-break:keep-all;overflow-wrap:anywhere;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",'Noto Sans KR',sans-serif;line-height:1.7}}
