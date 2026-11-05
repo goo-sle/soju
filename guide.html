@@ -52,6 +52,7 @@
   --cat-flavor: #e28a4d;
   --cat-distilled: #9c7a5c;
   --mc-gray: #616161;
+  --surface: #fff;
   --surface-soft: #EEF2F7;
   --region-jeolla: #2e7d32;
   --region-jeju: #c2185b;
@@ -186,7 +187,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-cheers-count { font-family: ui-monospace, monospace; font-size: 12px; font-weight: 700; color: var(--brand); }
 .bv-cheers-hint { font-size: 11px; color: var(--ink-muted); margin-top: 6px; text-align: right; }
 .bv-update {
-  margin-top: 22px; background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  margin-top: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
   padding: 18px 20px;
 }
 .bv-update-label { font-weight: 900; font-size: 13px; color: var(--ink); margin-bottom: 10px; }
@@ -197,7 +198,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-update-pager { display: flex; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
 .bv-update-page {
   width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--line);
-  background: #fff; color: var(--ink-muted); font-size: 11px; font-weight: 700; cursor: var(--cur-p), pointer;
+  background: var(--surface); color: var(--ink-muted); font-size: 11px; font-weight: 700; cursor: var(--cur-p), pointer;
 }
 .bv-update-page.active { background: var(--brand); border-color: var(--brand); color: #fff; }
 @media (pointer: coarse) { .bv-update-page { width: 28px; height: 28px; } }
@@ -207,13 +208,13 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-module p + p { margin-top: 12px; }
 /* 왜 기록하는가: 왼쪽 큰 제목·본문 + 오른쪽 기울어진 이름 유래 메모 (26.10 리디자인) */
 .bv-why { display: grid; grid-template-columns: 1.35fr 1fr; gap: 36px; align-items: center; margin-top: 32px;
-  padding: 40px 44px; border-radius: 16px; background: linear-gradient(160deg, #fff, var(--surface-soft)); border: 1px solid var(--line); }
+  padding: 40px 44px; border-radius: 16px; background: linear-gradient(160deg, var(--surface), var(--surface-soft)); border: 1px solid var(--line); }
 .bv-why .bv-module { margin-top: 0; }
 .bv-why .bv-module h2 { font-weight: 300; font-size: clamp(32px,4.4vw,50px); line-height: 1.15; margin-bottom: 18px; }
 .bv-why .bv-module p { color: var(--ink-muted); }
 .bv-why .bv-module p b { color: var(--ink); }
 .bv-notes { display: flex; flex-direction: column; gap: 12px; }
-.bv-note { display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 4px; padding: 13px 16px;
+.bv-note { display: flex; align-items: center; gap: 12px; background: var(--surface); border-radius: 4px; padding: 13px 16px;
   box-shadow: 0 2px 0 rgba(0,0,0,.06), 0 10px 18px -14px color-mix(in srgb, var(--brand) 40%, transparent); rotate: var(--r, 0deg); }
 .bv-note:nth-child(odd) { --r: -1.5deg; } .bv-note:nth-child(even) { --r: 1.2deg; margin-left: 18px; }
 .bv-note-region { font-weight: 600; color: var(--ink-muted); margin-right: 6px; }
@@ -232,7 +233,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-section-head span { font-size: 13px; color: var(--ink-muted); }
 .bv-news-board {
   list-style: none; margin: 18px 0 0; padding: 0;
-  background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
 }
 .bv-news-item + .bv-news-item { border-top: 1px solid var(--line); }
 .bv-news-item a {
@@ -241,6 +242,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
   transition: background .15s ease;
 }
 @media (hover: hover) { .bv-news-item a:hover { background: var(--bg); } }
+.bv-news-item a:focus-visible { background: var(--bg); }
 .bv-news-title { font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.5; }
 .bv-news-meta { display: flex; align-items: baseline; gap: 10px; flex-shrink: 0; white-space: nowrap; }
 .bv-news-source { font-size: 12px; font-weight: 700; color: var(--brand); }
@@ -282,10 +284,9 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 button.tab-btn {
   appearance: none; -webkit-appearance: none; outline: none;
   border: none; background: none;
-  font-family: inherit; font-size: 10.1pt; cursor: var(--cur-p), pointer;
+  font-family: inherit; cursor: var(--cur-p), pointer;
 }
 button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset: 2px; }
-.tab-btn.active { font-weight: 900; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 @media print {
@@ -294,7 +295,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 
 /* ── 둘러보기: 오늘의 소주 메뉴판 · 지역 폴라로이드 (26.10 리디자인) ── */
-.bv-menu { position: relative; background: #fff; border-radius: 10px; padding: 26px 30px 28px; box-shadow: 0 14px 0 -8px color-mix(in srgb, var(--brand) 14%, transparent); }
+.bv-menu { position: relative; background: var(--surface); border-radius: 10px; padding: 26px 30px 28px; box-shadow: 0 14px 0 -8px color-mix(in srgb, var(--brand) 14%, transparent); }
 .bv-menu::before, .bv-menu::after { content: ""; position: absolute; top: 12px; width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
 .bv-menu::before { left: 12px; } .bv-menu::after { right: 12px; }
 .bv-module.bv-menu h2 { font-family: "Nanum Pen Script", cursive; font-weight: 400; font-size: 42px; line-height: 1.1; color: var(--brand); margin-bottom: 2px; }
@@ -334,10 +335,11 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   transition: transform .15s ease;
 }
 @media (hover: hover) { .feedback-fab:hover { transform: scale(1.05); } }
+.feedback-fab:focus-visible { transform: scale(1.05); }
 .feedback-fab svg { width: 16px; height: 16px; flex-shrink: 0; }
 .feedback-panel {
   position: fixed; bottom: 78px; right: 20px; z-index: 1000;
-  width: 280px; background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  width: 280px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
   padding: 16px; box-shadow: 0 12px 32px rgba(0,0,0,.15);
   display: none; text-align: left;
 }
@@ -418,17 +420,18 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .rgH2-head {
   display: flex; align-items: center; gap: 8px;
   font-size: 10.1pt; font-weight: 900; color: var(--ink);
-  background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 8px;
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 8px;
   padding: 6px 12px; cursor: var(--cur-p), pointer; list-style: none;
 }
 .rgH2-head::-webkit-details-marker { display: none; }
 @media (hover: hover) { .rgH2-head:hover { background: var(--surface-soft); } }
+.rgH2-head:focus-visible { background: var(--surface-soft); }
 .rgH2-count { font-size: 8.2pt; font-weight: 700; background: var(--bg); color: var(--ink); padding: 1px 7px; border-radius: 999px; }
 .rgH2-caret { margin-left: auto; font-size: 9pt; color: var(--ink-muted); transition: transform .15s; }
 .rgH2-group[open] .rgH2-caret { transform: rotate(180deg); }
 .rgH2-body { padding: 8px 0 2px; }
 .rgH-card {
-  display: flex; background: #fff; border-radius: 8px; overflow: hidden;
+  display: flex; background: var(--surface); border-radius: 8px; overflow: hidden;
   margin: 0 0 8px; box-shadow: 0 1px 3px rgba(0,0,0,.06);
   page-break-inside: avoid; break-inside: avoid;
 }
@@ -498,7 +501,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .tl-events { display: flex; flex-direction: column; gap: 8px; }
 .tl-event {
   display: flex; gap: 12px; align-items: baseline; font-size: 13px;
-  background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px;
 }
 .tl-event-when {
   flex: 0 0 auto; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
@@ -538,7 +541,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   box-shadow: 0 0 0 2px var(--timeline-dot);
 }
 .mfr-year { display: block; font-size: 10.6pt; font-weight: 900; color: var(--accent-red-ink); margin-bottom: 3px; }
-.mfr-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--ink); }
+.mfr-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--ink); }
 .mfr-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
 .mfr-name { font-size: 10.6pt; font-weight: 900; color: var(--ink); }
 .mfr-region { font-size: 8.2pt; font-weight: 700; color: var(--ink-muted); background: var(--surface-soft); border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
@@ -576,14 +579,15 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 .idx-filter-toggle {
   display: flex; align-items: center; gap: 6px; flex-shrink: 0;
-  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
   padding: 7px 16px 7px 12px; font-family: inherit; font-weight: 700; font-size: 12px;
   color: var(--ink); cursor: var(--cur-p), pointer; transition: background .15s ease, color .15s ease;
 }
 @media (hover: hover) { .idx-filter-toggle:hover { background: var(--ink); color: #fff; } }
+.idx-filter-toggle:focus-visible { background: var(--ink); color: #fff; }
 .idx-search-wrap {
   display: flex; align-items: center; gap: 8px; flex: 1; min-width: 120px;
-  background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px;
 }
 .idx-search-icon { font-size: 12px; opacity: .6; flex-shrink: 0; }
 .idx-search {
@@ -606,7 +610,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 .idx-filter-panel-inner {
   width: 240px; padding: 18px;
-  background: #fff; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
 }
 .idx-filters { display: flex; flex-direction: column; }
 .idx-filter-btn {
@@ -632,8 +636,10 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   transition: background .15s ease, transform .15s ease;
 }
 @media (hover: hover) { .idx-quicknav-chip:hover { background: var(--brand); transform: translateY(-1px); } }
+.idx-quicknav-chip:focus-visible { background: var(--brand); transform: translateY(-1px); }
 .idx-quicknav-chip.active { background: var(--brand); }
 @media (hover: hover) { .idx-quicknav-chip.active:hover { background: var(--brand-2); } }
+.idx-quicknav-chip.active:focus-visible { background: var(--brand-2); }
 .idx-quicknav-wrap { position: relative; margin-bottom: 4px; }
 .idx-quicknav-fade {
   position: absolute; top: 0; bottom: 14px; width: 40px; pointer-events: none;
@@ -643,7 +649,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .idx-quicknav-fade-r { right: 0; background: linear-gradient(to left, var(--bg), color-mix(in srgb, var(--bg), transparent 100%)); }
 .idx-quicknav-arrow {
   position: absolute; top: 50%; transform: translateY(-50%); margin-top: -7px; z-index: 3;
-  width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); background: #fff;
+  width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface);
   display: flex; align-items: center; justify-content: center; cursor: var(--cur-p), pointer;
   color: var(--ink); font-size: 14px; line-height: 1; box-shadow: 0 2px 8px rgba(0,0,0,.12);
 }
@@ -664,7 +670,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 14px 16px;
-  background: #fff;
+  background: var(--surface);
   overflow: hidden;
   page-break-inside: avoid; break-inside: avoid;
   opacity: 0; transform: translateX(-24px);
@@ -700,7 +706,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .idx-brand {
   position: relative;
   display: grid; grid-template-columns: 40px 1fr; column-gap: 8px; row-gap: 1px; align-items: center;
-  margin: 0 0 6px; padding: 5px 20px 5px 5px; background: #fff;
+  margin: 0 0 6px; padding: 5px 20px 5px 5px; background: var(--surface);
   border: 2px solid var(--brand); border-radius: 40px 12px 12px 40px;
   cursor: var(--cur-p), pointer;
   transition: transform .15s ease, box-shadow .15s ease;
@@ -908,15 +914,15 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 .method-card .mc-head { font-size: 10.1pt; font-weight: 900; margin-bottom: 4px; }
 .method-card .mc-body { font-size: 8.7pt; color: var(--ink); line-height: 1.55; }
-.mc-b { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--c-blue); }
+.mc-b { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--c-blue); }
 .mc-b .mc-head { color: var(--c-blue); }
-.mc-t { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--c-teal); }
+.mc-t { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--c-teal); }
 .mc-t .mc-head { color: var(--c-teal); }
-.mc-d { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--c-deep); }
+.mc-d { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--c-deep); }
 .mc-d .mc-head { color: var(--c-deep); }
-.mc-a { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--c-amber); }
+.mc-a { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--c-amber); }
 .mc-a .mc-head { color: var(--c-amber-ink); }
-.mc-gray { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--mc-gray); }
+.mc-gray { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--mc-gray); }
 .mc-gray .mc-head { color: var(--ink); }
 .method-grid-num { gap: 12px; }
 .method-grid-stack { flex-direction: column; gap: 6px; }
@@ -927,7 +933,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .method-grid-stack .mc-head { flex: 0 0 auto; white-space: nowrap; margin-bottom: 0; }
 .method-grid-stack .mc-body { flex: 1 1 auto; min-width: 0; }
 .method-card.mc-num {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 16px 16px 14px;
@@ -944,17 +950,18 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .proc-title .swatch { width: 8px; height: 8px; border-radius: 2px; flex: 0 0 auto; }
 .sh-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
 .method-help-btn {
-  background: #fff; color: var(--ink); border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); border: 1px solid var(--line);
   border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 700; cursor: var(--cur-p), pointer; white-space: nowrap;
 }
 @media (hover: hover) { .method-help-btn:hover { background: var(--ink); color: #fff; } }
+.method-help-btn:focus-visible { background: var(--ink); color: #fff; }
 .method-modal-overlay {
-  display: none; position: fixed; inset: 0; background: rgba(20,20,30,.55); z-index: 2000;
+  display: none; position: fixed; inset: 0; background: color-mix(in srgb, var(--ink) 55%, transparent); z-index: 2000;
   align-items: center; justify-content: center; padding: 24px;
 }
 .method-modal-overlay.open { display: flex; }
 .method-modal {
-  background: #fff; border-radius: 12px; max-width: 640px; width: 100%; max-height: 85vh; max-height: 85dvh; overflow-y: auto; overscroll-behavior: contain;
+  background: var(--surface); border-radius: 12px; max-width: 640px; width: 100%; max-height: 85vh; max-height: 85dvh; overflow-y: auto; overscroll-behavior: contain;
   padding: 20px 22px 22px; transform: translateY(16px) scale(.97); opacity: 0;
   transition: transform .2s ease, opacity .2s ease;
 }
@@ -966,6 +973,8 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   font-size: 14px; color: var(--ink-muted); cursor: var(--cur-p), pointer; line-height: 1; flex-shrink: 0;
 }
 @media (hover: hover) { .method-modal-close:hover { background: var(--line); color: var(--ink); } }
+.method-modal-close:focus-visible { background: var(--line); color: var(--ink); }
+@media (pointer: coarse) { .method-modal-close { width: 36px; height: 36px; } }
 .brandinfo-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 6px; }
 .brandinfo-meta:empty { display: none; }
 .brandinfo-mfr { font-size: 8.4pt; font-weight: 700; color: var(--ink-muted); }
@@ -1002,14 +1011,14 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .proc-icon {
   position: relative; z-index: 1; flex: 0 0 auto;
   width: 40px; height: 40px; border-radius: 50%;
-  background: #fff; border: 2px solid var(--flow-color, var(--c-blue));
+  background: var(--surface); border: 2px solid var(--flow-color, var(--c-blue));
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 0 0 4px #fff;
 }
 .proc-icon svg { width: 20px; height: 20px; stroke: var(--flow-color, var(--c-blue)); fill: none; }
 .proc-icon svg.filled { fill: var(--flow-color, var(--c-blue)); stroke: none; }
 .proc-leader { flex: 0 0 20px; height: 2px; background: var(--flow-color, var(--c-blue)); opacity: .5; }
-.proc-card { flex: 1 1 auto; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; }
+.proc-card { flex: 1 1 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; }
 .proc-name { font-size: 9.3pt; font-weight: 800; color: var(--ink); margin-bottom: 2px; }
 .proc-desc { font-size: 8.7pt; color: var(--ink); line-height: 1.5; }
 .proc-step.final .proc-card { background: var(--flow-color, var(--c-blue)); }
@@ -1023,7 +1032,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .kr-map-flex { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; }
 .kr-map-col { flex: 0 1 620px; }
 .region-rep-list {
-  flex: 0 1 220px; text-align: left; background: #fff; border-radius: 10px;
+  flex: 0 1 220px; text-align: left; background: var(--surface); border-radius: 10px;
   padding: 10px 13px; box-shadow: 0 1px 4px rgba(0,0,0,.1);
 }
 .region-rep-title { font-size: 9.5pt; font-weight: 900; color: var(--ink); margin-bottom: 7px; }
@@ -1046,6 +1055,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .region-jump-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 16px; }
 .region-jump-btn { padding: 6px 14px; font-size: 12px; }
 @media (hover: hover) { .region-jump-btn:hover { border-color: var(--brand); } }
+.region-jump-btn:focus-visible { border-color: var(--brand); }
 .region-jump-btn.current { cursor: default; }
 @media print {
   .region-jump-nav { display: none !important; }
@@ -1107,7 +1117,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <span class="bv-tag">대한민국</span>
 <span class="bv-tag">소주</span>
 <span class="bv-tag">브랜드 가이드</span>
-<span class="bv-tag">26.10</span>
+<span class="bv-tag">26.11</span>
 </div>
 <h1 class="bv-title">대한민국 소주 가이드</h1>
 <p class="bv-sub">전국 지역소주부터 단종된 레어템까지, 라벨 한 장 한 장을 기록하는 아카이브 프로젝트.</p>
@@ -1169,6 +1179,12 @@ document.addEventListener('DOMContentLoaded', function(){
 (function () {
   // 새 업데이트를 반영할 땐 맨 앞(0번)에 새 항목을 추가하고, 기존 항목은 그대로 뒤로 밀리게 두세요 — 지우지 마세요.
   var bvUpdateEditions = [
+    {
+      label: '26.11', items: [
+        '방송인 탁재훈이 개발에 참여한 쌀 증류식 소주 <b>탁소주19</b>(19도) GS25 출시(26.11)',
+        '화심주조 × 승리의 여신: 니케 협업 한정판 <b>화심: 화무십일홍</b>(50도) 1만 세트 판매(26.11)'
+      ]
+    },
     {
       label: '26.10', items: [
         '<b>대선</b> 부산 북항 상어 \'부캉이 에디션\' 한정 라벨 출시(26.10)',
@@ -1536,7 +1552,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">경소주 51도</span></div><div class="idx-brand-meta"><span class="idx-abv">51도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">가수 성시경 주류 브랜드 경(璄) 첫 제품 'First Batch', 국내산 쌀 100% 2회 증류</div></div>
 </div></div>
 </div>
-<div class="idx-group-toggle idx-group-traditional" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 전통 증류주 · 명인 양조장 <span class="idx-group-count">41개사</span></div>
+<div class="idx-group-toggle idx-group-traditional" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 전통 증류주 · 명인 양조장 <span class="idx-group-count">43개사</span></div>
 <div class="idx-group-body">
 <div class="idx-grid" id="idxGrid2"><div class="idx-card" style="order:1"><div class="idx-card-header">민속주/명인 안동소주</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 45도</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">1990</span></div><div class="idx-brand-kw">1988년 국가 8대 민속주 지정, 조옥화→김연박 명인 계승</div></div>
@@ -1710,6 +1726,14 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">류 오리진 40</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">인천 강화, 강화도 쌀·야생 효모, APEC CEO 서밋 만찬주</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">류 클래식 24</span></div><div class="idx-brand-meta"><span class="idx-abv">24도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">인천 강화, 식중주용 쌀 증류식</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">서해 25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">인천 강화, 유자·탱자·해송 향, 진에서 영감</div></div>
+</div>
+<div class="idx-card" style="order:42"><div class="idx-card-header">지비지스피리츠</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">탁소주19</span></div><div class="idx-brand-meta"><span class="idx-abv">19도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">서울 금천, 탁재훈 개발 참여, 3회 증류 쌀소주, 2026.11 GS25 출시</div></div>
+</div>
+<div class="idx-card" style="order:43"><div class="idx-card-header">화심주조</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화심소주 군쌀</span></div><div class="idx-brand-meta"><span class="idx-abv">25·40도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">경기 구리, 구운 쌀·위스키 효모, 스모키 누룽지 향, 니케 협업 화무십일홍</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화심소주 군고구마 40</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">경기 구리, 오븐에 구운 고구마로 빚은 소주</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">미라온</span></div><div class="idx-brand-meta"><span class="idx-year">2024</span></div><div class="idx-brand-kw">경기 구리, 구운 쌀 오크 숙성 싱글 라이스 소주, IWSC 2026 소주 트로피</div></div>
 </div></div>
 </div>
 <div class="idx-empty" id="idxEmpty">검색·필터 조건에 맞는 브랜드가 없습니다.</div>
@@ -2820,6 +2844,53 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">영문명 <b>WEST SEA</b>(서해) + 도수 <b>25</b>.</div>
 <div class="det">류증류소(인천 강화)가 진(Gin)에서 영감을 받아 유자·탱자의 시트러스 향과 해송 향을 더한 증류식 소주. 온더락·하이볼·칵테일 베이스로도 활용. 2025년 7월 양조장 개장과 함께 출시.</div>
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">지비지스피리츠<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/tak-soju-19.jpg" alt="탁소주19 제품 사진 (탁소주 공식 이미지)" loading="lazy"><div class="rgH-year">2026.11.12</div><div class="rgH-name"><a href="brand/탁소주19">탁소주19</a></div><div class="rgH-badges"><span class="abv-badge">19도</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">개발에 참여한 방송인 <b>탁재훈</b>의 성 <b>탁(TAK)</b> + 도수 <b>19</b>.</div>
+<div class="det">'경복궁소주'를 빚는 지비지스피리츠(서울 금천)가 내고, 방송인 탁재훈이 맛과 디자인 개발에 직접 참여한 쌀 증류식 소주. 주정·감미료·향료 없이 쌀을 직접 발효해 세 차례 증류하고 상압증류 원액을 블렌딩. 375mL. 2026년 11월 12일 GS25 출시, 초도 물량 1만 5000병의 점포 발주가 이틀 만에 마감.</div>
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">화심주조<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hwasim-gunssal.jpg" alt="화심소주 군쌀(왼쪽)·군고구마 제품 사진 (화심주조 제공)" loading="lazy"><div class="rgH-year">2023.10</div><div class="rgH-name"><a href="brand/화심소주-군쌀">화심소주 군쌀</a></div><div class="rgH-badges"><span class="abv-badge">25·40도</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety"><b>화심(火心)</b>은 '불 화'에 '마음 심' — 스코틀랜드 아일라 섬 위스키의 스모키함과 한국의 스모키함(누룽지)을 잇는다는 뜻. <b>군쌀</b>은 구운 쌀.</div>
+<div class="det">경기 구리 화심주조의 첫 제품. 쌀의 약 5분의 1을 오븐에 구워 생쌀과 함께 분쇄한 뒤, 누룩 대신 정제효소와 위스키 효모로 생쌀발효하고 단식 증류기로 2회 증류. 숙성을 거의 하지 않고 병입해 구수한 누룽지 같은 스모키한 향을 살림. 25도·40도 2종.</div>
+<div class="spec tl-events">
+<div class="tl-event"><div class="tl-event-when">2026.11</div><div class="tl-event-what">'화심: 화무십일홍(花無十日紅)' — 게임 '승리의 여신: 니케' 캐릭터 홍련 협업 한정판. 500mL·50도, 기존 제품보다 스모키함을 줄이고 맑은 풍미로 빚음. 1만 세트 한정(데일리샷 단독, 홍련 아크릴 키링·스탠드·코스터 동봉)</div></div>
+</div>
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hwasim-gungoguma-40.jpg" alt="화심소주 군고구마 40 제품 사진 (화심주조 제공)" loading="lazy"><div class="rgH-year">2023</div><div class="rgH-name"><a href="brand/화심소주-군고구마-40">화심소주 군고구마 40</a></div><div class="rgH-badges"><span class="abv-badge">40도</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">증류소 이름 <b>화심(火心)</b> + 원료 <b>군고구마</b>(구운 고구마) + 도수 <b>40</b>.</div>
+<div class="det">고구마를 오븐에 구운 뒤 분쇄해 발효하고 2회 증류한 40도 증류식 소주. 고구마 소주는 여럿 있지만 군고구마로 빚은 소주는 처음인 것으로 소개됨. 2023년 군쌀에 이어 출시.</div>
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/miraon.jpg" alt="미라온 제품 사진 (화심주조 공식 이미지)" loading="lazy"><div class="rgH-year">2024</div><div class="rgH-name"><a href="brand/미라온">미라온</a></div><div class="rgH-badges"></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">쌀을 뜻하는 <b>미(米)</b> + 즐거움을 뜻하는 순우리말 <b>라온</b> — '쌀의 즐거움'.</div>
+<div class="det">화심주조의 오크 숙성 라인. 경기 지역 쌀 일부를 구워 생쌀과 함께 위스키 효모로 발효하고 단식 증류기로 2회 증류한 뒤 오크 캐스크에서 숙성한 싱글 라이스 소주(700mL, 색소 무첨가·비냉각여과). 아드벡 증류소의 Very Young–Still Young–Almost There–Renaissance 연작을 오마주해, 2024년 버번캐스크 1년 숙성 'Very Young'을 시작으로 해마다 1년씩 더 숙성한 제품을 냄. 'Still Young'은 IWSC 2026 98점·소주 부문 트로피.</div>
 </div>
 </div>
 </div>
@@ -5099,6 +5170,26 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <div class="mfr-item">
 <span class="mfr-dot"></span>
+<span class="mfr-year">2022(추정)</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">지비지스피리츠</span><span class="mfr-region">서울 금천</span></div>
+<div class="mfr-brands">탁소주19</div>
+<div class="mfr-note">지비지스피리츠주식회사농업회사법인(대표 전진우). 쌀 증류식 '경복궁소주'를 빚고, 2026년 11월 방송인 탁재훈과 만든 '탁소주19'를 GS25에 출시.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">2023</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">화심주조</span><span class="mfr-region">경기 구리</span></div>
+<div class="mfr-brands">화심소주 군쌀·군고구마 40, 미라온</div>
+<div class="mfr-note">2023년 8월 양조 시작. 대표 오수민은 멜버른·런던·스코틀랜드에서 10년 넘게 일한 바텐더 출신으로, 아일라 섬 아드벡 증류소 비지터센터에서 일한 첫 한국인. 구운 쌀·고구마를 위스키 효모로 발효하는 방식. IWSC 2024 금·은상, IWSC 2026 금상 3·은상 1과 소주 부문 트로피.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
 <span class="mfr-year">2023(추정)</span>
 <div class="mfr-card">
 <div class="mfr-head"><span class="mfr-name">케이알컴퍼니</span><span class="mfr-region">강원 평창</span></div>
@@ -5296,7 +5387,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 <div class="footer">
   <div class="footer-info">
-    <span>대한민국 소주 가이드<i class="footer-divider"></i>26.10 Edition</span>
+    <span>대한민국 소주 가이드<i class="footer-divider"></i>26.11 Edition</span>
     <span><b>출처</b><i class="footer-divider"></i>나무위키·위키백과·한국경제매거진·브랜딩리드·각사 보도자료 종합</span>
     <span>© GooSle 2026 소주 가이드</span>
   </div>
@@ -5357,6 +5448,7 @@ function applyIdxFilterDebounced() {
 }
 function applyIdxFilter() {
   var q = document.getElementById('idxSearch').value.trim().toLowerCase();
+  var qNoSpace = q.replace(/\s+/g, ''); // 띄어쓰기 무시 비교용 — "참이슬후레쉬"도 "참이슬 후레쉬"에 매칭
   var filterActive = !!q || idxFilterCat !== 'all';
   if (!filterActive) collapseAutoExpanded();
   var allCards = document.querySelectorAll('.idx-grid .idx-card');
@@ -5366,15 +5458,15 @@ function applyIdxFilter() {
   }
   var totalVisible = 0;
   cards.forEach(function (card) {
-    var mfr = card.dataset.mfrLower;
+    var mfr = card.dataset.mfrLower.replace(/\s+/g, '');
     var brands = card.querySelectorAll('.idx-brand');
     var cardVisible = 0;
     brands.forEach(function (b) {
       var cat = b.dataset.cat || '';
-      var text = b.dataset.search + ' ' + mfr;
       var matchCat = (idxFilterCat === 'all') ||
         (idxFilterCat === '기타' ? !IDX_MAIN_CATS.some(function (c) { return cat.indexOf(c) !== -1; }) : cat.indexOf(idxFilterCat) !== -1);
-      var matchText = !q || text.indexOf(q) !== -1;
+      // 제품명·제조사명을 따로 비교 — 공백을 지운 채 이어 붙이면 두 이름 경계에 걸친 가짜 매칭이 생김
+      var matchText = !q || b.dataset.search.replace(/\s+/g, '').indexOf(qNoSpace) !== -1 || mfr.indexOf(qNoSpace) !== -1;
       var show = matchCat && matchText;
       b.style.display = show ? '' : 'none';
       highlightMatch(b.querySelector('.idx-brand-name'), q);
@@ -5716,6 +5808,10 @@ function initIdxQuickNav() {
   });
 }
 initIdxQuickNav();
+// 뒤로가기(bfcache 없이)·Firefox 새로고침 때 브라우저가 검색창 값만 복원하고 input 이벤트는 안 일으킴 → 목록도 그 값으로 다시 거름
+window.addEventListener('pageshow', function () {
+  if (document.getElementById('idxSearch').value.trim()) applyIdxFilter();
+});
 function updateIdxQuickNavScroll() {
   var track = document.getElementById('idxQuickNav');
   var prev = document.getElementById('idxQuickNavPrev');
@@ -5825,6 +5921,8 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
   });
 })();
 (function () {
+  // 팝업을 연 채 새로고침하면 pushModalState()가 남긴 칸이 남아, 아래에서 replaceState로 덮으면 같은 화면 기록이 2칸이 됨 → 끝에서 걷어냄
+  var staleModal = !!(history.state && history.state.modal);
   var id = '';
   var region = '';
   var hashTab = (location.hash || '').slice(1);
@@ -5841,6 +5939,7 @@ revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
   if (region) showRegion(region, false);
   else history.replaceState({ tab: id || 'browse' }, '', location.pathname);
   try { sessionStorage.setItem('sojuGuideVisited', '1'); } catch (e) {}
+  if (staleModal) history.back();
 })();
 </script>
 
