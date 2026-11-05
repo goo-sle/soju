@@ -406,6 +406,66 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 @media print { .bx-card, .lib-tabs, .bx-tip { display: none !important; } }
 
+/* ── 빠른 찾기 (26.11 재구성) ── */
+.qx-bar { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; position: sticky; top: 0; z-index: 50; box-shadow: 0 10px 24px -22px color-mix(in srgb, var(--ink) 60%, transparent); }
+.qx-search { position: relative; }
+.qx-search input {
+  width: 100%; font: inherit; font-size: 17px; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 999px; padding: 13px 18px 13px 46px; outline: none; transition: border-color .15s, background .15s;
+}
+.qx-search input:focus { border-color: var(--brand-2); background: var(--surface); }
+.qx-search svg { position: absolute; left: 17px; top: 50%; transform: translateY(-50%); color: var(--ink-muted); pointer-events: none; }
+.qx-cats { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.qx-cats .bx-chip small { margin-left: 2px; }
+.qx-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 30px 0 14px; }
+.qx-head h2 { white-space: nowrap; }
+.qx-head h2 { font-family: "Hahmlet", serif; font-weight: 500; font-size: 22px; color: var(--brand); }
+.qx-head span { font-size: 13px; color: var(--ink-muted); }
+.qx-cos { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); grid-auto-flow: dense; gap: 12px; }
+.qx-co { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: box-shadow .15s, border-color .15s; }
+.qx-co.open { grid-column: 1 / -1; border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); box-shadow: 0 12px 30px -22px color-mix(in srgb, var(--brand) 70%, transparent); }
+.qx-co-btn { appearance: none; border: 0; background: none; font: inherit; color: inherit; text-align: left; width: 100%; padding: 14px 16px; cursor: var(--cur-p), pointer; display: grid; grid-template-columns: 1fr auto; gap: 10px 8px; align-items: center; }
+@media (hover: hover) { .qx-co:not(.open):hover { border-color: var(--brand-2); } }
+.qx-co-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset: -2px; border-radius: 14px; }
+.qx-co-name { font-weight: 800; font-size: 16px; color: var(--ink); }
+.qx-co-n { font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+.qx-co-n i { font-style: normal; display: inline-block; margin-left: 6px; transition: transform .2s; }
+.qx-co.open .qx-co-n i { transform: rotate(180deg); }
+.qx-thumbs { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+.qx-thumb { aspect-ratio: 3/4; min-width: 0; border-radius: 8px; background: var(--surface-soft); overflow: hidden; flex: none; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: var(--ink-muted); }
+.qx-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.qx-co.open .qx-thumbs { display: none; }
+.qx-co-body { display: none; padding: 0 16px 16px; }
+.qx-co.open .qx-co-body { display: block; }
+.qx-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; }
+.qx-tile {
+  appearance: none; font: inherit; color: inherit; text-align: left; padding: 0; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px; overflow: hidden; cursor: var(--cur-p), pointer; transition: transform .15s, box-shadow .15s;
+}
+@media (hover: hover) { .qx-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 18px color-mix(in srgb, var(--ink) 12%, transparent); } }
+.qx-tile:focus-visible { transform: translateY(-3px); box-shadow: 0 8px 18px color-mix(in srgb, var(--ink) 12%, transparent); }
+.qx-tile-ph { display: grid; place-items: center; aspect-ratio: 3/4; background: var(--surface-soft); color: var(--ink-muted); font-family: "Hahmlet", serif; font-size: 30px; position: relative; }
+.qx-tile-ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.qx-tile-bd { display: block; padding: 8px 10px 10px; }
+.qx-tile-nm { display: block; font-weight: 700; font-size: 13.5px; line-height: 1.35; }
+.qx-tile-sub { display: block; font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+.qx-tile-sub .bx-dot { margin-right: 4px; }
+.qx-tile.disc { opacity: .55; }
+.qx-tile .qx-disc { position: absolute; top: 6px; left: 6px; font-family: "Pretendard Variable", sans-serif; font-size: 11px; font-weight: 700; background: var(--ink); color: var(--surface); border-radius: 6px; padding: 1px 6px; }
+.qx-tile mark { background: var(--highlight); color: inherit; border-radius: 3px; }
+.qx-empty { padding: 40px 0; text-align: center; color: var(--ink-muted); }
+.bx-c-export { background: var(--c-amber); }
+.bx-c-etc { background: var(--ink-muted); }
+@media screen and (max-width: 640px) {
+  .qx-bar { padding: 12px; border-radius: 12px; }
+  .qx-cats { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; }
+  .qx-cats .bx-chip { flex: none; }
+  .qx-cos { grid-template-columns: 1fr; }
+  .qx-tiles { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .qx-tile-nm { font-size: 12.5px; }
+}
+@media print { .qx-bar { display: none !important; } }
+
 /* ── FEEDBACK FAB ── */
 .feedback-fab {
   position: fixed; bottom: 20px; right: 20px; z-index: 1000;
@@ -458,10 +518,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   page-break-inside: avoid; break-inside: avoid;
   page-break-after: avoid; break-after: avoid;
 }
-.idx-header {
-  display: flex; flex-wrap: wrap; align-items: center;
-  justify-content: space-between; gap: 8px;
-}
 
 /* ── REGION LABEL ── */
 .region-label {
@@ -491,7 +547,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   border-top: 1px dashed var(--line);
   padding-top: 3px; margin-top: 2px;
 }
-
 
 /* ── 지역별 브랜드 상세: 매거진 카드형 아코디언 (제조사 단위 접기) ── */
 .rgH2-group {
@@ -628,7 +683,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .mfr-brands { font-size: 9pt; color: var(--ink-muted); margin-bottom: 5px; }
 .mfr-note { color: var(--ink); line-height: 1.55; }
 
-
 /* ── ABV TEXT (card name cell) ── */
 .abv-badge {
   font-size: 8.4pt;
@@ -638,188 +692,11 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 
 /* ── QUICK INDEX TABLE ── */
-.idx-cat {
-  display: inline-block;
-  padding: 1px 6px;
-  border-radius: 8px;
-  font-size: 8.25pt;
-  font-weight: 800;
-  color: #fff;
-  white-space: normal;
-  max-width: 100%;
-}
-.idx-cat-b { background: var(--c-blue); }
-.idx-cat-t { background: var(--c-teal); }
-.idx-cat-d { background: var(--c-deep); }
-.idx-cat-a { background: var(--c-amber-ink); }
 
 /* ── 빠른 찾기 검색/필터 툴바 (Behance 스타일) ── */
-.idx-header.section-header {
-  color: var(--ink); font-size: 12.9pt; font-weight: 700; margin: 16px 0 9px;
-}
-.idx-filter-toggle {
-  display: flex; align-items: center; gap: 6px; flex-shrink: 0;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
-  padding: 7px 16px 7px 12px; font-family: inherit; font-weight: 700; font-size: 12px;
-  color: var(--ink); cursor: var(--cur-p), pointer; transition: background .15s ease, color .15s ease;
-}
-@media (hover: hover) { .idx-filter-toggle:hover { background: var(--ink); color: #fff; } }
-.idx-filter-toggle:focus-visible { background: var(--ink); color: #fff; }
-.idx-search-wrap {
-  display: flex; align-items: center; gap: 8px; flex: 1; min-width: 120px;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px;
-}
-.idx-search-icon { font-size: 12px; opacity: .6; flex-shrink: 0; }
-.idx-search {
-  border: none; background: none; outline: none; width: 100%;
-  font-size: 10.1pt; font-family: inherit; color: var(--ink);
-}
-.idx-search::placeholder { color: var(--ink-muted); }
-.idx-search:focus-visible { outline: none; }
-.idx-search-wrap:focus-within { border-color: var(--brand-2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-2) 20%, transparent); }
-.idx-body { display: flex; align-items: flex-start; gap: 0; }
-.idx-content { flex: 1; min-width: 0; overflow-x: hidden; }
-.idx-filter-panel {
-  width: 0; flex-shrink: 0; overflow: hidden;
-  transition: width .25s ease, margin-right .25s ease;
-}
-.idx-filter-panel.open { width: 240px; margin-right: 20px; }
-@media (max-width: 640px) {
-  .idx-body { position: relative; }
-  .idx-filter-panel.open { position: absolute; top: 0; left: 0; z-index: 5; margin-right: 0; width: min(240px, calc(100vw - 40px)); }
-}
-.idx-filter-panel-inner {
-  width: 240px; padding: 18px;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-}
-.idx-filters { display: flex; flex-direction: column; }
-.idx-filter-btn {
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  border: none; border-bottom: 1px solid var(--line); background: none; color: var(--ink);
-  padding: 13px 2px; font-size: 14px; font-weight: 600; text-align: left; width: 100%;
-  cursor: var(--cur-p), pointer;
-}
-.idx-filter-btn:last-child { border-bottom: none; }
-.idx-filter-ico { font-size: 16px; margin-right: 4px; }
-.idx-filter-chevron { color: var(--ink-muted); font-size: 12px; flex-shrink: 0; }
-.idx-filter-btn.active { color: var(--brand); font-weight: 900; }
-.idx-empty { text-align: center; color: var(--ink-muted); padding: 14px; font-size: 10.1pt; display: none; }
-.idx-quicknav {
-  display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 14px; margin-bottom: 4px;
-  scrollbar-width: none;
-}
-.idx-quicknav::-webkit-scrollbar { display: none; }
-.idx-quicknav-chip {
-  flex-shrink: 0; font-family: inherit; font-weight: 700; font-size: 12px;
-  color: #fff; background: var(--ink); border: none; border-radius: 10px;
-  padding: 10px 16px; cursor: var(--cur-p), pointer; white-space: nowrap;
-  transition: background .15s ease, transform .15s ease;
-}
-@media (hover: hover) { .idx-quicknav-chip:hover { background: var(--brand); transform: translateY(-1px); } }
-.idx-quicknav-chip:focus-visible { background: var(--brand); transform: translateY(-1px); }
-.idx-quicknav-chip.active { background: var(--brand); }
-@media (hover: hover) { .idx-quicknav-chip.active:hover { background: var(--brand-2); } }
-.idx-quicknav-chip.active:focus-visible { background: var(--brand-2); }
-.idx-quicknav-wrap { position: relative; margin-bottom: 4px; }
-.idx-quicknav-fade {
-  position: absolute; top: 0; bottom: 14px; width: 40px; pointer-events: none;
-  z-index: 2; transition: opacity .2s ease;
-}
-.idx-quicknav-fade-l { left: 0; background: linear-gradient(to right, var(--bg), color-mix(in srgb, var(--bg), transparent 100%)); }
-.idx-quicknav-fade-r { right: 0; background: linear-gradient(to left, var(--bg), color-mix(in srgb, var(--bg), transparent 100%)); }
-.idx-quicknav-arrow {
-  position: absolute; top: 50%; transform: translateY(-50%); margin-top: -7px; z-index: 3;
-  width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface);
-  display: flex; align-items: center; justify-content: center; cursor: var(--cur-p), pointer;
-  color: var(--ink); font-size: 14px; line-height: 1; box-shadow: 0 2px 8px rgba(0,0,0,.12);
-}
-.idx-quicknav-arrow-prev { left: 2px; }
-.idx-quicknav-arrow-next { right: 2px; }
-.idx-quicknav-arrow[hidden] { display: none; }
-@media print {
-  .idx-quicknav, .idx-quicknav-arrow, .idx-quicknav-fade { display: none !important; }
-}
 
-/* ── 빠른 찾기: 제조사 그리드 (JS 메이슨리 레이아웃, layoutMasonry() 참고) ── */
-.idx-grid {
-  position: relative;
-  margin: 6px 0 4px;
-}
-.idx-card {
-  box-sizing: border-box;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 14px 16px;
-  background: var(--surface);
-  overflow: hidden;
-  page-break-inside: avoid; break-inside: avoid;
-  opacity: 0; transform: translateX(-24px);
-}
-.idx-card.slide-in { animation: idxCardSlideIn .45s ease-out both; }
-@keyframes idxCardSlideIn { to { opacity: 1; transform: translateX(0); } }
-/* 제조사 카드가 55개나 나열되니 이웃 카드끼리 구분되도록 기존 색 토큰 8개를 순환 배정 */
-.idx-grid > .idx-card:nth-child(8n+1) { --card-accent: var(--c-blue); }
-.idx-grid > .idx-card:nth-child(8n+2) { --card-accent: var(--c-amber); }
-.idx-grid > .idx-card:nth-child(8n+3) { --card-accent: var(--c-teal); }
-.idx-grid > .idx-card:nth-child(8n+4) { --card-accent: var(--accent-red); }
-.idx-grid > .idx-card:nth-child(8n+5) { --card-accent: var(--c-deep); }
-.idx-grid > .idx-card:nth-child(8n+6) { --card-accent: var(--region-jeolla); }
-.idx-grid > .idx-card:nth-child(8n+7) { --card-accent: var(--region-jeju); }
-.idx-grid > .idx-card:nth-child(8n+8) { --card-accent: var(--mc-gray); }
-.idx-card-header {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 5px;
-  font-weight: 900;
-  font-size: 10.4pt;
-  color: var(--card-accent);
-  margin-bottom: 6px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid var(--card-accent);
-  cursor: var(--cur-p), pointer;
-  user-select: none;
-}
-@media (hover: hover) { .idx-card-header:hover { color: color-mix(in srgb, var(--card-accent) 80%, black); } }
-.idx-card-header .arrow { order: -1; }
-/* 빠른 찾기 라벨형 브랜드 줄 (26.10 리디자인): 원형 사진 + 이름 */
-.idx-brand {
-  position: relative;
-  display: grid; grid-template-columns: 40px 1fr; column-gap: 8px; row-gap: 1px; align-items: center;
-  margin: 0 0 6px; padding: 5px 20px 5px 5px; background: var(--surface);
-  border: 2px solid var(--brand); border-radius: 40px 12px 12px 40px;
-  cursor: var(--cur-p), pointer;
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.idx-brand:last-child { margin-bottom: 0; }
-.idx-brand::after {
-  content: '›';
-  position: absolute; right: 8px; top: 50%; transform: translate(4px,-50%);
-  opacity: 0; font-size: 13px; color: var(--ink-muted);
-  transition: opacity .15s ease, transform .15s ease;
-  pointer-events: none;
-}
-.idx-brand:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,.1);
-  z-index: 1;
-}
-.idx-brand:focus-visible::after { opacity: 1; transform: translate(0,-50%); }
 /* 터치 기기는 탭 후 :hover가 고착되므로 마우스 환경에서만 */
-@media (hover: hover) {
-  .idx-brand:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,.1);
-    z-index: 1;
-  }
-  .idx-brand:hover::after { opacity: 1; transform: translate(0,-50%); }
-}
-.idx-brand-jump { animation: idxJumpRing 1.6s ease-out; border-radius: 8px; }
-@keyframes idxJumpRing {
-  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand-2) 40%, transparent); }
-  70% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--brand-2), transparent 100%); }
-  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand-2), transparent 100%); }
-}
+
 @keyframes idxTextSweep { to { background-size: 100% 100%; } }
 .bv-highlight-phrase {
   padding: 0 3px; margin: 0 -3px; border-radius: 3px;
@@ -829,94 +706,14 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   background-size: 0% 100%;
 }
 .bv-highlight-phrase.play { animation: idxTextSweep 0.9s ease-out forwards; }
-.idx-brand-top {
-  display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 6px;
-  font-weight: 700;
-  font-size: 9.3pt;
-  margin-bottom: 2px;
-}
-.idx-brand-name { font-family: "Do Hyeon", sans-serif; font-weight: 400; font-size: 11.5pt; color: var(--brand); }
-.idx-brand-meta {
-  display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  gap: 6px;
-  margin-bottom: 2px;
-}
-.idx-abv { color: var(--ink-muted); font-size: 8.3pt; font-weight: 600; white-space: nowrap; }
-.idx-year { color: var(--ink-muted); font-size: 8.25pt; font-weight: 600; white-space: nowrap; }
-.idx-brand-kw { color: var(--ink-muted); font-size: 8.3pt; line-height: 1.4; }
-.idx-brand-kw .idx-cat { margin-right: 5px; }
+
 /* 한 줄: 분류 배지·상품명. 도수·연도·설명은 클릭 팝업에서 보이므로 목록에선 숨김(팝업·정렬·검색·brand 페이지 생성기가 읽으므로 DOM은 유지) */
-.idx-brand .idx-brand-top { grid-column: 2; align-items: center; gap: 5px; margin: 0; }
-.idx-brand .idx-brand-meta, .idx-brand .idx-brand-kw { display: none; }
-.idx-photo {
-  grid-column: 1; grid-row: 1; width: 40px; height: 40px; border-radius: 50%;
-  border: 2px solid var(--brand-3); background: var(--surface-soft); object-fit: cover;
-  display: grid; place-content: center; font-family: "Do Hyeon", sans-serif; font-size: 16px; color: var(--brand);
-}
-.idx-search-hit { background: var(--highlight); border-radius: 2px; padding: 0 1px; color: var(--ink); }
-@media print {
-  .idx-search { display: none; }
-  .idx-filter-toggle, .idx-filter-panel { display: none !important; }
-  .idx-grid { height: auto !important; position: static !important; }
-  .idx-card { display: block !important; position: static !important; left: auto !important; top: auto !important; width: auto !important; margin-bottom: 10px; opacity: 1 !important; transform: none !important; }
-  .idx-card-header { cursor: default; }
-  .idx-brand { display: grid !important; }
-  .idx-empty { display: none !important; }
-}
 
 /* ── 카드 헤더 브랜드 수 배지 ── */
-.idx-card-count {
-  display: inline-block;
-  margin-left: 5px;
-  padding: 0 7px;
-  border-radius: 8px;
-  font-size: 8.2pt;
-  font-weight: 700;
-  color: var(--card-accent, var(--accent-red));
-  background: color-mix(in srgb, var(--card-accent, var(--accent-red)) 10%, white);
-  border: 1px solid color-mix(in srgb, var(--card-accent, var(--accent-red)) 28%, white);
-  vertical-align: middle;
-}
 
 /* ── 단종 브랜드 흐림 처리 ── */
-.idx-brand.is-discontinued { opacity: 0.45; }
 
 /* ── 제조사 그룹 아코디언 ── */
-.idx-group-toggle {
-  display: flex; align-items: center; gap: 8px;
-  cursor: var(--cur-p), pointer;
-  font-size: 10.6pt; font-weight: 900; color: var(--ink);
-  margin: 14px 0 8px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border-left: 4px solid var(--c-blue);
-  background: color-mix(in srgb, var(--c-blue) 7%, transparent);
-  user-select: none;
-  transition: background .15s ease;
-}
-@media (hover: hover) { .idx-group-toggle:hover { background: color-mix(in srgb, var(--c-blue) 14%, transparent); } }
-.idx-group-toggle.idx-group-traditional { border-left-color: var(--c-deep); background: color-mix(in srgb, var(--c-deep) 7%, transparent); }
-@media (hover: hover) { .idx-group-toggle.idx-group-traditional:hover { background: color-mix(in srgb, var(--c-deep) 14%, transparent); } }
-.idx-group-count {
-  display: inline-block; padding: 1px 9px; border-radius: 8px;
-  font-size: 8.6pt; font-weight: 700; color: var(--ink);
-  border: 1px solid color-mix(in srgb, var(--timeline-dot) 35%, transparent);
-  white-space: nowrap;
-}
-.idx-group-toggle .arrow, .idx-card-header .arrow { display: inline-block; transition: transform 0.15s; font-size: 9pt; }
-.idx-group-toggle.collapsed .arrow, .idx-card-header.collapsed .arrow { transform: rotate(-90deg); }
-.idx-group-body, .idx-card-body { display: block; }
-.idx-group-body.collapsed, .idx-card-body.collapsed { display: none; }
-@media print {
-  .idx-group-toggle { cursor: default; }
-  .idx-group-body.collapsed, .idx-card-body.collapsed { display: block !important; }
-}
 
 /* ── 모바일 반응형 ── */
 @media screen and (max-width: 640px) {
@@ -1085,7 +882,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   .method-modal-close { width: 32px; height: 32px; }
   .method-modal .method-grid-stack .method-card { grid-template-columns: 1fr; gap: 4px; }
   .method-modal .method-grid-stack .mc-head { border-right: none; padding-right: 0; }
-}
 }
 @media print {
   .method-help-btn { display: none !important; }
@@ -1357,44 +1153,9 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 <!-- ══════════════════ 빠른 찾기 인덱스 ══════════════════ -->
 <div class="tab-panel" id="tab-quickindex">
-<div class="section-header sh-deep idx-header">
-<button type="button" class="idx-filter-toggle" onclick="toggleIdxFilterPanel()">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-<line x1="4" y1="7" x2="20" y2="7"/>
-<line x1="4" y1="12" x2="20" y2="12"/>
-<line x1="4" y1="17" x2="20" y2="17"/>
-</svg>
-필터
-</button>
-<div class="idx-search-wrap">
-<span class="idx-search-icon" aria-hidden="true">🔍</span>
-<input type="text" id="idxSearch" class="idx-search" placeholder="브랜드명·제조사 검색" oninput="applyIdxFilterDebounced()">
-</div>
-</div>
-<div class="idx-body">
-<div class="idx-filter-panel" id="idxFilterPanel">
-<div class="idx-filter-panel-inner">
-<div class="idx-filters">
-<button class="idx-filter-btn active" data-cat="all" onclick="setIdxFilter('all')"><span><span class="idx-filter-ico">📋</span> 전체</span><span class="idx-filter-chevron">⌄</span></button>
-<button class="idx-filter-btn" data-cat="희석식" onclick="setIdxFilter('희석식')"><span><span class="idx-filter-ico">💧</span> 희석식</span><span class="idx-filter-chevron">⌄</span></button>
-<button class="idx-filter-btn" data-cat="플레이버" onclick="setIdxFilter('플레이버')"><span><span class="idx-filter-ico">🍑</span> 플레이버</span><span class="idx-filter-chevron">⌄</span></button>
-<button class="idx-filter-btn" data-cat="증류식" onclick="setIdxFilter('증류식')"><span><span class="idx-filter-ico">🥃</span> 증류식</span><span class="idx-filter-chevron">⌄</span></button>
-<button class="idx-filter-btn" data-cat="수출용" onclick="setIdxFilter('수출용')"><span><span class="idx-filter-ico">✈️</span> 수출용</span><span class="idx-filter-chevron">⌄</span></button>
-<button class="idx-filter-btn" data-cat="기타" onclick="setIdxFilter('기타')"><span><span class="idx-filter-ico">🍶</span> 기타</span><span class="idx-filter-chevron">⌄</span></button>
-</div>
-</div>
-</div>
-<div class="idx-content">
-<div class="idx-quicknav-wrap">
-<div class="idx-quicknav-fade idx-quicknav-fade-l" id="idxQuickNavFadeL"></div>
-<div class="idx-quicknav-fade idx-quicknav-fade-r" id="idxQuickNavFadeR"></div>
-<button type="button" class="idx-quicknav-arrow idx-quicknav-arrow-prev" id="idxQuickNavPrev" aria-label="이전" hidden>‹</button>
-<button type="button" class="idx-quicknav-arrow idx-quicknav-arrow-next" id="idxQuickNavNext" aria-label="다음" hidden>›</button>
-<div class="idx-quicknav" id="idxQuickNav"></div>
-</div>
-<div class="idx-group-toggle" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 상업 소주사 <span class="idx-group-count">18개사</span></div>
-<div class="idx-group-body">
-<div class="idx-grid" id="idxGrid"><div class="idx-card" style="order:1"><div class="idx-card-header">하이트진로</div>
+<div class="idx-data" hidden>
+<div class="idx-group" data-desc="편의점·식당에서 흔히 만나는 브랜드">많이 보는 소주 회사</div>
+<div class="idx-grid"><div class="idx-card" style="order:1"><div class="idx-card-header">하이트진로</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1993</span></div><div class="idx-brand-kw">1924년 창업 원조 브랜드 · 정통 도수 유지</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로이즈백</span></div><div class="idx-brand-meta"><span class="idx-abv">15.7도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">두꺼비 뉴트로 · 2026.02 15.7도 리뉴얼 · 2026.05 패키지 전면 리뉴얼('올뉴진로')</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">참이슬 후레쉬</span></div><div class="idx-brand-meta"><span class="idx-abv">15.7도</span><span class="idx-year">1998</span></div><div class="idx-brand-kw">No.1 스테디셀러 · 2026.06 15.7도 리뉴얼, 패키지 새단장</div></div>
@@ -1596,10 +1357,8 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-card" style="order:16"><div class="idx-card-header">에스케이재원(주)</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">경소주 51도</span></div><div class="idx-brand-meta"><span class="idx-abv">51도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">가수 성시경 주류 브랜드 경(璄) 첫 제품 'First Batch', 국내산 쌀 100% 2회 증류</div></div>
 </div></div>
-</div>
-<div class="idx-group-toggle idx-group-traditional" onclick="toggleIdxGroup(this)"><span class="arrow">▼</span> 전통 증류주 · 명인 양조장 <span class="idx-group-count">43개사</span></div>
-<div class="idx-group-body">
-<div class="idx-grid" id="idxGrid2"><div class="idx-card" style="order:1"><div class="idx-card-header">민속주/명인 안동소주</div>
+<div class="idx-group" data-desc="지역 양조장과 명인이 빚는 증류식 소주">전통·크래프트 증류소</div>
+<div class="idx-grid"><div class="idx-card" style="order:1"><div class="idx-card-header">민속주/명인 안동소주</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 45도</span></div><div class="idx-brand-meta"><span class="idx-abv">45도</span><span class="idx-year">1990</span></div><div class="idx-brand-kw">1988년 국가 8대 민속주 지정, 조옥화→김연박 명인 계승</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 35도</span></div><div class="idx-brand-meta"><span class="idx-abv">35도</span></div><div class="idx-brand-kw">360ml</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">민속주 안동소주 25도</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">45도 단일제품 체제 33년 만의 신제품, 무가수 원액</div></div>
@@ -1780,9 +1539,6 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">화심소주 군고구마 40</span></div><div class="idx-brand-meta"><span class="idx-abv">40도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">경기 구리, 오븐에 구운 고구마로 빚은 소주</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">미라온</span></div><div class="idx-brand-meta"><span class="idx-year">2024</span></div><div class="idx-brand-kw">경기 구리, 구운 쌀 오크 숙성 싱글 라이스 소주, IWSC 2026 소주 트로피</div></div>
 </div></div>
-</div>
-<div class="idx-empty" id="idxEmpty">검색·필터 조건에 맞는 브랜드가 없습니다.</div>
-</div>
 </div>
 </div>
 <!-- ══════════════════ TIMELINE ══════════════════ -->
@@ -5437,121 +5193,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 <script>
-var idxFilterCat = 'all';
-var idxIsolatedCard = null;
-var idxAutoExpanded = new Set(); // 검색/필터가 자동으로 펼친 아코디언 — 필터 꺼지면 다시 접음(사용자가 직접 펼친 건 제외)
-function layoutMasonry(grid) {
-  if (!grid) return;
-  var cards = Array.prototype.slice.call(grid.querySelectorAll('.idx-card')).filter(function (c) {
-    return c.style.display !== 'none';
-  });
-  var width = grid.clientWidth;
-  if (!width || cards.length === 0) { grid.style.height = ''; return; }
-  var colTarget = 255, gap = 10;
-  var cols = Math.max(1, Math.floor((width + gap) / (colTarget + gap)));
-  var colWidth = (width - gap * (cols - 1)) / cols;
-  // 카드마다 쓰고(너비) 바로 읽는(offsetHeight) 걸 반복하면 카드 수만큼 강제 동기 리플로우가
-  // 걸림 — 쓰기 몰아서 → 읽기 몰아서(높이 전부 미리 확보) → 쓰기 몰아서(배치) 3단계로 배칭.
-  cards.forEach(function (card) {
-    card.style.position = 'absolute';
-    card.style.width = colWidth + 'px';
-  });
-  var cardHeights = cards.map(function (card) { return card.offsetHeight; });
-  var heights = new Array(cols).fill(0);
-  cards.forEach(function (card, i) {
-    var idx = 0;
-    for (var j = 1; j < cols; j++) { if (heights[j] < heights[idx]) idx = j; }
-    card.style.left = (idx * (colWidth + gap)) + 'px';
-    card.style.top = heights[idx] + 'px';
-    heights[idx] += cardHeights[i] + gap;
-  });
-  grid.style.height = Math.max.apply(null, heights) + 'px';
-}
-function layoutAllMasonry() {
-  document.querySelectorAll('.idx-grid').forEach(layoutMasonry);
-}
-function slideInIdxCards() {
-  var vi = 0;
-  document.querySelectorAll('#tab-quickindex .idx-card').forEach(function (card) {
-    if (card.style.display === 'none') return;
-    card.classList.remove('slide-in');
-    card.style.animationDelay = '';
-    void card.offsetWidth;
-    card.style.animationDelay = (vi * 0.03) + 's';
-    card.classList.add('slide-in');
-    vi++;
-  });
-}
-var idxFilterTimer;
-var IDX_MAIN_CATS = ['희석식', '플레이버', '증류식', '수출용']; // '기타' 필터 = 이 중 어디에도 안 드는 분류(담금용·캔소맥·탄산주·약주 등)
-function applyIdxFilterDebounced() {
-  idxIsolatedCard = null;
-  clearTimeout(idxFilterTimer);
-  idxFilterTimer = setTimeout(applyIdxFilter, 120);
-}
-function applyIdxFilter() {
-  var q = document.getElementById('idxSearch').value.trim().toLowerCase();
-  var qNoSpace = q.replace(/\s+/g, ''); // 띄어쓰기 무시 비교용 — "참이슬후레쉬"도 "참이슬 후레쉬"에 매칭
-  var filterActive = !!q || idxFilterCat !== 'all';
-  if (!filterActive) collapseAutoExpanded();
-  var allCards = document.querySelectorAll('.idx-grid .idx-card');
-  var cards = idxIsolatedCard ? [idxIsolatedCard] : Array.prototype.slice.call(allCards);
-  if (idxIsolatedCard) {
-    allCards.forEach(function (c) { if (c !== idxIsolatedCard) c.style.display = 'none'; });
-  }
-  var totalVisible = 0;
-  cards.forEach(function (card) {
-    var mfr = card.dataset.mfrLower.replace(/\s+/g, '');
-    var brands = card.querySelectorAll('.idx-brand');
-    var cardVisible = 0;
-    brands.forEach(function (b) {
-      var cat = b.dataset.cat || '';
-      var matchCat = (idxFilterCat === 'all') ||
-        (idxFilterCat === '기타' ? !IDX_MAIN_CATS.some(function (c) { return cat.indexOf(c) !== -1; }) : cat.indexOf(idxFilterCat) !== -1);
-      // 제품명·제조사명을 따로 비교 — 공백을 지운 채 이어 붙이면 두 이름 경계에 걸친 가짜 매칭이 생김
-      var matchText = !q || b.dataset.search.replace(/\s+/g, '').indexOf(qNoSpace) !== -1 || mfr.indexOf(qNoSpace) !== -1;
-      var show = matchCat && matchText;
-      b.style.display = show ? '' : 'none';
-      highlightMatch(b.querySelector('.idx-brand-name'), q);
-      if (show) cardVisible++;
-    });
-    card.style.display = cardVisible > 0 ? '' : 'none';
-    // 검색/필터 매치가 접힌 회사 카드 안에 있으면 자동으로 펼친다(그룹과 동일한 규칙) — 필터 꺼진 기본 상태에선 사용자가 접어둔 카드를 건드리지 않음
-    if (filterActive && cardVisible > 0) expandIfCollapsed(card.querySelector('.idx-card-header'), card.querySelector('.idx-card-body'));
-    totalVisible += cardVisible;
-  });
-  document.getElementById('idxEmpty').style.display = totalVisible === 0 ? 'block' : 'none';
-  document.querySelectorAll('#idxQuickNav .idx-quicknav-chip').forEach(function (chip) {
-    var on = chip.idxCard ? chip.idxCard === idxIsolatedCard : !idxIsolatedCard;
-    chip.classList.toggle('active', on);
-    chip.setAttribute('aria-pressed', on ? 'true' : 'false');
-  });
-  document.querySelectorAll('#tab-quickindex .idx-group-body').forEach(function (body) {
-    var anyVisible = Array.prototype.some.call(body.querySelectorAll('.idx-card'), function (c) {
-      return c.style.display !== 'none';
-    });
-    var toggle = body.previousElementSibling;
-    if (toggle && toggle.classList.contains('idx-group-toggle')) {
-      toggle.style.display = anyVisible ? '' : 'none';
-      // 검색/필터 매치가 접힌 그룹 안에 있으면 자동으로 펼친다 — .collapsed는 CSS
-      // display:none 클래스라 inline style.display=''로는 안 뒤집혀서 매치가 있어도
-      // 화면엔 아무 것도 안 보이는(그런데 "결과 없음"도 안 뜨는) 버그가 있었음.
-      // 필터가 꺼진 기본 상태(전체 보기)에선 사용자가 수동으로 접어둔 그룹을 건드리지 않음.
-      if (filterActive && anyVisible) expandIfCollapsed(toggle, body);
-    }
-    body.style.display = anyVisible ? '' : 'none';
-  });
-  requestAnimationFrame(function () { requestAnimationFrame(layoutAllMasonry); });
-}
 function escHtml(s) { return s.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
-function highlightMatch(el, q) {
-  if (!el) return;
-  if (!q) { if (el.querySelector('mark')) el.textContent = el.textContent; return; }
-  var text = el.textContent;
-  var idx = text.toLowerCase().indexOf(q);
-  if (idx === -1) { el.textContent = text; return; }
-  el.innerHTML = escHtml(text.slice(0, idx)) + '<mark class="idx-search-hit">' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
-}
 function tickNumber(el, from, to, dur) {
   var start = performance.now();
   function step(now) {
@@ -5583,36 +5225,6 @@ function playRegionStats() {
   tickNumber(document.getElementById('regionStatCompanies'), 0, companies, 900);
   tickNumber(document.getElementById('regionStatBrands'), 0, brands, 900);
 }
-function setIdxFilter(cat) {
-  idxIsolatedCard = null; // 검색 입력과 같게 — 회사 칩 고정 상태를 풀어야 전체 회사에서 분류로 걸러짐
-  idxFilterCat = cat;
-  document.querySelectorAll('.idx-filter-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.cat === cat); });
-  applyIdxFilter();
-}
-function toggleIdxFilterPanel(force) {
-  var panel = document.getElementById('idxFilterPanel');
-  if (!panel) return;
-  var open = typeof force === 'boolean' ? force : !panel.classList.contains('open');
-  panel.classList.toggle('open', open);
-  panel.removeEventListener('transitionend', onIdxFilterPanelTransitionEnd);
-  panel.addEventListener('transitionend', onIdxFilterPanelTransitionEnd);
-}
-document.addEventListener('keydown', function(e){
-  if (e.key !== 'Escape') return;
-  var panel = document.getElementById('idxFilterPanel');
-  if (panel && panel.classList.contains('open')) toggleIdxFilterPanel(false);
-});
-document.addEventListener('click', function(e){
-  var panel = document.getElementById('idxFilterPanel');
-  var toggle = document.querySelector('.idx-filter-toggle');
-  if (panel && panel.classList.contains('open') && !panel.contains(e.target) && (!toggle || !toggle.contains(e.target))) {
-    toggleIdxFilterPanel(false);
-  }
-});
-function onIdxFilterPanelTransitionEnd(e) {
-  if (e.target !== e.currentTarget || e.propertyName !== 'width') return;
-  layoutAllMasonry();
-}
 var TAB_LABELS = {
   browse: '둘러보기', quickindex: '빠른 찾기', timeline: '타임라인', region: '지역별 브랜드',
   companies: '제조사 현황', method: '제조 방법', news: '소식·퀴즈'
@@ -5633,11 +5245,6 @@ function showTab(id, push) {
   else history.pushState({ tab: id }, '', location.pathname);
   try { sessionStorage.setItem('sojuGuideTab', id); } catch (e) {}
   if (id === 'region') showRegionMap();
-  if (id === 'quickindex') {
-    layoutAllMasonry();
-    slideInIdxCards();
-    updateIdxQuickNavScroll();
-  }
   // 복원(새로고침·뒤로가기)은 브라우저가 기억한 스크롤 위치를 그대로 둔다
   if (push !== false) window.scrollTo({ top: 0, behavior: 'smooth' });
   if (typeof gtag === 'function') gtag('event', 'tab_view', { tab_name: TAB_LABELS[id] || id });
@@ -5711,182 +5318,6 @@ function showRegionMap() {
     el.classList.add('rise');
   });
 }
-function toggleIdxGroup(toggleEl) {
-  idxAutoExpanded.delete(toggleEl); // 사용자가 직접 조작했으니 필터 해제 시 자동 복원 대상에서 제외
-  toggleEl.classList.toggle('collapsed');
-  var body = toggleEl.nextElementSibling;
-  if (body) body.classList.toggle('collapsed');
-  layoutAllMasonry();
-}
-// 검색/필터 매치가 접힌 아코디언(그룹 또는 제조사 카드) 안에 있으면 자동으로 펼침 — 양쪽에서 공용.
-// 실제로 접혀있던 것만 idxAutoExpanded에 기록해뒀다가 필터 해제 시 다시 접는다.
-function expandIfCollapsed(toggleEl, bodyEl) {
-  if (!toggleEl || !bodyEl) return;
-  if (toggleEl.classList.contains('collapsed')) idxAutoExpanded.add(toggleEl);
-  toggleEl.classList.remove('collapsed');
-  bodyEl.classList.remove('collapsed');
-}
-function collapseAutoExpanded() {
-  if (!idxAutoExpanded.size) return;
-  idxAutoExpanded.forEach(function (toggleEl) {
-    var body = toggleEl.nextElementSibling;
-    toggleEl.classList.add('collapsed');
-    if (body) body.classList.add('collapsed');
-  });
-  idxAutoExpanded.clear();
-}
-function initIdxCards() {
-  document.querySelectorAll('.idx-card').forEach(function (card) {
-    var header = card.querySelector('.idx-card-header');
-    var count = card.querySelectorAll('.idx-brand').length;
-    var mfrName = header.textContent.trim();
-    card.dataset.mfrLower = mfrName.toLowerCase();
-    header.dataset.mfrName = mfrName; // initIdxQuickNav()가 회사명 칩 라벨로 참조 — 아래에서 header 자식을 바꾸므로 미리 저장
-
-    var arrow = document.createElement('span');
-    arrow.className = 'arrow'; // .idx-group-toggle의 화살표와 같은 클래스 — order:-1로 항상 맨 앞에 표시되므로 DOM 위치는 상관없음
-    arrow.textContent = '▾';
-    header.appendChild(arrow);
-
-    var badge = document.createElement('span');
-    badge.className = 'idx-card-count';
-    badge.textContent = count + '종';
-    header.appendChild(badge);
-
-    // 브랜드 목록을 별도 body로 옮겨 회사 단위 접기/펼치기 지원 — 기본은 접힘.
-    // body가 header.nextElementSibling이 되므로 toggleIdxGroup(header)를 그대로 재사용 가능.
-    var body = document.createElement('div');
-    body.className = 'idx-card-body';
-    var node = header.nextSibling;
-    while (node) {
-      var next = node.nextSibling;
-      body.appendChild(node);
-      node = next;
-    }
-    card.appendChild(body);
-    header.classList.add('collapsed');
-    body.classList.add('collapsed');
-    header.addEventListener('click', function () { toggleIdxGroup(header); });
-  });
-  var photoByName = {};
-  document.querySelectorAll('#tab-region .rgH-card').forEach(function (c) {
-    var n = c.querySelector('.rgH-name'), ph = c.querySelector('.rgH-photo');
-    if (n && ph && !photoByName[n.textContent.trim()]) photoByName[n.textContent.trim()] = ph.getAttribute('src');
-  });
-  document.querySelectorAll('.idx-brand').forEach(function (b) {
-    var name = (b.querySelector('.idx-brand-name') || {}).textContent || '';
-    // 검색 대상: 요소별 텍스트를 공백으로 이어 저장 — textContent 통째로 쓰면 이름·도수 경계("식진")나 사진 대체 글자까지 매칭됨
-    b.dataset.search = Array.prototype.map.call(b.querySelectorAll('.idx-brand-name'), function (el) { return el.textContent; }).join(' ').toLowerCase();
-    var src = photoByName[name.trim()], ph;
-    if (src) { ph = document.createElement('img'); ph.src = src; ph.alt = ''; ph.loading = 'lazy'; }
-    else { ph = document.createElement('span'); ph.textContent = name.trim().charAt(0); ph.setAttribute('aria-hidden', 'true'); }
-    ph.className = 'idx-photo';
-    b.insertBefore(ph, b.firstChild);
-    var catEl = b.querySelector('.idx-cat');
-    b.dataset.cat = catEl ? catEl.textContent : '';
-    b.tabIndex = 0;
-    b.setAttribute('role', 'button');
-    if (b.dataset.cat.indexOf('단종') !== -1) {
-      b.classList.add('is-discontinued');
-    }
-  });
-  document.querySelectorAll('.idx-group-toggle').forEach(function (toggle) {
-    var countEl = toggle.querySelector('.idx-group-count');
-    var body = toggle.nextElementSibling;
-    if (!countEl || !body) return;
-    countEl.textContent = body.querySelectorAll('.idx-card').length + '개사';
-  });
-}
-function sortIdxBrandsByYear() {
-  document.querySelectorAll('.idx-card').forEach(function (card) {
-    var brands = Array.prototype.slice.call(card.querySelectorAll('.idx-brand'));
-    if (brands.length < 2) return;
-    brands.sort(function (a, b) {
-      var ay = a.querySelector('.idx-year');
-      var by = b.querySelector('.idx-year');
-      var an = ay ? parseInt(ay.textContent.replace(/[^0-9]/g, ''), 10) : NaN;
-      var bn = by ? parseInt(by.textContent.replace(/[^0-9]/g, ''), 10) : NaN;
-      if (isNaN(an)) an = Infinity;
-      if (isNaN(bn)) bn = Infinity;
-      return an - bn;
-    });
-    brands.forEach(function (b) { card.appendChild(b); });
-  });
-}
-sortIdxBrandsByYear();
-initIdxCards();
-function initIdxQuickNav() {
-  var nav = document.getElementById('idxQuickNav');
-  if (!nav) return;
-  var allChip = document.createElement('button');
-  allChip.type = 'button';
-  allChip.className = 'idx-quicknav-chip idx-quicknav-chip-all active';
-  allChip.setAttribute('aria-pressed', 'true');
-  allChip.textContent = '전체';
-  allChip.onclick = function () {
-    idxIsolatedCard = null;
-    applyIdxFilter();
-  };
-  nav.appendChild(allChip);
-  document.querySelectorAll('#tab-quickindex .idx-card').forEach(function (card) {
-    var header = card.querySelector('.idx-card-header');
-    var name = header.dataset.mfrName;
-    var chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'idx-quicknav-chip';
-    chip.setAttribute('aria-pressed', 'false');
-    chip.idxCard = card;
-    chip.textContent = name;
-    chip.onclick = function () {
-      // 검색 자동 펼침(expandIfCollapsed)과 달리 이건 목적지를 직접 펼치는 내비게이션이라
-      // idxAutoExpanded에 기록하지 않음 — 안 그러면 뒤이은 applyIdxFilter()가 filterActive=false로
-      // 판단해 방금 펼친 카드를 바로 다시 접어버림.
-      var groupBody = card.closest('.idx-group-body');
-      if (groupBody) { groupBody.previousElementSibling.classList.remove('collapsed'); groupBody.classList.remove('collapsed'); }
-      var cardHeader = card.querySelector('.idx-card-header'), cardBody = card.querySelector('.idx-card-body');
-      if (cardHeader) cardHeader.classList.remove('collapsed');
-      if (cardBody) cardBody.classList.remove('collapsed');
-      document.getElementById('idxSearch').value = '';
-      idxFilterCat = 'all';
-      document.querySelectorAll('.idx-filter-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.cat === 'all'); });
-      idxIsolatedCard = card;
-      applyIdxFilter();
-    };
-    nav.appendChild(chip);
-  });
-}
-initIdxQuickNav();
-// 뒤로가기(bfcache 없이)·Firefox 새로고침 때 브라우저가 검색창 값만 복원하고 input 이벤트는 안 일으킴 → 목록도 그 값으로 다시 거름
-window.addEventListener('pageshow', function () {
-  if (document.getElementById('idxSearch').value.trim()) applyIdxFilter();
-});
-function updateIdxQuickNavScroll() {
-  var track = document.getElementById('idxQuickNav');
-  var prev = document.getElementById('idxQuickNavPrev');
-  var next = document.getElementById('idxQuickNavNext');
-  var fadeL = document.getElementById('idxQuickNavFadeL');
-  var fadeR = document.getElementById('idxQuickNavFadeR');
-  if (!track || !prev || !next) return;
-  var atStart = track.scrollLeft <= 2;
-  var atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
-  var scrollable = track.scrollWidth > track.clientWidth + 2;
-  prev.hidden = !scrollable || atStart;
-  next.hidden = !scrollable || atEnd;
-  if (fadeL) fadeL.style.opacity = (!scrollable || atStart) ? '0' : '1';
-  if (fadeR) fadeR.style.opacity = (!scrollable || atEnd) ? '0' : '1';
-}
-function initIdxQuickNavScroll() {
-  var track = document.getElementById('idxQuickNav');
-  var prev = document.getElementById('idxQuickNavPrev');
-  var next = document.getElementById('idxQuickNavNext');
-  if (!track || !prev || !next) return;
-  prev.addEventListener('click', function () { track.scrollBy({ left: -240, behavior: 'smooth' }); });
-  next.addEventListener('click', function () { track.scrollBy({ left: 240, behavior: 'smooth' }); });
-  track.addEventListener('scroll', updateIdxQuickNavScroll);
-  window.addEventListener('resize', updateIdxQuickNavScroll);
-  updateIdxQuickNavScroll();
-}
-initIdxQuickNavScroll();
 
 function catKeyOf(text) {
   if (text.indexOf('희석식') !== -1) return '희석식';
@@ -5955,19 +5386,10 @@ function initRegionJumpNav() {
 }
 initRegionSummaries();
 initRegionJumpNav();
-layoutAllMasonry();
-slideInIdxCards();
 revealOnView('#tab-timeline .tl-event', 'bv-fade-in', 0.15);
 revealOnView('#tab-browse .bv-news-item', 'bv-fade-in', 0.1, 0.08);
 revealOnView('.bv-highlight-phrase', 'play', 0.6);
 revealOnView('#tab-companies .mfr-item', 'reveal', 0.15, 0.16);
-(function () {
-  var resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(layoutAllMasonry, 150);
-  });
-})();
 (function () {
   // 팝업을 연 채 새로고침하면 pushModalState()가 남긴 칸이 남아, 아래에서 replaceState로 덮으면 같은 화면 기록이 2칸이 됨 → 끝에서 걷어냄
   var staleModal = !!(history.state && history.state.modal);
@@ -6135,9 +5557,9 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
     var kwEl    = brand.querySelector('.idx-brand-kw');
     var info    = descByName[name];
 
-    var mfrName = mfrEl ? mfrEl.dataset.mfrName : ''; // initIdxCards()가 미리 저장해둔 값 재사용
+    var mfrName = mfrEl ? mfrEl.textContent.trim() : '';
     function tag(html) { return '<span class="bi-tag">' + html + '</span>'; }
-    var catClass = catEl && Array.prototype.slice.call(catEl.classList).filter(function (c) { return /^idx-cat-[btda]$/.test(c); })[0];
+    var catClass = catEl ? 'bx-c-' + qxCatCls(catEl.textContent) : '';
     var meta = '';
     if (abvEl) meta += tag(escHtml(abvEl.textContent.trim()));
     if (catEl) meta += tag((catClass ? '<i class="bi-dot ' + catClass + '"></i>' : '') + escHtml(catEl.textContent.trim()));
@@ -6176,7 +5598,7 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
     pushModalState();
     closeBtn.focus();
   }
-  var lastFocus = null; // 닫을 때 포커스를 돌려놓을 요소(팝업을 연 .idx-brand 행)
+  var lastFocus = null; // 닫을 때 포커스를 돌려놓을 요소(팝업을 연 카드·타일)
   function close() {
     if (!overlay.classList.contains('open')) return; // Esc는 팝업이 닫혀 있어도 들어옴 — 포커스를 빼앗지 않게
     overlay.classList.remove('open');
@@ -6184,15 +5606,6 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
 
-  function openFrom(e) {
-    var brand = e.target.closest('.idx-brand');
-    if (!brand) return false;
-    var nameEl = brand.querySelector('.idx-brand-name');
-    if (!nameEl) return false;
-    open(brand, nameEl.textContent.trim());
-    return true;
-  }
-  quickTab.addEventListener('click', openFrom);
   // 둘러보기·퀴즈의 브랜드 카드도 같은 팝업을 씀 — 빠른 찾기의 .idx-brand 행을 이름으로 찾아 연다
   window.openBrandInfo = function (name) {
     var brand = Array.prototype.find.call(quickTab.querySelectorAll('.idx-brand'), function (b) {
@@ -6201,10 +5614,6 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
     });
     if (brand) open(brand, name);
   };
-  // initIdxCards()가 .idx-brand에 tabindex/role=button을 붙여둠 — 키보드로도 팝업 열기
-  quickTab.addEventListener('keydown', function (e) {
-    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('idx-brand') && openFrom(e)) e.preventDefault();
-  });
   function requestClose() { if (overlay.classList.contains('open')) requestModalClose(close); }
   closeBtn.addEventListener('click', requestClose);
   overlay.addEventListener('click', function (e) { if (e.target === overlay) requestClose(); });
@@ -6446,6 +5855,138 @@ fetch('stats.json', { cache: 'no-cache' }).then(function (r) { return r.json(); 
   document.getElementById('statToday').textContent = s.date >= minDate ? s.yesterday : '-';
   document.getElementById('statTotal').textContent = s.total;
 }).catch(function () {});
+</script>
+<script>
+// 빠른 찾기 — 기본은 회사 카드(대표 병 미리보기), 검색·분류를 고르면 브랜드 사진 타일로 바로 펼침.
+// 데이터는 기존 .idx-card/.idx-brand 마크업(편집팀이 관리)을 그대로 읽음
+// 분류 글자(희석식·플레이버·증류식·수출용·담금용…) → 색 클래스 이름. 브랜드 팝업도 같이 씀
+function qxCatCls(text) {
+  if (text.indexOf('희석식') !== -1) return 'diluted';
+  if (text.indexOf('플레이버') !== -1) return 'flavor';
+  if (text.indexOf('증류식') !== -1) return 'distilled';
+  if (text.indexOf('수출용') !== -1) return 'export';
+  return 'etc';
+}
+(function () {
+  var tab = document.getElementById('tab-quickindex');
+  if (!tab) return;
+  var CATS = [
+    { k: 'all', label: '전체' },
+    { k: '희석식', label: '희석식', cls: 'diluted' },
+    { k: '플레이버', label: '과일·맛', cls: 'flavor' },
+    { k: '증류식', label: '증류식', cls: 'distilled' },
+    { k: '수출용', label: '수출용', cls: 'export' },
+    { k: '기타', label: '기타', cls: 'etc' }
+  ];
+  function catKey(t) {
+    for (var i = 1; i < 5; i++) if (t.indexOf(CATS[i].k) !== -1) return CATS[i].k;
+    return '기타';
+  }
+  function catCls(k) { return qxCatCls(k); }
+  var photoByName = {};
+  document.querySelectorAll('#tab-region .rgH-card').forEach(function (c) {
+    var n = c.querySelector('.rgH-name'), ph = c.querySelector('.rgH-photo');
+    if (n && ph && !photoByName[n.textContent.trim()]) photoByName[n.textContent.trim()] = ph.getAttribute('src');
+  });
+
+  var groups = [], all = [];
+  tab.querySelectorAll('.idx-group').forEach(function (tg) {
+    var g = { title: tg.textContent.trim(), desc: tg.dataset.desc || '', cos: [] };
+    tg.nextElementSibling.querySelectorAll('.idx-card').forEach(function (card) {
+      var co = { name: card.querySelector('.idx-card-header').textContent.trim(), brands: [] };
+      card.querySelectorAll('.idx-brand').forEach(function (b) {
+        var name = b.querySelector('.idx-brand-name').textContent.trim();
+        var cat = (b.querySelector('.idx-cat') || {}).textContent || '';
+        var abv = b.querySelector('.idx-abv'), yr = b.querySelector('.idx-year');
+        var br = {
+          name: name, co: co.name, cat: catKey(cat), disc: cat.indexOf('단종') !== -1,
+          abv: abv && /\d/.test(abv.textContent) ? abv.textContent.trim() : '', year: yr ? yr.textContent.trim() : '',
+          photo: photoByName[name] || ''
+        };
+        co.brands.push(br); all.push(br);
+      });
+      // 회사 안에서는 출시 연도순(연도 없는 건 뒤로)
+      co.brands.sort(function (a, b) { return (parseInt(a.year, 10) || 9999) - (parseInt(b.year, 10) || 9999); });
+      g.cos.push(co);
+    });
+    groups.push(g);
+  });
+
+  var root = document.createElement('div');
+  root.className = 'qx';
+  root.innerHTML =
+    '<div class="qx-bar"><label class="qx-search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' +
+    '<input type="search" id="qxSearch" placeholder="브랜드·제조사 이름으로 찾기" aria-label="브랜드·제조사 검색" autocomplete="off"></label>' +
+    '<div class="qx-cats" role="group" aria-label="분류">' + CATS.map(function (c) {
+      var n = c.k === 'all' ? all.length : all.filter(function (b) { return b.cat === c.k; }).length;
+      return '<button type="button" class="bx-chip" data-k="' + c.k + '" aria-pressed="' + (c.k === 'all') + '">' + (c.cls ? '<i class="bx-dot bx-c-' + c.cls + '"></i>' : '') + c.label + ' <small>' + n + '</small></button>';
+    }).join('') + '</div></div><div id="qxList"></div>';
+  tab.insertBefore(root, tab.firstChild);
+
+  var st = { q: '', cat: 'all' };
+  var openCo = {};
+  function norm(s) { return s.toLowerCase().replace(/\s+/g, ''); }
+  function hl(name) {
+    var t = escHtml(name);
+    if (!st.q) return t;
+    var i = name.toLowerCase().indexOf(st.q.toLowerCase().trim());
+    return i < 0 ? t : escHtml(name.slice(0, i)) + '<mark>' + escHtml(name.slice(i, i + st.q.trim().length)) + '</mark>' + escHtml(name.slice(i + st.q.trim().length));
+  }
+  function tile(b, showCo) {
+    var ph = b.photo ? '<img src="' + escHtml(b.photo) + '" alt="" loading="lazy">' : escHtml(b.name.charAt(0));
+    var sub = [b.abv, showCo ? b.co : b.year].filter(Boolean).join(' · ');
+    return '<button type="button" class="qx-tile' + (b.disc ? ' disc' : '') + '" data-name="' + escHtml(b.name).replace(/"/g, '&quot;') + '">' +
+      '<span class="qx-tile-ph">' + ph + (b.disc ? '<span class="qx-disc">단종</span>' : '') + '</span>' +
+      '<span class="qx-tile-bd"><span class="qx-tile-nm">' + hl(b.name) + '</span><span class="qx-tile-sub"><i class="bx-dot bx-c-' + catCls(b.cat) + '"></i>' + escHtml(sub) + '</span></span></button>';
+  }
+  function render() {
+    var list = document.getElementById('qxList');
+    var q = norm(st.q);
+    if (q || st.cat !== 'all') {
+      var m = all.filter(function (b) {
+        return (st.cat === 'all' || b.cat === st.cat) && (!q || norm(b.name).indexOf(q) !== -1 || norm(b.co).indexOf(q) !== -1);
+      }).sort(function (a, b) { return a.disc - b.disc; });
+      list.innerHTML = '<div class="qx-head"><h2>' + (q ? '“' + escHtml(st.q.trim()) + '” ' : '') + '찾은 소주</h2><span>' + m.length + '종</span></div>' +
+        (m.length ? '<div class="qx-tiles">' + m.map(function (b) { return tile(b, true); }).join('') + '</div>' : '<p class="qx-empty">찾는 소주가 없어요. 띄어쓰기나 다른 이름으로 찾아보세요.</p>');
+      return;
+    }
+    list.innerHTML = groups.map(function (g, gi) {
+      return '<div class="qx-head"><h2>' + escHtml(g.title) + '</h2><span>' + g.cos.length + '개사 · ' + escHtml(g.desc) + '</span></div><div class="qx-cos">' + g.cos.map(function (co, ci) {
+        var id = gi + '-' + ci, open = !!openCo[id];
+        var withPh = co.brands.filter(function (b) { return b.photo && !b.disc; });
+        var thumbs = (withPh.length ? withPh : co.brands).slice(0, 5);
+        var more = co.brands.length - thumbs.length;
+        return '<div class="qx-co' + (open ? ' open' : '') + '"><button type="button" class="qx-co-btn" data-id="' + id + '" aria-expanded="' + open + '">' +
+          '<span class="qx-co-name">' + escHtml(co.name) + '</span><span class="qx-co-n">' + co.brands.length + '종<i>▾</i></span>' +
+          '<span class="qx-thumbs">' + thumbs.map(function (b) { return '<span class="qx-thumb">' + (b.photo ? '<img src="' + escHtml(b.photo) + '" alt="" loading="lazy">' : escHtml(b.name.charAt(0))) + '</span>'; }).join('') +
+          (more > 0 ? '<span class="qx-thumb">+' + more + '</span>' : '') + '</span></button>' +
+          '<div class="qx-co-body">' + (open ? '<div class="qx-tiles">' + co.brands.map(function (b) { return tile(b, false); }).join('') + '</div>' : '') + '</div></div>';
+      }).join('') + '</div>';
+    }).join('');
+  }
+  var t;
+  document.getElementById('qxSearch').addEventListener('input', function (e) {
+    st.q = e.target.value;
+    clearTimeout(t); t = setTimeout(render, 120);
+  });
+  root.querySelector('.qx-cats').addEventListener('click', function (e) {
+    var c = e.target.closest('.bx-chip'); if (!c) return;
+    root.querySelectorAll('.qx-cats .bx-chip').forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+    st.cat = c.dataset.k; render();
+  });
+  document.getElementById('qxList').addEventListener('click', function (e) {
+    var tl = e.target.closest('.qx-tile');
+    if (tl) { if (window.openBrandInfo) window.openBrandInfo(tl.dataset.name); return; }
+    var cb = e.target.closest('.qx-co-btn');
+    if (cb) { openCo[cb.dataset.id] = !openCo[cb.dataset.id]; render(); var el = document.querySelector('.qx-co-btn[data-id="' + cb.dataset.id + '"]'); if (el) el.focus(); }
+  });
+  render();
+  // 뒤로가기(bfcache 없이)·Firefox 새로고침 때 브라우저가 검색창 값만 되살리고 input 이벤트는 안 일으킴 → 그 값으로 다시 그림
+  window.addEventListener('pageshow', function () {
+    var v = document.getElementById('qxSearch').value;
+    if (v !== st.q) { st.q = v; render(); }
+  });
+})();
 </script>
 </body>
 </html>
