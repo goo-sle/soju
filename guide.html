@@ -180,11 +180,29 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-update-list li { color: var(--surface); }
 .bv-update-list li + li { border-top-color: color-mix(in srgb, var(--surface) 25%, transparent); }
 .bv-update-list li b { color: var(--highlight); }
+.bv-update-past { grid-column: 2; margin-top: 4px; }
+.bv-update-past summary { cursor: var(--cur-p), pointer; font-size: 13px; font-weight: 700; color: color-mix(in srgb, var(--surface) 80%, transparent); list-style: none; }
+.bv-update-past summary::-webkit-details-marker { display: none; }
+.bv-update-past summary::after { content: " ▾"; }
+.bv-update-past[open] summary::after { content: " ▴"; }
+@media (hover: hover) { .bv-update-past summary:hover { color: var(--surface); } }
+.bv-update-past summary:focus-visible { color: var(--surface); outline: 2px solid var(--surface); outline-offset: 3px; border-radius: 4px; }
+.bv-update-past-ed { display: grid; grid-template-columns: 44px 1fr; gap: 10px; padding: 10px 0; border-top: 1px dashed color-mix(in srgb, var(--surface) 25%, transparent); font-size: 14px; color: color-mix(in srgb, var(--surface) 88%, transparent); }
+.bv-update-past-ed:first-child { margin-top: 8px; }
+.bv-update-past-ed > b { font-family: "Hahmlet", serif; font-weight: 500; color: var(--surface); }
+.bv-update-past-ed ul { list-style: none; }
+.bv-update-past-ed li { line-height: 1.6; }
+.bv-update-past-ed li b { color: var(--highlight); font-weight: 700; }
+.bv-update-pager { display: flex; gap: 6px; padding-top: 10px; border-top: 1px dashed color-mix(in srgb, var(--surface) 25%, transparent); }
+.bv-update-pager:empty { display: none; }
+.bv-update-pager .bv-update-page { background: transparent; border-color: color-mix(in srgb, var(--surface) 45%, transparent); color: var(--surface); }
+.bv-update-pager .bv-update-page.active { background: var(--surface); border-color: var(--surface); color: var(--brand); }
 @media screen and (max-width: 640px) {
   .bv-update { grid-template-columns: 1fr; gap: 6px; padding: 18px 18px 10px; }
   .bv-update-label { padding: 0 0 10px; border-right: 0; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 10px; }
   .bv-update-month { font-size: 34px; }
   .bv-update-kicker { margin-top: 0; }
+  .bv-update-past { grid-column: auto; }
 }
 .bv-update-page {
   width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--line);
@@ -1052,16 +1070,68 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="bv-update">
 <div class="bv-update-label" id="bvUpdateLabel"></div>
 <ul class="bv-update-list" id="bvUpdateList"></ul>
+<details class="bv-update-past"><summary>지난 업데이트 보기</summary><div id="bvUpdatePast"></div><div class="bv-update-pager" id="bvUpdatePager"></div></details>
 </div>
 <script>
 (function () {
-  // 이번 달 에디션만 보여줌 — 새 달 소식을 넣을 땐 label을 그 달로 바꾸고 items를 새로 채움(지난 달 항목은 지움)
+  // 이번 달 에디션은 bvUpdate, 지난 달들은 bvUpdatePast(최신순) — 새 달이 되면 지금 bvUpdate를 bvUpdatePast 맨 앞으로 옮기고 bvUpdate를 새로 채움
   var bvUpdate = {
     label: '26.11', items: [
         '방송인 탁재훈이 개발에 참여한 쌀 증류식 소주 <b>탁소주19</b>(19도) GS25 출시',
         '화심주조 × 승리의 여신: 니케 협업 한정판 <b>화심: 화무십일홍</b>(50도) 1만 세트 판매'
     ]
   };
+  var bvUpdatePast = [
+    { label: '26.10', items: [
+        '<b>대선</b> 부산 북항 상어 \'부캉이 에디션\' 한정 라벨 출시',
+        '<b>진로</b> 10년 숙성 원액·제로슈거 복분자주 \'진로 복분자\'(12도) 한정 출시',
+        '<b>미음넷증류소</b> 파주 프런티어 FC 공식 에디션 <b>파주소주 26</b>(26도) 상시 판매 시작'
+    ] },
+    { label: '26.09', items: [
+        '<b>처음처럼</b> 20주년 맞아 16도→15.7도 재인하',
+        '<b>오비맥주</b> 소주 시장 첫 진출 — 신제품 <b>찰랑</b>(15도, 제로슈거) 추가',
+        '성시경 주류 브랜드 <b>경(璄)</b> — 프리미엄 증류식 쌀소주 \'경소주 51도\' 신규 출시',
+        '선양소주 <b>선양 추사</b> — 예산 사과 증류원액 블렌딩, 세븐일레븐 단독 출시'
+    ] },
+    { label: '26.08', items: [
+        '<b>금복주 참소주</b> 16도→15.5도 추가 인하'
+    ] },
+    { label: '26.07', items: [
+        '<b>진로 라이트</b>(11.7도) 한정 출시 — 칼로리 25% 낮춘 제로슈거 소주',
+        '창립 100주년 기념 <b>일품진로 26년산</b>(오크통 26년+ 숙성, 7500병 한정) 출시',
+        '선양소주 <b>선양 피치우롱</b>(12도) CU 단독 출시',
+        'CJ제일제당 프리미엄 K-증류주 브랜드 <b>jari</b> 첫 공개'
+    ] },
+    { label: '26.06', items: [
+        '<b>참이슬 후레쉬</b> 15.7도 인하 전국 적용 및 패키지 리뉴얼',
+        '<b>처음처럼</b> 20주년 리뉴얼 · <b>클래식</b> 20도 신규 출시',
+        '<b>멜론에이슬</b> 출시로 에이슬 수출 라인 7종 완성'
+    ] }
+  ];
+  function monthLabel(l) { var m = /^\d{2}\.(\d{2})$/.exec(l); return m ? parseInt(m[1], 10) + '월' : l; }
+  // 지난 업데이트는 한 페이지에 5개월까지 — 넘으면 1,2,3… 페이지 버튼
+  var PAST_PER_PAGE = 5;
+  var pastPages = Math.ceil(bvUpdatePast.length / PAST_PER_PAGE);
+  var pager = document.getElementById('bvUpdatePager');
+  function renderPast(page) {
+    document.getElementById('bvUpdatePast').innerHTML = bvUpdatePast.slice(page * PAST_PER_PAGE, (page + 1) * PAST_PER_PAGE).map(function (ed) {
+      return '<div class="bv-update-past-ed"><b>' + monthLabel(ed.label) + '</b><ul>' + ed.items.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ul></div>';
+    }).join('');
+    Array.prototype.forEach.call(pager.children, function (b, i) {
+      b.classList.toggle('active', i === page);
+      b.setAttribute('aria-current', i === page ? 'page' : 'false');
+    });
+  }
+  for (var i = 0; pastPages > 1 && i < pastPages; i++) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'bv-update-page';
+    btn.textContent = i + 1;
+    btn.setAttribute('aria-label', '지난 업데이트 ' + (i + 1) + '쪽');
+    btn.onclick = renderPast.bind(null, i); // 버튼은 한 번만 만들고 active만 바꿈 — 누른 버튼의 키보드 포커스 유지
+    pager.appendChild(btn);
+  }
+  renderPast(0);
   var m = /^\d{2}\.(\d{2})$/.exec(bvUpdate.label);
   document.getElementById('bvUpdateLabel').innerHTML = '<span class="bv-update-month">' + (m ? parseInt(m[1], 10) + '월' : bvUpdate.label) + '</span><span class="bv-update-kicker">에디션 주요 업데이트</span>';
   document.getElementById('bvUpdateList').innerHTML = bvUpdate.items.map(function (s) { return '<li>' + s + '</li>'; }).join('');
