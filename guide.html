@@ -5987,7 +5987,7 @@ function qxCatCls(text) {
   root.className = 'qx';
   root.innerHTML =
     '<div class="qx-bar"><label class="qx-search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' +
-    '<input type="search" id="qxSearch" placeholder="브랜드·제조사 이름으로 찾기" aria-label="브랜드·제조사 검색" autocomplete="off"></label>' +
+    '<input type="search" id="qxSearch" placeholder="소주 이름 또는 제조사명으로 찾기" aria-label="소주 이름 또는 제조사명 검색" autocomplete="off"></label>' +
     '<div class="qx-cats" role="group" aria-label="분류">' + CATS.map(function (c) {
       var n = c.k === 'all' ? all.length : all.filter(function (b) { return b.cat === c.k; }).length;
       return '<button type="button" class="bx-chip" data-k="' + c.k + '" aria-pressed="' + (c.k === 'all') + '">' + (c.cls ? '<i class="bx-dot bx-c-' + c.cls + '"></i>' : '') + c.label + ' <small>' + n + '</small></button>';
