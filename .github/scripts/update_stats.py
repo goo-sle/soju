@@ -1,4 +1,4 @@
-"""GA4 방문자 수 → stats.json (index.html 방문 카운터가 읽음).
+"""GA4 방문자 수 → stats.json (guide.html 푸터 방문 카운터가 읽음).
 
 키: env GA4_SA_KEY(서비스계정 JSON 문자열, GitHub secret) 없으면 report/analytics/service-account.json.
 GA4는 당일 집계가 늦으므로 '어제'와 '누적'(어제까지)만 기록.
