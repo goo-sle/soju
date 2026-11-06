@@ -1189,6 +1189,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://xn--9l4b29k.kro.kr/brand/금복주-25</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://xn--9l4b29k.kro.kr/brand/소주왕-금복주</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -1280,6 +1286,18 @@
   </url>
   <url>
     <loc>https://xn--9l4b29k.kro.kr/brand/엔조이-스파클링-사과</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xn--9l4b29k.kro.kr/brand/엔조이-스파클링-배</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xn--9l4b29k.kro.kr/brand/엔조이-오리지날-생강</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
