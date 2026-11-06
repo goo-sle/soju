@@ -410,7 +410,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .lib-tabs { display: flex; gap: 4px; margin-bottom: 18px; border-bottom: 1px solid var(--line); overflow-x: auto; }
 .lib-tabs[hidden] { display: none; }
 .lib-intro { margin: 0 0 22px; padding: 14px 18px; border-radius: 12px; background: color-mix(in srgb, var(--brand) 5%, var(--surface)); border: 1px solid color-mix(in srgb, var(--brand) 16%, var(--line)); font-size: 14px; color: var(--ink-muted); line-height: 1.7; }
-.lib-intro[hidden] { display: none; }
 .lib-intro b { color: var(--brand); }
 .lib-tab {
   appearance: none; border: 0; background: none; font: inherit; font-size: 15px; font-weight: 600; color: var(--ink-muted);
@@ -564,7 +563,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 .region-label-title { font-size: 22px; font-weight: 900; }
 .region-label-brands { font-size: 13px; font-weight: 500; color: var(--ink); }
-.rl-blue, .rl-teal, .rl-deep, .rl-amber { color: var(--ink); }
 
 .lbl { font-size: 11px; font-weight: 700; color: var(--ink-muted); margin-bottom: 2px; }
 .ety { font-size: 13.5px; color: var(--ink); margin-bottom: 3px; }
@@ -648,6 +646,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 .tl-era-title { font-size: 16px; font-weight: 900; color: var(--ink); }
 .tl-era-desc-inline { font-weight: 400; color: var(--ink-muted); font-size: 13px; }
+@media print { .tl-era-desc-inline::before { content: "ㅣ "; } }
 .tl-events { display: flex; flex-direction: column; gap: 8px; }
 .tl-event {
   display: flex; gap: 12px; align-items: baseline; font-size: 13px;
@@ -675,7 +674,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   #tab-timeline .tl-era-3 { background: linear-gradient(135deg, color-mix(in srgb, var(--brand-3) 32%, var(--surface)), var(--surface) 72%); border-color: color-mix(in srgb, var(--brand-3) 55%, var(--line)); }
   #tab-timeline .tl-era-6 { background: var(--brand); border-color: var(--brand); color: var(--surface); }
   #tab-timeline .tl-era-head { display: block; margin: 0; align-self: start; position: sticky; top: 76px; }
-  #tab-timeline .tl-era-range { display: block; background: none !important; padding: 0; color: var(--brand); font-family: "Hahmlet", serif; font-weight: 300; font-size: 26px; line-height: 1.2; letter-spacing: -.02em; white-space: normal; }
+  #tab-timeline .tl-era-range { display: block; background: none; padding: 0; color: var(--brand); font-family: "Hahmlet", serif; font-weight: 300; font-size: 26px; line-height: 1.2; letter-spacing: -.02em; white-space: normal; }
   #tab-timeline .tl-era-title { display: block; margin-top: 10px; font-size: 16px; line-height: 1.45; }
   #tab-timeline .tl-era-desc-inline { display: block; margin-top: 8px; font-size: 13px; line-height: 1.6; }
   #tab-timeline .tl-events { gap: 0; }
@@ -722,7 +721,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .mx-thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .mx-thumbs button:focus-visible { outline: 2px solid var(--brand-2); outline-offset: 2px; }
 .mx-note { grid-column: 1 / -1; font-size: 13.5px; line-height: 1.65; color: var(--ink); margin-top: 6px; padding-top: 10px; border-top: 1px dashed var(--line); }
-.mx-empty { padding: 40px 0; text-align: center; color: var(--ink-muted); }
 @media (max-width: 760px) {
   .mx-grid { grid-template-columns: 1fr; }
   .mx-bar { padding: 12px; }
@@ -740,12 +738,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 .mfr-item { position: relative; margin-bottom: 14px; page-break-inside: avoid; break-inside: avoid; }
 .mfr-item:last-child { margin-bottom: 0; }
-.mfr-item { opacity: 0; transform: scale(.96) translateY(8px); }
-.mfr-item.reveal { animation: mfrPopIn .45s ease-out both; }
-@keyframes mfrPopIn {
-  from { opacity: 0; transform: scale(.96) translateY(8px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
-}
 .mfr-dot {
   position: absolute; left: -26px; top: 3px;
   width: 14px; height: 14px; border-radius: 50%;
@@ -847,10 +839,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   .kr-region-jeju:hover        { fill: var(--map-jeju-on); }
 }
 .kr-label { font-size: 30px; font-weight: 900; fill: #fff; text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: rgba(0,0,0,.55); stroke-width: 5px; stroke-linejoin: round; }
-.region-btn {
-  border: none; border-radius: 8px; padding: 6px 14px;
-  font-size: 12px; font-weight: 700; color: #fff; cursor: var(--cur-p), pointer; font-family: inherit;
-}
 .region-detail { display: none; }
 .region-detail.active { display: block; }
 .cat-subhead { font-size: 13px; font-weight: 800; color: var(--ink); margin: 20px 0 8px; padding-left: 0; }
@@ -1007,10 +995,10 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .rep-sub { font-size: 13px; color: var(--ink); margin-bottom: 2px; line-height: 1.5; padding-left: 16px; }
 .rep-sub b { font-weight: 600; color: var(--ink-muted); margin-right: 6px; }
 .region-jump-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 16px; }
-.region-jump-nav .region-jump-btn { background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 13px; }
+.region-jump-btn { background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: var(--cur-p), pointer; }
 @media (hover: hover) { .region-jump-btn:hover { border-color: var(--brand); } }
 .region-jump-btn:focus-visible { border-color: var(--brand); }
-.region-jump-nav .region-jump-btn.current { background: var(--brand); border-color: var(--brand); color: var(--surface); cursor: default; }
+.region-jump-btn.current { background: var(--brand); border-color: var(--brand); color: var(--surface); cursor: default; }
 /* ── 지역 상세: 회사 카드·사진 타일(빠른 찾기 .qx-* 재사용). 원본 .rgH-card 목록은 화면에선 숨기고 인쇄 때만 ── */
 .kr-count { pointer-events: none; animation: krCountIn .4s ease-out .3s both; }
 @keyframes krCountIn { from { opacity: 0; } to { opacity: 1; } }
@@ -1025,7 +1013,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .kr-count rect { fill: var(--surface); opacity: .94; stroke: var(--line); stroke-width: 1.5; }
 .kr-count text { font-size: 19px; font-weight: 800; fill: var(--brand); text-anchor: middle; dominant-baseline: central; font-family: "Pretendard Variable", sans-serif; }
 @media screen { .region-detail > .region-label, .region-detail > .cat-subhead, .region-detail > details.rgH2-group { display: none; } }
-@media print { .rx, .kr-count { display: none !important; } }
+@media print { .rx { display: none !important; } }
 .rx-head { background: var(--brand); color: var(--surface); border-radius: 16px; padding: 24px 28px; display: grid; grid-template-columns: auto 1fr; gap: 6px 28px; align-items: center; }
 .rx-title { font-family: "Hahmlet", serif; font-weight: 300; font-size: 40px; line-height: 1.1; letter-spacing: -.02em; grid-row: span 2; padding-right: 28px; border-right: 1px solid color-mix(in srgb, var(--surface) 25%, transparent); }
 .rx-nums { font-size: 15px; }
@@ -1044,7 +1032,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   .kr-map-nav-wrap { display: none !important; }
   .region-detail { display: block !important; }
   /* 스크롤 등장 요소는 기본 opacity 0 — 안 본 탭도 인쇄되게 */
-  #tab-timeline .tl-event, .mfr-item, #regionTitle, .region-stats, #tab-region > .intro-box, .region-rep-list, .region-rep-title, .rep-group { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
+  #tab-timeline .tl-event, #regionTitle, .region-stats, #tab-region > .intro-box, .region-rep-list, .region-rep-title, .rep-group { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
 }
 </style>
 </head>
@@ -1691,7 +1679,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="timeline">
 
 <div class="tl-era tl-era-1">
-<div class="tl-era-head"><span class="tl-era-range">고려 말 ~ 1970년대</span><span class="tl-era-title">지역명·한자 의미 중심 작명 <span class="tl-era-desc-inline">ㅣ 지역명(안동소주)·한자 의미(眞露·大鮮) 중심. 역사·지리 기반의 직관적 작명.</span></span></div>
+<div class="tl-era-head"><span class="tl-era-range">고려 말 ~ 1970년대</span><span class="tl-era-title">지역명·한자 의미 중심 작명 <span class="tl-era-desc-inline">지역명(안동소주)·한자 의미(眞露·大鮮) 중심. 역사·지리 기반의 직관적 작명.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">고려 말</div><div class="tl-event-what">원나라로부터 증류 기술 전래 → 아락(아라크) 기반 증류식 소주 시작. 안동·개성 지역 정착. 몽골어 '아르히(архи)'를 음차한 아라길(阿喇吉)·아랄길(阿剌吉)로도 불림.</div></div>
 <div class="tl-event"><div class="tl-event-when">조선시대</div><div class="tl-event-what">쌀이 귀해 소주 제조 금지 조치가 빈번히 시행됨(식량난 우려). 양반들이 작은 잔에 조금씩 음용해 '약주(藥酒)' 명칭이 유래. 조선 후기엔 아랑주로도 불림.</div></div>
@@ -1705,7 +1693,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 
 <div class="tl-era tl-era-2">
-<div class="tl-era-head"><span class="tl-era-range">1976 ~ 1990년대</span><span class="tl-era-title">1도1사 자도주법, 지역 소주 고착 <span class="tl-era-desc-inline">ㅣ 1도1사 자도주법 시대. 지역 소주 고착. 경월·보해 등 지역 정체성 강화.</span></span></div>
+<div class="tl-era-head"><span class="tl-era-range">1976 ~ 1990년대</span><span class="tl-era-title">1도1사 자도주법, 지역 소주 고착 <span class="tl-era-desc-inline">1도1사 자도주법 시대. 지역 소주 고착. 경월·보해 등 지역 정체성 강화.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">1976.06</div><div class="tl-event-what">국세청 훈령으로 '1도 1사' 자도주법 시행 → 시·도별 1개 업체만 허가. <b>지역 소주 브랜드 체제</b> 성립.</div></div>
 <div class="tl-event"><div class="tl-event-when">1977</div><div class="tl-event-what">통일미 보급으로 여유가 생기면서 쌀막걸리 제조 재개 허용. 다만 더 많은 쌀이 드는 증류식 소주는 여전히 엄격한 규제 대상.</div></div>
@@ -1715,14 +1703,14 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 
 <div class="tl-era tl-era-3">
-<div class="tl-era-head"><span class="tl-era-range">1998 ~ 2005년</span><span class="tl-era-title">순우리말·감성 네이밍 급부상 <span class="tl-era-desc-inline">ㅣ 참이슬·처음처럼 등 순우리말·감성 네이밍 급부상. 깨끗함·부드러움·초심 이미지.</span></span></div>
+<div class="tl-era-head"><span class="tl-era-range">1998 ~ 2005년</span><span class="tl-era-title">순우리말·감성 네이밍 급부상 <span class="tl-era-desc-inline">참이슬·처음처럼 등 순우리말·감성 네이밍 급부상. 깨끗함·부드러움·초심 이미지.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">1998.10</div><div class="tl-event-what"><b>참이슬</b> 출시 (23도). '소주=25도' 등식 최초 붕괴. 저도수·부드러운 소주 시대 개막.</div></div>
 </div>
 </div>
 
 <div class="tl-era tl-era-4">
-<div class="tl-era-head"><span class="tl-era-range">2006 ~ 2018년</span><span class="tl-era-title">긍정 감성+자연 이미지 확산 <span class="tl-era-desc-inline">ㅣ 좋은데이·잎새주·한라산 등 긍정 감성+자연 이미지 확산. 저도수 경쟁.</span></span></div>
+<div class="tl-era-head"><span class="tl-era-range">2006 ~ 2018년</span><span class="tl-era-title">긍정 감성+자연 이미지 확산 <span class="tl-era-desc-inline">좋은데이·잎새주·한라산 등 긍정 감성+자연 이미지 확산. 저도수 경쟁.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">2006.11</div><div class="tl-event-what"><b>좋은데이</b> 출시 (16.9도). 저도수 소주 경쟁 가속화. 전국 주요 소주사 저도수 경쟁 돌입.</div></div>
 <div class="tl-event"><div class="tl-event-when">2008</div><div class="tl-event-what">전통주 주세 절반 감면 세제 혜택 시행.</div></div>
@@ -1731,7 +1719,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 
 <div class="tl-era tl-era-5">
-<div class="tl-era-head"><span class="tl-era-range">2019 ~ 2024년</span><span class="tl-era-title">스토리·캐릭터·철학 중심 브랜딩 <span class="tl-era-desc-inline">ㅣ 진로이즈백(뉴트로)·새로(제로슈거+전통)·원소주(힙한 증류식) 등 스토리·캐릭터·철학 중심 브랜딩. 이름에 세계관과 마케팅 전략이 담기는 시대로 진화.</span></span></div>
+<div class="tl-era-head"><span class="tl-era-range">2019 ~ 2024년</span><span class="tl-era-title">스토리·캐릭터·철학 중심 브랜딩 <span class="tl-era-desc-inline">진로이즈백(뉴트로)·새로(제로슈거+전통)·원소주(힙한 증류식) 등 스토리·캐릭터·철학 중심 브랜딩. 이름에 세계관과 마케팅 전략이 담기는 시대로 진화.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">2019.04</div><div class="tl-event-what"><b>진로이즈백</b>(두꺼비 캐릭터) 출시. 뉴트로(New-tro) 마케팅 열풍 → 복고 감성 소주 붐.</div></div>
 <div class="tl-event"><div class="tl-event-when">2020~2022</div><div class="tl-event-what">코로나19로 거리두기 시행 → 혼술 문화 확산, 위스키·증류주 관심과 함께 증류식 소주 판매 증가. 동네 편의점·슈퍼에서도 증류식 소주가 주류 코너를 차지할 만큼 보급 확대.</div></div>
@@ -1742,7 +1730,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 
 <div class="tl-era tl-era-6">
-<div class="tl-era-head"><span class="tl-era-range">2025 ~ 현재</span><span class="tl-era-title">헤리티지·리뉴얼 수식어 결합 <span class="tl-era-desc-inline">ㅣ 처음처럼 클래식(2006년 원조 레시피·이름 복원)·좋은데이 'All New' 등 헤리티지·리뉴얼 수식어를 브랜드명에 결합하는 흐름 확산.</span></span></div>
+<div class="tl-era-head"><span class="tl-era-range">2025 ~ 현재</span><span class="tl-era-title">헤리티지·리뉴얼 수식어 결합 <span class="tl-era-desc-inline">처음처럼 클래식(2006년 원조 레시피·이름 복원)·좋은데이 'All New' 등 헤리티지·리뉴얼 수식어를 브랜드명에 결합하는 흐름 확산.</span></span></div>
 <div class="tl-events">
 <div class="tl-event"><div class="tl-event-when">2025.02</div><div class="tl-event-what"><b>선양오크</b>(오크 숙성 블렌딩) 출시로 위스키 공법 접목 소주 등장.</div></div>
 <div class="tl-event"><div class="tl-event-when">2025.05</div><div class="tl-event-what"><b>40240 독도37</b>(케이알컴퍼니), 미국 샌프란시스코 World Spirits Competition 골드메달 수상 — 2024년 영국 ISC 금상에 이은 2년 연속 국제대회 최고 등급 획득.</div></div>
@@ -1780,12 +1768,12 @@ document.addEventListener('DOMContentLoaded', function(){
 <g transform="translate(0,-25)"><path class="kr-region kr-region-jeju" onclick="showRegion('jeju')" d="M 388.3,909.7 L 387.5,910.4 L 386.8,911.2 L 385.5,909.3 L 384.2,904.4 L 382.2,902.4 L 375.7,899.8 L 373.7,898.2 L 372.0,895.8 L 367.8,895.1 L 361.5,895.6 L 350.5,897.4 L 348.4,896.8 L 339.4,900.7 L 326.2,902.1 L 322.7,905.1 L 308.9,909.0 L 302.5,911.2 L 300.8,914.9 L 297.1,915.9 L 293.1,922.9 L 288.4,925.7 L 287.0,927.1 L 284.7,931.2 L 282.3,937.8 L 283.7,942.9 L 287.6,947.1 L 291.8,948.5 L 294.8,953.5 L 297.0,954.5 L 299.2,954.1 L 301.6,949.8 L 305.6,948.0 L 318.5,947.8 L 324.2,949.5 L 331.1,948.2 L 337.1,948.8 L 342.7,947.6 L 347.3,943.7 L 361.0,941.2 L 366.2,937.0 L 369.7,937.4 L 371.0,936.7 L 374.4,936.3 L 375.3,934.2 L 375.4,932.7 L 377.4,929.2 L 378.8,926.1 L 383.5,922.4 L 385.9,919.6 L 386.1,919.1 L 387.3,917.6 L 387.8,916.7 L 387.8,915.8 L 386.9,914.3 L 386.8,913.4 L 387.8,912.3 L 389.1,911.9 L 389.7,911.1 L 388.7,909.0 L 388.3,909.7 Z"></path></g>
 
 
-<text class="kr-label" x="409" y="210"><tspan x="409" dy="0">서울</tspan><tspan x="409" dy="1.13em">경기</tspan></text>
-<text class="kr-label" x="557" y="177">강원</text>
-<text class="kr-label" x="427" y="409">충청</text>
-<text class="kr-label" x="402" y="627">전라</text>
-<text class="kr-label" x="622" y="522">경상</text>
-<text class="kr-label" x="333" y="900">제주</text>
+<text class="kr-label" data-r="seoul" x="409" y="210"><tspan x="409" dy="0">서울</tspan><tspan x="409" dy="1.13em">경기</tspan></text>
+<text class="kr-label" data-r="gangwon" x="557" y="177">강원</text>
+<text class="kr-label" data-r="chungcheong" x="427" y="409">충청</text>
+<text class="kr-label" data-r="jeolla" x="402" y="627">전라</text>
+<text class="kr-label" data-r="gyeongsang" x="622" y="522">경상</text>
+<text class="kr-label" data-r="jeju" x="333" y="900">제주</text>
 </svg>
 </div>
 <div class="region-rep-list">
@@ -5382,7 +5370,44 @@ function photoBrandFor(x, photo, names) {
   var m = names.filter(function (n) { return n.indexOf(x) === 0; });
   return m.length === 1 ? m[0] : '';
 }
-function escHtml(s) { return s.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
+function escHtml(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+// 지역 카드(.rgH-card) 브랜드 이름 → 첫 사진(현행 디자인). 타임라인·제조사 현황·빠른 찾기가 같이 씀
+function rgPhotoMap(skipDisc) {
+  var m = {};
+  document.querySelectorAll('#tab-region .rgH-card').forEach(function (c) {
+    var n = c.querySelector('.rgH-name'), ph = c.querySelector('.rgH-photo');
+    if (!n || !ph || (skipDisc && c.querySelector('.disc-badge'))) return;
+    n = n.textContent.trim();
+    if (!m[n]) m[n] = ph.getAttribute('src');
+  });
+  return m;
+}
+// 사진 타일·회사 카드 — 빠른 찾기와 지역 상세가 같은 모양으로 그림
+function qxTile(b, sub, nameHtml, cls) {
+  var ph = b.photo ? '<img src="' + escHtml(b.photo) + '" alt="" loading="lazy">' : escHtml(b.name.charAt(0));
+  return '<button type="button" class="qx-tile' + (b.disc ? ' disc' : '') + '" data-name="' + escHtml(b.name) + '">' +
+    '<span class="qx-tile-ph">' + ph + (b.disc ? '<span class="qx-disc">단종</span>' : '') + '</span>' +
+    '<span class="qx-tile-bd"><span class="qx-tile-nm">' + nameHtml + '</span><span class="qx-tile-sub"><i class="bx-dot bx-c-' + cls + '"></i>' + escHtml(sub) + '</span></span></button>';
+}
+function qxCoCard(co, id, open, tile) {
+  var withPh = co.brands.filter(function (b) { return b.photo && !b.disc; });
+  var thumbs = (withPh.length ? withPh : co.brands).slice(0, 5);
+  var more = co.brands.length - thumbs.length;
+  return '<div class="qx-co' + (open ? ' open' : '') + '"><button type="button" class="qx-co-btn" data-id="' + id + '" aria-expanded="' + open + '">' +
+    '<span class="qx-co-name">' + escHtml(co.name) + '</span><span class="qx-co-n">' + co.brands.length + '종<i>▾</i></span>' +
+    '<span class="qx-thumbs">' + thumbs.map(function (b) { return '<span class="qx-thumb">' + (b.photo ? '<img src="' + escHtml(b.photo) + '" alt="" loading="lazy">' : escHtml(b.name.charAt(0))) + '</span>'; }).join('') +
+    (more > 0 ? '<span class="qx-thumb">+' + more + '</span>' : '') + '</span></button>' +
+    '<div class="qx-co-body">' + (open ? '<div class="qx-tiles">' + co.brands.map(function (b) { return tile(b, false); }).join('') + '</div>' : '') + '</div></div>';
+}
+// 타일 누르면 팝업, 회사 카드 누르면 펼침/접힘(다시 그린 뒤 같은 버튼에 포커스)
+function qxBindList(list, openCo, render) {
+  list.addEventListener('click', function (e) {
+    var tl = e.target.closest('.qx-tile');
+    if (tl) { if (window.openBrandInfo) window.openBrandInfo(tl.dataset.name); return; }
+    var cb = e.target.closest('.qx-co-btn');
+    if (cb) { openCo[cb.dataset.id] = !openCo[cb.dataset.id]; render(); var el = list.querySelector('.qx-co-btn[data-id="' + cb.dataset.id + '"]'); if (el) el.focus(); }
+  });
+}
 function tickNumber(el, from, to, dur) {
   var start = performance.now();
   function step(now) {
@@ -5509,26 +5534,29 @@ function showRegionMap() {
   });
 }
 
+var REGIONS = [
+  { id: 'seoul', label: '서울·경기' },
+  { id: 'gangwon', label: '강원' },
+  { id: 'chungcheong', label: '충청' },
+  { id: 'jeolla', label: '전라' },
+  { id: 'gyeongsang', label: '경상' },
+  { id: 'jeju', label: '제주' }
+];
+function buildJumpNav(curId) {
+  var nav = document.createElement('div');
+  nav.className = 'region-jump-nav';
+  REGIONS.forEach(function (r) {
+    var btn = document.createElement('button');
+    btn.className = 'region-jump-btn' + (r.id === curId ? ' current' : '');
+    btn.textContent = r.label;
+    btn.onclick = function () { showRegion(r.id); };
+    nav.appendChild(btn);
+  });
+  return nav;
+}
 function initRegionJumpNav() {
-  var regions = [
-    { id: 'seoul', label: '서울·경기' },
-    { id: 'gangwon', label: '강원' },
-    { id: 'chungcheong', label: '충청' },
-    { id: 'jeolla', label: '전라' },
-    { id: 'gyeongsang', label: '경상' },
-    { id: 'jeju', label: '제주' }
-  ];
   document.querySelectorAll('.region-detail').forEach(function (region) {
-    var curId = region.id.replace('region-', '');
-    var nav = document.createElement('div');
-    nav.className = 'region-jump-nav';
-    regions.forEach(function (r) {
-      var btn = document.createElement('button');
-      btn.className = 'region-btn region-jump-btn' + (r.id === curId ? ' current' : '');
-      btn.textContent = r.label;
-      btn.onclick = function () { showRegion(r.id); };
-      nav.appendChild(btn);
-    });
+    var nav = buildJumpNav(region.id.replace('region-', ''));
     var regionLabel = region.querySelector('.region-label');
     if (regionLabel) {
       region.insertBefore(nav, regionLabel);
@@ -5540,14 +5568,10 @@ function initRegionJumpNav() {
 initRegionJumpNav();
 // 모바일에선 지도 글자가 작아 누르기 어려움 → 지도 위에 지역 이동 알약 한 줄(넓은 화면에선 CSS로 숨김)
 (function () {
-  var wrap = document.querySelector('.kr-map-nav-wrap'), src = document.querySelector('.region-jump-nav');
-  if (!wrap || !src) return;
-  var nav = src.cloneNode(true);
+  var wrap = document.querySelector('.kr-map-nav-wrap');
+  if (!wrap) return;
+  var nav = buildJumpNav('');
   nav.classList.add('rx-mapnav');
-  nav.querySelectorAll('.region-jump-btn').forEach(function (b, i) {
-    b.classList.remove('current');
-    b.onclick = src.querySelectorAll('.region-jump-btn')[i].onclick;
-  });
   wrap.insertBefore(nav, wrap.firstChild);
 })();
 // 지역 상세 화면 — 편집팀 .rgH-card 목록을 읽어 회사 카드·사진 타일로 그림(빠른 찾기와 같은 모양)
@@ -5596,52 +5620,32 @@ initRegionJumpNav();
     if (label) label.after(box); else region.prepend(box);
 
     var st = { cat: 'all' }, openCo = {};
-    function tile(b, showCo) {
-      var ph = b.photo ? '<img src="' + escHtml(b.photo) + '" alt="" loading="lazy">' : escHtml(b.name.charAt(0));
-      var sub = [b.abv, showCo ? b.co : b.year].filter(Boolean).join(' · ');
-      return '<button type="button" class="qx-tile' + (b.disc ? ' disc' : '') + '" data-name="' + escHtml(b.name).replace(/"/g, '&quot;') + '">' +
-        '<span class="qx-tile-ph">' + ph + (b.disc ? '<span class="qx-disc">단종</span>' : '') + '</span>' +
-        '<span class="qx-tile-bd"><span class="qx-tile-nm">' + escHtml(b.name) + '</span><span class="qx-tile-sub"><i class="bx-dot bx-c-' + b.cat + '"></i>' + escHtml(sub) + '</span></span></button>';
-    }
+    function tile(b, showCo) { return qxTile(b, [b.abv, showCo ? b.co : b.year].filter(Boolean).join(' · '), escHtml(b.name), b.cat); }
     var list = box.querySelector('.rx-list');
     function render() {
       if (st.cat !== 'all') {
         var m = all.filter(function (b) { return b.cat === st.cat; }).sort(function (a, b) { return a.disc - b.disc; });
-        list.innerHTML = '<div class="qx-head"><h2>' + escHtml(CATS.filter(function (c) { return c.k === st.cat; })[0].label) + '</h2><span>' + m.length + '종</span></div><div class="qx-tiles">' + m.map(function (b) { return tile(b, true); }).join('') + '</div>';
+        list.innerHTML = '<div class="qx-head"><h2>' + escHtml(CATS.find(function (c) { return c.k === st.cat; }).label) + '</h2><span>' + m.length + '종</span></div><div class="qx-tiles">' + m.map(function (b) { return tile(b, true); }).join('') + '</div>';
         return;
       }
-      list.innerHTML = '<div class="qx-cos">' + cos.map(function (co, ci) {
-        var open = !!openCo[ci];
-        var withPh = co.brands.filter(function (b) { return b.photo && !b.disc; });
-        var thumbs = (withPh.length ? withPh : co.brands).slice(0, 5);
-        var more = co.brands.length - thumbs.length;
-        return '<div class="qx-co' + (open ? ' open' : '') + '"><button type="button" class="qx-co-btn" data-id="' + ci + '" aria-expanded="' + open + '">' +
-          '<span class="qx-co-name">' + escHtml(co.name) + '</span><span class="qx-co-n">' + co.brands.length + '종<i>▾</i></span>' +
-          '<span class="qx-thumbs">' + thumbs.map(function (b) { return '<span class="qx-thumb">' + (b.photo ? '<img src="' + escHtml(b.photo) + '" alt="" loading="lazy">' : escHtml(b.name.charAt(0))) + '</span>'; }).join('') +
-          (more > 0 ? '<span class="qx-thumb">+' + more + '</span>' : '') + '</span></button>' +
-          '<div class="qx-co-body">' + (open ? '<div class="qx-tiles">' + co.brands.map(function (b) { return tile(b, false); }).join('') + '</div>' : '') + '</div></div>';
-      }).join('') + '</div>';
+      list.innerHTML = '<div class="qx-cos">' + cos.map(function (co, ci) { return qxCoCard(co, ci, !!openCo[ci], tile); }).join('') + '</div>';
     }
     box.querySelector('.qx-cats').addEventListener('click', function (e) {
       var c = e.target.closest('.bx-chip'); if (!c) return;
       box.querySelectorAll('.qx-cats .bx-chip').forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
       st.cat = c.dataset.k; render();
     });
-    list.addEventListener('click', function (e) {
-      var tl = e.target.closest('.qx-tile');
-      if (tl) { if (window.openBrandInfo) window.openBrandInfo(tl.dataset.name); return; }
-      var cb = e.target.closest('.qx-co-btn');
-      if (cb) { openCo[cb.dataset.id] = !openCo[cb.dataset.id]; render(); var el = list.querySelector('.qx-co-btn[data-id="' + cb.dataset.id + '"]'); if (el) el.focus(); }
-    });
+    qxBindList(list, openCo, render);
     render();
   });
 
   // 지도 위 지역별 종 수 — 지역 이름 아래 흰 알약
   var NS = 'http://www.w3.org/2000/svg';
-  document.querySelectorAll('.kr-map .kr-label').forEach(function (lb, i) {
-    var rid = ['seoul', 'gangwon', 'chungcheong', 'jeolla', 'gyeongsang', 'jeju'][i];
+  document.querySelectorAll('.kr-map .kr-label').forEach(function (lb) {
+    var rid = lb.getAttribute('data-r');
     if (!totals[rid]) return;
-    var x = +lb.getAttribute('x'), y = +lb.getAttribute('y') + (rid === 'seoul' ? 66 : 32);
+    // 이름 아래 — 두 줄 이름(서울·경기)은 한 줄만큼 더 아래
+    var x = +lb.getAttribute('x'), y = +lb.getAttribute('y') + 32 + (lb.querySelectorAll('tspan').length > 1 ? 34 : 0);
     var g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'kr-count');
     var t = totals[rid] + '종', w = 22 + t.length * 11;
     g.innerHTML = '<rect x="' + (x - w / 2) + '" y="' + (y - 14) + '" width="' + w + '" height="28" rx="14"></rect><text x="' + x + '" y="' + y + '">' + t + '</text>';
@@ -5650,14 +5654,7 @@ initRegionJumpNav();
 })();
 // 타임라인 — 사건 글의 굵은 글씨가 브랜드 이름이면(그 이름으로 시작하는 브랜드 포함) 병 사진을 붙이고, 누르면 브랜드 팝업
 (function () {
-  var photo = {};
-  document.querySelectorAll('#tab-region .rgH-card').forEach(function (c) {
-    var n = c.querySelector('.rgH-name'), ph = c.querySelector('.rgH-photo');
-    if (n && ph && !photo[n.textContent.trim()]) photo[n.textContent.trim()] = ph.getAttribute('src');
-  });
-  var names = Object.keys(photo);
-  // 시대 설명 앞 구분 기호 'ㅣ'는 줄글 머리에선 필요 없음
-  document.querySelectorAll('#tab-timeline .tl-era-desc-inline').forEach(function (d) { d.textContent = d.textContent.replace(/^\s*ㅣ\s*/, ''); });
+  var photo = rgPhotoMap(false), names = Object.keys(photo);
   document.querySelectorAll('#tab-timeline .tl-event').forEach(function (ev) {
     var hit = '';
     Array.prototype.some.call(ev.querySelectorAll('.tl-event-what b'), function (b) {
@@ -5668,7 +5665,7 @@ initRegionJumpNav();
     if (!hit) return;
     var btn = document.createElement('button');
     btn.type = 'button'; btn.className = 'tl-ph'; btn.setAttribute('aria-label', hit + ' 보기');
-    btn.innerHTML = '<img src="' + escHtml(photo[hit]).replace(/"/g, '&quot;') + '" alt="" loading="lazy">';
+    btn.innerHTML = '<img src="' + escHtml(photo[hit]) + '" alt="" loading="lazy">';
     btn.onclick = function () { if (window.openBrandInfo) window.openBrandInfo(hit); };
     ev.appendChild(btn);
   });
@@ -5683,20 +5680,14 @@ revealOnView('.bv-highlight-phrase', 'play', 0.6);
   if (!tl) return;
   var REG = [['서울·경기', /^(서울|경기|인천)/], ['강원', /^강원/], ['충청', /^충/], ['전라', /^전/], ['경상', /^(경남|경북|부산|대구)/], ['제주', /^제주/]];
   var ERA = [['~1945', 0, 1945], ['1946–79', 1946, 1979], ['1980–99', 1980, 1999], ['2000–14', 2000, 2014], ['2015~', 2015, 9999]];
-  var photo = {};
-  document.querySelectorAll('#tab-region .rgH-card').forEach(function (c) {
-    var n = c.querySelector('.rgH-name'), ph = c.querySelector('.rgH-photo');
-    if (n && ph && !c.querySelector('.disc-badge')) photo[n.textContent.trim()] = ph.getAttribute('src');
-  });
+  var photo = rgPhotoMap(true), names = Object.keys(photo);
   function t(el, sel) { var x = el.querySelector(sel); return x ? x.textContent.trim() : ''; }
-  function attr(v) { return escHtml(v).replace(/"/g, '&quot;'); }
   var all = Array.prototype.map.call(tl.querySelectorAll('.mfr-item'), function (it) {
     var year = t(it, '.mfr-year'), region = t(it, '.mfr-region'), brands = t(it, '.mfr-brands');
     var y = parseInt(year, 10), reg = '';
     REG.some(function (r) { if (r[1].test(region)) { reg = r[0]; return true; } });
     var era = ERA.filter(function (e) { return y >= e[1] && y <= e[2]; })[0];
     // 목록엔 '참이슬'처럼 줄여 적은 이름이 많음 → 정확히 없으면 그 이름으로 시작하는 브랜드 사진
-    var names = Object.keys(photo);
     var thumbs = brands.split(/[·,]/).map(function (x) {
       x = x.replace(/\(.*?\)/g, '').trim();
       return photoBrandFor(x, photo, names);
@@ -5721,9 +5712,9 @@ revealOnView('.bv-highlight-phrase', 'play', 0.6);
       var yr = escHtml(x.year).replace(/\((.*?)\)/, '<small>$1</small>');
       return '<article class="mx-card"><div class="mx-year">' + yr + '</div><span class="mx-reg">' + escHtml(x.region) + '</span>' +
         '<div class="mx-name">' + escHtml(x.name) + '</div><div class="mx-brands">' + escHtml(x.brands) + '</div>' +
-        (x.thumbs.length ? '<div class="mx-thumbs">' + x.thumbs.map(function (n) { return '<button type="button" data-name="' + attr(n) + '" aria-label="' + attr(n) + ' 보기"><img src="' + attr(photo[n]) + '" alt="" loading="lazy"></button>'; }).join('') + '</div>' : '') +
+        (x.thumbs.length ? '<div class="mx-thumbs">' + x.thumbs.map(function (n) { return '<button type="button" data-name="' + escHtml(n) + '" aria-label="' + escHtml(n) + ' 보기"><img src="' + escHtml(photo[n]) + '" alt="" loading="lazy"></button>'; }).join('') + '</div>' : '') +
         (x.note ? '<div class="mx-note">' + escHtml(x.note) + '</div>' : '') + '</article>';
-    }).join('') + '</div>' : '<p class="mx-empty">이 조건에 맞는 제조사가 없어요.</p>');
+    }).join('') + '</div>' : '<p class="qx-empty">이 조건에 맞는 제조사가 없어요.</p>');
   }
   box.addEventListener('click', function (e) {
     var c = e.target.closest('.bx-chip');
@@ -6007,7 +5998,7 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
     return a;
   }
   function open(b) { if (window.openBrandInfo) window.openBrandInfo(b.name); }
-  function photoHtml(b, ph) { return b.photo ? '<img src="' + escHtml(b.photo) + '" alt="' + escHtml(b.alt || b.name).replace(/"/g, '&quot;') + '" loading="lazy">' : (ph || ''); }
+  function photoHtml(b, ph) { return b.photo ? '<img src="' + escHtml(b.photo) + '" alt="' + escHtml(b.alt || b.name) + '" loading="lazy">' : (ph || ''); }
   function metaText(b) {
     return [isNaN(b.abv) ? '' : b.abv + '도', CAT[b.cat], REGION[b.region], b.mfr, b.year ? b.year + ' 출시' : ''].filter(Boolean).join(' · ');
   }
@@ -6230,11 +6221,7 @@ function qxCatCls(text) {
     return '기타';
   }
   function catCls(k) { return qxCatCls(k); }
-  var photoByName = {};
-  document.querySelectorAll('#tab-region .rgH-card').forEach(function (c) {
-    var n = c.querySelector('.rgH-name'), ph = c.querySelector('.rgH-photo');
-    if (n && ph && !photoByName[n.textContent.trim()]) photoByName[n.textContent.trim()] = ph.getAttribute('src');
-  });
+  var photoByName = rgPhotoMap(false);
 
   var groups = [], all = [];
   tab.querySelectorAll('.idx-group').forEach(function (tg) {
@@ -6279,13 +6266,7 @@ function qxCatCls(text) {
     var i = name.toLowerCase().indexOf(st.q.toLowerCase().trim());
     return i < 0 ? t : escHtml(name.slice(0, i)) + '<mark>' + escHtml(name.slice(i, i + st.q.trim().length)) + '</mark>' + escHtml(name.slice(i + st.q.trim().length));
   }
-  function tile(b, showCo) {
-    var ph = b.photo ? '<img src="' + escHtml(b.photo) + '" alt="" loading="lazy">' : escHtml(b.name.charAt(0));
-    var sub = [b.abv, showCo ? b.co : b.year].filter(Boolean).join(' · ');
-    return '<button type="button" class="qx-tile' + (b.disc ? ' disc' : '') + '" data-name="' + escHtml(b.name).replace(/"/g, '&quot;') + '">' +
-      '<span class="qx-tile-ph">' + ph + (b.disc ? '<span class="qx-disc">단종</span>' : '') + '</span>' +
-      '<span class="qx-tile-bd"><span class="qx-tile-nm">' + hl(b.name) + '</span><span class="qx-tile-sub"><i class="bx-dot bx-c-' + catCls(b.cat) + '"></i>' + escHtml(sub) + '</span></span></button>';
-  }
+  function tile(b, showCo) { return qxTile(b, [b.abv, showCo ? b.co : b.year].filter(Boolean).join(' · '), hl(b.name), catCls(b.cat)); }
   function render() {
     var list = document.getElementById('qxList');
     var q = norm(st.q);
@@ -6299,15 +6280,8 @@ function qxCatCls(text) {
     }
     list.innerHTML = groups.map(function (g, gi) {
       return '<div class="qx-head"><h2>' + escHtml(g.title) + '</h2><span>' + g.cos.length + '개사 · ' + escHtml(g.desc) + '</span></div><div class="qx-cos">' + g.cos.map(function (co, ci) {
-        var id = gi + '-' + ci, open = !!openCo[id];
-        var withPh = co.brands.filter(function (b) { return b.photo && !b.disc; });
-        var thumbs = (withPh.length ? withPh : co.brands).slice(0, 5);
-        var more = co.brands.length - thumbs.length;
-        return '<div class="qx-co' + (open ? ' open' : '') + '"><button type="button" class="qx-co-btn" data-id="' + id + '" aria-expanded="' + open + '">' +
-          '<span class="qx-co-name">' + escHtml(co.name) + '</span><span class="qx-co-n">' + co.brands.length + '종<i>▾</i></span>' +
-          '<span class="qx-thumbs">' + thumbs.map(function (b) { return '<span class="qx-thumb">' + (b.photo ? '<img src="' + escHtml(b.photo) + '" alt="" loading="lazy">' : escHtml(b.name.charAt(0))) + '</span>'; }).join('') +
-          (more > 0 ? '<span class="qx-thumb">+' + more + '</span>' : '') + '</span></button>' +
-          '<div class="qx-co-body">' + (open ? '<div class="qx-tiles">' + co.brands.map(function (b) { return tile(b, false); }).join('') + '</div>' : '') + '</div></div>';
+        var id = gi + '-' + ci;
+        return qxCoCard(co, id, !!openCo[id], tile);
       }).join('') + '</div>';
     }).join('');
   }
@@ -6321,12 +6295,7 @@ function qxCatCls(text) {
     root.querySelectorAll('.qx-cats .bx-chip').forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
     st.cat = c.dataset.k; render();
   });
-  document.getElementById('qxList').addEventListener('click', function (e) {
-    var tl = e.target.closest('.qx-tile');
-    if (tl) { if (window.openBrandInfo) window.openBrandInfo(tl.dataset.name); return; }
-    var cb = e.target.closest('.qx-co-btn');
-    if (cb) { openCo[cb.dataset.id] = !openCo[cb.dataset.id]; render(); var el = document.querySelector('.qx-co-btn[data-id="' + cb.dataset.id + '"]'); if (el) el.focus(); }
-  });
+  qxBindList(document.getElementById('qxList'), openCo, render);
   render();
   // 뒤로가기(bfcache 없이)·Firefox 새로고침 때 브라우저가 검색창 값만 되살리고 input 이벤트는 안 일으킴 → 그 값으로 다시 그림
   window.addEventListener('pageshow', function () {

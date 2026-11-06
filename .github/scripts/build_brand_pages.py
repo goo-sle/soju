@@ -12,12 +12,11 @@ import html
 import os
 import re
 
-GUIDE_HTML = 'index.html'
+INDEX_HTML = 'index.html'
 SITEMAP_XML = 'sitemap.xml'
 OUT_DIR = 'brand'
 SITE = 'https://xn--9l4b29k.kro.kr'
 KST = datetime.timezone(datetime.timedelta(hours=9))
-EDITION = ''
 CAT_LABEL = {'cat-diluted': '희석식', 'cat-flavor': '플레이버', 'cat-distilled': '증류식'}
 
 
@@ -83,7 +82,7 @@ def section(title, body):
     return '<section><h2>%s</h2>%s</section>\n' % (title, body) if body else ''
 
 
-def render(b, siblings):
+def render(b, siblings, edition):
     e = html.escape
     abv = b['abv']
     title = '%s%s · %s | 대한민국 소주 가이드' % (b['name'], ' 도수 ' + abv if abv else '', b['company'])
@@ -201,7 +200,7 @@ html{{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAmCAYAAAA1
            name=e(b['name']), kw=e(b['kw']), photo=photo, more=more, og_image=og_image, facts=facts_html,
            sections=section('이름 유래', b['ety']) + section('상세 연혁', b['det']) +
            section('변경 이력', b['chg']) + section('스페셜 에디션', b['spec']) +
-           section('%s의 다른 소주' % e(b['company']), sib), edition=EDITION)
+           section('%s의 다른 소주' % e(b['company']), sib), edition=edition)
 
 
 def update_sitemap(changed, all_slugs, today):
@@ -218,11 +217,10 @@ def update_sitemap(changed, all_slugs, today):
 
 
 def main():
-    with open(GUIDE_HTML, encoding='utf-8') as f:
+    with open(INDEX_HTML, encoding='utf-8') as f:
         text = f.read()
     brands = parse(text)
-    global EDITION
-    EDITION = first(r'(\d\d\.\d\d) Edition', text, '')
+    edition = first(r'(\d\d\.\d\d) Edition', text, '')  # 브랜드 페이지 푸터도 메인과 같은 에디션
     slugs = [b['slug'] for b in brands]
     dup = {s for s in slugs if slugs.count(s) > 1}
     if dup:
@@ -230,14 +228,14 @@ def main():
 
     linked = link_names(text)
     if linked != text:
-        with open(GUIDE_HTML, 'w', encoding='utf-8', newline='\n') as f:
+        with open(INDEX_HTML, 'w', encoding='utf-8', newline='\n') as f:
             f.write(linked)
 
     os.makedirs(OUT_DIR, exist_ok=True)
     changed = set()
     for b in brands:
         siblings = [s for s in brands if s['company'] == b['company'] and s is not b]
-        page = render(b, siblings)
+        page = render(b, siblings, edition)
         path = os.path.join(OUT_DIR, b['slug'] + '.html')
         if os.path.exists(path):
             with open(path, encoding='utf-8') as f:

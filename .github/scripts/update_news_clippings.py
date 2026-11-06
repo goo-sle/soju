@@ -25,7 +25,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
 KST = datetime.timezone(datetime.timedelta(hours=9))  # 크론이 21:00 UTC(=06:00 KST 다음날)에 도는데
 # datetime.date.today()는 러너의 UTC 시각을 쓰므로 라벨이 매번 KST 기준 하루 전으로 찍히는 버그가 있었음(26.08.18)
 
-GUIDE_HTML = 'index.html'
+INDEX_HTML = 'index.html'
 SITEMAP_XML = 'sitemap.xml'
 QUERY_TERM = '소주'
 DAYS_BACK = 30
@@ -170,7 +170,7 @@ def render_li(it):
 
 
 def patch_index_html(items):
-    with open(GUIDE_HTML, encoding='utf-8') as f:
+    with open(INDEX_HTML, encoding='utf-8') as f:
         text = f.read()
 
     board_pat = re.compile(r'(<ul class="bv-news-board">\n).*?(\n</ul>)', re.DOTALL)
@@ -185,12 +185,12 @@ def patch_index_html(items):
         raise SystemExit('뉴스 게시판 라벨(<span>)을 못 찾음 — index.html 구조가 바뀌었는지 확인할 것')
     text = label_pat.sub(rf'\g<1>Google News 자동 수집 · {today} 갱신\g<2>', text, count=1)
 
-    with open(GUIDE_HTML, encoding='utf-8') as f:
+    with open(INDEX_HTML, encoding='utf-8') as f:
         original = f.read()
     if text == original:
         print('변경 없음 — 파일 갱신 스킵')
         return False
-    with open(GUIDE_HTML, 'w', encoding='utf-8', newline='\n') as f:
+    with open(INDEX_HTML, 'w', encoding='utf-8', newline='\n') as f:
         f.write(text)
     touch_sitemap()
     return True
