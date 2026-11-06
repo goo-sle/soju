@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Google News RSS("소주" 검색)에서 최근 뉴스를 가져와 guide.html 둘러보기 탭의
+Google News RSS("소주" 검색)에서 최근 뉴스를 가져와 index.html 둘러보기 탭의
 뉴스 게시판(.bv-news-board)을 자동 갱신한다.
 
 GitHub Actions에서 매일 실행(.github/workflows/update-news.yml).
 수동 실행: python .github/scripts/update_news_clippings.py
 
-실패해도(네트워크 오류, RSS 0건 등) guide.html은 건드리지 않고 조용히 종료 —
+실패해도(네트워크 오류, RSS 0건 등) index.html은 건드리지 않고 조용히 종료 —
 정적 사이트라 이 스크립트가 죽어도 사이트 자체는 항상 마지막 정상 상태를 유지.
 """
 import datetime
@@ -25,7 +25,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
 KST = datetime.timezone(datetime.timedelta(hours=9))  # 크론이 21:00 UTC(=06:00 KST 다음날)에 도는데
 # datetime.date.today()는 러너의 UTC 시각을 쓰므로 라벨이 매번 KST 기준 하루 전으로 찍히는 버그가 있었음(26.08.18)
 
-GUIDE_HTML = 'guide.html'
+GUIDE_HTML = 'index.html'
 SITEMAP_XML = 'sitemap.xml'
 QUERY_TERM = '소주'
 DAYS_BACK = 30
@@ -169,20 +169,20 @@ def render_li(it):
     )
 
 
-def patch_guide_html(items):
+def patch_index_html(items):
     with open(GUIDE_HTML, encoding='utf-8') as f:
         text = f.read()
 
     board_pat = re.compile(r'(<ul class="bv-news-board">\n).*?(\n</ul>)', re.DOTALL)
     if not board_pat.search(text):
-        raise SystemExit('bv-news-board 블록을 못 찾음 — guide.html 구조가 바뀌었는지 확인할 것')
+        raise SystemExit('bv-news-board 블록을 못 찾음 — index.html 구조가 바뀌었는지 확인할 것')
     new_body = '\n'.join(render_li(it) for it in items)
     text = board_pat.sub(lambda m: m.group(1) + new_body + m.group(2), text, count=1)
 
     today = datetime.datetime.now(KST).strftime('%Y.%m.%d')
     label_pat = re.compile(r'(<h2>소주 뉴스 클리핑</h2>\n<span>)[^<]*(</span>)')
     if not label_pat.search(text):
-        raise SystemExit('뉴스 게시판 라벨(<span>)을 못 찾음 — guide.html 구조가 바뀌었는지 확인할 것')
+        raise SystemExit('뉴스 게시판 라벨(<span>)을 못 찾음 — index.html 구조가 바뀌었는지 확인할 것')
     text = label_pat.sub(rf'\g<1>Google News 자동 수집 · {today} 갱신\g<2>', text, count=1)
 
     with open(GUIDE_HTML, encoding='utf-8') as f:
@@ -197,11 +197,11 @@ def patch_guide_html(items):
 
 
 def touch_sitemap():
-    # guide 내용이 바뀌었음을 검색엔진에 알리도록 sitemap의 /guide lastmod를 오늘로 갱신
+    # 메인 내용이 바뀌었음을 검색엔진에 알리도록 sitemap의 / lastmod를 오늘로 갱신
     with open(SITEMAP_XML, encoding='utf-8') as f:
         xml = f.read()
     today = datetime.datetime.now(KST).strftime('%Y-%m-%d')
-    xml = re.sub(r'(<loc>[^<]*/guide</loc>\s*<lastmod>)[^<]*', rf'\g<1>{today}', xml, count=1)
+    xml = re.sub(r'(<loc>[^<]*\.kr/</loc>\s*<lastmod>)[^<]*', rf'\g<1>{today}', xml, count=1)
     with open(SITEMAP_XML, 'w', encoding='utf-8', newline='\n') as f:
         f.write(xml)
 
@@ -212,11 +212,11 @@ def main():
         xml_bytes = fetch_rss(DAYS_BACK)
         items = parse_items(xml_bytes, cutoff)
     except (urllib.error.URLError, ET.ParseError, TimeoutError) as e:
-        print(f'RSS 수집 실패, guide.html 안 건드리고 종료: {e}')
+        print(f'RSS 수집 실패, index.html 안 건드리고 종료: {e}')
         return
 
     if not items:
-        print('파싱된 뉴스 0건 — guide.html 안 건드리고 종료')
+        print('파싱된 뉴스 0건 — index.html 안 건드리고 종료')
         return
 
     selected = dedupe(items, TARGET_COUNT, SIM_THRESHOLD)
@@ -224,7 +224,7 @@ def main():
     for it in selected:
         print(f"  {it['date'].strftime('%Y.%m.%d')}  {it['source']}  {it['title']}")
 
-    patch_guide_html(selected)
+    patch_index_html(selected)
 
 
 if __name__ == '__main__':

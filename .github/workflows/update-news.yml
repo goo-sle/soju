@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Fetch news and patch guide.html
+      - name: Fetch news and patch index.html
         run: python .github/scripts/update_news_clippings.py
 
       - name: Rebuild brand pages
@@ -36,10 +36,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A guide.html sitemap.xml brand stats.json
+          git add -A index.html sitemap.xml brand stats.json
           if git diff --cached --quiet; then
             echo "변경 없음 — 커밋 스킵"
           else
-            git commit -m "guide.html: 소주 뉴스 클리핑 자동 갱신 ($(TZ=Asia/Seoul date +%Y-%m-%d))"
+            git commit -m "index.html: 소주 뉴스 클리핑 자동 갱신 ($(TZ=Asia/Seoul date +%Y-%m-%d))"
             git push
           fi
