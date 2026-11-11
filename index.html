@@ -115,7 +115,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .gnav-brand { font-weight: 700; font-size: 18px; color: var(--brand); text-decoration: none; justify-self: start; }
 .gnav-links { display: flex; gap: 22px; flex-wrap: wrap; justify-self: center; }
 .gnav-links button.tab-btn { font-size: 14px; color: var(--ink-muted); font-weight: 600; padding: 4px 2px; }
-.gnav-links button.tab-btn:hover { color: var(--brand); }
+@media (hover: hover) { .gnav-links button.tab-btn:hover { color: var(--brand); } }
 .gnav-links button.tab-btn.active { color: var(--brand); font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
 .page { padding: 0 20px; }
 @media screen and (max-width: 640px) {
@@ -353,7 +353,8 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .bx-legend .bx-chip[aria-pressed="false"] { opacity: .4; }
 .bx-plot { position: relative; height: 260px; border-bottom: 1px solid var(--ink); }
 .bx-pt { position: absolute; padding: 0; border: 0; border-radius: 50%; cursor: var(--cur-p), pointer; transition: opacity .2s, transform .1s; }
-.bx-pt:hover, .bx-pt:focus-visible { transform: scale(1.8); z-index: 2; outline: none; }
+.bx-pt:focus-visible { transform: scale(1.8); z-index: 2; outline: none; }
+@media (hover: hover) { .bx-pt:hover { transform: scale(1.8); z-index: 2; } }
 .bx-pt.dim { opacity: .12; }
 .bx-zone { position: absolute; top: 0; bottom: 0; border-radius: 6px 6px 0 0; background: color-mix(in srgb, var(--highlight) 22%, transparent); pointer-events: none; }
 .bx-zone-label { position: absolute; font-family: "Nanum Pen Script", cursive; font-size: 21px; line-height: 1; color: var(--accent-red-ink); white-space: nowrap; pointer-events: none; }
@@ -494,10 +495,10 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 
 /* ── FEEDBACK FAB ── */
 .feedback-fab {
-  position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+  position: fixed; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); right: 20px; z-index: 1000;
   background: var(--brand); color: #fff; border: none; border-radius: 999px;
   padding: 12px 18px; font-size: 14px; font-weight: 600; cursor: var(--cur-p), pointer;
-  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 25%, transparent);
   display: flex; align-items: center; gap: 6px;
   transition: transform .15s ease;
 }
@@ -507,7 +508,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .feedback-panel {
   position: fixed; bottom: 78px; right: 20px; z-index: 1000;
   width: 280px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
-  padding: 16px; box-shadow: 0 12px 32px rgba(0,0,0,.15);
+  padding: 16px; box-shadow: 0 12px 32px color-mix(in srgb, var(--ink) 15%, transparent);
   display: none; text-align: left;
 }
 .feedback-panel.open { display: block; }
@@ -592,7 +593,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .rgH2-body { padding: 8px 0 2px; }
 .rgH-card {
   display: flex; background: var(--surface); border-radius: 8px; overflow: hidden;
-  margin: 0 0 8px; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  margin: 0 0 8px; box-shadow: 0 1px 3px color-mix(in srgb, var(--ink) 6%, transparent);
   page-break-inside: avoid; break-inside: avoid;
 }
 .rgH-left { flex: 0 0 128px; background: var(--surface-soft); padding: 8px 10px; }
@@ -786,10 +787,12 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 
 /* ── 모바일 반응형 ── */
 @media screen and (max-width: 640px) {
-  body { font-size: 12px; }
+  body { font-size: 13px; }
 }
 
 /* ── FOOTER ── */
+/* 화면에선 우하단 제보하기 버튼이 푸터를 가리지 않게 버튼 높이만큼 아래 여백 */
+@media screen { .footer { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); } }
 .footer {
   display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
   color: var(--ink-muted);
@@ -838,7 +841,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   .kr-region-gyeongsang:hover  { fill: var(--map-gyeongsang-on); }
   .kr-region-jeju:hover        { fill: var(--map-jeju-on); }
 }
-.kr-label { font-size: 30px; font-weight: 900; fill: #fff; text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: rgba(0,0,0,.55); stroke-width: 5px; stroke-linejoin: round; }
+.kr-label { font-size: 30px; font-weight: 900; fill: #fff; text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: color-mix(in srgb, var(--ink) 55%, transparent); stroke-width: 5px; stroke-linejoin: round; }
 .region-detail { display: none; }
 .region-detail.active { display: block; }
 .cat-subhead { font-size: 13px; font-weight: 800; color: var(--ink); margin: 20px 0 8px; padding-left: 0; }
@@ -866,7 +869,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .method-grid-stack { flex-direction: column; gap: 6px; }
 .method-grid-stack .method-card { flex: 1 1 auto; display: flex; align-items: baseline; gap: 8px; padding-top: 7px; padding-bottom: 7px; }
 .method-modal .method-grid-stack .method-card { display: grid; grid-template-columns: 152px 1fr; gap: 0; }
-.method-modal .method-grid-stack .mc-head { white-space: normal; padding-right: 10px; border-right: 1px solid rgba(0,0,0,.1); }
+.method-modal .method-grid-stack .mc-head { white-space: normal; padding-right: 10px; border-right: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); }
 .method-modal .method-grid-stack .mc-body { padding-left: 12px; }
 .method-grid-stack .mc-head { flex: 0 0 auto; white-space: nowrap; margin-bottom: 0; }
 .method-grid-stack .mc-body { flex: 1 1 auto; min-width: 0; }
@@ -1124,7 +1127,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <!-- ══════════════════ 둘러보기 ══════════════════ -->
 <div class="tab-panel active" id="tab-browse">
 <div class="bv">
-<h1 class="sr-only">대한민국 소주 가이드</h1>
+<h1 class="sr-only">대한민국 소주 가이드 — 한국의 소주 브랜드·이름·도수</h1>
 <div class="bv-update">
 <div class="bv-update-label" id="bvUpdateLabel"></div>
 <ul class="bv-update-list" id="bvUpdateList"></ul>
@@ -1136,7 +1139,8 @@ document.addEventListener('DOMContentLoaded', function(){
   var bvUpdate = {
     label: '26.11', items: [
         '방송인 탁재훈이 개발에 참여한 쌀 증류식 소주 <b>탁소주19</b>(19도) GS25 출시',
-        '화심주조 × 승리의 여신: 니케 협업 한정판 <b>화심: 화무십일홍</b>(50도) 1만 세트 판매'
+        '화심주조 × 승리의 여신: 니케 협업 한정판 <b>화심: 화무십일홍</b>(50도) 1만 세트 판매',
+        '<b>하이트진로</b> 테라와 참이슬을 배합한 기간 한정 캔소맥 <b>테라&amp;참이슬</b>(6도) 출시'
     ]
   };
   var bvUpdatePast = [
@@ -1317,6 +1321,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">플레이버</span><span class="idx-brand-name">버터향에이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.05.11 한정, 버터떡 트렌드</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">진로 라이트</span></div><div class="idx-brand-meta"><span class="idx-abv">11.7도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.07.06 한정 출시, 칼로리 25%↓ 제로슈거</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">즐겨찾기</span></div><div class="idx-brand-meta"><span class="idx-abv">15.5도</span><span class="idx-year">2010</span></div><div class="idx-brand-kw">2010.12 진로의 15.5도 소주, 아미노산 5종 첨가, 단종</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-t">캔소맥</span><span class="idx-brand-name">테라&amp;참이슬</span></div><div class="idx-brand-meta"><span class="idx-abv">6도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">2026.11.17 기간 한정, 테라+참이슬 배합 캔소맥(테슬라), 485mL</div></div>
 </div>
 <div class="idx-card" style="order:2"><div class="idx-card-header">롯데주류</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">처음처럼</span></div><div class="idx-brand-meta"><span class="idx-abv">15.7도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">2026.03 20주년 헤리티지 리뉴얼, 2026.09 16도→15.7도 인하</div></div>
@@ -1663,7 +1668,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">서해 25</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">인천 강화, 유자·탱자·해송 향, 진에서 영감</div></div>
 </div>
 <div class="idx-card" style="order:42"><div class="idx-card-header">지비지스피리츠</div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">경복궁 소주</span></div><div class="idx-brand-meta"><span class="idx-abv">20·40도</span></div><div class="idx-brand-kw">서울 금천, 쌀 증류식·2차 증류, 375mL, 2025 K-술 어워드 선정</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">경복궁 소주</span></div><div class="idx-brand-meta"><span class="idx-abv">20·24·35·40도</span></div><div class="idx-brand-kw">서울 금천, 쌀 증류식·2차 증류, 375mL, 2025 K-술 어워드 선정</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">탁소주19</span></div><div class="idx-brand-meta"><span class="idx-abv">19도</span><span class="idx-year">2026</span></div><div class="idx-brand-kw">서울 금천, 탁재훈 개발 참여, 3회 증류 쌀소주, 2026.11 GS25 출시</div></div>
 </div>
 <div class="idx-card" style="order:43"><div class="idx-card-header">화심주조</div>
@@ -1826,7 +1831,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="cat-subhead">🍃 희석식</div>
 
 <details class="rgH2-group">
-<summary class="rgH2-head cat-diluted">하이트진로<span class="rgH2-count">11종</span><span class="rgH2-caret">▾</span></summary>
+<summary class="rgH2-head cat-diluted">하이트진로<span class="rgH2-count">12종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-diluted">
 <div class="rgH-left"><img class="rgH-photo" src="report/images/brands/jinro25.jpg" alt="진로25 제품 사진 (하이트진로 공식 이미지)" loading="lazy"><div class="rgH-year">1993</div><div class="rgH-name"><a href="brand/진로25">진로25</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
@@ -1965,6 +1970,14 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>참이슬</b> 브랜드명 + 과실주·약재주를 직접 <b>담그는(담금)</b> 용도.</div>
 <div class="det">과실주·약재주를 맑게 우려내는 담금 전용 소주, 페트 1.8L. 공식 사이트는 과일 1kg에 25% 소주 1.8L면 17도 내외, 30% 소주면 20도 내외의 술이 된다고 안내. 출시 시기 미확인.</div>
+</div>
+</div>
+<div class="rgH-card cat-diluted">
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/tera-chamisul.jpg" alt="테라&amp;참이슬 캔 제품 사진 (하이트진로 제공)" loading="lazy"><div class="rgH-year">2026.11.17</div><div class="rgH-name"><a href="brand/테라-참이슬">테라&amp;참이슬</a></div><div class="rgH-badges"><span class="abv-badge">6도</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety"><b>테라</b>(맥주) + <b>참이슬</b>(소주). 소비자들이 두 술을 섞은 소맥을 부르던 별칭 <b>'테슬라'</b>를 그대로 제품화.</div>
+<div class="det">하이트진로가 테라 맥주와 참이슬 원제품을 실제로 배합해 만든 캔소맥. 여러 배합 비율을 블라인드 테스트로 비교해 정함. 485mL 캔 1종, 6.0도. 2026년 11월 17일부터 대형마트·편의점 등 가정 채널에서 기간 한정 판매.</div>
 </div>
 </div>
 </div>
@@ -2785,9 +2798,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">지비지스피리츠<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/gyeongbokgung-soju-20.jpg" alt="경복궁 소주 20도 제품 사진 (경복궁 소주 공식몰 이미지)" loading="lazy"><img class="rgH-photo" src="report/images/brands/gyeongbokgung-soju-40.jpg" alt="경복궁 소주 40도 제품 사진 (경복궁 소주 공식몰 이미지)" loading="lazy"><div class="rgH-name"><a href="brand/경복궁-소주">경복궁 소주</a></div><div class="rgH-badges"><span class="abv-badge">20·40도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/gyeongbokgung-soju-20.jpg" alt="경복궁 소주 20도 제품 사진 (경복궁 소주 공식몰 이미지)" loading="lazy"><img class="rgH-photo" src="report/images/brands/gyeongbokgung-soju-40.jpg" alt="경복궁 소주 40도 제품 사진 (경복궁 소주 공식몰 이미지)" loading="lazy"><img class="rgH-photo" src="report/images/brands/gyeongbokgung-soju-24.jpg" alt="경복궁 소주 24도 제품 사진 (경복궁 소주 공식몰 이미지)" loading="lazy"><img class="rgH-photo" src="report/images/brands/gyeongbokgung-soju-35.jpg" alt="경복궁 소주 35도 제품 사진 (경복궁 소주 공식몰 이미지)" loading="lazy"><div class="rgH-name"><a href="brand/경복궁-소주">경복궁 소주</a></div><div class="rgH-badges"><span class="abv-badge">20·24·35·40도</span></div></div>
 <div class="rgH-right">
-<div class="det">지비지스피리츠(서울 금천)의 쌀 증류식 소주. 2차 증류. 20도·40도 두 가지, 375mL. 2025 K-술 어워드 소주 부문 선정.</div>
+<div class="det">지비지스피리츠(서울 금천)의 쌀 증류식 소주. 2차 증류. 20·24·35·40도, 375mL. 2025 K-술 어워드 소주 부문 선정.</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
@@ -6263,8 +6276,13 @@ function qxCatCls(text) {
   function hl(name) {
     var t = escHtml(name);
     if (!st.q) return t;
-    var i = name.toLowerCase().indexOf(st.q.toLowerCase().trim());
-    return i < 0 ? t : escHtml(name.slice(0, i)) + '<mark>' + escHtml(name.slice(i, i + st.q.trim().length)) + '</mark>' + escHtml(name.slice(i + st.q.trim().length));
+    // 거르기와 같은 기준(norm: 공백 무시)으로 찾고, 찾은 구간을 원래 이름 위치로 되돌려 감쌈
+    var q = norm(st.q), pos = [];
+    for (var k = 0; k < name.length; k++) if (!/\s/.test(name[k])) pos.push(k);
+    var i = norm(name).indexOf(q);
+    if (!q || i < 0) return t;
+    var a = pos[i], z = pos[i + q.length - 1] + 1;
+    return escHtml(name.slice(0, a)) + '<mark>' + escHtml(name.slice(a, z)) + '</mark>' + escHtml(name.slice(z));
   }
   function tile(b, showCo) { return qxTile(b, [b.abv, showCo ? b.co : b.year].filter(Boolean).join(' · '), hl(b.name), catCls(b.cat)); }
   function render() {
