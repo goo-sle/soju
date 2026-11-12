@@ -399,8 +399,12 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .news-grid .bv-section-head { margin-top: 0; padding-top: 0; border-top: 0; }
 .news-grid > .bx-card { margin-top: 32px; }
 @media screen and (min-width: 901px) {
-  .news-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
-  .news-grid > .bx-card { margin-top: 0; }
+  /* 제목 줄은 1행, 뉴스 목록·퀴즈 박스는 2행에 나란히 → 두 박스의 위·아래 끝을 맞춤 */
+  .news-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); grid-template-rows: auto 1fr; row-gap: 18px; align-items: stretch; }
+  .news-col { display: contents; }
+  .news-grid .bv-section-head { grid-column: 1; grid-row: 1; }
+  .news-grid .bv-news-board { grid-column: 1; grid-row: 2; margin-top: 0; }
+  .news-grid > .bx-card { grid-column: 2; grid-row: 2; margin-top: 0; }
   .news-grid .bx-quiz { grid-template-columns: 1fr; gap: 18px; }
   .news-grid .bx-opts { grid-template-columns: 1fr; }
   .news-grid .bx-score { display: flex; align-items: center; gap: 16px; text-align: left; }
@@ -1257,8 +1261,8 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 <ul class="bv-news-board">
 <li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE9sbG9xM0dhdENFZVNvQlBNZXdrV2h5SC1FTnpLVzBpYkVncGdlMXJud1NsU2RmM3lMeVpvQnc0N1BwWEJkT3d6akUyWG50T2kxamotLVRONW1uU1Fs?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">임창정, &#x27;전국노래자랑&#x27;서 부른 &#x27;소주 한 잔&#x27; 100만뷰 돌파…명불허전 가창력</span><span class="bv-news-meta"><span class="bv-news-source">뉴스핌</span><span class="bv-news-date">2026.11.12</span></span></a></li>
-<li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE5JYW5QOTFpSHlaNENNbnRVZUQ3aW5sNENIOS1qRXY5Zm03U3NnV2NRNkV5N2NzZzI2VE1yU1lBSlBUa3F0ZmJpajYzbVgzN2IxMmsxQThtUzBzLWVETEdMNWxHVQ?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">“안동의 밀소주 진맥, 세계 정상에 서다… 美 샌프란시스코 주류품평회 3관왕”</span><span class="bv-news-meta"><span class="bv-news-source">adns.kr</span><span class="bv-news-date">2026.11.12</span></span></a></li>
-<li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE0xNUU4SnhIdE5Idk5hemJlazA3YnRPS05DTHAyU0xxNGIzZ0lFZVdqVjNXcGlGbzduVnpsYUZBUWJ2a0RidW9mVVJOWEJfQ2M1NnU4enZ5SEYzQndGbDhyYkNOQQ?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">700년 전통 안동소주, 독일 이어 상하이서 아시아 시장 공략</span><span class="bv-news-meta"><span class="bv-news-source">adns.kr</span><span class="bv-news-date">2026.11.12</span></span></a></li>
+<li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE5JYW5QOTFpSHlaNENNbnRVZUQ3aW5sNENIOS1qRXY5Zm03U3NnV2NRNkV5N2NzZzI2VE1yU1lBSlBUa3F0ZmJpajYzbVgzN2IxMmsxQThtUzBzLWVETEdMNWxHVQ?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">“안동의 밀소주 진맥, 세계 정상에 서다… 美 샌프란시스코 주류품평회 3관왕”</span><span class="bv-news-meta"><span class="bv-news-source">안동뉴스</span><span class="bv-news-date">2026.11.12</span></span></a></li>
+<li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE0xNUU4SnhIdE5Idk5hemJlazA3YnRPS05DTHAyU0xxNGIzZ0lFZVdqVjNXcGlGbzduVnpsYUZBUWJ2a0RidW9mVVJOWEJfQ2M1NnU4enZ5SEYzQndGbDhyYkNOQQ?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">700년 전통 안동소주, 독일 이어 상하이서 아시아 시장 공략</span><span class="bv-news-meta"><span class="bv-news-source">안동뉴스</span><span class="bv-news-date">2026.11.12</span></span></a></li>
 <li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBqVi11MGpKWVNaeDV3TXRNT3VwR3lzT1NsRmo2ZnRvMHFQLTd2azhreWYxQk11ODQ2RnByYVRXRUZEUnN3dldTMUFpaDh0YmJXUk96ODJNMDd4WjByYlI5WDVXcWM?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">임창정, &#x27;프리미엄 소주&#x27; 팝업스토어 연다…아내 서하얀 &quot;육퇴 후 한잔&quot; 응원</span><span class="bv-news-meta"><span class="bv-news-source">뉴스1</span><span class="bv-news-date">2026.11.12</span></span></a></li>
 <li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxObnJsUThybzc5T3JacGFDS1NaQmwzN21lQzNYUnlZTWxsdTM4Y1JaNTBWcHY4TEtFQ2NIcHJTOWJOdzFHQmNOM0drdnlMYjhGa0YtOFlITDlxbTlZVEtVRWdPdk9TUkNHN0tZZnFQT2x0MWpnSTVmOTJoZDJ5V2tkTFFYeGRlZ9IBmgFBVV95cUxOVnk3WFIwanoybGZneEF0OWZkWUdKeDhYd1gxMU54Y3VlVVFnTWVvbjRUU2tvWm9mcm1CaWlpaC00YVJfUy1HbEM2a3FZODE2NGdMZ0NLdE1JUnhlZGhrNkg5WVVKalo0anE0RXRLVGRmOEktQ0pFc1JRalFycmRQM2xEWmZmX1pQLS0wX29zRllQaW5yUlpVc1lB?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">키소주, 美 ’아트+필름 갈라&#x27; 애프터파티에서 소개... 고급 주류시장 공략</span><span class="bv-news-meta"><span class="bv-news-source">Chosunbiz</span><span class="bv-news-date">2026.11.12</span></span></a></li>
 <li class="bv-news-item"><a href="https://news.google.com/rss/articles/CBMiS0FVX3lxTE43bXJYei1iQjUxUzQ0NVpvR25seFFsUjRUbmJLYnVJVmJMR2lVS3lNRDUzWk1sTTZpTXRUdFE3Zkx2WGlLUjZ4VWpkWQ?oc=5" target="_blank" rel="noopener"><span class="bv-news-title">중이염으로 열이 38도까지 오른 아기...이마에 &#x27;소주 묻힌 수건&#x27;으로 치료한다는 장모 [결혼과 이혼]</span><span class="bv-news-meta"><span class="bv-news-source">아이뉴스24</span><span class="bv-news-date">2026.11.12</span></span></a></li>
