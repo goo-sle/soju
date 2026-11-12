@@ -149,7 +149,7 @@ body{{margin:0;word-break:keep-all;overflow-wrap:anywhere;background:var(--bg);c
 main{{max-width:760px;margin:0 auto;padding:8px 16px 64px}}
 /* index.html .gnav와 같은 상단 메뉴 — 검색으로 바로 들어온 방문자도 같은 사이트로 인식하게 */
 .gnav{{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding:16px 20px;margin-bottom:20px;border-bottom:1px solid var(--line)}}
-.gnav-brand{{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:18px;color:var(--brand);text-decoration:none;white-space:nowrap}}
+.gnav-brand{{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:24px;letter-spacing:-.01em;color:var(--brand);text-decoration:none;white-space:nowrap}} @media (max-width:640px){{.gnav-brand{{font-size:21px}}}}
 .gnav-links{{display:flex;flex-wrap:wrap;gap:6px 22px}} .gnav-links a{{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px}} @media (hover:hover){{.gnav-links a:hover{{color:var(--brand)}}}}
 @media (max-width:640px){{.gnav{{padding:14px 16px}} .gnav-links{{gap:4px 16px}} .gnav-links a{{font-size:13px}}}}
 h1,h2{{font-family:"Hahmlet","Pretendard Variable",serif}}
