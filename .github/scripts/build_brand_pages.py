@@ -85,7 +85,7 @@ def section(title, body):
 def render(b, siblings, edition):
     e = html.escape
     abv = b['abv']
-    title = '%s%s · %s | 대한민국 소주 가이드' % (b['name'], ' 도수 ' + abv if abv else '', b['company'])
+    title = '%s%s · %s | 소주도감' % (b['name'], ' 도수 ' + abv if abv else '', b['company'])
     summary = strip_tags(b['det']) or b['kw']
     desc = '%s(%s) — %s%s. %s' % (b['name'], b['company'], b['cat'], ', ' + abv if abv else '', summary)
     desc = desc[:155]
@@ -118,7 +118,7 @@ def render(b, siblings, edition):
         if len(sibs) > 12:
             sib += '<details class="all"><summary>전체 %d종 보기</summary><div class="tiles">%s</div></details>' % (len(sibs), ''.join(tile(s) for s in sibs[12:]))
     breadcrumb = ('{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":['
-                  '{"@type":"ListItem","position":1,"name":"대한민국 소주 가이드","item":"%s/"},'
+                  '{"@type":"ListItem","position":1,"name":"소주도감","item":"%s/"},'
                   '{"@type":"ListItem","position":2,"name":"%s","item":"%s"}]}') % (SITE, b['name'].replace('"', ''), url)
 
     return '''<!DOCTYPE html>
@@ -131,7 +131,7 @@ def render(b, siblings, edition):
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="canonical" href="{url}">
 <meta name="description" content="{desc}">
-<meta property="og:site_name" content="대한민국 소주 가이드">
+<meta property="og:site_name" content="소주도감">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="article">
@@ -184,7 +184,7 @@ html{{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAmCAYAAAA1
 </head>
 <body>
 <header class="gnav">
-<a class="gnav-brand" href="../#quickindex">대한민국 소주 가이드</a>
+<a class="gnav-brand" href="../#quickindex">소주도감</a>
 <nav class="gnav-links"><a href="../#browse">둘러보기</a><a href="../#quickindex">빠른 찾기</a><a href="../#region">지역별 브랜드</a><a href="../#timeline">소주 백과</a><a href="../#news">소식·퀴즈</a></nav>
 </header>
 <main>
@@ -193,7 +193,7 @@ html{{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAmCAYAAAA1
 <div class="top">{photo}<div class="tags">{facts}</div></div>{more}
 {sections}
 </main>
-<footer class="footer"><span>대한민국 소주 가이드<i></i>{edition} Edition</span><span><b>출처</b><i></i>나무위키·위키백과·한국경제매거진·브랜딩리드·각사 보도자료 종합</span><span>© GooSle 2026 소주 가이드</span></footer>
+<footer class="footer"><span>소주도감<i></i>{edition} Edition</span><span><b>출처</b><i></i>나무위키·위키백과·한국경제매거진·브랜딩리드·각사 보도자료 종합</span><span>© GooSle 2026 소주도감</span></footer>
 </body>
 </html>
 '''.format(title=e(title), url=url, desc=e(desc), breadcrumb=breadcrumb, cat_cls=b['cat_cls'],
