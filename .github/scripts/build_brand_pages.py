@@ -102,10 +102,10 @@ def render(b, siblings, edition):
         photo = '<img class="photo" src="../%s" alt="%s">' % (e(src), e(alt or b['name']))
         og_image = '\n<meta property="og:image" content="%s/%s">' % (SITE, e(src))
     if len(b['photos']) > 1:
-        # 시대별 사진(메인 팝업의 페이지 넘기기 대상)은 대표 사진 아래 썸네일 줄로 — 캡션은 alt에서 출처 괄호만 뗌
+        # 시대별 사진(메인 팝업의 페이지 넘기기 대상)은 대표 사진 아래 썸네일 줄로 — 캡션은 alt 끝의 출처 괄호(형식 무관)를 뗌
         more = '<div class="more">%s</div>' % ''.join(
             '<figure><img src="../%s" alt="%s" loading="lazy"><figcaption>%s</figcaption></figure>'
-            % (e(src), e(alt), e(re.sub(r'\s*\([^)]*이미지\)$', '', alt))) for src, alt in b['photos'][1:])
+            % (e(src), e(alt), e(re.sub(r'\s*\((?:[^()]|\([^()]*\))*\)\s*$', '', alt))) for src, alt in b['photos'][1:])
     def tile(s):
         ph = '<img src="../%s" alt="" loading="lazy">' % e(s['photos'][0][0]) if s['photos'] else e(s['name'][:1])
         sub = ' · '.join(x for x in (s['abv'], s['year']) if x)
