@@ -929,13 +929,13 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 @media (hover: hover) { .method-modal-close:hover { background: var(--line); color: var(--ink); } }
 .method-modal-close:focus-visible { background: var(--line); color: var(--ink); }
 @media (pointer: coarse) { .method-modal-close { width: 36px; height: 36px; } }
-.brandinfo-modal { max-width: 680px; padding: 0; border-radius: 20px; }
-.brandinfo-layout { display: grid; grid-template-columns: 240px 1fr; align-items: stretch; }
-/* 왼쪽 칸은 배경만 글 높이까지 늘리고, 사진은 240×320(3:4) 고정 크기로 칸 세로 가운데 — 글이 길어도 확대되지 않게 */
-.brandinfo-photo-wrap { position: relative; min-height: 320px; background: var(--surface-soft); }
-.brandinfo-photo { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+.brandinfo-modal { max-width: 760px; padding: 0; border-radius: 20px; }
+.brandinfo-layout { display: grid; grid-template-columns: 300px 1fr; align-items: stretch; }
+/* 사진은 왼쪽 칸을 꽉 채움(cover) — 칸 높이 = 오른쪽 글 높이라 .det 사진은 팝업에서 숨겨 둠 */
+.brandinfo-photo-wrap { position: relative; min-height: 400px; background: var(--surface-soft); }
+.brandinfo-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .brandinfo-photo-ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--ink-muted); }
-.brandinfo-photo-pager { position: absolute; left: 0; right: 0; bottom: calc(50% - 150px); display: flex; gap: 6px; justify-content: center; }
+.brandinfo-photo-pager { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; gap: 6px; justify-content: center; }
 .brandinfo-main { position: relative; min-width: 0; padding: 26px 26px 24px; }
 .brandinfo-modal .method-modal-close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; font-size: 16px; }
 .brandinfo-title { font-family: "Hahmlet", serif; font-weight: 500; font-size: 26px; line-height: 1.25; color: var(--brand); padding-right: 40px; }
@@ -954,8 +954,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 @media screen and (max-width: 640px) {
   .brandinfo-layout { grid-template-columns: 1fr; }
   .brandinfo-photo-wrap { min-height: 0; height: 240px; }
-  .brandinfo-photo { top: 0; transform: none; height: 100%; aspect-ratio: auto; object-fit: contain; }
-  .brandinfo-photo-pager { bottom: 10px; }
+  .brandinfo-photo { object-fit: contain; }
   .brandinfo-main { padding: 20px 18px 20px; }
   .brandinfo-title { font-size: 22px; }
 }
