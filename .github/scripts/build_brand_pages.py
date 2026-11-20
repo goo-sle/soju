@@ -166,6 +166,8 @@ h1{{text-wrap:balance;font-size:clamp(26px,5vw,36px);font-weight:300;color:var(-
 .top{{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;margin-bottom:24px}}
 .photo{{width:200px;aspect-ratio:3/4;object-fit:cover;border-radius:14px;background:#fff;border:1px solid var(--line)}}
 .more{{display:flex;flex-wrap:wrap;gap:12px;margin:-8px 0 24px}} .more figure{{margin:0;width:110px}}
+/* .det 안 라인업·한정판 사진 — 가로든 세로든 높이 280px 안에서 원래 비율 그대로, 가운데 정렬 */
+.det-img{{display:block;width:auto;height:auto;max-width:100%;max-height:280px;margin:14px auto 0;border-radius:8px;background:#fff}}
 .more img{{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px;background:#fff}} .more figcaption{{font-size:12px;line-height:1.4;word-break:keep-all;color:var(--muted);margin-top:4px}}
 .tags{{flex:1;min-width:220px;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}}
 .tag{{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:13px;font-weight:600}}
