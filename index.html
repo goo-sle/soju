@@ -5,6 +5,10 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>소주도감 | 한국의 소주 브랜드·이름·도수·종류·제조사 아카이브</title>
+<meta name="theme-color" content="#F4F6F8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;500;700&family=Nanum+Pen+Script&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <!-- 파비콘은 파일이어야 구글 검색 결과에 뜸(data URI는 못 읽음, 48px 배수) -->
@@ -123,7 +127,8 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
   .gnav { padding: 16px 10px; grid-template-columns: 1fr auto; gap: 10px; }
   .gnav-links { grid-column: 1 / -1; grid-row: 2; }
   .gnav-brand { white-space: nowrap; font-size: 21px; }
-  .gnav-links { justify-self: start; gap: 4px 16px; }
+  .gnav-links { justify-self: stretch; justify-content: space-between; gap: 4px 8px; }
+  .gnav-links button.tab-btn { font-size: 13px; }
   .page { padding: 0 10px; }
 }
 
@@ -801,7 +806,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
   color: var(--ink-muted);
   font-family: inherit;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: .01em;
   margin-top: 16px;
   padding-top: 10px;
@@ -1144,7 +1149,8 @@ document.addEventListener('DOMContentLoaded', function(){
     label: '26.11', items: [
         '방송인 탁재훈이 개발에 참여한 쌀 증류식 소주 <b>탁소주19</b>(19도) GS25 출시',
         '화심주조 × 승리의 여신: 니케 협업 한정판 <b>화심: 화무십일홍</b>(50도) 1만 세트 판매',
-        '<b>하이트진로</b> 테라와 참이슬을 배합한 기간 한정 캔소맥 <b>테라&amp;참이슬</b>(6도) 출시'
+        '<b>하이트진로</b> 테라와 참이슬을 배합한 기간 한정 캔소맥 <b>테라&amp;참이슬</b>(6도) 출시',
+        '<b>진로</b> 산타·루돌프 두꺼비 커플 라벨 <b>2026 진로 윈터 에디션</b> 한정 출시'
     ]
   };
   var bvUpdatePast = [
@@ -1379,9 +1385,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">보해소주</span></div><div class="idx-brand-meta"><span class="idx-abv">16.8도</span><span class="idx-year">2021</span></div><div class="idx-brand-kw">세계 3대 소금으로 쓴맛 잡은 소금 소주, 375mL</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">다시, 마주</span></div><div class="idx-brand-meta"><span class="idx-abv">15.8도</span><span class="idx-year">2024</span></div><div class="idx-brand-kw">다시마주 · 완도산 다시마 넣은 무설탕 소주</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">보해골드</span></div><div class="idx-brand-meta"><span class="idx-abv">23도</span><span class="idx-year">1992</span></div><div class="idx-brand-kw">프리미엄 라인, 2017 재출시 · 보성녹차</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">씨티</span></div><div class="idx-brand-meta"><span class="idx-year">1994</span></div><div class="idx-brand-kw">옛 주력 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">김삿갓</span></div><div class="idx-brand-meta"><span class="idx-year">1996</span></div><div class="idx-brand-kw">방랑 시인 이름 차용</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">곰바우</span></div><div class="idx-brand-meta"><span class="idx-year">1997</span></div><div class="idx-brand-kw">향토적 네이밍</div></div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">씨티</span></div><div class="idx-brand-meta"><span class="idx-abv">23도</span><span class="idx-year">1994</span></div><div class="idx-brand-kw">옛 주력 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">김삿갓</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1996</span></div><div class="idx-brand-kw">방랑 시인 이름 차용</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">곰바우</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1997</span></div><div class="idx-brand-kw">향토적 네이밍</div></div></div>
 <div class="idx-card" style="order:5"><div class="idx-card-header">대선주조</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">C1(씨원)</span></div><div class="idx-brand-meta"><span class="idx-abv">18도</span><span class="idx-year">1996</span></div><div class="idx-brand-kw">음향숙성진동공법 · 2025.07 19도→18도 리뉴얼</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">대선</span></div><div class="idx-brand-meta"><span class="idx-abv">16.5도</span><span class="idx-year">1965(추정)</span></div><div class="idx-brand-kw">부산 최고령 소주사, 정통 라인</div></div>
@@ -1393,8 +1399,8 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">고급소주</span></div><div class="idx-brand-meta"><span class="idx-abv">16.7도</span><span class="idx-year">2019</span></div><div class="idx-brand-kw">2019.06.14 출시, 벌꿀 함량 3배·투명 병</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">즐거워예</span></div><div class="idx-brand-meta"><span class="idx-abv">16.2도</span><span class="idx-year">2011</span></div><div class="idx-brand-kw">2011.06 출시, 상황별 네이밍(조문용 '그리워예')</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">그리워예</span></div><div class="idx-brand-meta"><span class="idx-abv">16.2도</span><span class="idx-year">2011</span></div><div class="idx-brand-kw">업계 최초 장례식장 전용, 검은 뚜껑·상표</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">선소주</span></div><div class="idx-brand-meta"><span class="idx-year">1982</span></div><div class="idx-brand-kw">C1 이전 주력 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">선타임(대선골드)</span></div><div class="idx-brand-meta"><span class="idx-year">1993</span></div><div class="idx-brand-kw">C1 이전 프리미엄 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">선소주</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1982</span></div><div class="idx-brand-kw">C1 이전 주력 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">선타임(대선골드)</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1993</span></div><div class="idx-brand-kw">C1 이전 프리미엄 라인</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">봄봄</span></div><div class="idx-brand-meta"><span class="idx-abv">16.7도</span><span class="idx-year">2009</span></div><div class="idx-brand-kw">2009.04.27 출시, 강동원 모델 초저도 소주</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">씨유</span></div><div class="idx-brand-meta"><span class="idx-abv">16.9도</span><span class="idx-year">2006</span></div><div class="idx-brand-kw">2006 대선주조 16.9도 순한 소주, 냉각여과</div></div>
 </div>
@@ -1405,7 +1411,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">한라산1950</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">오크 숙성, 허벅술 대중화 버전</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">오늘도 부드럽게 오름</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.01 창립 75주년 기념, 2019 단종 녹색병 부활</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">한일소주</span></div><div class="idx-brand-meta"><span class="idx-abv">25~30도</span><span class="idx-year">1950</span></div><div class="idx-brand-kw">1993년 한라산 브랜드로 대체, 1999년 사명도 ㈜한라산으로 변경</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">한라산물 순한소주</span></div><div class="idx-brand-meta"><span class="idx-year">1997</span></div><div class="idx-brand-kw">초록병 '파란거', 오리지널 '하얀거'와 대비된 애칭 기원, 2019 단종→2020 재출시→2023 단종설</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">한라산물 순한소주</span></div><div class="idx-brand-meta"><span class="idx-abv">22도</span><span class="idx-year">1997</span></div><div class="idx-brand-kw">초록병 '파란거', 오리지널 '하얀거'와 대비된 애칭 기원, 2019 단종→2020 재출시→2023 단종설</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-a">수출용</span><span class="idx-brand-name">한라산 과일소주</span></div><div class="idx-brand-meta"><span class="idx-abv">12도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">해외 전용, 감귤·리치·파인애플·수박 등 8가지 맛, 실제 과일 주스 사용</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">올래소주 (한라산 올래)</span></div><div class="idx-brand-meta"><span class="idx-abv">17.5도</span><span class="idx-year">2014</span></div><div class="idx-brand-kw">2014.09 출시, 제주소주 '올레소주'에 맞선 리브랜딩, 2019년 한라산17로 교체</div></div>
 </div>
@@ -1446,8 +1452,8 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">제비원</span></div><div class="idx-brand-meta"><span class="idx-abv">41도</span><span class="idx-year">1994(이전)</span></div><div class="idx-brand-kw">금복주 계열 안동소주, 흑국 발효</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">오크젠</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">프랑스산 오크통 10년 숙성 원액 블렌딩</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">오크젠(신)</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">2025.07 출시, 희석식+증류식 블렌딩</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">수퍼골드마일드</span></div><div class="idx-brand-meta"><span class="idx-year">1992</span></div><div class="idx-brand-kw">옛 프리미엄 라인</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">금복골드</span></div><div class="idx-brand-meta"><span class="idx-year">1993</span></div><div class="idx-brand-kw">옛 프리미엄 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">수퍼골드마일드</span></div><div class="idx-brand-meta"><span class="idx-abv">15도</span><span class="idx-year">1992</span></div><div class="idx-brand-kw">옛 프리미엄 라인</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">금복골드</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1993</span></div><div class="idx-brand-kw">옛 프리미엄 라인</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">참ISLAND</span></div><div class="idx-brand-meta"><span class="idx-abv">19.5도</span><span class="idx-year">2008</span></div><div class="idx-brand-kw">참소주 서브 라인</div></div>
 </div>
 <div class="idx-card" style="order:9"><div class="idx-card-header">화요(주)</div>
@@ -1475,7 +1481,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 <div class="idx-card" style="order:12"><div class="idx-card-header">경월주조</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">경월</span></div><div class="idx-brand-meta"><span class="idx-abv">25도(단종 시점)</span><span class="idx-year">1926</span></div><div class="idx-brand-kw">처음처럼 전신 기업 · 1993년 두산 인수 전후 단종</div></div>
-<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">그린소주</span></div><div class="idx-brand-meta"><span class="idx-year">1993</span></div><div class="idx-brand-kw">경월 후속, 1999.12 뉴그린으로 대체</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">그린소주</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">1993</span></div><div class="idx-brand-kw">경월 후속, 1999.12 뉴그린으로 대체</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식(단종)</span><span class="idx-brand-name">뉴그린</span></div><div class="idx-brand-meta"><span class="idx-year">1999</span></div><div class="idx-brand-kw">그린소주 리뉴얼, 2001년경 산(山처럼)으로 대체</div></div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-b">희석식</span><span class="idx-brand-name">산(山처럼)</span></div><div class="idx-brand-meta"><span class="idx-abv">21도</span><span class="idx-year">2001</span></div><div class="idx-brand-kw">2006년 처음처럼에 전국 판매 대체됐으나 강원도 내 극소량 명맥 유지</div></div>
 </div>
@@ -1799,6 +1805,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="idx-card" style="order:65"><div class="idx-card-header">더한주류</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">서울의 밤 유자스피릿</span></div><div class="idx-brand-meta"><span class="idx-abv">16도</span></div><div class="idx-brand-kw">유자 증류, 제로슈거</div></div>
 </div>
+<div class="idx-card" style="order:66"><div class="idx-card-header">지평주조</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">지평소주</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">경기 양평, 막걸리 지평 양조장의 첫 증류식 소주, 쌀·보리·수수</div></div>
+</div>
 </div>
 </div>
 </div>
@@ -2033,7 +2042,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>진로(眞露) Is Back</b> = "진로가 돌아왔다". 1970~80년대 진로 두꺼비 마스코트·복고 디자인을 그대로 재해석한 뉴트로(New-tro) 콘셉트를 영문 슬로건형 제품명에 직접 담음.</div>
-<div class="det">2019년 4월 출시. 2026년 2월 리뉴얼 때 "더 깔끔한 맛"을 강조. 2026년 5월 두꺼비 캐릭터 3D화, 한자 로고→한글 서체 전환한 패키지 전면 리뉴얼과 '올뉴진로' 캠페인 진행, 흑백요리사2 최강록과 콜라보. 하늘색 투명병·두꺼비 캐릭터 복고 디자인. 뉴트로 마케팅 열풍을 주도한 제품.</div>
+<div class="det">2019년 4월 출시. 2026년 2월 리뉴얼 때 "더 깔끔한 맛"을 강조. 2026년 5월 두꺼비 캐릭터 3D화, 한자 로고→한글 서체 전환한 패키지 전면 리뉴얼과 '올뉴진로' 캠페인 진행, 흑백요리사2 최강록과 콜라보. 하늘색 투명병·두꺼비 캐릭터 복고 디자인. 뉴트로 마케팅 열풍을 주도한 제품.<img src="/report/images/brands/jinro-winter-2026.jpg" alt="2026 진로 윈터 에디션 루돌프·산타 두꺼비 라벨 2종 (하이트진로 제공)" loading="lazy" style="display:block;width:100%;max-width:300px;height:auto;margin:10px auto 0;border-radius:8px;background:#fff"></div>
 <div class="chg tl-events">
 <div class="tl-event"><div class="tl-event-when">2019.04</div><div class="tl-event-what">16.9도로 출시</div></div>
 <div class="tl-event"><div class="tl-event-when">2021.03</div><div class="tl-event-what">16.9도 → 16.5도로 인하</div></div>
@@ -2044,6 +2053,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="tl-event"><div class="tl-event-when">2024.05</div><div class="tl-event-what">'진로 KITH 에디션' — 창립 100주년 기념, 패션 브랜드 KITH 협업 한정판</div></div>
 <div class="tl-event"><div class="tl-event-when">2024.07</div><div class="tl-event-what">'진로 오리진 에디션' — 창립 100주년 기념, 1924년 최초 진로 라벨을 복원해 재해석한 한정판</div></div>
 <div class="tl-event"><div class="tl-event-when">2025.11</div><div class="tl-event-what">'진로 윈터 에디션' — 루돌프·산타로 변신한 '두꺼비 커플'을 담은 스카이블루·소프트핑크 2종 라벨 겨울 한정판</div></div>
+<div class="tl-event"><div class="tl-event-when">2026.11</div><div class="tl-event-what">'2026 진로 윈터 에디션' — 산타 모자 쓴 핑크 두꺼비와 루돌프 뿔·초록 코 블루 두꺼비 커플 라벨 2종 겨울 한정판</div></div>
 </div>
 </div>
 </div>
@@ -3074,6 +3084,20 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">쌀을 뜻하는 <b>미(米)</b> + 즐거움을 뜻하는 순우리말 <b>라온</b> — '쌀의 즐거움'.</div>
 <div class="det">화심주조의 오크 숙성 라인. 경기 지역 쌀 일부를 구워 생쌀과 함께 위스키 효모로 발효하고 단식 증류기로 2회 증류한 뒤 오크 캐스크에서 숙성한 싱글 라이스 소주(700mL, 색소 무첨가·비냉각여과). 아드벡 증류소의 Very Young–Still Young–Almost There–Renaissance 연작을 오마주해, 2024년 버번캐스크 1년 숙성 'Very Young'을 시작으로 해마다 1년씩 더 숙성한 제품을 냄. 'Still Young'은 IWSC 2026 98점·소주 부문 트로피.</div>
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">지평주조<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/jipyeong-soju.jpg" alt="지평소주 제품 사진 (지평주조 제공)" loading="lazy"><div class="rgH-year">2025.09</div><div class="rgH-name"><a href="brand/지평소주">지평소주</a></div><div class="rgH-badges"><span class="abv-badge">25도</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">제조사 <b>지평주조</b>와 양조장이 있는 경기 양평군 <b>지평면</b>에서 딴 이름.</div>
+<div class="det">막걸리 '지평'을 빚는 지평주조가 2025년 9월 내놓은 첫 증류식 소주. 쌀·보리·수수 세 곡물을 블렌딩해 증류했고, 2년간 증류 온도와 시간을 연구해 완성. 25도·375mL.</div>
 </div>
 </div>
 </div>
@@ -5250,19 +5274,19 @@ document.addEventListener('DOMContentLoaded', function(){
 <summary class="rgH2-head cat-distilled">회곡양조장<span class="rgH2-count">2종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hoegok-andong.jpg" alt="회곡 안동소주 22·32도 제품 사진 (회곡양조장 공식 이미지)" loading="lazy"><div class="rgH-name"><a href="brand/회곡-안동소주">회곡 안동소주</a></div><div class="rgH-badges"><span class="abv-badge">22·32도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hoegok-andong-22.jpg" alt="회곡 안동소주 22도 제품 사진 (회곡양조장 공식 이미지)" loading="lazy"><img class="rgH-photo" src="report/images/brands/hoegok-andong-32.jpg" alt="회곡 안동소주 32도 제품 사진 (회곡양조장 공식 이미지)" loading="lazy"><div class="rgH-name"><a href="brand/회곡-안동소주">회곡 안동소주</a></div><div class="rgH-badges"><span class="abv-badge">22·32도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제조사 <b>회곡양조장</b>의 지명·상호를 브랜드명으로 그대로 사용.</div>
-<div class="det">375mL. 안동에서 4대째, 120년 역사(2023년 기준)를 이어온 농업회사법인 (주)회곡양조장 제조. 우리 쌀과 전통누룩으로 빚은 술을 증류한 고도주. 2026년 '회곡안동소주22'가 K-푸드 발효문화대전 증류소주 저도주 부문 최우수상.</div>
+<div class="det">380mL. 안동에서 4대째, 120년 역사(2023년 기준)를 이어온 농업회사법인 (주)회곡양조장 제조. 우리 쌀과 전통누룩으로 빚은 술을 증류한 고도주. 2026년 '회곡안동소주22'가 K-푸드 발효문화대전 증류소주 저도주 부문 최우수상.</div>
 </div>
 </div>
 <div class="rgH-card cat-distilled">
-<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hoegok-andong-42.jpg" alt="회곡 안동소주 42도 제품 사진 (회곡양조장 공식 이미지)" loading="lazy"><div class="rgH-name"><a href="brand/회곡-안동소주-42도">회곡 안동소주 42도</a></div><div class="rgH-badges"><span class="abv-badge">42도</span></div></div>
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/hoegok-andong-42-bottle.jpg" alt="회곡 안동소주 42도 제품 사진 (회곡양조장 공식 이미지)" loading="lazy"><div class="rgH-name"><a href="brand/회곡-안동소주-42도">회곡 안동소주 42도</a></div><div class="rgH-badges"><span class="abv-badge">42도</span></div></div>
 <div class="rgH-right">
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>회곡 안동소주</b> 브랜드명 + 도수 <b>42</b>.</div>
-<div class="det">375mL. 안동소주에 국화를 침출시킨 국화주도 별도 판매.</div>
+<div class="det">380mL. 안동소주에 국화를 침출시킨 국화주도 별도 판매.</div>
 </div>
 </div>
 </div>
@@ -5680,6 +5704,16 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="mfr-head"><span class="mfr-name">하이트진로(주)</span><span class="mfr-region">서울·경기 / 전국</span></div>
 <div class="mfr-brands">참이슬·진로·진로이즈백·일품진로</div>
 <div class="mfr-note">1924년 창업. 2011년 하이트맥주-진로 합병(하이트진로 출범). 세계 1위 소주 회사. 80여 개국 수출.</div>
+</div>
+</div>
+
+<div class="mfr-item">
+<span class="mfr-dot"></span>
+<span class="mfr-year">1925</span>
+<div class="mfr-card">
+<div class="mfr-head"><span class="mfr-name">지평주조</span><span class="mfr-region">경기 양평</span></div>
+<div class="mfr-brands">지평소주</div>
+<div class="mfr-note">경기 양평 지평면의 양조장. 막걸리 '지평'으로 알려졌고, 2025년 첫 증류식 소주 지평소주를 출시.</div>
 </div>
 </div>
 
@@ -7019,7 +7053,7 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
     function tag(html) { return '<span class="bi-tag">' + html + '</span>'; }
     var catClass = catEl ? 'bx-c-' + qxCatCls(catEl.textContent) : '';
     var meta = '';
-    if (abvEl) meta += tag(escHtml(abvEl.textContent.trim()));
+    if (abvEl && /\d/.test(abvEl.textContent)) meta += tag(escHtml(abvEl.textContent.trim()));
     if (catEl) meta += tag((catClass ? '<i class="bi-dot ' + catClass + '"></i>' : '') + escHtml(catEl.textContent.trim()));
     if (info && info.region) meta += tag(escHtml(info.region));
     if (mfrName) meta += tag(escHtml(mfrName));
@@ -7306,10 +7340,10 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
   renderQuiz();
 })();
 
-// 방문자 수(푸터) — stats.json은 매일 06:00 update-news.yml이 GA4에서 갱신.
-// GA 갱신이 실패하면 옛 날짜로 남음 → 36시간 안 값만 "어제 방문"으로 표시(자정~06시 갱신 전엔 그제 날짜가 정상)
+// 방문자 수(푸터) — stats.json은 update-news.yml(06:00 예약, 실제 실행은 몇 시간 늦을 수 있음)이 GA4에서 갱신.
+// GA 갱신이 실패하면 옛 날짜로 남음 → 48시간 안 값만 "어제 방문"으로 표시(그날 갱신 전엔 그제 날짜가 정상)
 fetch('stats.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (s) {
-  var minDate = new Date(Date.now() + 9 * 3600e3 - 36 * 3600e3).toISOString().slice(0, 10);
+  var minDate = new Date(Date.now() + 9 * 3600e3 - 48 * 3600e3).toISOString().slice(0, 10);
   document.getElementById('statToday').textContent = s.date >= minDate ? s.yesterday : '-';
   document.getElementById('statTotal').textContent = s.total;
 }).catch(function () {});

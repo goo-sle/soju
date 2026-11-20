@@ -50,7 +50,8 @@ def parse(text):
         for grp in re.split(r'<details class="rgH2-group">', reg)[1:]:
             company = strip_tags(first(r'<summary class="rgH2-head[^"]*">(.*?)<span', grp))
             grp = grp.split('</details>')[0]
-            for card in re.split(r'<div class="rgH-card ', grp)[1:]:
+            cards = re.split(r'<div class="rgH-card ', grp)[1:]
+            for i, card in enumerate(cards):
                 name = strip_tags(first(r'<div class="rgH-name">(.*?)</div>', card))
                 if not name:
                     continue
@@ -66,6 +67,9 @@ def parse(text):
                     'det': first(r'<div class="det">(.*?)</div>\n', card),
                     'chg': blocks('chg', card),
                     'spec': blocks('spec', card),
+                    'disc': 'disc-badge' in card.split('<div class="rgH-right">')[0],
+                    # 여는 <div class="rgH-card"는 split에 먹혀서 중간 카드 −1, 그룹 마지막 카드는 감싸는 div까지 −2가 정상
+                    'nested': card.count('<div') - card.count('</div>') != (-2 if i == len(cards) - 1 else -1),
                 })
     return brands
 
@@ -127,6 +131,10 @@ def render(b, siblings, edition):
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{title}</title>
+<meta name="theme-color" content="#F4F6F8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;500;700&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="canonical" href="{url}">
@@ -151,7 +159,7 @@ main{{max-width:760px;margin:0 auto;padding:8px 16px 64px}}
 .gnav{{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding:16px 20px;margin-bottom:20px;border-bottom:1px solid var(--line)}}
 .gnav-brand{{font-family:"Hahmlet","Pretendard Variable",serif;font-weight:700;font-size:24px;letter-spacing:-.01em;color:var(--brand);text-decoration:none;white-space:nowrap}} @media (max-width:640px){{.gnav-brand{{font-size:21px}}}}
 .gnav-links{{display:flex;flex-wrap:wrap;gap:6px 22px}} .gnav-links a{{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 2px}} @media (hover:hover){{.gnav-links a:hover{{color:var(--brand)}}}}
-@media (max-width:640px){{.gnav{{padding:14px 16px}} .gnav-links{{gap:4px 16px}} .gnav-links a{{font-size:13px}}}}
+@media (max-width:640px){{.gnav{{padding:14px 16px}} .gnav-links{{width:100%;justify-content:space-between;gap:4px 8px}} .gnav-links a{{font-size:13px}}}}
 h1,h2{{font-family:"Hahmlet","Pretendard Variable",serif}}
 h1{{text-wrap:balance;font-size:clamp(26px,5vw,36px);font-weight:300;color:var(--brand);margin:0 0 4px;letter-spacing:-.02em}}
 .kw{{color:var(--muted);margin:0 0 20px}}
@@ -216,6 +224,35 @@ def update_sitemap(changed, all_slugs, today):
         f.write(xml)
 
 
+def check_sync(text, brands):
+    # 지역 카드(.rgH-card)와 빠른 찾기(.idx-brand)는 손으로 맞추는 두 원본 → 어긋난 곳을 경고만(생성은 계속)
+    warns = []
+    idx = {}
+    for m in re.finditer(r'<div class="idx-brand">(.*?)<div class="idx-brand-kw">', text):
+        row = m.group(1)
+        name = html.unescape(first(r'<span class="idx-brand-name">([^<]*)</span>', row).strip())
+        idx[name] = (first(r'<span class="idx-abv">([^<]*)</span>', row).strip(),
+                     first(r'<span class="idx-year">([^<]*)</span>', row).strip(),
+                     '단종' in first(r'<span class="idx-cat[^"]*">([^<]*)</span>', row))
+    reg = {b['name']: b for b in brands}
+    for n in sorted(set(reg) - set(idx)):
+        warns.append('빠른 찾기에 없음: ' + n)
+    for n in sorted(set(idx) - set(reg)):
+        warns.append('지역 카드에 없음: ' + n)
+    for n in sorted(set(reg) & set(idx)):
+        b, (abv, year, disc) = reg[n], idx[n]
+        if b['abv'] != abv and (re.search(r'\d', b['abv']) or re.search(r'\d', abv)):
+            warns.append('도수 불일치: %s (지역 %s / 빠른 찾기 %s)' % (n, b['abv'] or '없음', abv or '없음'))
+        if b['year'][:4] != year[:4]:
+            warns.append('출시연도 불일치: %s (지역 %s / 빠른 찾기 %s)' % (n, b['year'], year))
+        if b['disc'] != disc:
+            warns.append('단종 표시 불일치: %s (지역 %s / 빠른 찾기 %s)' % (n, b['disc'], disc))
+        if b['nested']:
+            warns.append('카드 <div>/</div> 개수 어긋남(닫는 태그 누락으로 다음 카드가 안에 들어갔을 수 있음): ' + n)
+    for w in warns:
+        print('경고: ' + w)
+
+
 def main():
     with open(INDEX_HTML, encoding='utf-8') as f:
         text = f.read()
@@ -250,6 +287,7 @@ def main():
 
     update_sitemap(changed, slugs, datetime.datetime.now(KST).strftime('%Y-%m-%d'))
     print('브랜드 %d종 · 변경 %d개 페이지' % (len(brands), len(changed)))
+    check_sync(text, brands)  # 출력 인코딩 오류가 나도 페이지·sitemap은 이미 써진 뒤
 
 
 if __name__ == '__main__':
