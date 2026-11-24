@@ -1070,10 +1070,16 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   border: 1px solid color-mix(in srgb, var(--surface) 35%, transparent); background: color-mix(in srgb, var(--surface) 10%, transparent); color: var(--surface); }
 @media (hover: hover) { .bh-pop button:hover { background: color-mix(in srgb, var(--surface) 22%, transparent); } }
 .bh-pop button:focus-visible { outline: 2px solid var(--surface); outline-offset: 2px; }
-.bh-hero-art { position: relative; height: 300px; max-width: 620px; width: 100%; justify-self: center; }
-.bh-hero-art img { position: absolute; bottom: 0; left: 50%; width: 30%; aspect-ratio: 3/4; object-fit: cover; border-radius: 14px; background: var(--surface);
-  box-shadow: 0 18px 40px -12px color-mix(in srgb, var(--ink) 55%, transparent);
-  transform: translateX(calc(-50% + var(--x))) translateY(var(--y)) rotate(var(--r)); }
+.bh-hero-art { position: relative; height: 340px; max-width: 620px; width: 100%; justify-self: center; container-type: inline-size; }
+/* 대문 병 진열: 배경을 지운 병(report/images/hero/*.webp)을 선반 위에 나란히 — 가운데가 크고 양끝으로 작게(--d), 선반 빛줄·바닥 그림자·반사 */
+.bh-shelf { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 46px; }
+.bh-shelf::before { content: ''; position: absolute; left: 4%; right: 4%; bottom: 40px; height: 2px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--surface) 55%, transparent), transparent); }
+.bh-shelf::after { content: ''; position: absolute; left: 12%; right: 12%; bottom: 22px; height: 30px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--ink) 45%, transparent), transparent); filter: blur(4px); }
+/* 병 크기는 칸 폭에 맞춰(--h: 8병이 칸을 넘지 않는 높이) — 가운데가 가장 크고 --d만큼 작아짐 */
+.bh-shelf { --h: min(270px, calc(42cqw + 60px)); }
+.bh-shelf img { position: relative; z-index: 1; height: calc(var(--h) * (1 - var(--d) / 45)); width: auto; margin: 0 calc(var(--h) / -27);
+  filter: drop-shadow(0 14px 14px color-mix(in srgb, var(--ink) 40%, transparent));
+  -webkit-box-reflect: below 2px linear-gradient(transparent 72%, color-mix(in srgb, var(--surface) 22%, transparent)); }
 
 /* 빠른 찾기(메인·지역별 브랜드 공용) */
 .bh-find { margin-top: 36px; }
@@ -1162,15 +1168,15 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 
 @media (max-width: 900px) {
   .bh-hero { grid-template-columns: minmax(0, 1fr); padding: 36px 24px 0; min-height: 0; gap: 8px; }
-  .bh-hero-art { height: 200px; }
-  .bh-hero-art img { width: 26%; }
+  .bh-hero-art { height: 230px; }
+  .bh-shelf { padding-bottom: 36px; } .bh-shelf::before { bottom: 32px; }
+  .bh-shelf { --h: min(170px, calc(42cqw + 40px)); }
 }
 @media (max-width: 680px) {
   .bh-hero { padding: 28px 18px 0; border-radius: 16px; }
   .bh-hero-sub { font-size: 14.5px; margin: 10px 0 18px; }
   .bh-search input { font-size: 16px; padding: 13px 18px 13px 46px; }
   .bh-search svg { left: 17px; }
-  .bh-hero-art { height: 160px; }
   .bh-bar { flex-wrap: wrap; }
   .bh-bar > .bh-chips:first-child { width: 100%; overflow-x: auto; scrollbar-width: none; }
   .bh-sep { display: none; }
@@ -1349,7 +1355,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </form>
 <div class="bh-pop" id="bhPop"><span>많이 찾는</span></div>
 </div>
-<div class="bh-hero-art" id="bhArt" aria-hidden="true"></div>
+<div class="bh-hero-art" aria-hidden="true"><div class="bh-shelf"><img src="report/images/hero/hallasan21.webp" alt="" style="--d:7"><img src="report/images/hero/chumchurum-2026-v2.webp" alt="" style="--d:5"><img src="report/images/hero/goodday-2026.webp" alt="" style="--d:3"><img src="report/images/hero/chamisul-fresh-2024.webp" alt="" style="--d:1"><img src="report/images/hero/jinro-isback.webp" alt="" style="--d:1"><img src="report/images/hero/hwayo-25.webp" alt="" style="--d:3"><img src="report/images/hero/c1-2025.webp" alt="" style="--d:5"><img src="report/images/hero/saero-2026.webp" alt="" style="--d:7"></div></div>
 </section>
 
 <section class="bh-find" id="bhFind" aria-label="전체 소주">
@@ -7752,7 +7758,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var act = document.querySelector('.region-detail.active');
   if (act) { regionTab.classList.add('bh-in-region'); regionF.setRegion(act.id.replace('region-', '')); }
 
-  // 대문: 많이 찾는 칩 + 대표 병 부채꼴
+  // 대문: 많이 찾는 칩(병 진열 그림은 마크업에 고정)
   document.getElementById('bhTotal').textContent = brands.length;
   var pop = document.getElementById('bhPop');
   ['참이슬 후레쉬', '처음처럼', '새로', '진로이즈백', '좋은데이', '화요25'].filter(function (n) { return byName[n]; }).forEach(function (n) {
@@ -7760,10 +7766,6 @@ document.addEventListener('DOMContentLoaded', function () {
     b.type = 'button'; b.textContent = n; b.onclick = function () { openB(n); };
     pop.appendChild(b);
   });
-  document.getElementById('bhArt').innerHTML = ['참이슬 후레쉬', '처음처럼', '진로이즈백', '화요25', '새로'].filter(function (n) { return byName[n] && byName[n].photo; }).map(function (n, i) {
-    var d = i - 2;
-    return '<img src="' + escHtml(byName[n].photo) + '" alt="" style="--x:' + d * 58 + '%;--y:' + Math.abs(d) * 16 + 'px;--r:' + d * 7 + 'deg;z-index:' + (5 - Math.abs(d)) + '">';
-  }).join('');
 
   // 이번 달 소식: 맨 위 한 줄 띠
   var news = Array.prototype.map.call(document.querySelectorAll('#bvUpdateList li'), function (li) { return '<span>' + li.innerHTML + '</span>'; });
