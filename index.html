@@ -171,49 +171,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 }
 .bv-cheers-label { font-size: 12px; font-weight: 700; color: var(--ink); }
 .bv-cheers-count { font-family: ui-monospace, monospace; font-size: 12px; font-weight: 700; color: var(--brand); }
-.bv-update {
-  display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: center;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px 28px;
-}
-.bv-update-label { padding-right: 24px; border-right: 1px solid var(--line); }
-.bv-update-month { display: block; font-family: "Hahmlet", serif; font-weight: 300; font-size: 46px; line-height: 1; letter-spacing: -.02em; color: var(--brand); }
-.bv-update-kicker { display: block; margin-top: 8px; font-size: 12px; font-weight: 700; color: var(--ink-muted); }
-.bv-update-list { list-style: none; }
-.bv-update-list li { font-size: 15px; color: var(--ink); line-height: 1.6; padding: 10px 0; }
-.bv-update-list li + li { border-top: 1px dashed var(--line); }
-.bv-update-list li b { color: var(--brand); }
-/* 메인 블록마다 톤을 달리해 리듬을 줌: 업데이트=코발트 띠, 오늘의 소주=하늘빛, 찾기=흰 카드, 도수=옅은 청화 */
-.bv-update { background: var(--brand); border-color: var(--brand); color: var(--surface); }
-.bv-update-label { border-color: color-mix(in srgb, var(--surface) 25%, transparent); }
-.bv-update-month { color: var(--surface); }
-.bv-update-kicker { color: color-mix(in srgb, var(--surface) 75%, transparent); }
-.bv-update-list li { color: var(--surface); }
-.bv-update-list li + li { border-top-color: color-mix(in srgb, var(--surface) 25%, transparent); }
-.bv-update-list li b { color: var(--highlight); }
-.bv-update-past { grid-column: 2; margin-top: 4px; }
-.bv-update-past summary { cursor: var(--cur-p), pointer; font-size: 13px; font-weight: 700; color: color-mix(in srgb, var(--surface) 80%, transparent); list-style: none; }
-.bv-update-past summary::-webkit-details-marker { display: none; }
-.bv-update-past summary::after { content: " ▾"; }
-.bv-update-past[open] summary::after { content: " ▴"; }
-@media (hover: hover) { .bv-update-past summary:hover { color: var(--surface); } }
-.bv-update-past summary:focus-visible { color: var(--surface); outline: 2px solid var(--surface); outline-offset: 3px; border-radius: 4px; }
-.bv-update-past-ed { display: grid; grid-template-columns: 44px 1fr; gap: 10px; padding: 10px 0; border-top: 1px dashed color-mix(in srgb, var(--surface) 25%, transparent); font-size: 14px; color: color-mix(in srgb, var(--surface) 88%, transparent); }
-.bv-update-past-ed:first-child { margin-top: 8px; }
-.bv-update-past-ed > b { font-family: "Hahmlet", serif; font-weight: 500; color: var(--surface); }
-.bv-update-past-ed ul { list-style: none; }
-.bv-update-past-ed li { line-height: 1.6; }
-.bv-update-past-ed li b { color: var(--highlight); font-weight: 700; }
-.bv-update-pager { display: flex; gap: 6px; padding-top: 10px; border-top: 1px dashed color-mix(in srgb, var(--surface) 25%, transparent); }
-.bv-update-pager:empty { display: none; }
-.bv-update-pager .bv-update-page { background: transparent; border-color: color-mix(in srgb, var(--surface) 45%, transparent); color: var(--surface); }
-.bv-update-pager .bv-update-page.active { background: var(--surface); border-color: var(--surface); color: var(--brand); }
-@media screen and (max-width: 640px) {
-  .bv-update { grid-template-columns: 1fr; gap: 6px; padding: 18px 18px 10px; }
-  .bv-update-label { padding: 0 0 10px; border-right: 0; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 10px; }
-  .bv-update-month { font-size: 34px; }
-  .bv-update-kicker { margin-top: 0; }
-  .bv-update-past { grid-column: auto; }
-}
+/* 숫자 페이지 버튼 — 브랜드 팝업 사진 넘기기(.brandinfo-photo-pager)가 씀 */
 .bv-update-page {
   width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--line);
   background: var(--surface); color: var(--ink-muted); font-size: 11px; font-weight: 700; cursor: var(--cur-p), pointer;
@@ -310,18 +268,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .bx-c-flavor { background: var(--cat-flavor); }
 .bx-c-distilled { background: var(--cat-distilled); }
 
-/* 오늘의 소주 */
-.bx-today { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; }
-.bx-today-photo { aspect-ratio: 3/4; border-radius: 12px; background: var(--surface-soft); overflow: hidden; }
-.bx-today-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.bx-today-name { font-family: "Hahmlet", serif; font-weight: 300; font-size: clamp(30px, 4vw, 42px); line-height: 1.15; color: var(--brand); }
-.bx-today-meta { font-size: 13px; color: var(--ink-muted); margin: 6px 0 14px; }
-.bv-module .bx-today-ety { font-size: 15px; border-left: 3px solid var(--highlight); padding-left: 14px; }
-
-/* 소주 찾기 */
-.bx-q { margin-bottom: 14px; }
-.bx-q-label { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
-.bx-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+/* 칩 */
 .bx-chip {
   appearance: none; font: inherit; font-size: 14px; color: var(--ink); background: var(--surface);
   border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px;
@@ -331,25 +278,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 @media (hover: hover) { .bx-chip:hover { border-color: var(--brand-2); } }
 .bx-chip:focus-visible { border-color: var(--brand-2); }
 .bx-chip[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: var(--surface); }
-.bx-results-head {
-  display: flex; justify-content: space-between; align-items: center; gap: 12px;
-  margin: 18px 0 12px; padding-top: 16px; border-top: 1px dashed var(--line); font-size: 14px; font-weight: 700;
-}
-.bx-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.bx-bcard {
-  appearance: none; font: inherit; color: inherit; text-align: left; padding: 0;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
-  display: flex; flex-direction: column; cursor: var(--cur-p), pointer; transition: transform .15s, box-shadow .15s;
-}
-@media (hover: hover) { .bx-bcard:hover { transform: translateY(-3px); box-shadow: 0 8px 20px color-mix(in srgb, var(--ink) 12%, transparent); } }
-.bx-bcard:focus-visible { transform: translateY(-3px); box-shadow: 0 8px 20px color-mix(in srgb, var(--ink) 12%, transparent); }
-.bx-bcard-ph { position: relative; aspect-ratio: 1; background: var(--surface-soft); display: grid; place-items: center; color: var(--ink-muted); font-size: 13px; width: 100%; overflow: hidden; }
-/* 사진은 칸에 고정(absolute) — 높이 100%가 aspect-ratio 칸에서 안 먹어 원본 크기로 넘치며 아래가 잘리던 문제 */
-.bx-bcard-ph img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
-.bx-bcard-bd { padding: 10px 12px 12px; }
-.bx-bcard-nm { font-weight: 700; font-size: 15px; }
-.bx-bcard-sub { font-size: 12.5px; color: var(--ink-muted); }
-.bx-bcard-why { font-size: 13px; line-height: 1.5; margin-top: 6px; }
 
 /* 도수 스펙트럼 */
 .bx-legend { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
@@ -361,8 +289,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .bx-pt:focus-visible { transform: scale(1.8); z-index: 2; outline: none; }
 @media (hover: hover) { .bx-pt:hover { transform: scale(1.8); z-index: 2; } }
 .bx-pt.dim { opacity: .12; }
-.bx-zone { position: absolute; top: 0; bottom: 0; border-radius: 6px 6px 0 0; background: color-mix(in srgb, var(--highlight) 22%, transparent); pointer-events: none; }
-.bx-zone-label { position: absolute; font-family: "Nanum Pen Script", cursive; font-size: 21px; line-height: 1; color: var(--accent-red-ink); white-space: nowrap; pointer-events: none; }
 .bx-axis { position: relative; height: 26px; font-size: 12px; color: var(--ink-muted); }
 .bx-axis span { position: absolute; top: 6px; transform: translateX(-50%); white-space: nowrap; }
 .bx-tip {
@@ -392,10 +318,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 .bx-reveal:disabled { cursor: default; }
 .bx-reveal img { display: block; width: 100%; height: 100%; object-fit: cover; }
-/* 메인 블록 톤 */
-#bxToday { background: linear-gradient(135deg, color-mix(in srgb, var(--brand-3) 32%, var(--surface)), var(--surface) 72%); border-color: color-mix(in srgb, var(--brand-3) 55%, var(--line)); }
-#bxToday h2 { font-family: "Nanum Pen Script", cursive; font-weight: 400; font-size: 34px; line-height: 1; color: var(--accent-red-ink); transform: rotate(-3deg); transform-origin: left; }
-#bxToday .bx-today-photo { background: var(--surface); box-shadow: 0 14px 28px -18px color-mix(in srgb, var(--brand) 45%, transparent); }
 .bx-tint { background: color-mix(in srgb, var(--brand) 5%, var(--surface)); border-color: color-mix(in srgb, var(--brand) 16%, var(--line)); }
 .bx-tint .bx-legend .bx-chip[aria-pressed="true"] { background: var(--surface); }
 
@@ -419,10 +341,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 
 @media screen and (max-width: 640px) {
   .bx-card { padding: 22px 18px; }
-  .bx-today { grid-template-columns: 1fr; gap: 18px; }
-  .bx-today-photo { width: 180px; }
-  .bx-cards { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 72%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 4px; }
-  .bx-bcard { scroll-snap-align: start; }
   .bx-quiz { grid-template-columns: 1fr; gap: 18px; }
   .bx-opts { grid-template-columns: 1fr; }
   .bx-score { display: flex; align-items: center; gap: 16px; text-align: left; }
@@ -1022,7 +940,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .rx-nums { font-size: 15px; }
 .rx-nums b { font-family: "Hahmlet", serif; font-weight: 500; font-size: 26px; color: var(--highlight); margin-right: 2px; }
 .rx-reps { font-size: 13.5px; color: color-mix(in srgb, var(--surface) 80%, transparent); }
-.rx .qx-cats { margin: 16px 0 0; }
 .rx-list > .qx-cos { margin-top: 16px; }
 @media (max-width: 600px) {
   .rx-head { grid-template-columns: 1fr; padding: 18px 20px; }
@@ -1037,9 +954,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   /* 스크롤 등장 요소는 기본 opacity 0 — 안 본 탭도 인쇄되게 */
   #tab-timeline .tl-event, #regionTitle, .region-stats, #tab-region > .intro-box, .region-rep-list, .region-rep-title, .rep-group { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
 }
-</style>
-<style>
-/* ── 메인 시안: Behance식 배치 ── */
+/* ── 메인: Behance식 배치 ── */
 .bv.bh { max-width: none; padding: 0 12px; }
 .bh-news { display: flex; align-items: center; gap: 14px; padding: 10px 16px; border-radius: 12px; background: var(--surface-soft); font-size: 14px; }
 .bh-news-label { flex: none; color: var(--brand); }
@@ -1083,9 +998,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 
 /* 빠른 찾기(메인·지역별 브랜드 공용) */
 .bh-find { margin-top: 36px; }
-.bh-find-head { display: flex; align-items: baseline; gap: 12px; }
-.bh-h { font-family: "Hahmlet", serif; font-weight: 500; font-size: clamp(22px, 3vw, 30px); letter-spacing: -.02em; color: var(--brand); margin: 0; }
-.bh-count { font-size: 14px; color: var(--ink-muted); margin: 0; }
 .bh-bar { display: flex; align-items: center; gap: 8px; margin: 14px 0 20px; }
 .bh-chips { display: flex; gap: 6px; flex: none; }
 .bh-bar > .bh-chips:nth-of-type(2) { flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; }
@@ -1120,18 +1032,16 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .bh-empty { grid-column: 1 / -1; }
 /* 인쇄: 전광판·대문 병 사진·검색 줄·더 보기 같은 조작용 요소는 빼고 내용만 */
 @media print { .bh-news, .bh-hero-art, .bh-search, .bh-pop, .bh-bar, .bh-more, .bh-rsearch, .bh-all-wrap { display: none !important; } .bh-hero { background: none; color: var(--ink); padding: 0; min-height: 0; display: block; } .bh-hero-title { color: var(--brand); } }
-.bh-more button, .bh-clear { appearance: none; font: inherit; font-weight: 700; font-size: 14px; padding: 12px 28px; border-radius: 999px; border: 0; background: var(--surface); color: var(--ink);
+.bh-more button { appearance: none; font: inherit; font-weight: 700; font-size: 14px; padding: 12px 28px; border-radius: 999px; border: 0; background: var(--surface); color: var(--ink);
   box-shadow: inset 0 0 0 1px var(--line); cursor: var(--cur-p), pointer; }
-@media (hover: hover) { .bh-more button:hover, .bh-clear:hover { box-shadow: inset 0 0 0 1px var(--ink); } }
-.bh-more button:focus-visible, .bh-clear:focus-visible { outline: 2px solid var(--brand-2); outline-offset: 2px; }
+@media (hover: hover) { .bh-more button:hover { box-shadow: inset 0 0 0 1px var(--ink); } }
+.bh-more button:focus-visible { outline: 2px solid var(--brand-2); outline-offset: 2px; }
 
 /* 지역별 브랜드 검색: 평소엔 검색창만, 검색 중엔 결과만(지도·지역 상세 숨김) */
 .bh-rsearch { display: none; margin: 0 0 8px; }
 #tab-region.bh-in-region .bh-rsearch { display: block; }
 #tab-region .bh-rsearch .bh-grid, #tab-region .bh-rsearch .bh-more { display: none; }
 #tab-region.bh-searching .bh-rsearch .bh-grid { display: block; } #tab-region.bh-searching .bh-rsearch .bh-more { display: block; }
-#tab-region:not(.bh-searching) .bh-clear { display: none; }
-.bh-rsearch .bh-find-head { margin-top: 14px; }
 .bh-rx-head { margin-bottom: 16px; }
 /* 지도 화면 '전국 전체 보기' 버튼 — 지역 화면·검색 중엔 숨김 */
 .bh-all-wrap { text-align: center; margin: 4px 0 18px; }
@@ -1140,12 +1050,10 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   background: var(--brand); color: var(--surface); transition: background .15s; }
 @media (hover: hover) { .bh-all-btn:hover { background: var(--brand-2); } }
 .bh-all-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset: 3px; }
-#tab-region:not(.bh-searching) .bh-rsearch .bh-find-head { display: none; }
 .bh-bar .bh-count { flex: 1; }
 .bh-search-line { max-width: none; }
 .bh-search-line input { box-shadow: inset 0 0 0 1px var(--line); }
 .bh-search-line input:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--brand-2); }
-.bh-clear { margin-left: auto; padding: 7px 14px; font-size: 13px; }
 #tab-region.bh-searching > :not(.bh-rsearch) { display: none !important; }
 /* 소주 라운지: 뉴스 / 퀴즈 / 도수를 한 줄에 하나씩 */
 /* 퀴즈: 오른쪽 칸이 카드 위(제목)부터 아래까지 — 맞힌 문제 n/n 위, 그 아래 병 사진이 카드 끝까지 채움 */
@@ -1161,10 +1069,6 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   #tab-news .bx-score { display: flex; flex-direction: column; gap: 10px; text-align: center; }
   #tab-news .bx-reveal { width: 140px; aspect-ratio: 9/16; margin: 0 auto; }
 }
-.bh-news2 { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 32px; }
-.bh-news2 > .bv-module { margin-top: 0; }
-/* 지역 상세: 새 검색 줄(종류·지역 칩)과 겹치는 기존 지역 이동 버튼·분류 칩은 숨김 */
-#tab-region.bh-in-region .region-jump-nav, #tab-region .rx .qx-cats { display: none !important; }
 
 @media (max-width: 900px) {
   .bh-hero { grid-template-columns: minmax(0, 1fr); padding: 36px 24px 0; min-height: 0; gap: 8px; }
@@ -1275,7 +1179,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="tab-panel active" id="tab-browse">
 <div class="bv bh">
 <h1 class="sr-only">소주도감 — 한국의 소주 브랜드·이름·도수 아카이브</h1>
-<div hidden><div class="bv-update"><div id="bvUpdateLabel"></div><ul id="bvUpdateList"></ul><div id="bvUpdatePast"></div><div id="bvUpdatePager"></div></div><div id="bxTodayPhoto"></div><div id="bxTodayName"></div><div id="bxTodayMeta"></div><p id="bxTodayEty"></p><button id="bxTodayOpen"></button><button id="bxTodayNext"></button><span id="bxFindCount"></span><div id="bxFindCards"></div><button id="bxFindShuffle"></button></div><script>
+<script>
 (function () {
   // 이번 달 에디션은 bvUpdate, 지난 달들은 bvUpdatePast(최신순) — 새 달이 되면 지금 bvUpdate를 bvUpdatePast 맨 앞으로 옮기고 bvUpdate를 새로 채움
   var bvUpdate = {
@@ -1286,6 +1190,8 @@ document.addEventListener('DOMContentLoaded', function(){
         '<b>진로</b> 산타·루돌프 두꺼비 커플 라벨 <b>2026 진로 윈터 에디션</b> 한정 출시'
     ]
   };
+  window.BV_UPDATE = bvUpdate; // 메인 맨 위 전광판이 읽음
+  // 지난 달 소식 기록(화면엔 안 씀)
   var bvUpdatePast = [
     { label: '26.10', items: [
         '<b>대선</b> 부산 북항 상어 \'부캉이 에디션\' 한정 라벨 출시',
@@ -1313,33 +1219,6 @@ document.addEventListener('DOMContentLoaded', function(){
         '<b>멜론에이슬</b> 출시로 에이슬 수출 라인 7종 완성'
     ] }
   ];
-  function monthLabel(l) { var m = /^\d{2}\.(\d{2})$/.exec(l); return m ? parseInt(m[1], 10) + '월' : l; }
-  // 지난 업데이트는 한 페이지에 5개월까지 — 넘으면 1,2,3… 페이지 버튼
-  var PAST_PER_PAGE = 5;
-  var pastPages = Math.ceil(bvUpdatePast.length / PAST_PER_PAGE);
-  var pager = document.getElementById('bvUpdatePager');
-  function renderPast(page) {
-    document.getElementById('bvUpdatePast').innerHTML = bvUpdatePast.slice(page * PAST_PER_PAGE, (page + 1) * PAST_PER_PAGE).map(function (ed) {
-      return '<div class="bv-update-past-ed"><b>' + monthLabel(ed.label) + '</b><ul>' + ed.items.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ul></div>';
-    }).join('');
-    Array.prototype.forEach.call(pager.children, function (b, i) {
-      b.classList.toggle('active', i === page);
-      b.setAttribute('aria-current', i === page ? 'page' : 'false');
-    });
-  }
-  for (var i = 0; pastPages > 1 && i < pastPages; i++) {
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'bv-update-page';
-    btn.textContent = i + 1;
-    btn.setAttribute('aria-label', '지난 업데이트 ' + (i + 1) + '쪽');
-    btn.onclick = renderPast.bind(null, i); // 버튼은 한 번만 만들고 active만 바꿈 — 누른 버튼의 키보드 포커스 유지
-    pager.appendChild(btn);
-  }
-  renderPast(0);
-  var m = /^\d{2}\.(\d{2})$/.exec(bvUpdate.label);
-  document.getElementById('bvUpdateLabel').innerHTML = '<span class="bv-update-month">' + (m ? parseInt(m[1], 10) + '월' : bvUpdate.label) + '</span><span class="bv-update-kicker">에디션 주요 업데이트</span>';
-  document.getElementById('bvUpdateList').innerHTML = bvUpdate.items.map(function (s) { return '<li>' + s + '</li>'; }).join('');
 })();
 </script>
 <div class="bh-news" id="bhNews"></div>
@@ -1404,14 +1283,12 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </section>
 </div>
-<div class="bh-news2">
 <section class="bv-module bx-card bx-tint" aria-labelledby="bxSpecTitle">
 <h2 id="bxSpecTitle">한눈에 보는 소주 도수</h2>
 <div class="bx-legend" id="bxSpecLegend"></div>
 <div class="bx-plot" id="bxSpecPlot"></div>
 <div class="bx-axis" id="bxSpecAxis" aria-hidden="true"></div>
 </section>
-</div>
 </div>
 <!-- ══════════════════ 빠른 찾기 인덱스 ══════════════════ -->
 <div class="tab-panel" id="tab-quickindex">
@@ -6790,10 +6667,14 @@ function showRegion(id, push) {
     });
   }
   setRegionIntroVisible(false);
+  document.getElementById('tab-region').classList.add('bh-in-region'); // 지역 화면에서만 검색 줄
+  if (window.regionFinder) window.regionFinder.setRegion(id);
   if (push !== false) window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function showRegionMap() {
   document.querySelectorAll('.region-detail').forEach(function (el) { el.classList.remove('active'); });
+  document.getElementById('tab-region').classList.remove('bh-in-region');
+  if (window.regionFinder) window.regionFinder.setRegion('all');
   setRegionIntroVisible(true);
   playRegionStats();
   var textEls = [document.getElementById('regionTitle'), document.getElementById('regionStats'), document.querySelector('#tab-region > .intro-box'), document.querySelector('.region-rep-list'), document.querySelector('.region-rep-title')];
@@ -6846,18 +6727,6 @@ function buildJumpNav(curId) {
   });
   return nav;
 }
-function initRegionJumpNav() {
-  document.querySelectorAll('.region-detail').forEach(function (region) {
-    var nav = buildJumpNav(region.id.replace('region-', ''));
-    var regionLabel = region.querySelector('.region-label');
-    if (regionLabel) {
-      region.insertBefore(nav, regionLabel);
-    } else {
-      region.insertBefore(nav, region.firstChild);
-    }
-  });
-}
-initRegionJumpNav();
 // 모바일에선 지도 글자가 작아 누르기 어려움 → 지도 위에 지역 이동 알약 한 줄(넓은 화면에선 CSS로 숨김)
 (function () {
   var wrap = document.querySelector('.kr-map-nav-wrap');
@@ -6868,12 +6737,6 @@ initRegionJumpNav();
 })();
 // 지역 상세 화면 — 편집팀 .rgH-card 목록을 읽어 회사 카드·사진 타일로 그림(빠른 찾기와 같은 모양)
 (function () {
-  var CATS = [
-    { k: 'all', label: '전체' },
-    { k: 'diluted', label: '희석식' },
-    { k: 'flavor', label: '과일·맛' },
-    { k: 'distilled', label: '증류식' }
-  ];
   function txt(el) { return el ? el.textContent.trim() : ''; }
   var totals = {};
   document.querySelectorAll('.region-detail').forEach(function (region) {
@@ -6903,30 +6766,15 @@ initRegionJumpNav();
     box.className = 'rx';
     box.innerHTML = '<div class="rx-head"><div class="rx-title">' + escHtml(title) + '</div>' +
       '<div class="rx-nums"><b>' + cos.length + '</b>곳 &nbsp; <b>' + all.length + '</b>종</div>' +
-      '<div class="rx-reps">대표 ' + escHtml(reps) + '</div></div>' +
-      '<div class="qx-cats" role="group" aria-label="분류">' + CATS.map(function (c) {
-        var n = c.k === 'all' ? all.length : all.filter(function (b) { return b.cat === c.k; }).length;
-        if (!n) return '';
-        return '<button type="button" class="bx-chip" data-k="' + c.k + '" aria-pressed="' + (c.k === 'all') + '">' + (c.k !== 'all' ? '<i class="bx-dot bx-c-' + c.k + '"></i>' : '') + c.label + ' <small>' + n + '</small></button>';
-      }).join('') + '</div><div class="rx-list"></div>';
+      '<div class="rx-reps">대표 ' + escHtml(reps) + '</div></div><div class="rx-list"></div>'; 
     if (label) label.after(box); else region.prepend(box);
 
-    var st = { cat: 'all' }, openCo = {};
-    function tile(b, showCo) { return qxTile(b, [b.abv, showCo ? b.co : b.year].filter(Boolean).join(' · '), escHtml(b.name), b.cat); }
+    var openCo = {};
+    function tile(b) { return qxTile(b, [b.abv, b.year].filter(Boolean).join(' · '), escHtml(b.name), b.cat); }
     var list = box.querySelector('.rx-list');
     function render() {
-      if (st.cat !== 'all') {
-        var m = all.filter(function (b) { return b.cat === st.cat; }).sort(function (a, b) { return a.disc - b.disc; });
-        list.innerHTML = '<div class="qx-head"><h2>' + escHtml(CATS.find(function (c) { return c.k === st.cat; }).label) + '</h2><span>' + m.length + '종</span></div><div class="qx-tiles">' + m.map(function (b) { return tile(b, true); }).join('') + '</div>';
-        return;
-      }
       list.innerHTML = '<div class="qx-cos">' + cos.map(function (co, ci) { return qxCoCard(co, ci, !!openCo[ci], tile); }).join('') + '</div>';
     }
-    box.querySelector('.qx-cats').addEventListener('click', function (e) {
-      var c = e.target.closest('.bx-chip'); if (!c) return;
-      box.querySelectorAll('.qx-cats .bx-chip').forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
-      st.cat = c.dataset.k; render();
-    });
     qxBindList(list, openCo, render);
     render();
   });
@@ -7252,10 +7100,9 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
 })();
 </script>
 <script>
-// 둘러보기(오늘의 소주·소주 찾기·도수 스펙트럼)와 소식·퀴즈(이름 유래 퀴즈)
+// 소주 라운지: 도수 스펙트럼·이름 유래 퀴즈
 // 데이터는 지역별 브랜드 탭 .rgH-card에서 읽음 — 브랜드를 추가·수정하면 자동 반영(따로 관리하는 목록 없음)
 (function () {
-  var REGION = { seoul: '서울·경기', chungcheong: '충청', gangwon: '강원', jeolla: '전라', gyeongsang: '경상', jeju: '제주' };
   var CAT = { diluted: '희석식', flavor: '과일·맛', distilled: '증류식' };
   var all = [];
   document.querySelectorAll('#tab-region .rgH-card').forEach(function (card) {
@@ -7291,66 +7138,6 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
   }
   function open(b) { if (window.openBrandInfo) window.openBrandInfo(b.name); }
   function photoHtml(b, ph) { return b.photo ? '<img src="' + escHtml(b.photo) + '" alt="' + escHtml(b.alt || b.name) + '" loading="lazy">' : (ph || ''); }
-  function metaText(b) {
-    return [isNaN(b.abv) ? '' : b.abv + '도', CAT[b.cat], REGION[b.region], b.mfr, b.year ? b.year + ' 출시' : ''].filter(Boolean).join(' · ');
-  }
-
-  // ① 오늘의 소주 — 한국 날짜 기준으로 하루 한 종
-  var todayPool = live.filter(function (b) { return b.photo && b.ety.length > 50; });
-  var dayNo = Math.floor((Date.now() + 9 * 3600e3) / 864e5);
-  var todayIdx = dayNo % todayPool.length;
-  function renderToday() {
-    var b = todayPool[todayIdx];
-    $('bxTodayPhoto').innerHTML = photoHtml(b);
-    $('bxTodayName').textContent = b.name;
-    $('bxTodayMeta').textContent = metaText(b);
-    $('bxTodayEty').textContent = b.ety;
-  }
-  $('bxTodayOpen').addEventListener('click', function () { open(todayPool[todayIdx]); });
-  $('bxTodayNext').addEventListener('click', function () {
-    todayIdx = (todayIdx + 1 + Math.floor(Math.random() * (todayPool.length - 1))) % todayPool.length; // 지금 것과 다른 한 종
-    renderToday();
-  });
-  renderToday();
-
-  // ② 나한테 맞는 소주 찾기
-  var st = { abv: 'low', cat: 'any', region: 'any' };
-  var picked = [];
-  function match(b) {
-    var a = b.abv;
-    if (st.abv !== 'any' && (isNaN(a) || (st.abv === 'low' ? a > 17 : st.abv === 'mid' ? (a <= 17 || a >= 25) : a < 25))) return false;
-    return (st.cat === 'any' || b.cat === st.cat) && (st.region === 'any' || b.region === st.region);
-  }
-  function card(b, why) {
-    var el = document.createElement('button');
-    el.type = 'button';
-    el.className = 'bx-bcard';
-    el.innerHTML = '<span class="bx-bcard-ph">' + photoHtml(b, '이미지 준비중') + '</span><span class="bx-bcard-bd"><span class="bx-bcard-nm">' + escHtml(b.name) +
-      '</span><br><span class="bx-bcard-sub"><i class="bx-dot bx-c-' + b.cat + '"></i>' + escHtml([isNaN(b.abv) ? '' : b.abv + '도', b.mfr].filter(Boolean).join(' · ')) + '</span>' +
-      (why ? '<br><span class="bx-bcard-why">' + escHtml(why) + '</span>' : '') + '</span>';
-    el.addEventListener('click', function () { open(b); });
-    return el;
-  }
-  function renderFind() {
-    var m = live.filter(match);
-    var withPhoto = m.filter(function (b) { return b.photo; });
-    picked = shuffle(withPhoto.length >= 3 ? withPhoto : m).slice(0, 3);
-    $('bxFindCount').textContent = m.length ? '조건에 맞는 소주 ' + m.length + '종 중 ' + picked.length + '종' : '조건에 맞는 소주가 없어요 — 하나를 "상관없음"으로 바꿔 보세요';
-    var box = $('bxFindCards');
-    box.innerHTML = '';
-    picked.forEach(function (b) { box.appendChild(card(b, b.ety.length > 56 ? b.ety.slice(0, 56) + '…' : b.ety)); });
-  }
-  document.querySelectorAll('#tab-browse .bx-chips[data-q]').forEach(function (g) {
-    g.addEventListener('click', function (e) {
-      var c = e.target.closest('.bx-chip');
-      if (!c) return;
-      g.querySelectorAll('.bx-chip').forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
-      st[g.dataset.q] = c.dataset.v;
-      renderFind();
-    });
-  });
-  $('bxFindShuffle').addEventListener('click', renderFind);
-  renderFind();
 
   // ③ 도수 스펙트럼 — 1도 단위 칸에 점을 쌓음. 너비가 정해진 뒤(탭이 보일 때)·바뀔 때마다 다시 그림
   var MIN = 5, MAX = 60;
@@ -7399,11 +7186,6 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
     });
     Object.keys(groups).forEach(function (k) { maxRows = Math.max(maxRows, Math.ceil(groups[k].length / perRow)); });
     plot.style.height = Math.max(160, maxRows * (D + G) + 44) + 'px';
-    function zone(from, to, label, lx, ly) {
-      plot.insertAdjacentHTML('beforeend', '<div class="bx-zone" style="left:' + (x(from) - 2) + 'px;width:' + (x(to) - x(from) + colW + 4) + 'px"></div>' +
-        '<div class="bx-zone-label" style="left:' + lx + 'px;top:' + ly + 'px">' + label + '</div>');
-    }
-    var nLow = specData.filter(function (b) { return b.cat === 'diluted' && b.abv >= 15 && b.abv < 17.5; }).length;
     Object.keys(groups).forEach(function (k) {
       groups[k].forEach(function (b, i) {
         var d = document.createElement('button');
@@ -7495,114 +7277,13 @@ function qxCatCls(text) {
   if (text.indexOf('수출용') !== -1) return 'export';
   return 'etc';
 }
-(function () {
-  var tab = document.getElementById('tab-quickindex');
-  if (!tab) return;
-  var CATS = [
-    { k: 'all', label: '전체' },
-    { k: '희석식', label: '희석식', cls: 'diluted' },
-    { k: '플레이버', label: '과일·맛', cls: 'flavor' },
-    { k: '증류식', label: '증류식', cls: 'distilled' },
-    { k: '수출용', label: '수출용', cls: 'export' },
-    { k: '기타', label: '기타', cls: 'etc' }
-  ];
-  function catKey(t) {
-    for (var i = 1; i < 5; i++) if (t.indexOf(CATS[i].k) !== -1) return CATS[i].k;
-    return '기타';
-  }
-  function catCls(k) { return qxCatCls(k); }
-  var photoByName = rgPhotoMap(false);
-
-  var groups = [], all = [];
-  tab.querySelectorAll('.idx-group').forEach(function (tg) {
-    var g = { title: tg.textContent.trim(), desc: tg.dataset.desc || '', cos: [] };
-    tg.nextElementSibling.querySelectorAll('.idx-card').forEach(function (card) {
-      var co = { name: card.querySelector('.idx-card-header').textContent.trim(), brands: [] };
-      card.querySelectorAll('.idx-brand').forEach(function (b) {
-        var name = b.querySelector('.idx-brand-name').textContent.trim();
-        var cat = (b.querySelector('.idx-cat') || {}).textContent || '';
-        var abv = b.querySelector('.idx-abv'), yr = b.querySelector('.idx-year');
-        var br = {
-          name: name, co: co.name, cat: catKey(cat), disc: cat.indexOf('단종') !== -1,
-          abv: abv && /\d/.test(abv.textContent) ? abv.textContent.trim() : '', year: yr ? yr.textContent.trim() : '',
-          photo: photoByName[name] || ''
-        };
-        co.brands.push(br); all.push(br);
-      });
-      // 회사 안에서는 출시 연도순(연도 없는 건 뒤로)
-      co.brands.sort(function (a, b) { return (parseInt(a.year, 10) || 9999) - (parseInt(b.year, 10) || 9999); });
-      g.cos.push(co);
-    });
-    groups.push(g);
-  });
-
-  var root = document.createElement('div');
-  root.className = 'qx';
-  root.innerHTML =
-    '<div class="qx-bar"><label class="qx-search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' +
-    '<input type="search" id="qxSearch" placeholder="소주 이름 또는 제조사명으로 찾기" aria-label="소주 이름 또는 제조사명 검색" autocomplete="off"></label>' +
-    '<div class="qx-cats" role="group" aria-label="분류">' + CATS.map(function (c) {
-      var n = c.k === 'all' ? all.length : all.filter(function (b) { return b.cat === c.k; }).length;
-      return '<button type="button" class="bx-chip" data-k="' + c.k + '" aria-pressed="' + (c.k === 'all') + '">' + (c.cls ? '<i class="bx-dot bx-c-' + c.cls + '"></i>' : '') + c.label + ' <small>' + n + '</small></button>';
-    }).join('') + '</div></div><div id="qxList"></div>';
-  tab.insertBefore(root, tab.firstChild);
-
-  var st = { q: '', cat: 'all' };
-  var openCo = {};
-  function norm(s) { return s.toLowerCase().replace(/\s+/g, ''); }
-  function hl(name) {
-    var t = escHtml(name);
-    if (!st.q) return t;
-    // 거르기와 같은 기준(norm: 공백 무시)으로 찾고, 찾은 구간을 원래 이름 위치로 되돌려 감쌈
-    var q = norm(st.q), pos = [];
-    for (var k = 0; k < name.length; k++) if (!/\s/.test(name[k])) pos.push(k);
-    var i = norm(name).indexOf(q);
-    if (!q || i < 0) return t;
-    var a = pos[i], z = pos[i + q.length - 1] + 1;
-    return escHtml(name.slice(0, a)) + '<mark>' + escHtml(name.slice(a, z)) + '</mark>' + escHtml(name.slice(z));
-  }
-  function tile(b, showCo) { return qxTile(b, [b.abv, showCo ? b.co : b.year].filter(Boolean).join(' · '), hl(b.name), catCls(b.cat)); }
-  function render() {
-    var list = document.getElementById('qxList');
-    var q = norm(st.q);
-    if (q || st.cat !== 'all') {
-      var m = all.filter(function (b) {
-        return (st.cat === 'all' || b.cat === st.cat) && (!q || norm(b.name).indexOf(q) !== -1 || norm(b.co).indexOf(q) !== -1);
-      }).sort(function (a, b) { return a.disc - b.disc; });
-      list.innerHTML = '<div class="qx-head"><h2>' + (q ? '“' + escHtml(st.q.trim()) + '” ' : '') + '찾은 소주</h2><span>' + m.length + '종</span></div>' +
-        (m.length ? '<div class="qx-tiles">' + m.map(function (b) { return tile(b, true); }).join('') + '</div>' : '<p class="qx-empty">찾는 소주가 없어요. 띄어쓰기나 다른 이름으로 찾아보세요.</p>');
-      return;
-    }
-    list.innerHTML = groups.map(function (g, gi) {
-      return '<div class="qx-head"><h2>' + escHtml(g.title) + '</h2><span>' + g.cos.length + '개사 · ' + escHtml(g.desc) + '</span></div><div class="qx-cos">' + g.cos.map(function (co, ci) {
-        var id = gi + '-' + ci;
-        return qxCoCard(co, id, !!openCo[id], tile);
-      }).join('') + '</div>';
-    }).join('');
-  }
-  var t;
-  document.getElementById('qxSearch').addEventListener('input', function (e) {
-    st.q = e.target.value;
-    clearTimeout(t); t = setTimeout(render, 120);
-  });
-  root.querySelector('.qx-cats').addEventListener('click', function (e) {
-    var c = e.target.closest('.bx-chip'); if (!c) return;
-    root.querySelectorAll('.qx-cats .bx-chip').forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
-    st.cat = c.dataset.k; render();
-  });
-  qxBindList(document.getElementById('qxList'), openCo, render);
-  render();
-  // 뒤로가기(bfcache 없이)·Firefox 새로고침 때 브라우저가 검색창 값만 되살리고 input 이벤트는 안 일으킴 → 그 값으로 다시 그림
-  window.addEventListener('pageshow', function () {
-    var v = document.getElementById('qxSearch').value;
-    if (v !== st.q) { st.q = v; render(); }
-  });
-})();
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   var CAT = [['all', '전체'], ['diluted', '희석식'], ['flavor', '과일·맛'], ['distilled', '증류식'], ['disc', '단종']];
-  var REG = [['all', '전국'], ['seoul', '서울·경기'], ['gangwon', '강원'], ['chungcheong', '충청'], ['jeolla', '전라'], ['gyeongsang', '경상'], ['jeju', '제주']];
+  var REG = [['all', '전국']].concat(REGIONS.map(function (r) { return [r.id, r.label]; }));
+  var REGION_TITLE = {};
+  document.querySelectorAll('.region-detail').forEach(function (r) { var t = r.querySelector('.region-label-title'); REGION_TITLE[r.id.replace('region-', '')] = t ? t.textContent.trim() : ''; });
   var CATN = { diluted: '희석식', flavor: '과일·맛', distilled: '증류식', etc: '기타' };
   var brands = Array.prototype.map.call(document.querySelectorAll('#tab-region .rgH-card'), function (c, i) {
     var q = function (s) { return c.querySelector(s); };
@@ -7615,6 +7296,7 @@ document.addEventListener('DOMContentLoaded', function () {
       cat: (/cat-(diluted|flavor|distilled)/.exec(c.className) || [])[1] || 'etc',
       region: r ? r.id.replace('region-', '') : '', disc: !!q('.disc-badge') };
   }).filter(function (b) { return b.name; });
+  brands.forEach(function (b) { b.key = (b.name + b.co).replace(/\s/g, ''); }); // 검색용(띄어쓰기 무시)
   var byName = {};
   brands.forEach(function (b) { byName[b.name] = b; });
   function openB(n) { if (window.openBrandInfo) window.openBrandInfo(n); }
@@ -7644,11 +7326,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var $ = function (k) { return root.querySelector('[data-f="' + k + '"]'); };
     var grid = $('grid'), more = $('more'), qIn = $('q'), items = [];
     var st = { cat: 'all', reg: 'all', sort: 'pick', q: '' };
-    // 한 번에 보여 줄 수: 열 수 × 3줄(2열 이하면 4줄) — 마지막 줄이 비지 않게
     // 한 번에 보여 줄 수: 열 수 × 3줄(2열 이하면 4줄). 숨은 상태(폭 0)에선 계산이 틀리므로 마지막 값 사용
     var lastCols = 0;
     function cols() { return grid.clientWidth ? getComputedStyle(grid).gridTemplateColumns.split(' ').length : (lastCols || 4); }
-    function pageSize() { var c = cols(); return c * (c <= 2 ? 4 : 3); }
+    function pageSize() { var c = lastCols || cols(); return c * (c <= 2 ? 4 : 3); }
     if (!regionNav) new ResizeObserver(function () {
       if (!grid.clientWidth) return;
       var c = cols();
@@ -7693,10 +7374,13 @@ document.addEventListener('DOMContentLoaded', function () {
       var key = st.reg + '|' + st.cat + '|' + st.sort;
       if (key === lastKey) return;
       lastKey = key;
-      Array.prototype.forEach.call(grid.children, function (el) { el.classList.remove('bv-fade-in'); void el.offsetWidth; el.classList.add('bv-fade-in'); });
+      var els = Array.prototype.slice.call(grid.children);
+      els.forEach(function (el) { el.classList.remove('bv-fade-in'); });
+      void grid.offsetWidth; // 한 번만 다시 계산하고 전부 다시 등장
+      els.forEach(function (el) { el.classList.add('bv-fade-in'); });
     }
     function render(reset) {
-      if (reset) { shown = 0; if (typeof openCo === 'object') for (var k in openCo) delete openCo[k]; }
+      if (reset) { shown = 0; for (var k in openCo) delete openCo[k]; }
       // 지역 안에서 '전체'를 고른 경우만 검색 중(지도 화면에선 cur가 'all'이라 아님)
       var on = !!(st.q || st.cat !== 'all' || (regionNav && (cur !== 'all' || allView) && st.reg === 'all'));
       if (onState) onState(on);
@@ -7704,7 +7388,7 @@ document.addEventListener('DOMContentLoaded', function () {
       items = brands.filter(function (b) {
         if (st.cat === 'disc' ? !b.disc : st.cat !== 'all' && b.cat !== st.cat) return false;
         if (st.reg !== 'all' && b.region !== st.reg) return false;
-        return !st.q || (b.name + b.co).replace(/\s/g, '').indexOf(st.q) >= 0;
+        return !st.q || b.key.indexOf(st.q) >= 0;
       }).sort(SORT[st.sort]);
       if (regionNav) {
         var cos = [], byCo = {};
@@ -7712,7 +7396,7 @@ document.addEventListener('DOMContentLoaded', function () {
         cos.sort(function (a, b) { return b.brands.length - a.brands.length; });
         var auto = !!(st.q || st.cat !== 'all');
         // 지역 화면 머리(.rx-head)와 같은 모양: 지역 이름(전체) | N곳 N종 — 대표 브랜드 줄은 없음
-        var t = st.reg === 'all' ? '전체' : (document.querySelector('#region-' + st.reg + ' .region-label-title') || { textContent: '' }).textContent.trim();
+        var t = st.reg === 'all' ? '전체' : REGION_TITLE[st.reg];
         grid.innerHTML = '<div class="rx-head bh-rx-head"><div class="rx-title">' + escHtml(t) + '</div><div class="rx-nums"><b>' + cos.length + '</b>곳 &nbsp; <b>' + items.length + '</b>종</div><div class="rx-reps">' + mix(items) + '</div></div>' +
           '<div class="qx-cos">' + cos.map(function (co) {
           if (!(co.name in openCo)) openCo[co.name] = auto; // 처음엔 검색 중이면 펼침, 이후엔 누른 대로
@@ -7735,7 +7419,6 @@ document.addEventListener('DOMContentLoaded', function () {
     grid.addEventListener('click', function (e) { var c = e.target.closest('.bh-card'); if (c) openB(c.dataset.name); });
     var cur = 'all', allView = false; // 지금 들어와 있는 지역 / 지도에서 '전국 전체 보기'로 들어왔는지
     function clear() { qIn.value = ''; st.q = ''; st.cat = 'all'; press('cat', 'all'); if (regionNav) { st.reg = cur; press('reg', cur); } render(true); }
-    if ($('clear')) $('clear').addEventListener('click', clear);
     render(true);
     return { render: render, clear: clear,
       setRegion: function (id) { cur = id; allView = false; clear(); },
@@ -7745,9 +7428,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // 지역별 브랜드: 지역 상세에 들어가면 검색창·칩이 보이고(그 지역만 찾음), 검색 중엔 지역 상세 대신 결과
   var regionTab = document.getElementById('tab-region');
   var regionF = finder(document.getElementById('bhRegion'), function (on) { regionTab.classList.toggle('bh-searching', on); }, true);
-  var origShowRegion = window.showRegion, origShowMap = window.showRegionMap;
-  window.showRegion = function (id, push) { origShowRegion(id, push); regionTab.classList.add('bh-in-region'); regionF.setRegion(id); };
-  window.showRegionMap = function () { regionTab.classList.remove('bh-in-region'); regionF.setRegion('all'); return origShowMap.apply(this, arguments); };
+  window.regionFinder = regionF; // showRegion·showRegionMap이 지역에 따라 setRegion을 부름
   // 지도 화면 '전국 전체 보기' — 지역을 거치지 않고 바로 전체 화면으로
   var allBtn = document.getElementById('bhAllBtn');
   allBtn.addEventListener('click', function () {
@@ -7756,7 +7437,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
   var act = document.querySelector('.region-detail.active');
-  if (act) { regionTab.classList.add('bh-in-region'); regionF.setRegion(act.id.replace('region-', '')); }
+  if (act) regionF.setRegion(act.id.replace('region-', '')); // 처음 열 때 이미 지역 화면이면(주소 #region-…) 맞춰 줌
 
   // 대문: 많이 찾는 칩(병 진열 그림은 마크업에 고정)
   document.getElementById('bhTotal').textContent = brands.length;
@@ -7768,11 +7449,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // 이번 달 소식: 맨 위 한 줄 띠
-  var news = Array.prototype.map.call(document.querySelectorAll('#bvUpdateList li'), function (li) { return '<span>' + li.innerHTML + '</span>'; });
-  var label = document.querySelector('#bvUpdateLabel .bv-update-month');
+  var bv = window.BV_UPDATE || { label: '', items: [] };
+  var news = bv.items.map(function (s) { return '<span>' + s + '</span>'; });
+  var month = /^\d{2}\.(\d{2})$/.exec(bv.label);
   // 전광판: 같은 목록을 두 번 이어 붙여 -50%까지 흘리면 끊김 없이 반복. 속도는 글자 길이에 맞춤(초당 약 70px)
   var once = '<span class="bh-news-set">' + news.join('') + '</span>';
-  document.getElementById('bhNews').innerHTML = '<b class="bh-news-label">' + (label ? label.textContent : '') + ' 소식</b>' +
+  document.getElementById('bhNews').innerHTML = '<b class="bh-news-label">' + (month ? parseInt(month[1], 10) + '월' : bv.label) + ' 소식</b>' +
     '<span class="bh-news-view"><span class="bh-news-track">' + once + once.replace('<span class="bh-news-set">', '<span class="bh-news-set" aria-hidden="true">') + '</span></span>';
   document.querySelector('.bh-news-track').style.animationDuration = Math.max(20, document.querySelector('.bh-news-set').scrollWidth / 70) + 's';
 });

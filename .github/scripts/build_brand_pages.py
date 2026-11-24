@@ -7,6 +7,7 @@
 
 index.html 브랜드 데이터를 고친 뒤 실행: python .github/scripts/build_brand_pages.py
 """
+import collections
 import datetime
 import html
 import os
@@ -335,9 +336,13 @@ def main():
 
     os.makedirs(OUT_DIR, exist_ok=True)
     changed = set()
+    by_co, by_region = collections.defaultdict(list), collections.defaultdict(list)
     for b in brands:
-        siblings = [s for s in brands if s['company'] == b['company'] and s is not b]
-        neighbors = [s for s in brands if s['region'] == b['region'] and s['company'] != b['company']]
+        by_co[b['company']].append(b)
+        by_region[b['region']].append(b)
+    for b in brands:
+        siblings = [s for s in by_co[b['company']] if s is not b]
+        neighbors = [s for s in by_region[b['region']] if s['company'] != b['company']]
         if write_if_changed(b['slug'], render(b, siblings, edition, neighbors)):
             changed.add(b['slug'])
     for old, new in REDIRECTS.items():
