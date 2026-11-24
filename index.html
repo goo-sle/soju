@@ -6539,14 +6539,38 @@ function photoBrandFor(x, photo, names) {
   return m.length === 1 ? m[0] : '';
 }
 function escHtml(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-// 지역 카드(.rgH-card) 브랜드 이름 → 첫 사진(현행 디자인). 타임라인·제조사 현황·빠른 찾기가 같이 씀
+// 브랜드 데이터 — 편집팀 원본인 지역 카드(.rgH-card)를 처음 한 번만 읽어 메인 그리드·소주 찾기·라운지·팝업·통계가 같이 씀.
+// 카드에 항목을 더하면 여기 한 곳만 고칠 것. 제조사 이름은 회사 묶음 머리(summary)의 글자 노드만 이어 붙임(안의 개수 표시 제외)
+function rgBrands() {
+  if (rgBrands.list) return rgBrands.list;
+  var list = [];
+  document.querySelectorAll('#tab-region .rgH-card').forEach(function (c) {
+    var q = function (sel) { return c.querySelector(sel); };
+    var nameEl = q('.rgH-name');
+    if (!nameEl) return;
+    var sum = c.closest('.rgH2-group'), r = c.closest('.region-detail'), a = q('.abv-badge'), y = q('.rgH-year'), ety = q('.ety');
+    sum = sum && sum.querySelector('summary');
+    var title = r && r.querySelector('.region-label-title');
+    var photos = Array.prototype.map.call(c.querySelectorAll('.rgH-photo'), function (el) { return { src: el.getAttribute('src'), alt: el.getAttribute('alt') || '' }; });
+    var year = y ? y.textContent.trim() : '';
+    list.push({
+      i: list.length, el: c, name: nameEl.textContent.trim(),
+      co: sum ? Array.prototype.filter.call(sum.childNodes, function (n) { return n.nodeType === 3; }).map(function (n) { return n.textContent; }).join('').trim() : '',
+      region: r ? r.id.replace('region-', '') : '', regionTitle: title ? title.textContent.trim() : '',
+      cat: (c.className.match(/\bcat-(\w+)\b/) || [])[1] || 'etc',
+      abvText: a ? a.textContent.trim() : '', abv: a ? parseFloat(a.textContent) : NaN,
+      year: year, yearNum: parseInt(year, 10),
+      photos: photos, photo: photos.length ? photos[0].src : '', alt: photos.length ? photos[0].alt : '',
+      ety: ety ? ety.textContent.trim() : '', disc: !!q('.disc-badge')
+    });
+  });
+  return (rgBrands.list = list);
+}
+// 브랜드 이름 → 첫 사진(현행 디자인). 타임라인·제조사 현황이 같이 씀
 function rgPhotoMap(skipDisc) {
   var m = {};
-  document.querySelectorAll('#tab-region .rgH-card').forEach(function (c) {
-    var n = c.querySelector('.rgH-name'), ph = c.querySelector('.rgH-photo');
-    if (!n || !ph || (skipDisc && c.querySelector('.disc-badge'))) return;
-    n = n.textContent.trim();
-    if (!m[n]) m[n] = ph.getAttribute('src');
+  rgBrands().forEach(function (b) {
+    if (b.photo && !(skipDisc && b.disc) && !m[b.name]) m[b.name] = b.photo;
   });
   return m;
 }
@@ -6602,8 +6626,8 @@ var regionStatsPlayed = false;
 function playRegionStats() {
   if (regionStatsPlayed) return;
   regionStatsPlayed = true;
-  var companies = new Set(Array.prototype.map.call(document.querySelectorAll('#tab-region .rgH2-group > summary'), function (s) { return s.firstChild.textContent.trim(); })).size;
-  var brands = document.querySelectorAll('#tab-region .rgH-card').length;
+  var companies = new Set(rgBrands().map(function (b) { return b.co; })).size;
+  var brands = rgBrands().length;
   tickNumber(document.getElementById('regionStatCompanies'), 0, companies, 900);
   tickNumber(document.getElementById('regionStatBrands'), 0, brands, 900);
 }
@@ -6744,20 +6768,9 @@ function buildJumpNav(curId) {
     var label = region.querySelector('.region-label');
     var title = txt(label && label.querySelector('.region-label-title'));
     var reps = txt(label && label.querySelector('.region-label-brands')).replace(/^대표 브랜드:\s*/, '');
-    var cos = [], byName = {}, all = [];
-    region.querySelectorAll(':scope > details.rgH2-group').forEach(function (d) {
-      var sum = d.querySelector('summary');
-      var name = Array.prototype.filter.call(sum.childNodes, function (n) { return n.nodeType === 3; }).map(function (n) { return n.textContent; }).join('').trim();
-      var co = byName[name];
-      if (!co) { co = byName[name] = { name: name, brands: [] }; cos.push(co); }
-      d.querySelectorAll('.rgH-card').forEach(function (c) {
-        var cat = (c.className.match(/cat-(\w+)/) || [])[1] || 'etc';
-        var ph = c.querySelector('.rgH-photo');
-        var b = { name: txt(c.querySelector('.rgH-name')), co: name, cat: cat, year: txt(c.querySelector('.rgH-year')),
-          abv: txt(c.querySelector('.abv-badge')), disc: !!c.querySelector('.disc-badge'), photo: ph ? ph.getAttribute('src') : '' };
-        co.brands.push(b); all.push(b);
-      });
-    });
+    var cos = [], byName = {};
+    var all = rgBrands().filter(function (b) { return b.region === rid; });
+    all.forEach(function (b) { (byName[b.co] || (byName[b.co] = cos[cos.push({ name: b.co, brands: [] }) - 1])).brands.push(b); });
     cos.forEach(function (co) { co.brands.sort(function (a, b) { return (parseInt(a.year, 10) || 9999) - (parseInt(b.year, 10) || 9999); }); });
     cos.sort(function (a, b) { return b.brands.length - a.brands.length; });
     totals[rid] = all.length;
@@ -6770,7 +6783,7 @@ function buildJumpNav(curId) {
     if (label) label.after(box); else region.prepend(box);
 
     var openCo = {};
-    function tile(b) { return qxTile(b, [b.abv, b.year].filter(Boolean).join(' · '), escHtml(b.name), b.cat); }
+    function tile(b) { return qxTile(b, [b.abvText, b.year].filter(Boolean).join(' · '), escHtml(b.name), b.cat); }
     var list = box.querySelector('.rx-list');
     function render() {
       list.innerHTML = '<div class="qx-cos">' + cos.map(function (co, ci) { return qxCoCard(co, ci, !!openCo[ci], tile); }).join('') + '</div>';
@@ -6985,20 +6998,16 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
   var descByName = null;
   function buildIndex() {
     descByName = {};
-    document.querySelectorAll('#tab-region .rgH-card').forEach(function (card) {
-      var nameEl = card.querySelector('.rgH-name');
+    rgBrands().forEach(function (b) {
+      var card = b.el, nameEl = card.querySelector('.rgH-name');
       var etyEl = card.querySelector('.ety');
       var detEl = card.querySelector('.det');
       // 병 디자인이 여러 시대에 걸쳐 바뀐 브랜드는 .rgH-photo를 여러 개 넣어두면 팝업에서
       // 사진 하단 번호 버튼(1,2,3..)으로 넘겨볼 수 있음 — 0개면 "이미지 준비중", 1개면 그냥 사진만
-      var photos = Array.prototype.map.call(card.querySelectorAll('.rgH-photo'), function (el) {
-        return { src: el.getAttribute('src'), alt: el.getAttribute('alt') || '' };
-      });
+      var photos = b.photos;
       // .det가 없는 카드도 색인 — 안 그러면 같은 카드의 .ety/.rgH-photo까지 전부 버려짐
-      var regionEl = card.closest('.region-detail');
-      var regionTitle = regionEl && regionEl.querySelector('.region-label-title');
-      if (nameEl) descByName[nameEl.textContent.trim()] = {
-        region: regionTitle ? regionTitle.textContent.trim() : '',
+      descByName[b.name] = {
+        region: b.regionTitle,
         ety: etyEl ? etyEl.innerHTML : '',
         det: detEl ? detEl.innerHTML : '',
         photos: photos,
@@ -7104,29 +7113,7 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
 // 데이터는 지역별 브랜드 탭 .rgH-card에서 읽음 — 브랜드를 추가·수정하면 자동 반영(따로 관리하는 목록 없음)
 (function () {
   var CAT = { diluted: '희석식', flavor: '과일·맛', distilled: '증류식' };
-  var all = [];
-  document.querySelectorAll('#tab-region .rgH-card').forEach(function (card) {
-    var nameEl = card.querySelector('.rgH-name');
-    var cat = (card.className.match(/\bcat-(diluted|flavor|distilled)\b/) || [])[1];
-    if (!nameEl || !cat) return;
-    var abvEl = card.querySelector('.abv-badge');
-    var photo = card.querySelector('.rgH-photo');
-    var region = card.closest('.region-detail');
-    var head = card.closest('.rgH2-group');
-    head = head && head.querySelector('.rgH2-head');
-    var ety = card.querySelector('.ety');
-    var year = card.querySelector('.rgH-year');
-    all.push({
-      name: nameEl.textContent.trim(), cat: cat,
-      abv: abvEl ? parseFloat(abvEl.textContent) : NaN,
-      photo: photo ? photo.getAttribute('src') : '', alt: photo ? photo.getAttribute('alt') : '',
-      region: region ? region.id.replace('region-', '') : '',
-      mfr: head && head.firstChild ? head.firstChild.textContent.trim() : '',
-      ety: ety ? ety.textContent.trim() : '',
-      year: year ? year.textContent.trim() : '',
-      disc: !!card.querySelector('.disc-badge')
-    });
-  });
+  var all = rgBrands().filter(function (b) { return CAT[b.cat]; });
   var live = all.filter(function (b) { return !b.disc; });
   if (!live.length) return;
 
@@ -7162,7 +7149,7 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
   });
   function showTip(b, el) {
     var r = el.getBoundingClientRect();
-    tip.innerHTML = (b.photo ? '<img src="' + escHtml(b.photo) + '" alt="">' : '') + '<div><b>' + escHtml(b.name) + '</b><span>' + b.abv + '도 · ' + escHtml(b.mfr) + '</span></div>';
+    tip.innerHTML = (b.photo ? '<img src="' + escHtml(b.photo) + '" alt="">' : '') + '<div><b>' + escHtml(b.name) + '</b><span>' + b.abv + '도 · ' + escHtml(b.co) + '</span></div>';
     tip.style.display = 'flex';
     tip.style.left = Math.max(8, Math.min(innerWidth - 270, r.left - 20)) + 'px';
     tip.style.top = Math.max(8, r.top - 90) + 'px';
@@ -7285,17 +7272,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var REGION_TITLE = {};
   document.querySelectorAll('.region-detail').forEach(function (r) { var t = r.querySelector('.region-label-title'); REGION_TITLE[r.id.replace('region-', '')] = t ? t.textContent.trim() : ''; });
   var CATN = { diluted: '희석식', flavor: '과일·맛', distilled: '증류식', etc: '기타' };
-  var brands = Array.prototype.map.call(document.querySelectorAll('#tab-region .rgH-card'), function (c, i) {
-    var q = function (s) { return c.querySelector(s); };
-    var g = c.closest('.rgH2-group'), r = c.closest('.region-detail'), ph = q('.rgH-photo'), a = q('.abv-badge'), y = q('.rgH-year');
-    return { i: i, name: q('.rgH-name') ? q('.rgH-name').textContent.trim() : '',
-      co: g && g.querySelector('summary') ? g.querySelector('summary').firstChild.textContent.trim() : '',
-      photo: ph ? ph.getAttribute('src') : '', alt: ph ? ph.getAttribute('alt') : '',
-      abvText: a ? a.textContent.trim() : '', abv: a ? parseFloat(a.textContent) : NaN,
-      year: y ? parseInt(y.textContent, 10) : NaN,
-      cat: (/cat-(diluted|flavor|distilled)/.exec(c.className) || [])[1] || 'etc',
-      region: r ? r.id.replace('region-', '') : '', disc: !!q('.disc-badge') };
-  }).filter(function (b) { return b.name; });
+  var brands = rgBrands();
   brands.forEach(function (b) { b.key = (b.name + b.co).replace(/\s/g, ''); }); // 검색용(띄어쓰기 무시)
   var byName = {};
   brands.forEach(function (b) { byName[b.name] = b; });
@@ -7307,7 +7284,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var num = function (v, d) { return isNaN(v) ? d : v; };
   var SORT = {
     pick: function (a, b) { return num(rank[a.name], 1e6 + a.i) - num(rank[b.name], 1e6 + b.i); },
-    new: function (a, b) { return num(b.year, -1) - num(a.year, -1); },
+    new: function (a, b) { return num(b.yearNum, -1) - num(a.yearNum, -1); },
     low: function (a, b) { return num(a.abv, 999) - num(b.abv, 999); },
     high: function (a, b) { return num(b.abv, -1) - num(a.abv, -1); },
     name: function (a, b) { return a.name.localeCompare(b.name, 'ko'); }
@@ -7318,7 +7295,7 @@ document.addEventListener('DOMContentLoaded', function () {
       (b.disc ? '<span class="bh-tag">단종</span>' : '') +
       '<span class="bh-ov"><b>' + escHtml(b.name) + '</b><span>' + escHtml([CATN[b.cat], b.abvText].filter(Boolean).join(' · ')) + '</span></span></span>' +
       '<span class="bh-meta"><span class="bh-av" aria-hidden="true">' + escHtml(b.co.charAt(0)) + '</span><span class="bh-nm">' + escHtml(b.name) + '<small>' + escHtml(b.co) + '</small></span>' +
-      '<span class="bh-stat">' + (b.abvText ? '<span>' + escHtml(b.abvText) + '</span>' : '') + (isNaN(b.year) ? '' : '<span>' + b.year + '</span>') + '</span></span></button>';
+      '<span class="bh-stat">' + (b.abvText ? '<span>' + escHtml(b.abvText) + '</span>' : '') + (isNaN(b.yearNum) ? '' : '<span>' + b.yearNum + '</span>') + '</span></span></button>';
   }
 
   // 빠른 찾기 — 검색창·칩·정렬·그리드를 root 안의 data-f로 찾음(메인·지역별 브랜드 공용)
@@ -7414,7 +7391,7 @@ document.addEventListener('DOMContentLoaded', function () {
     more.addEventListener('click', function () { shown += pageSize(); render(); });
     // 제조사 묶음: 펼침 상태는 회사 이름으로 기억(검색어가 바뀌면 초기화), 타일은 지역 화면과 같은 qxTile
     var openCo = {};
-    function coTile(b) { return qxTile(b, [b.abvText, isNaN(b.year) ? '' : b.year].filter(Boolean).join(' · '), escHtml(b.name), CATN[b.cat] ? b.cat : 'etc'); }
+    function coTile(b) { return qxTile(b, [b.abvText, isNaN(b.yearNum) ? '' : b.yearNum].filter(Boolean).join(' · '), escHtml(b.name), CATN[b.cat] ? b.cat : 'etc'); }
     if (regionNav) qxBindList(grid, openCo, function () { render(); });
     grid.addEventListener('click', function (e) { var c = e.target.closest('.bh-card'); if (c) openB(c.dataset.name); });
     var cur = 'all', allView = false; // 지금 들어와 있는 지역 / 지도에서 '전국 전체 보기'로 들어왔는지
