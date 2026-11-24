@@ -18,6 +18,15 @@ OUT_DIR = 'brand'
 SITE = 'https://xn--9l4b29k.kro.kr'
 KST = datetime.timezone(datetime.timedelta(hours=9))
 CAT_LABEL = {'cat-diluted': '희석식', 'cat-flavor': '플레이버', 'cat-distilled': '증류식'}
+# 브랜드 이름을 바꾸면 slug(주소)가 바뀜 → 옛 주소는 지우지 않고 새 주소로 넘기는 이동 파일로 남김(검색 순위 유지).
+# 이름을 바꿀 때마다 '옛 slug': '새 slug'를 추가할 것. 여기 없는 옛 페이지는 삭제되고 404가 됨.
+REDIRECTS = {
+    '명인안동소주-45도': '명인안동소주-45도-박재서-명인',
+    '명인안동소주-35-22-19도': '명인안동소주-35-22-19도-박재서-명인',
+    '민속주-안동소주-25도': '민속주-안동소주-25도-조옥화-명인',
+    '민속주-안동소주-35도': '민속주-안동소주-35도-조옥화-명인',
+    '민속주-안동소주-45도': '민속주-안동소주-45도-조옥화-명인',
+}
 
 
 def slugify(name):
@@ -86,7 +95,55 @@ def section(title, body):
     return '<section><h2>%s</h2>%s</section>\n' % (title, body) if body else ''
 
 
-def render(b, siblings, edition):
+def josa(word, with_final, without_final):
+    # 마지막 한글/숫자의 받침 유무로 조사 선택(괄호 속 부연은 무시). 영문 등은 받침 없음으로 봄
+    w = re.sub(r'\s*\([^()]*\)\s*$', '', word).strip() or word
+    c = w[-1]
+    final = (ord(c) - 0xAC00) % 28 != 0 if '가' <= c <= '힣' else c in '013678'
+    return word + (with_final if final else without_final)
+
+
+def lead(b):
+    # 이미 있는 데이터(제조사·지역·분류·출시연도·도수·단종)로 만든 한 문장 요약 — 새 사실은 넣지 않음
+    cat = b['cat'].replace('(단종)', '')
+    kind = cat + ' 소주' if cat in ('희석식', '증류식', '플레이버', '담금용', '수출용') else cat or '소주'
+    y = re.match(r'\d{4}', b['year'])
+    when = ''
+    if y:
+        when = y.group() + ('년경에' if '추정' in b['year'] else '년 이전에' if '이전' in b['year'] else '년에')
+    s = '%s %s %s %s 지역의 %s' % (josa(b['name'], '은', '는'), josa(b['company'], '이', '가'),
+                                '%s 출시한' % when if when else '만드는', b['region'].replace(' · ', '·'), kind)
+    abv = b['abv'].replace('(추정)', '').strip()
+    s += '로, 도수는 %s임.' % abv if abv else '임.'
+    if b['disc'] or '단종' in b['cat']:
+        s += ' 지금은 단종된 제품임.'
+    return s
+
+
+def tiles(items, more_label='전체 %d종 보기'):
+    def tile(s):
+        ph = '<img src="../%s" alt="" loading="lazy">' % html.escape(s['photos'][0][0]) if s['photos'] else html.escape(s['name'][:1])
+        sub = ' · '.join(x for x in (s['abv'], s['year']) if x)
+        return '<a class="tile" href="%s"><span class="ph">%s</span><span class="nm">%s</span><span class="sub">%s</span></a>' % (s['slug'], ph, html.escape(s['name']), html.escape(sub))
+    # 사진 있는 것부터(같은 조건이면 원래 순서)
+    items = sorted(items, key=lambda s: not s['photos'])
+    if not items:
+        return ''
+    out = '<div class="tiles">%s</div>' % ''.join(tile(s) for s in items[:12])
+    if len(items) > 12:
+        out += '<details class="all"><summary>%s</summary><div class="tiles">%s</div></details>' % (more_label % len(items), ''.join(tile(s) for s in items[12:]))
+    return out
+
+
+def redirect_page(new_slug):
+    url = '%s/brand/%s' % (SITE, new_slug)
+    return ('<!DOCTYPE html>\n<html lang="ko">\n<head>\n<meta charset="utf-8"/>\n<title>소주도감</title>\n'
+            '<!-- 이름이 바뀐 브랜드의 옛 주소 — build_brand_pages.py REDIRECTS가 생성 -->\n'
+            '<link rel="canonical" href="%s">\n<meta http-equiv="refresh" content="0; url=%s">\n</head>\n'
+            '<body>\n<a href="%s">%s 페이지로 이동</a>\n</body>\n</html>\n') % (url, new_slug, new_slug, html.escape(new_slug))
+
+
+def render(b, siblings, edition, neighbors=()):
     e = html.escape
     abv = b['abv']
     title = '%s%s · %s | 소주도감' % (b['name'], ' 도수 ' + abv if abv else '', b['company'])
@@ -110,17 +167,8 @@ def render(b, siblings, edition):
         more = '<div class="more">%s</div>' % ''.join(
             '<figure><img src="../%s" alt="%s" loading="lazy"><figcaption>%s</figcaption></figure>'
             % (e(src), e(alt), e(re.sub(r'\s*\((?:[^()]|\([^()]*\))*\)\s*$', '', alt))) for src, alt in b['photos'][1:])
-    def tile(s):
-        ph = '<img src="../%s" alt="" loading="lazy">' % e(s['photos'][0][0]) if s['photos'] else e(s['name'][:1])
-        sub = ' · '.join(x for x in (s['abv'], s['year']) if x)
-        return '<a class="tile" href="%s"><span class="ph">%s</span><span class="nm">%s</span><span class="sub">%s</span></a>' % (s['slug'], ph, e(s['name']), e(sub))
-    # 사진 있는 것부터(같은 조건이면 원래 순서)
-    sibs = sorted(siblings, key=lambda s: not s['photos'])
-    sib = ''.join(tile(s) for s in sibs[:12])
-    if sib:
-        sib = '<div class="tiles">%s</div>' % sib
-        if len(sibs) > 12:
-            sib += '<details class="all"><summary>전체 %d종 보기</summary><div class="tiles">%s</div></details>' % (len(sibs), ''.join(tile(s) for s in sibs[12:]))
+    sib = tiles(siblings)
+    near = tiles(neighbors)
     breadcrumb = ('{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":['
                   '{"@type":"ListItem","position":1,"name":"소주도감","item":"%s/"},'
                   '{"@type":"ListItem","position":2,"name":"%s","item":"%s"}]}') % (SITE, b['name'].replace('"', ''), url)
@@ -163,6 +211,7 @@ main{{max-width:760px;margin:0 auto;padding:8px 16px 64px}}
 h1,h2{{font-family:"Hahmlet","Pretendard Variable",serif}}
 h1{{text-wrap:balance;font-size:clamp(26px,5vw,36px);font-weight:300;color:var(--brand);margin:0 0 4px;letter-spacing:-.02em}}
 .kw{{color:var(--muted);margin:0 0 20px}}
+.lead{{margin:0 0 20px;font-size:16px}}
 .top{{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;margin-bottom:24px}}
 .photo{{width:200px;aspect-ratio:3/4;object-fit:cover;border-radius:14px;background:#fff;border:1px solid var(--line)}}
 .more{{display:flex;flex-wrap:wrap;gap:12px;margin:-8px 0 24px}} .more figure{{margin:0;width:110px}}
@@ -201,6 +250,7 @@ html{{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAmCAYAAAA1
 <h1>{name}</h1>
 <p class="kw">{kw}</p>
 <div class="top">{photo}<div class="tags">{facts}</div></div>{more}
+<p class="lead">{lead}</p>
 {sections}
 </main>
 <footer class="footer"><span>소주도감<i></i>{edition} Edition</span><span><b>출처</b><i></i>나무위키·위키백과·한국경제매거진·브랜딩리드·각사 보도자료 종합</span><span>© GooSle 2026 소주도감</span></footer>
@@ -208,9 +258,11 @@ html{{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAmCAYAAAA1
 </html>
 '''.format(title=e(title), url=url, desc=e(desc), breadcrumb=breadcrumb, cat_cls=b['cat_cls'],
            name=e(b['name']), kw=e(b['kw']), photo=photo, more=more, og_image=og_image, facts=facts_html,
+           lead=e(lead(b)),
            sections=section('이름 유래', b['ety']) + section('상세 연혁', b['det']) +
            section('변경 이력', b['chg']) + section('스페셜 에디션', b['spec']) +
-           section('%s의 다른 소주' % e(b['company']), sib), edition=edition)
+           section('%s의 다른 소주' % e(b['company']), sib) +
+           section('%s 지역의 다른 소주' % e(b['region'].replace(' · ', '·')), near), edition=edition)
 
 
 def update_sitemap(changed, all_slugs, today):
@@ -255,6 +307,17 @@ def check_sync(text, brands):
         print('경고: ' + w)
 
 
+def write_if_changed(slug, page):
+    path = os.path.join(OUT_DIR, slug + '.html')
+    if os.path.exists(path):
+        with open(path, encoding='utf-8') as f:
+            if f.read() == page:
+                return False
+    with open(path, 'w', encoding='utf-8', newline='\n') as f:
+        f.write(page)
+    return True
+
+
 def main():
     with open(INDEX_HTML, encoding='utf-8') as f:
         text = f.read()
@@ -274,18 +337,19 @@ def main():
     changed = set()
     for b in brands:
         siblings = [s for s in brands if s['company'] == b['company'] and s is not b]
-        page = render(b, siblings, edition)
-        path = os.path.join(OUT_DIR, b['slug'] + '.html')
-        if os.path.exists(path):
-            with open(path, encoding='utf-8') as f:
-                if f.read() == page:
-                    continue
-        with open(path, 'w', encoding='utf-8', newline='\n') as f:
-            f.write(page)
-        changed.add(b['slug'])
+        neighbors = [s for s in brands if s['region'] == b['region'] and s['company'] != b['company']]
+        if write_if_changed(b['slug'], render(b, siblings, edition, neighbors)):
+            changed.add(b['slug'])
+    for old, new in REDIRECTS.items():
+        if old in slugs:
+            raise SystemExit('REDIRECTS의 옛 slug가 다시 브랜드로 쓰임: %s — REDIRECTS에서 뺄 것' % old)
+        if new not in slugs:
+            print('경고: REDIRECTS 대상 브랜드 없음: %s → %s' % (old, new))
+        write_if_changed(old, redirect_page(new))
     for fn in os.listdir(OUT_DIR):
-        if fn.endswith('.html') and fn[:-5] not in slugs:
+        if fn.endswith('.html') and fn[:-5] not in slugs and fn[:-5] not in REDIRECTS:
             os.remove(os.path.join(OUT_DIR, fn))
+            print('경고: 브랜드 페이지 삭제됨(404): %s — 이름만 바꾼 거면 REDIRECTS에 추가' % fn[:-5])
 
     update_sitemap(changed, slugs, datetime.datetime.now(KST).strftime('%Y-%m-%d'))
     print('브랜드 %d종 · 변경 %d개 페이지' % (len(brands), len(changed)))
