@@ -195,9 +195,10 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 /* ── 움직임 언어: 백자 위에 청화 안료가 번져 자리 잡듯(흐림 → 또렷, 살짝 떠 있다 내려앉음), 붓질 제목, 유약 광택, 병 들어 올리기 ──
    전부 fill-mode backwards라 끝난 뒤 hover transform·filter를 막지 않음. 움직임 줄이기면 맨 위 전역 규칙이 시간을 0으로 */
 :root { --ease-ink: cubic-bezier(.16,1,.3,1); --ease-spring: cubic-bezier(.34,1.56,.64,1); }
+/* 성능: 목록처럼 여러 개가 동시에 도는 등장은 opacity·transform만(GPU 합성) — 흐림(filter)은 한 번에 하나 나오는 제목·팝업에만 */
 .bv-fade-in { animation: bvFadeIn .7s var(--ease-ink) backwards; }
-@keyframes bvFadeIn { from { opacity: 0; filter: blur(10px); transform: translateY(14px) scale(.985); } }
-@keyframes fxRise { from { opacity: 0; filter: blur(8px); transform: translateY(16px) scale(.985); } }
+@keyframes bvFadeIn { from { opacity: 0; transform: translateY(14px) scale(.985); } }
+@keyframes fxRise { from { opacity: 0; transform: translateY(16px) scale(.985); } }
 /* 붓질 제목: 왼쪽에서 오른쪽으로 먹이 스며들며 드러남(.fx-brush는 화면에 들어올 때 스크립트가 붙임 — 붙기 전까진 숨김 .fx-wait) */
 @keyframes fxBrush { from { -webkit-mask-position: 100% 0; mask-position: 100% 0; filter: blur(4px); } to { -webkit-mask-position: 0 0; mask-position: 0 0; filter: blur(0); } }
 .fx-wait { opacity: 0; }
@@ -220,8 +221,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
     animation: fxProgress linear both; animation-timeline: scroll(root); }
   @keyframes fxProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 }
-@keyframes fxPop { from { opacity: 0; transform: scale(.2); } }
-@keyframes fxGrow { from { width: 0; } }
+@keyframes fxGrow { from { transform: scaleX(0); } }
 @keyframes fxFade { from { opacity: 0; } }
 @keyframes fxShake { 20%, 60% { transform: translateX(-5px); } 40%, 80% { transform: translateX(5px); } }
 @keyframes fxBump { 50% { transform: scale(1.06); } }
@@ -232,7 +232,8 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 /* 소주 라운지: 묶음 차례로, 도수 점은 아래에서부터 톡톡(--dl은 스크립트가 넣음), 퀴즈 정답 튀고 오답 흔들림 */
 .news-grid > * { animation: fxRise .8s var(--ease-ink) backwards; }
 .news-grid > :nth-child(2) { animation-delay: .12s; } .news-grid > :nth-child(3) { animation-delay: .24s; }
-.bx-pt { animation: fxPop .35s cubic-bezier(.3,1.6,.5,1) backwards; animation-delay: var(--dl, 0s); }
+.bx-plot { animation: fxPour 1.4s var(--ease-ink) .2s backwards; }
+@keyframes fxPour { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
 .bx-opts .bx-btn { animation: fxRise .5s var(--ease-ink) backwards; }
 .bx-opts .bx-btn:nth-child(2) { animation-delay: .06s; } .bx-opts .bx-btn:nth-child(3) { animation-delay: .12s; } .bx-opts .bx-btn:nth-child(4) { animation-delay: .18s; }
 .bx-opts .bx-btn.ok { animation: fxBump .35s ease-out; }
@@ -456,7 +457,17 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   padding: 16px; box-shadow: 0 12px 32px color-mix(in srgb, var(--ink) 15%, transparent);
   display: none; text-align: left;
 }
-.feedback-panel.open { display: block; }
+.feedback-panel.open { display: block; animation: fxPanel .45s var(--ease-ink); transform-origin: 100% 100%; }
+@keyframes fxPanel { from { opacity: 0; filter: blur(6px); transform: translateY(12px) scale(.96); } }
+/* 팝업(브랜드·보관 방법): display가 none→flex로 바뀌어 transition이 안 걸리므로 animation으로 — 배경은 옅게, 창은 번지며 떠오르고 사진은 살짝 줌아웃 */
+.method-modal-overlay.open { animation: fxTab .3s ease-out; }
+.method-modal-overlay.open .method-modal { animation: fxPanel .55s var(--ease-ink) backwards; }
+.method-modal-overlay.open .brandinfo-photo { animation: fxZoom 1.4s var(--ease-ink) backwards; }
+@keyframes fxZoom { from { transform: scale(1.1); } }
+/* 회사 카드를 펼치면 그 카드의 병 타일만 차례로(다시 그려도 다른 카드는 재생 안 되게 .fx-open은 방금 연 카드에만) */
+.qx-co.fx-open .qx-tile { animation: fxRise .55s var(--ease-ink) backwards; }
+.qx-co.fx-open .qx-tile:nth-child(2) { animation-delay: .04s; } .qx-co.fx-open .qx-tile:nth-child(3) { animation-delay: .08s; } .qx-co.fx-open .qx-tile:nth-child(4) { animation-delay: .12s; }
+.qx-co.fx-open .qx-tile:nth-child(5) { animation-delay: .16s; } .qx-co.fx-open .qx-tile:nth-child(6) { animation-delay: .2s; } .qx-co.fx-open .qx-tile:nth-child(n+7) { animation-delay: .24s; }
 .feedback-panel .fb-title { font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
 .feedback-panel textarea, .feedback-panel input {
   width: 100%; box-sizing: border-box; background: var(--bg); border: 1px solid var(--line);
@@ -608,8 +619,10 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 .tl-event-what { color: var(--ink); line-height: 1.6; }
 .tl-event-what b { color: var(--brand); }
-#tab-timeline .tl-event { opacity: 0; filter: blur(8px); transform: translateY(10px); }
-#tab-timeline .tl-event.bv-fade-in { opacity: 1; filter: blur(0); transform: translateY(0); }
+#tab-timeline .tl-event { opacity: 0; transform: translateY(10px); }
+/* 성능: 긴 목록(제조사·타임라인)은 화면 밖 카드를 그리지 않아 탭을 열 때 가벼움. 크기는 처음엔 어림값, 한 번 그린 뒤엔 실제 높이를 기억(auto) */
+.mx-card, #tab-timeline .tl-event { content-visibility: auto; contain-intrinsic-size: auto 240px; }
+#tab-timeline .tl-event.bv-fade-in { opacity: 1; transform: translateY(0); }
 @media screen and (max-width: 640px) {
   .tl-event { flex-direction: column; gap: 1px; }
   .tl-event-when { flex: none; }
@@ -943,7 +956,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .rv-card:focus-visible { outline: 3px solid var(--brand-3); outline-offset: 2px; }
 /* 지도 화면을 열 때·필터를 바꿀 때 카드가 차례로 올라오고(--k = 순위-1), 순위 막대는 0에서 자라남 */
 .rv-card { animation: fxRise .7s var(--ease-ink) backwards; animation-delay: calc(var(--k) * 70ms + .25s); }
-.rv-rank .rv-bar span { animation: fxGrow 1s var(--ease-ink) backwards; animation-delay: calc(var(--k) * 70ms + .4s); }
+.rv-rank .rv-bar span { transform-origin: 0 50%; animation: fxGrow 1s var(--ease-ink) backwards; animation-delay: calc(var(--k) * 70ms + .4s); }
 .rv-rank .rv-bar em { animation: fxFade .4s ease-out backwards; animation-delay: calc(var(--k) * 70ms + .8s); }
 .rv-card .rv-ph img { transition: transform .35s var(--ease-spring); }
 .rv-card.rv-on .rv-ph img { transform: translateY(-8px) rotate(-5deg); }
@@ -1285,7 +1298,11 @@ document.addEventListener('DOMContentLoaded', function(){
 <div id="bhMain">
 <section class="bh-hero" aria-labelledby="bhHeroTitle">
 <video class="bh-hero-bg" src="report/images/hero/hero-bg.mp4" poster="report/images/hero/hero-bg.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
-<script>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.currentScript.previousElementSibling.play().catch(() => {});</script>
+<script>(function (v) { // 대문 영상: 움직임 줄이기면 재생 안 함, 화면에 보일 때만 재생(지나가거나 다른 탭이면 멈춤)
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) { v.play().catch(function () {}); return; }
+  new IntersectionObserver(function (es) { if (es[0].isIntersecting) v.play().catch(function () {}); else v.pause(); }).observe(v);
+})(document.currentScript.previousElementSibling);</script>
 <div class="bh-hero-txt">
 <h2 class="bh-hero-title" id="bhHeroTitle">한국의 소주, <span id="bhTotal">344</span>종을<br>한 곳에서</h2>
 <p class="bh-hero-sub">이름·도수·제조사부터 이름에 담긴 이야기까지. 찾는 소주를 검색해 보세요.</p>
@@ -6660,7 +6677,7 @@ function qxBindList(list, openCo, render) {
     var tl = e.target.closest('.qx-tile');
     if (tl) { if (window.openBrandInfo) window.openBrandInfo(tl.dataset.name); return; }
     var cb = e.target.closest('.qx-co-btn');
-    if (cb) { openCo[cb.dataset.id] = !openCo[cb.dataset.id]; render(); var el = list.querySelector('.qx-co-btn[data-id="' + cb.dataset.id + '"]'); if (el) el.focus(); }
+    if (cb) { openCo[cb.dataset.id] = !openCo[cb.dataset.id]; render(); var el = list.querySelector('.qx-co-btn[data-id="' + cb.dataset.id + '"]'); if (el) { el.focus(); if (openCo[cb.dataset.id]) el.parentNode.classList.add('fx-open'); } }
   });
 }
 function tickNumber(el, from, to, dur) {
@@ -6685,6 +6702,7 @@ function revealOnView(selector, addClass, threshold, stagger) {
     });
   }, { threshold: threshold || 0.15 });
   els.forEach(function (el) { io.observe(el); });
+  return io;
 }
 var regionStatsPlayed = false;
 function playRegionStats() {
@@ -6751,6 +6769,7 @@ function showRegion(id, push) {
     Array.prototype.forEach.call(panel.children, function (child) {
       if (!child.classList.contains('region-jump-nav')) child.classList.add('bv-fade-in');
     });
+    panel.querySelectorAll('.qx-co').forEach(function (c, i) { c.style.animationDelay = (0.1 + Math.min(i, 10) * 0.05) + 's'; c.classList.add('bv-fade-in'); });
   }
   setRegionIntroVisible(false);
   document.getElementById('tab-region').classList.add('bh-in-region'); // 지역 화면에서만 검색 줄
@@ -6949,6 +6968,7 @@ function buildJumpNav(curId) {
 })();
 revealOnView('#tab-timeline .tl-event', 'bv-fade-in', 0.15);
 revealOnView('#tab-news .bv-news-item', 'bv-fade-in', 0.1, 0.06);
+revealOnView('#tab-method .method-card, #tab-method .proc-step', 'bv-fade-in', 0.1, 0.05);
 // 붓질 제목: 섹션 제목이 화면에 들어올 때마다(탭을 다시 열면 다시) 먹이 스며들듯 드러남
 (function () {
   if (!('IntersectionObserver' in window)) return;
@@ -6958,7 +6978,7 @@ revealOnView('#tab-news .bv-news-item', 'bv-fade-in', 0.1, 0.06);
       else if (!e.target.offsetParent) { e.target.classList.remove('fx-brush'); e.target.classList.add('fx-wait'); } // 숨은 탭으로 가면 다음에 다시
     });
   }, { threshold: 0.6 });
-  document.querySelectorAll('.bv-section-head h2, .bv-module h2, #regionTitle, .rx-title').forEach(function (h) { h.classList.add('fx-wait'); io.observe(h); });
+  document.querySelectorAll('.bv-section-head h2, .bv-module h2, .section-header, .rx-title').forEach(function (h) { h.classList.add('fx-wait'); io.observe(h); });
 })();
 revealOnView('.bv-highlight-phrase', 'play', 0.6);
 // 제조사 현황 — 편집팀 .mfr-item 목록을 읽어 카드 그리드로 그림(지역·시대 칩으로 걸러보기)
@@ -7003,6 +7023,8 @@ revealOnView('.bv-highlight-phrase', 'play', 0.6);
         (x.thumbs.length ? '<div class="mx-thumbs">' + x.thumbs.map(function (n) { return '<button type="button" data-name="' + escHtml(n) + '" aria-label="' + escHtml(n) + ' 보기"><img src="' + escHtml(photo[n]) + '" alt="" loading="lazy"></button>'; }).join('') + '</div>' : '') +
         (x.note ? '<div class="mx-note">' + escHtml(x.note) + '</div>' : '') + '</article>';
     }).join('') + '</div>' : '<p class="qx-empty">이 조건에 맞는 제조사가 없어요.</p>');
+    if (render.io) render.io.disconnect(); // 다시 그릴 때마다(칩 선택) 이전 관찰자는 끊고 새 카드만
+    render.io = revealOnView('#tab-companies .mx-card', 'bv-fade-in', 0.1, 0.06);
   }
   box.addEventListener('click', function (e) {
     var c = e.target.closest('.bx-chip');
@@ -7318,7 +7340,6 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
         d.style.width = d.style.height = D + 'px';
         d.style.left = (k * colW + (i % perRow) * (D + G)) + 'px';
         d.style.bottom = (2 + Math.floor(i / perRow) * (D + G)) + 'px';
-        d.style.setProperty('--dl', (Math.floor(i / perRow) * 0.03 + k * 0.008).toFixed(3) + 's');
         d.addEventListener('mouseenter', function () { showTip(b, d); });
         d.addEventListener('focus', function () { showTip(b, d); });
         d.addEventListener('mouseleave', hideTip);
@@ -7504,6 +7525,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // 지역 안에서 '전체'를 고른 경우만 검색 중(지도 화면에선 cur가 'all'이라 아님)
       var on = !!(st.q || st.cat !== 'all' || (regionNav && (cur !== 'all' || allView) && st.reg === 'all'));
       if (onState) onState(on);
+      if (regionNav && cur === 'all' && !allView) { grid.innerHTML = ''; more.hidden = true; return; } // 지도 화면에선 검색 결과가 숨어 있으므로 그리지 않음(지역에 들어가거나 전체 보기 때 그림)
       shown = shown || pageSize();
       items = brands.filter(function (b) {
         if (st.cat === 'disc' ? !b.disc : st.cat !== 'all' && b.cat !== st.cat) return false;
