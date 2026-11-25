@@ -463,11 +463,9 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 .feedback-panel.open { display: block; animation: fxPanel .45s var(--ease-ink); transform-origin: 100% 100%; }
 @keyframes fxPanel { from { opacity: 0; filter: blur(6px); transform: translateY(12px) scale(.96); } }
-/* 팝업(브랜드·보관 방법): display가 none→flex로 바뀌어 transition이 안 걸리므로 animation으로 — 배경은 옅게, 창은 번지며 떠오르고 사진은 살짝 줌아웃 */
+/* 팝업(브랜드·보관 방법): display가 none→flex로 바뀌어 transition이 안 걸리므로 animation으로 — 배경은 옅게, 창은 번지며 떠오름(사진은 따로 움직이지 않음) */
 .method-modal-overlay.open { animation: fxTab .3s ease-out; }
 .method-modal-overlay.open .method-modal { animation: fxPanel .55s var(--ease-ink) backwards; }
-.method-modal-overlay.open .brandinfo-photo { animation: fxZoom 1.4s var(--ease-ink) backwards; }
-@keyframes fxZoom { from { transform: scale(1.1); } }
 /* 회사 카드를 펼치면 그 카드의 병 타일만 차례로(.fx-open은 qxBindList가 펼친 카드에만 붙임) */
 .qx-co.fx-open .qx-tile { animation: fxRise .55s var(--ease-ink) backwards; }
 .qx-co.fx-open .qx-tile:nth-child(2) { animation-delay: .04s; } .qx-co.fx-open .qx-tile:nth-child(3) { animation-delay: .08s; } .qx-co.fx-open .qx-tile:nth-child(4) { animation-delay: .12s; }
