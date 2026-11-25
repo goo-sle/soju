@@ -41,6 +41,9 @@
 
   gtag('config', 'G-01Z00FVDNW');
 </script>
+<script>(function () { var t; try { t = localStorage.getItem('sojuTheme'); } catch (e) {}
+  if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', t); })();</script>
 <style>
 :root {
   /* 지역 지도 6색 — 채도를 낮춰 코발트 톤과 맞춤(지도 면·대표 소주 목록 점이 같이 씀) */
@@ -61,9 +64,20 @@
   --cat-distilled: #9c7a5c;
   --mc-gray: #616161;
   --surface: #fff;
+  --on-brand: #fff;   /* 청화·지역색 배경 위 글자 — 다크 모드에서도 흰색 */
+  --shade: #141820;   /* 사진 위 어둠 그라데이션 — 모드와 무관 */
+  color-scheme: light;
   --surface-soft: #EEF2F7;
   --bottle-img: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAmCAYAAAA1MOAmAAAHNUlEQVR4nLVXbUxb1xl+zzn3w9fXYPMNNoRkEEpYSJWSdGFqZ7LAkkzraNeZrVXbbKpGVkWqpqVSsh+b7Waa1nXT8mNdt6rKumn9MciImv1YukUBL5VKCGwsIQNSQpICiUnAxmBj+957zpmORyrUhgQoe6V7fT/O8XOe5/047wX4pCGv1yvB/9v8fj++cy0RIu5tAPDRs7U0JE6dXr/0eKtvX9n2yp7yLRuPLrwjawGA7zDiwOHwUf+XQy+oPRfGht5Kcro9aab21e2oqwUAthYMsTgFu7owAsS7L5x/4vzlC1t1TTckVTJSxHSFZ6eeRQhx8K4RGIRCYuXQd6r/8K2rk4ni8mJJySbEXePhpg5PnzhxIgtCQO9I/enAABj4gCRuhqdpNP2zyGQE1z9Shz7/la2same157s/OXiEIMy9Xu+a+A4WVi3Alc8++bl/tQ12sJfPBKxn/vgtWvHUg7T6odq6zCifb9WAeNG1WDlGAMZMIvGL93t6UVVJBRTlu8C9qRhDtXyMc64tjF2VnHjxTSgUohwAeSKlJ8+e7Q4baY6HekfBqSrWnucbtnz96DOHoL2dev2rkxN/7D7jl/M9785Go/G33uvvR+WVG1huhYvICqVWtvXSrgOPV4WCIeZbhZz44w9CDSEmcg5usV//e+iDRInHQyKzaZidmQV3aY4OHvw6woi1//m4YCitRNJP5k5QRKaPjJ7tHbvxYfjUzekZVOIqphOxGSLLiBo89cW8irKfetk6WygYsoQawJcHuGSiCt8ZU8Zr3T39kJdbgI0EwPj1OLnad43N0plD1/ZqvTsOPva8F7wSIDH8/oD3GoBaW38rnQy/1pfvyauNY8aqa8uwKjPQZIlmOx3EMClMXJnqmR+I+d77w9/HUCCAIBjMFIi72b22EvLGG/vNvMKc0IB8pbawqYbZdYIbN28FApQY6STDkkSzcm0P/zOWPIYQavRzPwoGl/7De9U7nsnyfL3AtakUbDkaEIlA2rDASKdBkRTskHS5yllgldcW79rz4jd2BVGQ+dqWjtKlwAQOZX6OZberFpc4oNJTijHI0DsyANOJOHAOoEoSlNk8aHdZPbR8oTHAOUc1l2r4apjBc6PP5aQVXFziLoDWPU+gRzdsAcPkEInPAkEKrFMrodT6DClLF7NCu+uRkyc7dgaDQdbW1kZWDObWNIsgDBwYHwmPgowBCvVc2Oauh70VX4MNjmrQFAcomsKJTCCVjgt2+NKlS3xl0ejzEdR+nJbteejtSJ71dP3DNdaBphZpu2cbFDkKIJWch+T8PMQTcxCZmYbpyG1qGZSYBn+yudnXwXkbQaiFLo9ZTQ0X2arNopfr86tSh3e/gJs3PcbdWUVgUQsQQiApMtg0G+i6Dg49CxSV8LSRekm8A7g7uyWNc57RfnJs9OfMjPN4ImKZVpJbNMnT6Tkem5viU1Pj/PrYMO+/8D4/0/UX66+njvOOjj89Jeb5/X5p2T4LBAKZUtQ9PPrqB1dHopQyzBjjnHNAGINEJCCyDKqigKbpYLdngaQQbljJH3R2dgogtthV9wQTkdXZ1UmaGxsnU0njV5xTZJomE9MzMkoSECyBrKhgt9vArjmIRGSWna3X3r59o3UhMj/CuG89E7kjfk+fPp3rLs0fLPWU5dtUm0hwJBgahgGmaULamIe52TmYjkyxWGwaRaOJ61n6juq9ezcaAgYh4PftmERn1dXVRZqamqaTqfSrjBsZdiKphRFCgGACkiSDzaaCbndgRVGZ06mvj8937xPz29v/x25Z7VlDQwMVvaVNTr4+MXFjnHJT+I6JoMuASQQkooCiCt/ZwK5nISIRzhj9IedcbfH5hKPRssDE6gKBANq8eWc8nTR+bJppZBjGHYUBY5w5iKSAqgrf2bEm64w4baUvvnLo+5Bh145X0ngyzv1YVbN/Fw6HBzm3MKU0s50QQjLRiYGA3aZDlu4EajfwAB/ivfNDP/Lt3+9paWmhywbLdMUg2G02kinjSDKVQKYp2HFgDMCu2iHb4YBpMwp90W4Y5heRphvUU5NvG5KufSejwAqYCUAqat/VkYm2yclbfZSZRJZkqsgajMduwLHut+HNvjdhIDIAaWqALtmwu8BFtTzlmzVQo6y4/xNVRYD29fV8dX1l6TuTs1Ha0fs3cjE2CCmIQaEzGzyuXHDYNRZOJFjPuSHp8ruDI55h54Or6939gHmAw7Pf+/a5M5MX61LZnFU8UE6KXHbIy7Zzw7TYlZGbZPTcFYj1h/9RNG8/MB6dHFjdF+Z/hKKIQhYccdZvesfuzOXRqTgTLd71a9PSh92XydxweNAWZa/QOeP34zAnZmXKM3wKdrx4xwMhw609quoqGNE4pMciY1LU+OWXeNVv2sfPJRe6C3Es2Qgtx0Rwod3Nu9e7t23szaos6il0Fx6sda7LWTRmzb56hGWUafP5iNjRF9ldO+X/AuW0MxQY6EA1AAAAAElFTkSuQmCC"); /* 소주병 커서 = 짠 카운터 아이콘 */
   --cur-p: url("data:image/png;base64,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") 2 1;
+}
+/* 다크 모드: <html data-theme="dark">(머리 스크립트가 저장값·시스템 설정으로 붙이고, 맨 위 짠 버튼이 바꿈). 청화는 어두운 배경에서 읽히게 한 단계 밝게 */
+:root[data-theme="dark"] {
+  --ink: #E6EAF2; --ink-muted: #A3ACBB; --line: #2C3546;
+  --bg: #0E131C; --surface: #161D29; --surface-soft: #1E2635;
+  --brand: #4D72CE; --brand-2: #6E90E0; --brand-3: #8EC5DE;
+  --highlight: #6B5410; --mc-gray: #9E9E9E;
+  color-scheme: dark;
 }
 @page { margin: 1.2cm 1.3cm; size: A4; }
 
@@ -290,9 +304,9 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 @media (hover: hover) { .bx-btn:hover { border-color: var(--brand-2); color: var(--brand); } }
 .bx-btn:focus-visible { border-color: var(--brand-2); color: var(--brand); }
-.bx-btn-pri { background: var(--brand); border-color: var(--brand); color: var(--surface); }
-@media (hover: hover) { .bx-btn-pri:hover { background: var(--brand-2); color: var(--surface); } }
-.bx-btn-pri:focus-visible { background: var(--brand-2); color: var(--surface); }
+.bx-btn-pri { background: var(--brand); border-color: var(--brand); color: var(--on-brand); }
+@media (hover: hover) { .bx-btn-pri:hover { background: var(--brand-2); color: var(--on-brand); } }
+.bx-btn-pri:focus-visible { background: var(--brand-2); color: var(--on-brand); }
 .bx-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: 1px; }
 .bx-c-diluted { background: var(--cat-diluted); }
 .bx-c-flavor { background: var(--cat-flavor); }
@@ -307,7 +321,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .bx-chip small { font-size: 11.5px; opacity: .75; }
 @media (hover: hover) { .bx-chip:hover { border-color: var(--brand-2); } }
 .bx-chip:focus-visible { border-color: var(--brand-2); }
-.bx-chip[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: var(--surface); }
+.bx-chip[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: var(--on-brand); }
 
 /* 도수 스펙트럼 */
 .bx-legend { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
@@ -450,6 +464,8 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 @media (hover: hover) { .feedback-fab:hover { transform: scale(1.05); } }
 .feedback-fab:focus-visible { transform: scale(1.05); }
+/* 휴대폰: 카드·숫자를 덜 가리게 글자 없이 48px 동그란 버튼 */
+@media (max-width: 600px) { .feedback-fab { width: 48px; height: 48px; padding: 0; justify-content: center; box-shadow: 0 4px 14px color-mix(in srgb, var(--ink) 22%, transparent); } .feedback-fab .fab-txt { display: none; } .feedback-fab svg { width: 18px; height: 18px; } }
 .feedback-fab svg { width: 16px; height: 16px; flex-shrink: 0; }
 .feedback-panel {
   position: fixed; bottom: 78px; right: 20px; z-index: 1000;
@@ -635,7 +651,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   #tab-timeline .tl-era { margin: 0; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); padding: 26px 28px; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 8px 32px; }
   #tab-timeline .tl-era-1, #tab-timeline .tl-era-5 { background: color-mix(in srgb, var(--brand) 5%, var(--surface)); border-color: color-mix(in srgb, var(--brand) 16%, var(--line)); }
   #tab-timeline .tl-era-3 { background: linear-gradient(135deg, color-mix(in srgb, var(--brand-3) 32%, var(--surface)), var(--surface) 72%); border-color: color-mix(in srgb, var(--brand-3) 55%, var(--line)); }
-  #tab-timeline .tl-era-6 { background: var(--brand); border-color: var(--brand); color: var(--surface); }
+  #tab-timeline .tl-era-6 { background: var(--brand); border-color: var(--brand); color: var(--on-brand); }
   #tab-timeline .tl-era-head { display: block; margin: 0; align-self: start; position: sticky; top: 76px; }
   #tab-timeline .tl-era-range { display: block; background: none; padding: 0; color: var(--brand); font-family: "Hahmlet", serif; font-weight: 300; font-size: 26px; line-height: 1.2; letter-spacing: -.02em; white-space: normal; }
   #tab-timeline .tl-era-title { display: block; margin-top: 10px; font-size: 16px; line-height: 1.45; }
@@ -644,7 +660,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   #tab-timeline .tl-event { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: 14px; align-items: center; background: none; border: 0; border-radius: 0; padding: 11px 0; font-size: 14px; }
   #tab-timeline .tl-event + .tl-event { border-top: 1px dashed var(--line); }
   #tab-timeline .tl-event-when { font-family: "Hahmlet", serif; font-weight: 500; font-size: 14px; white-space: normal; line-height: 1.4; word-break: keep-all; }
-  #tab-timeline .tl-era-6 .tl-era-range, #tab-timeline .tl-era-6 .tl-era-title, #tab-timeline .tl-era-6 .tl-event-what { color: var(--surface); }
+  #tab-timeline .tl-era-6 .tl-era-range, #tab-timeline .tl-era-6 .tl-era-title, #tab-timeline .tl-era-6 .tl-event-what { color: var(--on-brand); }
   #tab-timeline .tl-era-6 .tl-era-desc-inline { color: color-mix(in srgb, var(--surface) 78%, transparent); }
   #tab-timeline .tl-era-6 .tl-event-when, #tab-timeline .tl-era-6 .tl-event-what b { color: var(--highlight); }
   #tab-timeline .tl-era-6 .tl-event + .tl-event { border-top-color: color-mix(in srgb, var(--surface) 25%, transparent); }
@@ -704,7 +720,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .mfr-dot {
   position: absolute; left: -26px; top: 3px;
   width: 14px; height: 14px; border-radius: 50%;
-  background: var(--ink); border: 3px solid #fff;
+  background: var(--ink); border: 3px solid var(--surface);
   box-shadow: 0 0 0 2px var(--ink);
 }
 .mfr-year { display: block; font-size: 14px; font-weight: 900; color: var(--accent-red-ink); margin-bottom: 3px; }
@@ -780,7 +796,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 }
 .kr-map { width: 100%; max-width: 420px; display: block; margin: 0 auto; }
 .kr-region {
-  cursor: var(--cur-p), pointer; stroke: #fff; stroke-width: 1.5; stroke-linejoin: round;
+  cursor: var(--cur-p), pointer; stroke: var(--surface); stroke-width: 1.5; stroke-linejoin: round;
   transition: fill .15s ease;
   opacity: 0; transform-box: fill-box; transform-origin: center; transform: translateY(10px);
 }
@@ -795,7 +811,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .kr-region.rise { animation: krInk 1s var(--ease-ink) both; }
 @keyframes krInk { from { opacity: 1; transform: none; clip-path: circle(0% at 50% 50%); } to { opacity: 1; transform: none; clip-path: circle(100% at 50% 50%); } }
 .kr-label { font-size: 30px; font-weight: 900; fill: #fff; text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: color-mix(in srgb, var(--ink) 55%, transparent); stroke-width: 5px; stroke-linejoin: round; }
-.kr-label.rv-light { fill: var(--brand); stroke: #fff; }
+.kr-label.rv-light { fill: var(--brand); stroke: var(--surface); }
 .region-detail { display: none; }
 .region-detail.active { display: block; }
 .cat-subhead { font-size: 13px; font-weight: 800; color: var(--ink); margin: 20px 0 8px; padding-left: 0; }
@@ -852,8 +868,8 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   background: var(--surface); color: var(--ink); border: 1px solid var(--line);
   border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 700; cursor: var(--cur-p), pointer; white-space: nowrap;
 }
-@media (hover: hover) { .method-help-btn:hover { background: var(--ink); color: #fff; } }
-.method-help-btn:focus-visible { background: var(--ink); color: #fff; }
+@media (hover: hover) { .method-help-btn:hover { background: var(--ink); color: var(--surface); } }
+.method-help-btn:focus-visible { background: var(--ink); color: var(--surface); }
 .method-modal-overlay {
   display: none; position: fixed; inset: 0; background: color-mix(in srgb, var(--ink) 55%, transparent); z-index: 2000;
   align-items: center; justify-content: center; padding: 24px;
@@ -880,9 +896,10 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .brandinfo-photo-wrap { position: relative; min-height: 400px; background: var(--surface-soft); }
 .brandinfo-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .brandinfo-photo-ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--ink-muted); }
-.brandinfo-photo-pager { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; gap: 6px; justify-content: center; }
+.brandinfo-photo-pager { position: absolute; left: 0; right: 0; bottom: 0; height: 44px; display: flex; gap: 6px; justify-content: center; align-items: center; background: var(--surface); }
+.brandinfo-photo-wrap:has(.brandinfo-photo-pager) .brandinfo-photo { height: calc(100% - 44px); }
 .brandinfo-main { position: relative; min-width: 0; padding: 26px 26px 24px; }
-.brandinfo-modal .method-modal-close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; font-size: 16px; }
+.brandinfo-modal .method-modal-close { position: sticky; top: 12px; float: right; margin: -14px -12px 0 8px; z-index: 3; width: 36px; height: 36px; font-size: 16px; }
 .brandinfo-title { font-family: "Hahmlet", serif; font-weight: 500; font-size: 26px; line-height: 1.25; color: var(--brand); padding-right: 40px; }
 .brandinfo-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 18px; }
 .brandinfo-meta:empty { display: none; }
@@ -925,7 +942,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   width: 40px; height: 40px; border-radius: 50%;
   background: var(--surface); border: 2px solid var(--flow-color, var(--brand));
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 0 0 4px #fff;
+  box-shadow: 0 0 0 4px var(--surface);
 }
 .proc-icon svg { width: 20px; height: 20px; stroke: var(--flow-color, var(--brand)); fill: none; }
 .proc-icon svg.filled { fill: var(--flow-color, var(--brand)); stroke: none; }
@@ -969,7 +986,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .rv-card .rv-no, .rv-card .rv-bar, .rv-card .rv-big, .rv-card .rv-n { display: none; }
 /* 색 블록: 카드 바탕 = 지도의 그 지역 색 */
 .rv-block .rv-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.rv-block .rv-card { background: var(--rv-fill); border-color: transparent; color: var(--surface); padding: 16px 16px 14px; min-height: 168px; display: flex; flex-direction: column; overflow: hidden; }
+.rv-block .rv-card { background: var(--rv-fill); border-color: transparent; color: var(--on-brand); padding: 16px 16px 14px; min-height: 168px; display: flex; flex-direction: column; overflow: hidden; }
 .rv-block .rv-card.rv-light { color: var(--brand); }
 .rv-block .rv-name { font-family: "Hahmlet", serif; font-size: 20px; }
 .rv-block .rv-big { display: block; font-size: 40px; line-height: 1; margin-top: 6px; }
@@ -985,7 +1002,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .rv-rank .rv-name { grid-area: name; font-weight: 800; font-size: 15px; }
 .rv-rank .rv-bar { display: block; grid-area: bar; position: relative; height: 30px; border-radius: 8px; background: var(--surface-soft); overflow: hidden; }
 .rv-rank .rv-bar span { position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--rv-fill); border-radius: 8px; }
-.rv-rank .rv-bar em { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-style: normal; font-size: 13px; font-weight: 700; color: var(--surface); text-shadow: 0 1px 2px rgba(0,0,0,.25); white-space: nowrap; }
+.rv-rank .rv-bar em { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-style: normal; font-size: 13px; font-weight: 700; color: var(--on-brand); text-shadow: 0 1px 2px rgba(0,0,0,.25); white-space: nowrap; }
 .rv-rank .rv-light .rv-bar em { color: var(--brand); text-shadow: none; }
 .rv-rank .rv-ph { grid-area: ph; display: flex; gap: 4px; }
 .rv-rank .rv-ph img { width: 30px; height: 40px; }
@@ -1006,7 +1023,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .region-jump-btn { background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: var(--cur-p), pointer; }
 @media (hover: hover) { .region-jump-btn:hover { border-color: var(--brand); } }
 .region-jump-btn:focus-visible { border-color: var(--brand); }
-.region-jump-btn.current { background: var(--brand); border-color: var(--brand); color: var(--surface); cursor: default; }
+.region-jump-btn.current { background: var(--brand); border-color: var(--brand); color: var(--on-brand); cursor: default; }
 /* ── 지역 상세: 회사 카드·사진 타일(빠른 찾기 .qx-* 재사용). 원본 .rgH-card 목록은 화면에선 숨기고 인쇄 때만 ── */
 .kr-count { pointer-events: none; animation: krCountIn .4s ease-out .3s both; }
 @keyframes krCountIn { from { opacity: 0; } to { opacity: 1; } }
@@ -1019,13 +1036,17 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .kr-count text { font-size: 19px; font-weight: 800; fill: var(--brand); text-anchor: middle; dominant-baseline: central; font-family: "Pretendard Variable", sans-serif; }
 @media screen { .region-detail > .region-label, .region-detail > .cat-subhead, .region-detail > details.rgH2-group { display: none; } }
 @media print { .rx { display: none !important; } }
-.rx-head { background: var(--brand); color: var(--surface); border-radius: 16px; padding: 24px 28px; display: grid; grid-template-columns: auto 1fr; gap: 6px 28px; align-items: center; }
+.rx-head { background: var(--brand); color: var(--on-brand); border-radius: 16px; padding: 24px 28px; display: grid; grid-template-columns: auto 1fr; gap: 6px 28px; align-items: center; }
 .rx-title { font-family: "Hahmlet", serif; font-weight: 300; font-size: 40px; line-height: 1.1; letter-spacing: -.02em; grid-row: span 2; padding-right: 28px; border-right: 1px solid color-mix(in srgb, var(--surface) 25%, transparent); }
 .rx-nums { font-size: 15px; }
 .rx-nums b { font-family: "Hahmlet", serif; font-weight: 500; font-size: 26px; color: var(--highlight); margin-right: 2px; }
 .rx-reps { font-size: 13.5px; color: color-mix(in srgb, var(--surface) 80%, transparent); }
 .rx-list > .qx-cos { margin-top: 16px; }
 @media (max-width: 600px) {
+  .bv-section-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .rv-head { gap: 4px 10px; }
+  .rv-head .bh-all-btn { font-size: 12.5px; padding: 6px 12px; }
+  .rv-head .bh-all-wrap { order: 1; } .rv-head .region-stats { order: 2; flex-basis: 100%; } /* 버튼은 제목 줄 끝, 숫자는 아래 줄 */
   .rx-head { grid-template-columns: 1fr; padding: 18px 20px; }
   .rx-title { grid-row: auto; border-right: 0; padding-right: 0; font-size: 30px; }
 }
@@ -1036,7 +1057,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   .kr-map-nav-wrap { display: none !important; }
   .region-detail { display: block !important; }
   /* 스크롤 등장 요소는 기본 opacity 0 — 안 본 탭도 인쇄되게 */
-  #tab-timeline .tl-event, #regionTitle, .region-stats, .region-rep-list, .region-rep-title, .rep-group { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
+  #tab-timeline .tl-event, #regionTitle, .region-stats, .region-rep-list, .region-rep-title, .rep-group, .fx-wait, .fx-brush, .bh-hero-title { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; -webkit-mask-image: none !important; mask-image: none !important; }
 }
 /* ── 메인: Behance식 배치 ── */
 .bv.bh { max-width: none; padding: 0 12px; }
@@ -1055,10 +1076,10 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 /* 대문 */
 .bh-hero { position: relative; overflow: hidden; margin-top: 14px; border-radius: 20px; padding: 56px clamp(24px, 5vw, 80px); min-height: 380px;
   display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; gap: 32px;
-  background: radial-gradient(120% 140% at 100% 0%, var(--brand-2) 0%, var(--brand) 55%); color: var(--surface); }
+  background: radial-gradient(120% 140% at 100% 0%, var(--brand-2) 0%, var(--brand) 55%); color: var(--on-brand); }
 .bh-kicker { font-size: 13px; font-weight: 700; letter-spacing: .12em; color: var(--brand-3); margin: 0 0 10px; }
-.bh-hero-title { font-family: "Hahmlet", serif; font-weight: 300; font-size: clamp(32px, 4.2vw, 58px); line-height: 1.15; letter-spacing: -.02em; margin: 0; color: var(--surface); }
-.bh-hero-sub { font-size: 16px; line-height: 1.6; margin: 14px 0 24px; color: color-mix(in srgb, var(--surface) 82%, transparent); }
+.bh-hero-title { font-family: "Hahmlet", serif; font-weight: 300; font-size: clamp(32px, 4.2vw, 58px); line-height: 1.15; letter-spacing: -.02em; margin: 0; color: var(--on-brand); }
+.bh-hero-sub { font-size: 16px; line-height: 1.6; margin: 14px 0 24px; color: color-mix(in srgb, var(--on-brand) 82%, transparent); }
 .bh-search { position: relative; display: flex; max-width: 600px; }
 .bh-search svg { position: absolute; left: 20px; top: 50%; width: 20px; height: 20px; transform: translateY(-50%); fill: none; stroke: var(--ink-muted); stroke-width: 2; stroke-linecap: round; }
 .bh-search input { flex: 1; min-width: 0; font: inherit; font-size: 17px; padding: 16px 24px 16px 52px; border: 0; border-radius: 999px; background: var(--surface); color: var(--ink); }
@@ -1066,8 +1087,8 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .bh-pop { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 16px; }
 .bh-pop span { font-size: 12.5px; font-weight: 700; color: var(--brand-3); margin-right: 4px; }
 .bh-pop button { appearance: none; font: inherit; font-size: 13px; font-weight: 600; padding: 5px 12px; border-radius: 999px; cursor: var(--cur-p), pointer;
-  border: 1px solid color-mix(in srgb, var(--surface) 35%, transparent); background: color-mix(in srgb, var(--surface) 10%, transparent); color: var(--surface); }
-@media (hover: hover) { .bh-pop button:hover { background: color-mix(in srgb, var(--surface) 22%, transparent); } }
+  border: 1px solid color-mix(in srgb, var(--on-brand) 35%, transparent); background: color-mix(in srgb, var(--on-brand) 10%, transparent); color: var(--surface); }
+@media (hover: hover) { .bh-pop button:hover { background: color-mix(in srgb, var(--on-brand) 22%, transparent); } }
 .bh-pop button:focus-visible { outline: 2px solid var(--surface); outline-offset: 2px; }
 /* 대문 배경 영상: 오른쪽에 기울인 브랜드 사진 기둥이 흐르고 왼쪽 글자 자리는 코발트로 덮인 12초 반복 영상(소스 OpenMontage/remotion-composer/src/soju/Wall.tsx).
    첫 장면 jpg가 poster라 로딩 중·움직임 줄이기 설정에서도 같은 그림 — 재생은 하단 스크립트가 reduce가 아닐 때만 */
@@ -1084,7 +1105,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   padding: 8px 16px; border-radius: 999px; border: 0; background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); cursor: var(--cur-p), pointer; }
 @media (hover: hover) { .bh-chip:hover { box-shadow: inset 0 0 0 1px var(--ink-muted); } }
 .bh-chip:focus-visible { outline: 2px solid var(--brand-2); outline-offset: 2px; }
-.bh-chip[aria-pressed="true"] { background: var(--brand); color: var(--surface); box-shadow: none; } /* 선택 칩은 사이트 공통 칩(.bx-chip)과 같은 청화색 */
+.bh-chip[aria-pressed="true"] { background: var(--brand); color: var(--on-brand); box-shadow: none; } /* 선택 칩은 사이트 공통 칩(.bx-chip)과 같은 청화색 */
 .bh-sort { flex: none; margin-left: auto; }
 .bh-sort select { font: inherit; font-size: 14px; font-weight: 600; padding: 8px 32px 8px 14px; border-radius: 999px; border: 0; color: var(--ink); appearance: none; cursor: var(--cur-p), pointer;
   box-shadow: inset 0 0 0 1px var(--line); background-color: var(--surface);
@@ -1095,14 +1116,14 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .bh-ph { position: relative; display: block; aspect-ratio: 4/5; border-radius: 10px; overflow: hidden; background: var(--surface); }
 .bh-ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease-ink); }
 .bh-tag { position: absolute; top: 10px; left: 10px; font-size: 11.5px; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: var(--ink); color: var(--surface); }
-.bh-ov { position: absolute; inset: auto 0 0 0; padding: 40px 14px 12px; display: flex; flex-direction: column; gap: 2px; color: var(--surface);
-  background: linear-gradient(transparent, color-mix(in srgb, var(--ink) 78%, transparent)); opacity: 0; transition: opacity .2s; }
+.bh-ov { position: absolute; inset: auto 0 0 0; padding: 40px 14px 12px; display: flex; flex-direction: column; gap: 2px; color: var(--on-brand);
+  background: linear-gradient(transparent, color-mix(in srgb, var(--shade) 78%, transparent)); opacity: 0; transition: opacity .2s; }
 .bh-ov b { font-size: 15px; } .bh-ov span { font-size: 12.5px; opacity: .85; }
 .bh-ph { transition: transform .25s, box-shadow .25s; }
 @media (hover: hover) { .bh-card:hover .bh-ov { opacity: 1; } .bh-card:hover .bh-ph img { transform: scale(1.05); } .bh-card:hover .bh-ph { transform: translateY(-5px); box-shadow: 0 14px 28px color-mix(in srgb, var(--brand) 18%, transparent); } }
 .bh-card:focus-visible { outline: none; } .bh-card:focus-visible .bh-ph { outline: 2px solid var(--brand-2); outline-offset: 2px; } .bh-card:focus-visible .bh-ov { opacity: 1; }
 .bh-meta { display: flex; align-items: center; gap: 8px; padding: 10px 2px 0; }
-.bh-av { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; background: var(--brand); color: var(--surface); }
+.bh-av { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; background: var(--brand); color: var(--on-brand); }
 .bh-nm { flex: 1; min-width: 0; font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .bh-nm small { display: block; font-size: 12px; font-weight: 500; color: var(--ink-muted); overflow: hidden; text-overflow: ellipsis; }
 .bh-stat { flex: none; display: flex; flex-direction: column; align-items: flex-end; font-size: 12px; color: var(--ink-muted); line-height: 1.4; }
@@ -1126,7 +1147,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .bh-all-wrap { text-align: center; margin: 4px 0 18px; }
 #tab-region.bh-in-region .bh-all-wrap { display: none; }
 .bh-all-btn { appearance: none; font: inherit; font-size: 14px; font-weight: 700; padding: 10px 22px; border-radius: 999px; border: 0; cursor: var(--cur-p), pointer;
-  background: var(--brand); color: var(--surface); transition: background .15s; }
+  background: var(--brand); color: var(--on-brand); transition: background .15s; }
 @media (hover: hover) { .bh-all-btn:hover { background: var(--brand-2); } }
 .bh-all-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset: 3px; }
 .bh-bar .bh-count { flex: 1; }
@@ -1175,7 +1196,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 <button class="tab-btn" data-tab="timeline" onclick="showTab('timeline')">소주 백과</button>
 <button class="tab-btn" data-tab="news" onclick="showTab('news')">소주 라운지</button>
 </div>
-<div class="bv-cheers" id="bvCheersBtn" role="button" tabindex="0" aria-label="짠 카운터 누르기" title="누를 때마다 짠!">
+<div class="bv-cheers" id="bvCheersBtn" role="button" tabindex="0" aria-pressed="false" aria-label="다크 모드" title="짠! 다크·라이트 모드 바꾸기">
 <span class="bv-cheers-bottle" aria-hidden="true"></span>
 <div class="bv-glasses" id="bvGlasses">
 <svg viewBox="56 60 184 85" width="100%" height="100%">
@@ -1217,7 +1238,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 </g></g>
 </svg>
 </div>
-<div><span class="bv-cheers-label">짠</span> <span class="bv-cheers-count" id="bvCheersCount">0</span></div>
+<div><span class="bv-cheers-label">짠</span> <span class="bv-cheers-count" id="bvCheersCount">다크</span></div>
 </div>
 </header>
 <script>
@@ -1225,15 +1246,23 @@ document.addEventListener('DOMContentLoaded', function(){
   var btn = document.getElementById('bvCheersBtn');
   var count = document.getElementById('bvCheersCount');
   var glasses = document.getElementById('bvGlasses');
-  var n = 0;
+  // 짠 = 다크/라이트 전환. 글자는 누르면 바뀔 모드, aria-pressed는 지금 다크인지
+  function sync(){
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    count.textContent = dark ? '라이트' : '다크';
+    btn.setAttribute('aria-pressed', dark);
+  }
   function cheer(){
-    n++;
-    tickNumber(count, n - 1, n, 260);
+    var t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem('sojuTheme', t); } catch (e) {}
+    sync();
     glasses.classList.remove('clink');
     void glasses.offsetWidth; // restart animation
     glasses.classList.add('clink');
   }
   if (btn) {
+    sync();
     btn.addEventListener('click', cheer);
     btn.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); cheer(); } });
   }
@@ -1261,7 +1290,8 @@ document.addEventListener('DOMContentLoaded', function(){
         '방송인 탁재훈이 개발에 참여한 쌀 증류식 소주 <b>탁소주19</b>(19도) GS25 출시',
         '화심주조 × 승리의 여신: 니케 협업 한정판 <b>화심: 화무십일홍</b>(50도) 1만 세트 판매',
         '<b>하이트진로</b> 테라와 참이슬을 배합한 기간 한정 캔소맥 <b>테라&amp;참이슬</b>(6도) 출시',
-        '<b>진로</b> 산타·루돌프 두꺼비 커플 라벨 <b>2026 진로 윈터 에디션</b> 한정 출시'
+        '<b>진로</b> 산타·루돌프 두꺼비 커플 라벨 <b>2026 진로 윈터 에디션</b> 한정 출시',
+        '임창정이 고향 이천 쌀로 빚은 증류식 소주 <b>소주한잔</b> 자체 브랜드로 재출시'
     ]
   };
   window.BV_UPDATE = bvUpdate; // 메인 맨 위 전광판이 읽음
@@ -1859,6 +1889,8 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 <div class="idx-card" style="order:59"><div class="idx-card-header">우포의아침</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">의리남소주</span></div><div class="idx-brand-meta"><span class="idx-abv">16.5도</span></div><div class="idx-brand-kw">창녕, 16.5도</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">빛24</span></div><div class="idx-brand-meta"><span class="idx-abv">24도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">창녕, CU 증류식 소주, 우포 쌀·감압 증류, '그저 빛'</div></div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">빛32오크</span></div><div class="idx-brand-meta"><span class="idx-abv">32도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">창녕, CU 증류식 소주, 셰리 오크통 숙성</div></div>
 </div>
 <div class="idx-card" style="order:60"><div class="idx-card-header">용두산조은술</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">참조은소주</span></div><div class="idx-brand-meta"><span class="idx-abv">20.5·23도</span></div><div class="idx-brand-kw">제천, 1918년 창업 양조장</div></div>
@@ -1882,6 +1914,12 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 <div class="idx-card" style="order:66"><div class="idx-card-header">지평주조</div>
 <div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">지평소주</span></div><div class="idx-brand-meta"><span class="idx-abv">25도</span><span class="idx-year">2025</span></div><div class="idx-brand-kw">경기 양평, 막걸리 지평 양조장의 첫 증류식 소주, 쌀·보리·수수</div></div>
+</div>
+<div class="idx-card" style="order:67"><div class="idx-card-header">BGF리테일(CU)</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">미래소주</span></div><div class="idx-brand-meta"><span class="idx-abv">22도</span><span class="idx-year">2022</span></div><div class="idx-brand-kw">CU 단독, 윤미래 협업, 국산 쌀·감압 증류, QUEEN OF SOJU</div></div>
+</div>
+<div class="idx-card" style="order:68"><div class="idx-card-header">코리아세븐(세븐일레븐)</div>
+<div class="idx-brand"><div class="idx-brand-top"><span class="idx-cat idx-cat-d">증류식</span><span class="idx-brand-name">소주한잔</span></div><div class="idx-brand-meta"><span class="idx-abv">23도</span><span class="idx-year">2023</span></div><div class="idx-brand-kw">세븐일레븐, 임창정 개발 참여, 히트곡 '소주 한 잔', 국산 쌀·감압 증류, 2026 이천 쌀로 재출시</div></div>
 </div>
 </div>
 </div>
@@ -3192,6 +3230,38 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety">제조사 <b>지평주조</b>와 양조장이 있는 경기 양평군 <b>지평면</b>에서 딴 이름.</div>
 <div class="det">막걸리 '지평'을 빚는 지평주조가 2025년 9월 내놓은 첫 증류식 소주. 쌀·보리·수수 세 곡물을 블렌딩해 증류했고, 2년간 증류 온도와 시간을 연구해 완성. 25도·375mL.</div>
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">BGF리테일(CU)<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/mirae-soju.jpg" alt="미래소주 22도 375mL 제품 사진 (BGF리테일 제공)" loading="lazy"><div class="rgH-year">2022.12</div><div class="rgH-name"><a href="brand/미래소주">미래소주</a></div><div class="rgH-badges"><span class="abv-badge">22도</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">협업한 힙합 가수 <b>윤미래</b>의 이름 <b>미래(MIRAE)</b>. 라벨 문구 'QUEEN OF SOJU'.</div>
+<div class="det">편의점 CU가 윤미래와 협업해 2022년 12월 단독 출시한 증류식 소주. 국내산 쌀 100%와 지하 120m 암반수로 빚어 낮은 압력에서 증류(감압 증류), 22도·375mL. 첫 출시 2만 개 한정. 같은 날 나온 '타이거JK 맥주'와 소맥으로 섞어 마시도록 맛과 향을 맞춤.</div>
+</div>
+</div>
+</div>
+</details>
+
+<details class="rgH2-group">
+<summary class="rgH2-head cat-distilled">코리아세븐(세븐일레븐)<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<div class="rgH2-body">
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/soju-hanjan-2023.jpg" alt="소주한잔 2023년 세븐일레븐 출시 디자인 (코리아세븐 제공)" loading="lazy"><div class="rgH-year">2023.02</div><div class="rgH-name"><a href="brand/소주한잔">소주한잔</a></div><div class="rgH-badges"><span class="abv-badge">23도</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">개발에 참여한 가수 <b>임창정</b>의 히트곡 <b>'소주 한 잔'</b>에서 딴 이름.</div>
+<div class="det">세븐일레븐이 임창정과 1년 동안 준비해 2023년 2월 22일 단독 출시한 프리미엄 증류식 소주. 국내산 쌀 100%를 낮은 압력에서 증류(감압 증류), 23도·375mL·1만4900원. 임창정이 원액 선정부터 병·라벨 디자인까지 참여했고 초도 물량 10만 병이 다 팔림. 2026년 11월 임창정이 고향 경기 이천 쌀 100%로 빚은 증류식 '소주한잔'을 자체 브랜드로 다시 내놓고 신세계백화점 강남점 팝업에서 판매.</div>
+<div class="chg tl-events">
+<div class="tl-event"><div class="tl-event-when">2023.05</div><div class="tl-event-what">세븐일레븐이 남은 재고만 팔고 판매 중단</div></div>
+<div class="tl-event"><div class="tl-event-when">2026.11</div><div class="tl-event-what">임창정 자체 브랜드로 재출시 — 원료를 경기 이천 쌀 100%로</div></div>
+</div>
 </div>
 </div>
 </div>
@@ -5530,7 +5600,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </details>
 <details class="rgH2-group">
-<summary class="rgH2-head cat-distilled">우포의아침<span class="rgH2-count">1종</span><span class="rgH2-caret">▾</span></summary>
+<summary class="rgH2-head cat-distilled">우포의아침<span class="rgH2-count">3종</span><span class="rgH2-caret">▾</span></summary>
 <div class="rgH2-body">
 <div class="rgH-card cat-distilled">
 <div class="rgH-left"><img class="rgH-photo" src="report/images/brands/upo-uiriman.jpg" alt="의리남소주 16.5도 360mL (판매처 술사랑)" loading="lazy"><div class="rgH-name"><a href="brand/의리남소주">의리남소주</a></div><div class="rgH-badges"><span class="abv-badge">16.5도</span></div></div>
@@ -5538,6 +5608,20 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="lbl">🔤 이름 유래</div>
 <div class="ety"><b>의리</b> 있는 <b>남</b>자 — 라벨 캐릭터.</div>
 <div class="det">경남 창녕 농업회사법인 우포의아침(주). 국내산 쌀 증류주에 주정을 섞고 감미료로 맛을 맞춘 16.5도(식품유형 증류식소주), 360mL.</div>
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><div class="rgH-year">2022.08</div><div class="rgH-name"><a href="brand/빛24">빛24</a></div><div class="rgH-badges"><span class="abv-badge">24도</span></div></div>
+<div class="rgH-right">
+<div class="lbl">🔤 이름 유래</div>
+<div class="ety">'이 순간을 빛나게 한다'는 뜻으로, 경이로운 존재를 가리키는 유행어 <b>'그저 빛'</b>에서 딴 이름 + 도수 <b>24</b>.</div>
+<div class="det">편의점 CU의 증류식 소주로 우포의아침이 우포 쌀을 주원료로 생산. 낮은 압력에서 증류(감압 증류), 24도·375mL·7900원. 2022년 8월 31일 출시.</div>
+</div>
+</div>
+<div class="rgH-card cat-distilled">
+<div class="rgH-left"><img class="rgH-photo" src="report/images/brands/bit32-oak.jpg" alt="빛32오크 제품 사진 (BGF리테일 제공)" loading="lazy"><div class="rgH-year">2022.09</div><div class="rgH-name"><a href="brand/빛32오크">빛32오크</a></div><div class="rgH-badges"><span class="abv-badge">32도</span></div></div>
+<div class="rgH-right">
+<div class="det">빛24에 이어 나온 CU 증류식 소주. 증류한 원액을 셰리 오크통에서 한 달 숙성, 32도·375mL·1만2900원.</div>
 </div>
 </div>
 </div>
@@ -6241,7 +6325,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <span class="mfr-year">2013(이전)</span>
 <div class="mfr-card">
 <div class="mfr-head"><span class="mfr-name">우포의아침(농업회사법인)</span><span class="mfr-region">경남 창녕</span></div>
-<div class="mfr-brands">의리남소주</div>
+<div class="mfr-brands">의리남소주 · 빛24 · 빛32오크</div>
 <div class="mfr-note">2013년 이전부터 영업. 창원 맑은내일과 연관 기업.</div>
 </div>
 </div>
@@ -6905,8 +6989,10 @@ function buildJumpNav(curId) {
     var p = tab.querySelector('.kr-region-' + d.id); if (p) p.style.setProperty('--rv-fill', d.fill);
     var l = tab.querySelector('.kr-label[data-r="' + d.id + '"]'); if (l && d.light) l.classList.add('rv-light');
   });
-  var box = document.createElement('div'); box.className = 'rv-cards rv-block';
-  box.innerHTML = '<div class="rv-pick" role="group" aria-label="보기 방식"><button type="button" class="bx-chip" data-v="rv-block" aria-pressed="true">카드</button><button type="button" class="bx-chip" data-v="rv-rank" aria-pressed="false">순위</button></div>' +
+  var view = 'rv-block';
+  try { if (sessionStorage.getItem('sojuRegionView') === 'rv-rank') view = 'rv-rank'; } catch (e) {}
+  var box = document.createElement('div'); box.className = 'rv-cards ' + view;
+  box.innerHTML = '<div class="rv-pick" role="group" aria-label="보기 방식"><button type="button" class="bx-chip" data-v="rv-block" aria-pressed="' + (view === 'rv-block') + '">카드</button><button type="button" class="bx-chip" data-v="rv-rank" aria-pressed="' + (view === 'rv-rank') + '">순위</button></div>' +
     '<div class="rv-list">' + data.map(function (d) {
       return '<button type="button" class="rv-card' + (d.light ? ' rv-light' : '') + '" data-r="' + d.id + '" style="--k:' + (d.rank - 1) + ';--rv-fill:' + d.fill + ';--w:' + Math.max(18, Math.round(d.n / max * 100)) + '%">' +
         '<span class="rv-no">' + d.rank + '</span>' +
@@ -6920,6 +7006,7 @@ function buildJumpNav(curId) {
   box.querySelector('.rv-pick').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
     box.className = 'rv-cards ' + b.dataset.v;
+    try { sessionStorage.setItem('sojuRegionView', b.dataset.v); } catch (e) {}
     box.querySelectorAll('.rv-pick button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
     rvPlay();
   });
@@ -7060,9 +7147,9 @@ revealOnView('.bv-highlight-phrase', 'play', 0.6);
 })();
 </script>
 
-<button class="feedback-fab" id="feedbackFab">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-  제보하기
+<button class="feedback-fab" id="feedbackFab" aria-label="제보하기">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+  <span class="fab-txt">제보하기</span>
 </button>
 <div class="feedback-panel" id="feedbackPanel">
   <div class="fb-title">제보 / 정보 수정 요청</div>
