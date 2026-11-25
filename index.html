@@ -468,7 +468,7 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .method-modal-overlay.open .method-modal { animation: fxPanel .55s var(--ease-ink) backwards; }
 .method-modal-overlay.open .brandinfo-photo { animation: fxZoom 1.4s var(--ease-ink) backwards; }
 @keyframes fxZoom { from { transform: scale(1.1); } }
-/* 회사 카드를 펼치면 그 카드의 병 타일만 차례로(다시 그려도 다른 카드는 재생 안 되게 .fx-open은 방금 연 카드에만) */
+/* 회사 카드를 펼치면 그 카드의 병 타일만 차례로(.fx-open은 qxBindList가 펼친 카드에만 붙임) */
 .qx-co.fx-open .qx-tile { animation: fxRise .55s var(--ease-ink) backwards; }
 .qx-co.fx-open .qx-tile:nth-child(2) { animation-delay: .04s; } .qx-co.fx-open .qx-tile:nth-child(3) { animation-delay: .08s; } .qx-co.fx-open .qx-tile:nth-child(4) { animation-delay: .12s; }
 .qx-co.fx-open .qx-tile:nth-child(5) { animation-delay: .16s; } .qx-co.fx-open .qx-tile:nth-child(6) { animation-delay: .2s; } .qx-co.fx-open .qx-tile:nth-child(n+7) { animation-delay: .24s; }
@@ -6733,15 +6733,22 @@ function qxCoCard(co, id, open, tile) {
     '<span class="qx-co-name">' + escHtml(co.name) + '</span><span class="qx-co-n">' + co.brands.length + '종<i>▾</i></span>' +
     '<span class="qx-thumbs">' + thumbs.map(function (b) { return '<span class="qx-thumb">' + (b.photo ? '<img src="' + escHtml(b.photo) + '" alt="" loading="lazy">' : escHtml(b.name.charAt(0))) + '</span>'; }).join('') +
     (more > 0 ? '<span class="qx-thumb">+' + more + '</span>' : '') + '</span></button>' +
-    '<div class="qx-co-body">' + (open ? '<div class="qx-tiles">' + co.brands.map(function (b) { return tile(b, false); }).join('') + '</div>' : '') + '</div></div>';
+    '<div class="qx-co-body">' + (open ? qxTiles(co, tile) : '') + '</div></div>';
 }
-// 타일 누르면 팝업, 회사 카드 누르면 펼침/접힘(다시 그린 뒤 같은 버튼에 포커스)
-function qxBindList(list, openCo, render) {
+function qxTiles(co, tile) { return '<div class="qx-tiles">' + co.brands.map(function (b) { return tile(b, false); }).join('') + '</div>'; }
+// 타일 누르면 팝업, 회사 카드 누르면 그 카드만 펼침/접힘 — 목록 전체를 다시 그리면 다른 카드 사진까지 다시 떠서 깜빡임
+// coOf(data-id) = 그 회사 묶음({ brands })
+function qxBindList(list, openCo, coOf, tile) {
   list.addEventListener('click', function (e) {
     var tl = e.target.closest('.qx-tile');
     if (tl) { if (window.openBrandInfo) window.openBrandInfo(tl.dataset.name); return; }
     var cb = e.target.closest('.qx-co-btn');
-    if (cb) { openCo[cb.dataset.id] = !openCo[cb.dataset.id]; render(); var el = list.querySelector('.qx-co-btn[data-id="' + cb.dataset.id + '"]'); if (el) { el.focus(); if (openCo[cb.dataset.id]) el.parentNode.classList.add('fx-open'); } }
+    if (!cb) return;
+    var id = cb.dataset.id, card = cb.parentNode, open = openCo[id] = !openCo[id];
+    card.classList.toggle('open', open);
+    card.classList.toggle('fx-open', open);
+    cb.setAttribute('aria-expanded', open);
+    card.querySelector('.qx-co-body').innerHTML = open ? qxTiles(coOf(id), tile) : '';
   });
 }
 function tickNumber(el, from, to, dur) {
@@ -6753,6 +6760,14 @@ function tickNumber(el, from, to, dur) {
     if (p < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
+}
+// 목록 등장: 클래스를 바로 붙여 그려지는 순간(숨은 탭이면 탭을 열 때) 한 번만 재생, 앞 8개만 차례로
+// 스크롤해서 들어올 때 붙이면 보이던 카드가 사라졌다 다시 나타나 깜빡이고, 내릴 때마다 다시 불러오는 것처럼 보임
+function revealList(selector, addClass, stagger) {
+  document.querySelectorAll(selector).forEach(function (el, i) {
+    el.style.animationDelay = Math.min(i, 8) * (stagger || 0.05) + 's';
+    el.classList.add(addClass);
+  });
 }
 function revealOnView(selector, addClass, threshold, stagger) {
   var els = document.querySelectorAll(selector);
@@ -6924,7 +6939,7 @@ function buildJumpNav(curId) {
     function render() {
       list.innerHTML = '<div class="qx-cos">' + cos.map(function (co, ci) { return qxCoCard(co, ci, !!openCo[ci], tile); }).join('') + '</div>';
     }
-    qxBindList(list, openCo, render);
+    qxBindList(list, openCo, function (id) { return cos[id]; }, tile);
     render();
   });
 
@@ -7033,9 +7048,9 @@ function buildJumpNav(curId) {
     ev.appendChild(btn);
   });
 })();
-revealOnView('#tab-timeline .tl-event', 'bv-fade-in', 0.15);
-revealOnView('#tab-news .bv-news-item', 'bv-fade-in', 0.1, 0.06);
-revealOnView('#tab-method .method-card, #tab-method .proc-step', 'bv-fade-in', 0.1, 0.05);
+revealList('#tab-timeline .tl-event', 'bv-fade-in');
+revealList('#tab-news .bv-news-item', 'bv-fade-in', 0.06);
+revealList('#tab-method .method-card:not(.method-modal-overlay *), #tab-method .proc-step', 'bv-fade-in'); // 도움말 팝업 안 카드는 팝업 자체 등장으로 충분
 // 붓질 제목: 섹션 제목이 화면에 들어올 때마다(탭을 다시 열면 다시) 먹이 스며들듯 드러남
 (function () {
   if (!('IntersectionObserver' in window)) return;
@@ -7090,8 +7105,7 @@ revealOnView('.bv-highlight-phrase', 'play', 0.6);
         (x.thumbs.length ? '<div class="mx-thumbs">' + x.thumbs.map(function (n) { return '<button type="button" data-name="' + escHtml(n) + '" aria-label="' + escHtml(n) + ' 보기"><img src="' + escHtml(photo[n]) + '" alt="" loading="lazy"></button>'; }).join('') + '</div>' : '') +
         (x.note ? '<div class="mx-note">' + escHtml(x.note) + '</div>' : '') + '</article>';
     }).join('') + '</div>' : '<p class="qx-empty">이 조건에 맞는 제조사가 없어요.</p>');
-    if (render.io) render.io.disconnect(); // 다시 그릴 때마다(칩 선택) 이전 관찰자는 끊고 새 카드만
-    render.io = revealOnView('#tab-companies .mx-card', 'bv-fade-in', 0.1, 0.06);
+    revealList('#tab-companies .mx-card', 'bv-fade-in', 0.06);
   }
   box.addEventListener('click', function (e) {
     var c = e.target.closest('.bx-chip');
@@ -7595,7 +7609,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return !st.q || b.key.indexOf(st.q) >= 0;
       }).sort(SORT[st.sort]);
       if (regionNav) {
-        var cos = [], byCo = {};
+        var cos = [];
+        byCo = {};
         items.forEach(function (b) { (byCo[b.co] || (byCo[b.co] = cos[cos.push({ name: b.co, brands: [] }) - 1])).brands.push(b); });
         cos.sort(function (a, b) { return b.brands.length - a.brands.length; });
         var auto = !!(st.q || st.cat !== 'all');
@@ -7627,7 +7642,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // 제조사 묶음: 펼침 상태는 회사 이름으로 기억(검색어가 바뀌면 초기화), 타일은 지역 화면과 같은 qxTile
     var openCo = {};
     function coTile(b) { return qxTile(b, [b.abvText, isNaN(b.yearNum) ? '' : b.yearNum].filter(Boolean).join(' · '), escHtml(b.name), CATN[b.cat] ? b.cat : 'etc'); }
-    if (regionNav) qxBindList(grid, openCo, function () { render(); });
+    var byCo = {}; // 지금 결과의 회사 이름 → 묶음(펼칠 때 그 카드만 그림)
+    if (regionNav) qxBindList(grid, openCo, function (id) { return byCo[id]; }, coTile);
     grid.addEventListener('click', function (e) { var c = e.target.closest('.bh-card'); if (c) openB(c.dataset.name); });
     var cur = 'all', allView = false; // 지금 들어와 있는 지역 / 지도에서 '전국 전체 보기'로 들어왔는지
     function clear() { qIn.value = ''; st.q = ''; st.cat = 'all'; press('cat', 'all'); if (regionNav) { st.reg = cur; press('reg', cur); } render(true); }
