@@ -7146,14 +7146,15 @@ revealOnView('.bv-highlight-phrase', 'play', 0.6);
 <div class="feedback-panel" id="feedbackPanel">
   <div class="fb-title">제보 / 정보 수정 요청</div>
   <form id="feedbackForm">
-    <textarea name="message" placeholder="오타, 누락된 브랜드, 잘못된 정보 등 자유롭게 적어주세요" required></textarea>
+    <input name="website" hidden tabindex="-1" autocomplete="off">
+    <textarea name="message" maxlength="2000" placeholder="오타, 누락된 브랜드, 잘못된 정보 등 자유롭게 적어주세요" required></textarea>
     <button type="submit">보내기</button>
     <div class="fb-msg" id="feedbackMsg"></div>
   </form>
 </div>
 <script>
 (function(){
-  var endpoint = 'https://formspree.io/f/xkolggzz';
+  var endpoint = 'https://script.google.com/macros/s/AKfycby74MgcwEKVXplpXtvClh29CsT59PdaVaw-2Pj5rEuur9jNqrtqM0yksEF2Sf4IlKpr/exec'; // feedback-gas 웹앱 /exec 주소
   var fab = document.getElementById('feedbackFab');
   var panel = document.getElementById('feedbackPanel');
   var form = document.getElementById('feedbackForm');
@@ -7171,13 +7172,12 @@ revealOnView('.bv-highlight-phrase', 'play', 0.6);
     var btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
     msg.textContent = '전송 중...';
-    fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(form)
-    }).then(function(r){
-      msg.textContent = r.ok ? '전송됐습니다. 감사합니다!' : '전송 실패. 잠시 후 다시 시도해주세요.';
-      if (r.ok) form.reset();
+    // urlencoded 본문이라 CORS 사전요청 없이 GAS로 감(GAS doPost는 e.parameter로 읽음)
+    var body = new URLSearchParams(new FormData(form));
+    body.append('page', location.pathname);
+    fetch(endpoint, { method: 'POST', body: body }).then(function(r){ return r.json(); }).then(function(d){
+      msg.textContent = d.ok ? '전송됐습니다. 감사합니다!' : '전송 실패. 잠시 후 다시 시도해주세요.';
+      if (d.ok) form.reset();
     }).catch(function(){
       msg.textContent = '전송 실패. 잠시 후 다시 시도해주세요.';
     }).finally(function(){

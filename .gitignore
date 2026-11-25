@@ -6,3 +6,4 @@ team.md
 .claude/
 skills-lock.json
 __pycache__/
+feedback-gas/secret.js
