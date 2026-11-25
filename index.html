@@ -7284,7 +7284,7 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
     var kwText = kwEl ? kwEl.textContent.trim() : '';
     var detHtml = (info && info.det) || (kwText ? escHtml(kwText) : '');
     if (detHtml) rows += sec('📜 상세 연혁', detHtml);
-    actsEl.innerHTML = info && info.href ? '<a class="bx-btn bx-btn-pri" href="' + escHtml(info.href) + '">상세 페이지 →</a>' : '';
+    actsEl.innerHTML = info && info.href ? '<a class="bx-btn bx-btn-pri" href="' + escHtml(info.href) + '" target="_blank" rel="noopener">상세 페이지 →</a>' : '';
 
     currentPhotos = (info && info.photos) || [];
     if (!currentPhotos.length) {
