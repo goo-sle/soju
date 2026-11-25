@@ -7571,21 +7571,16 @@ document.addEventListener('DOMContentLoaded', function () {
         .concat(disc ? ['단종 ' + disc] : []).join(' · ');
     }
     // 칩·정렬·지역을 바꿨을 때만 지역 화면과 같은 등장 효과(bv-fade-in) — 글자 입력 중엔 깜빡이지 않게 생략
-    // 화면에 들어오는 순간 등장(같은 때 들어온 것끼리 70ms 간격). 더 보기는 새로 붙은 카드만(from)
-    var io = 'IntersectionObserver' in window && new IntersectionObserver(function (es) {
-      es.filter(function (e) { return e.isIntersecting; }).forEach(function (e, i) {
-        e.target.style.animationDelay = Math.min(i, 8) * 0.07 + 's';
-        e.target.classList.add('bv-fade-in');
-        io.unobserve(e.target);
-      });
-    }, { threshold: 0.1 });
+    // 그려지는 순간 한 번만 등장(앞 카드부터 50ms 간격, 9번째부터 같이). 더 보기는 새로 붙은 카드만(from)
+    // 스크롤해서 화면에 들어올 때 등장시키면 내릴 때마다 다시 불러오는 것처럼 보여서 그렇게 하지 않음
     function fade(from) {
       var key = st.reg + '|' + st.cat + '|' + st.sort;
       if (from == null && key === lastKey) return;
       lastKey = key;
-      var els = Array.prototype.slice.call(grid.children, from || 0);
-      if (io) { io.disconnect(); els.forEach(function (el) { io.observe(el); }); return; }
-      els.forEach(function (el) { el.classList.add('bv-fade-in'); });
+      Array.prototype.slice.call(grid.children, from || 0).forEach(function (el, i) {
+        el.style.animationDelay = Math.min(i, 8) * 0.05 + 's';
+        el.classList.add('bv-fade-in');
+      });
     }
     function render(reset) {
       if (reset) { shown = 0; for (var k in openCo) delete openCo[k]; }
@@ -7616,12 +7611,19 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
       grid.innerHTML = items.length ? items.slice(0, shown).map(card).join('') : '<p class="qx-empty bh-empty">찾는 소주가 없어요. 띄어쓰기나 다른 이름으로 찾아보세요.</p>';
+      moreBtn();
+      fade();
+    }
+    function moreBtn() {
       more.hidden = shown >= items.length;
-      fade(moreFrom); moreFrom = null;
       more.textContent = '더 보기 (' + Math.max(0, items.length - shown) + ')';
     }
-    var moreFrom = null;
-    more.addEventListener('click', function () { moreFrom = shown; shown += pageSize(); render(); });
+    // 더 보기: 이미 보이는 카드는 그대로 두고 새 카드만 덧붙임(전체를 다시 그리면 사진이 다시 떠서 깜빡임)
+    more.addEventListener('click', function () {
+      var from = shown; shown += pageSize();
+      grid.insertAdjacentHTML('beforeend', items.slice(from, shown).map(card).join(''));
+      moreBtn(); fade(from);
+    });
     // 제조사 묶음: 펼침 상태는 회사 이름으로 기억(검색어가 바뀌면 초기화), 타일은 지역 화면과 같은 qxTile
     var openCo = {};
     function coTile(b) { return qxTile(b, [b.abvText, isNaN(b.yearNum) ? '' : b.yearNum].filter(Boolean).join(' · '), escHtml(b.name), CATN[b.cat] ? b.cat : 'etc'); }
