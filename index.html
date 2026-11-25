@@ -101,7 +101,7 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 
 /* ── HEADER (Behance 스타일) ── */
 .gnav {
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  position: relative; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
   gap: 20px; padding: 16px 20px; margin-bottom: 20px; border-bottom: 1px solid var(--line);
 }
 .gnav-brand { font-weight: 700; font-size: 24px; letter-spacing: -0.01em; color: var(--brand); text-decoration: none; justify-self: start; }
@@ -192,11 +192,52 @@ tr             { page-break-inside: avoid; break-inside: avoid; }
 .bv-news-meta { display: flex; align-items: baseline; gap: 10px; flex-shrink: 0; white-space: nowrap; }
 .bv-news-source { font-size: 12px; font-weight: 700; color: var(--brand); }
 .bv-news-date { font-size: 12px; color: var(--ink-muted); font-family: ui-monospace, monospace; }
-.bv-fade-in { animation: bvFadeIn .55s ease-out backwards; }
-@keyframes bvFadeIn {
-  from { opacity: 0; filter: blur(8px); transform: translateY(10px); }
-  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+/* ── 움직임 언어: 백자 위에 청화 안료가 번져 자리 잡듯(흐림 → 또렷, 살짝 떠 있다 내려앉음), 붓질 제목, 유약 광택, 병 들어 올리기 ──
+   전부 fill-mode backwards라 끝난 뒤 hover transform·filter를 막지 않음. 움직임 줄이기면 맨 위 전역 규칙이 시간을 0으로 */
+:root { --ease-ink: cubic-bezier(.16,1,.3,1); --ease-spring: cubic-bezier(.34,1.56,.64,1); }
+.bv-fade-in { animation: bvFadeIn .7s var(--ease-ink) backwards; }
+@keyframes bvFadeIn { from { opacity: 0; filter: blur(10px); transform: translateY(14px) scale(.985); } }
+@keyframes fxRise { from { opacity: 0; filter: blur(8px); transform: translateY(16px) scale(.985); } }
+/* 붓질 제목: 왼쪽에서 오른쪽으로 먹이 스며들며 드러남(.fx-brush는 화면에 들어올 때 스크립트가 붙임 — 붙기 전까진 숨김 .fx-wait) */
+@keyframes fxBrush { from { -webkit-mask-position: 100% 0; mask-position: 100% 0; filter: blur(4px); } to { -webkit-mask-position: 0 0; mask-position: 0 0; filter: blur(0); } }
+.fx-wait { opacity: 0; }
+.fx-brush { opacity: 1; -webkit-mask-image: linear-gradient(90deg, #000 40%, transparent 60%); mask-image: linear-gradient(90deg, #000 40%, transparent 60%);
+  -webkit-mask-size: 260% 100%; mask-size: 260% 100%; animation: fxBrush 1s var(--ease-ink) both; }
+/* 유약 광택: 마우스를 올리면 빛줄이 사선으로 한 번 지나감 */
+.fx-glaze { position: relative; overflow: hidden; }
+.fx-glaze::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background: linear-gradient(115deg, transparent 38%, rgba(255,255,255,.5) 50%, transparent 62%); transform: translateX(-130%); }
+@media (hover: hover) { .fx-glaze:hover::after, :hover > .fx-glaze::after { transform: translateX(130%); transition: transform .9s var(--ease-ink); } }
+/* 누르는 순간 살짝 눌림 */
+.bx-chip, .bx-btn, .bh-pop button, .bh-all-btn, .region-jump-btn, .rv-card, .qx-tile, .bh-ph { transition-property: transform, box-shadow, background, border-color, color; transition-duration: .2s; }
+.bx-chip:active, .bx-btn:active, .bh-pop button:active, .bh-all-btn:active, .region-jump-btn:active, .rv-card:active, .qx-tile:active, .bh-card:active .bh-ph { transform: scale(.97); transition-duration: .08s; }
+/* 탭을 바꿀 때 화면이 부드럽게 */
+@keyframes fxTab { from { opacity: 0; } }
+.tab-panel.active { animation: fxTab .35s ease-out; }
+/* 스크롤 진행 표시: 맨 위 메뉴 아래 청화 실선(지원 브라우저만, 스크립트 없음) */
+@supports (animation-timeline: scroll()) {
+  .gnav::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--brand); transform-origin: 0 50%;
+    animation: fxProgress linear both; animation-timeline: scroll(root); }
+  @keyframes fxProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 }
+@keyframes fxPop { from { opacity: 0; transform: scale(.2); } }
+@keyframes fxGrow { from { width: 0; } }
+@keyframes fxFade { from { opacity: 0; } }
+@keyframes fxShake { 20%, 60% { transform: translateX(-5px); } 40%, 80% { transform: translateX(5px); } }
+@keyframes fxBump { 50% { transform: scale(1.06); } }
+/* 둘러보기 대문 글자: 제목 → 설명 → 검색 → 칩 순서로 */
+.bh-hero-txt > * { animation: fxRise .8s var(--ease-ink) backwards; }
+.bh-hero-title { -webkit-mask-image: linear-gradient(90deg, #000 40%, transparent 60%); mask-image: linear-gradient(90deg, #000 40%, transparent 60%); -webkit-mask-size: 260% 100%; mask-size: 260% 100%; animation: fxBrush 1.2s var(--ease-ink) both !important; }
+.bh-hero-txt > :nth-child(2) { animation-delay: .08s; } .bh-hero-txt > :nth-child(3) { animation-delay: .16s; } .bh-hero-txt > :nth-child(4) { animation-delay: .24s; }
+/* 소주 라운지: 묶음 차례로, 도수 점은 아래에서부터 톡톡(--dl은 스크립트가 넣음), 퀴즈 정답 튀고 오답 흔들림 */
+.news-grid > * { animation: fxRise .8s var(--ease-ink) backwards; }
+.news-grid > :nth-child(2) { animation-delay: .12s; } .news-grid > :nth-child(3) { animation-delay: .24s; }
+.bx-pt { animation: fxPop .35s cubic-bezier(.3,1.6,.5,1) backwards; animation-delay: var(--dl, 0s); }
+.bx-opts .bx-btn { animation: fxRise .5s var(--ease-ink) backwards; }
+.bx-opts .bx-btn:nth-child(2) { animation-delay: .06s; } .bx-opts .bx-btn:nth-child(3) { animation-delay: .12s; } .bx-opts .bx-btn:nth-child(4) { animation-delay: .18s; }
+.bx-opts .bx-btn.ok { animation: fxBump .35s ease-out; }
+.bx-opts .bx-btn.no { animation: fxShake .4s ease-out; }
+.bx-reveal img { animation: fxRise .45s ease-out backwards; }
 .zs-badge {
   font-size: 11px;
   font-weight: 800;
@@ -371,7 +412,9 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   appearance: none; font: inherit; color: inherit; text-align: left; padding: 0; background: var(--surface);
   border: 1px solid var(--line); border-radius: 12px; overflow: hidden; cursor: var(--cur-p), pointer; transition: transform .15s, box-shadow .15s;
 }
-@media (hover: hover) { .qx-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 18px color-mix(in srgb, var(--ink) 12%, transparent); } }
+@media (hover: hover) { .qx-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 18px color-mix(in srgb, var(--ink) 12%, transparent); }
+  .qx-thumb { transition: transform .35s var(--ease-spring); } .qx-co-btn:hover .qx-thumb { transform: translateY(-4px) rotate(-4deg); }
+  .qx-co-btn:hover .qx-thumb:nth-child(2) { transition-delay: .04s; } .qx-co-btn:hover .qx-thumb:nth-child(3) { transition-delay: .08s; } .qx-co-btn:hover .qx-thumb:nth-child(4) { transition-delay: .12s; } .qx-co-btn:hover .qx-thumb:nth-child(5) { transition-delay: .16s; } }
 .qx-tile:focus-visible { transform: translateY(-3px); box-shadow: 0 8px 18px color-mix(in srgb, var(--ink) 12%, transparent); }
 .qx-tile-ph { display: grid; place-items: center; aspect-ratio: 3/4; background: var(--surface-soft); color: var(--ink-muted); font-family: "Hahmlet", serif; font-size: 30px; position: relative; }
 .qx-tile-ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -736,6 +779,8 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 /* 지역 색: 브랜드 수 순위대로 청화 6단계(--rv-fill, 아래 지역 카드 스크립트가 넣음) — 값이 비슷해도 칸마다 확실히 다르게 */
 .kr-region { fill: var(--rv-fill, var(--brand)); stroke-width: 4; }
 .kr-region.rv-on { filter: brightness(1.15) drop-shadow(0 4px 6px rgba(20,30,70,.35)); }
+.kr-region.rise { animation: krInk 1s var(--ease-ink) both; }
+@keyframes krInk { from { opacity: 1; transform: none; clip-path: circle(0% at 50% 50%); } to { opacity: 1; transform: none; clip-path: circle(100% at 50% 50%); } }
 .kr-label { font-size: 30px; font-weight: 900; fill: #fff; text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: color-mix(in srgb, var(--ink) 55%, transparent); stroke-width: 5px; stroke-linejoin: round; }
 .kr-label.rv-light { fill: var(--brand); stroke: #fff; }
 .region-detail { display: none; }
@@ -896,6 +941,16 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
   background: var(--surface); border: 1px solid var(--line); border-radius: 16px; transition: border-color .15s, box-shadow .15s, transform .15s; }
 .rv-card.rv-on { box-shadow: 0 8px 22px color-mix(in srgb, var(--brand) 22%, transparent); transform: translateY(-2px); }
 .rv-card:focus-visible { outline: 3px solid var(--brand-3); outline-offset: 2px; }
+/* 지도 화면을 열 때·필터를 바꿀 때 카드가 차례로 올라오고(--k = 순위-1), 순위 막대는 0에서 자라남 */
+.rv-card { animation: fxRise .7s var(--ease-ink) backwards; animation-delay: calc(var(--k) * 70ms + .25s); }
+.rv-rank .rv-bar span { animation: fxGrow 1s var(--ease-ink) backwards; animation-delay: calc(var(--k) * 70ms + .4s); }
+.rv-rank .rv-bar em { animation: fxFade .4s ease-out backwards; animation-delay: calc(var(--k) * 70ms + .8s); }
+.rv-card .rv-ph img { transition: transform .35s var(--ease-spring); }
+.rv-card.rv-on .rv-ph img { transform: translateY(-8px) rotate(-5deg); }
+.rv-card.rv-on .rv-ph img:nth-child(even) { transform: translateY(-10px) rotate(4deg); }
+.rv-card.rv-on .rv-ph img:nth-child(2) { transition-delay: .03s; } .rv-card.rv-on .rv-ph img:nth-child(3) { transition-delay: .06s; } .rv-card.rv-on .rv-ph img:nth-child(4) { transition-delay: .09s; } .rv-card.rv-on .rv-ph img:nth-child(5) { transition-delay: .12s; }
+.rv-rank .rv-card.rv-on .rv-ph img, .rv-rank .rv-card.rv-on .rv-ph img:nth-child(even) { transform: translateY(-4px); }
+.rv-rank .rv-card.rv-on .rv-bar span { filter: brightness(1.15); }
 .rv-card img { display: block; object-fit: cover; border-radius: 8px; background: var(--surface-soft); }
 .rv-no, .rv-big { font-family: "Hahmlet", serif; font-weight: 500; }
 .rv-card .rv-no, .rv-card .rv-bar, .rv-card .rv-big, .rv-card .rv-n { display: none; }
@@ -1025,12 +1080,13 @@ button.tab-btn:focus-visible { outline: 2px solid var(--brand-2); outline-offset
 .bh-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 28px 20px; }
 .bh-card { appearance: none; font: inherit; color: var(--ink); text-align: left; padding: 0; border: 0; background: none; cursor: var(--cur-p), pointer; min-width: 0; }
 .bh-ph { position: relative; display: block; aspect-ratio: 4/5; border-radius: 10px; overflow: hidden; background: var(--surface); }
-.bh-ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+.bh-ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease-ink); }
 .bh-tag { position: absolute; top: 10px; left: 10px; font-size: 11.5px; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: var(--ink); color: var(--surface); }
 .bh-ov { position: absolute; inset: auto 0 0 0; padding: 40px 14px 12px; display: flex; flex-direction: column; gap: 2px; color: var(--surface);
   background: linear-gradient(transparent, color-mix(in srgb, var(--ink) 78%, transparent)); opacity: 0; transition: opacity .2s; }
 .bh-ov b { font-size: 15px; } .bh-ov span { font-size: 12.5px; opacity: .85; }
-@media (hover: hover) { .bh-card:hover .bh-ov { opacity: 1; } .bh-card:hover .bh-ph img { transform: scale(1.03); } }
+.bh-ph { transition: transform .25s, box-shadow .25s; }
+@media (hover: hover) { .bh-card:hover .bh-ov { opacity: 1; } .bh-card:hover .bh-ph img { transform: scale(1.05); } .bh-card:hover .bh-ph { transform: translateY(-5px); box-shadow: 0 14px 28px color-mix(in srgb, var(--brand) 18%, transparent); } }
 .bh-card:focus-visible { outline: none; } .bh-card:focus-visible .bh-ph { outline: 2px solid var(--brand-2); outline-offset: 2px; } .bh-card:focus-visible .bh-ov { opacity: 1; }
 .bh-meta { display: flex; align-items: center; gap: 8px; padding: 10px 2px 0; }
 .bh-av { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; background: var(--brand); color: var(--surface); }
@@ -6585,7 +6641,7 @@ function rgPhotoMap(skipDisc) {
 function qxTile(b, sub, nameHtml, cls) {
   var ph = b.photo ? '<img src="' + escHtml(b.photo) + '" alt="" loading="lazy">' : escHtml(b.name.charAt(0));
   return '<button type="button" class="qx-tile' + (b.disc ? ' disc' : '') + '" data-name="' + escHtml(b.name) + '">' +
-    '<span class="qx-tile-ph">' + ph + (b.disc ? '<span class="qx-disc">단종</span>' : '') + '</span>' +
+    '<span class="qx-tile-ph fx-glaze">' + ph + (b.disc ? '<span class="qx-disc">단종</span>' : '') + '</span>' +
     '<span class="qx-tile-bd"><span class="qx-tile-nm">' + nameHtml + '</span><span class="qx-tile-sub"><i class="bx-dot bx-c-' + cls + '"></i>' + escHtml(sub) + '</span></span></button>';
 }
 function qxCoCard(co, id, open, tile) {
@@ -6608,6 +6664,7 @@ function qxBindList(list, openCo, render) {
   });
 }
 function tickNumber(el, from, to, dur) {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = to; return; }
   var start = performance.now();
   function step(now) {
     var p = Math.min(1, (now - start) / dur);
@@ -6706,6 +6763,7 @@ function showRegionMap() {
   if (window.regionFinder) window.regionFinder.setRegion('all');
   setRegionIntroVisible(true);
   playRegionStats();
+  if (window.rvPlay) window.rvPlay();
   var textEls = [document.getElementById('regionTitle'), document.getElementById('regionStats')];
   var mapEls = document.querySelectorAll('.kr-region');
   var labelEls = document.querySelectorAll('.kr-label');
@@ -6831,7 +6889,7 @@ function buildJumpNav(curId) {
   var box = document.createElement('div'); box.className = 'rv-cards rv-block';
   box.innerHTML = '<div class="rv-pick" role="group" aria-label="보기 방식"><button type="button" class="bx-chip" data-v="rv-block" aria-pressed="true">카드</button><button type="button" class="bx-chip" data-v="rv-rank" aria-pressed="false">순위</button></div>' +
     '<div class="rv-list">' + data.map(function (d) {
-      return '<button type="button" class="rv-card' + (d.light ? ' rv-light' : '') + '" data-r="' + d.id + '" style="--rv-fill:' + d.fill + ';--w:' + Math.max(18, Math.round(d.n / max * 100)) + '%">' +
+      return '<button type="button" class="rv-card' + (d.light ? ' rv-light' : '') + '" data-r="' + d.id + '" style="--k:' + (d.rank - 1) + ';--rv-fill:' + d.fill + ';--w:' + Math.max(18, Math.round(d.n / max * 100)) + '%">' +
         '<span class="rv-no">' + d.rank + '</span>' +
         '<span class="rv-ph">' + d.ph.map(function (n) { return '<img src="' + escHtml(photo[n]) + '" alt="" loading="lazy">'; }).join('') + '</span>' +
         '<span class="rv-name">' + escHtml(d.label) + '</span>' +
@@ -6844,7 +6902,21 @@ function buildJumpNav(curId) {
     var b = e.target.closest('button'); if (!b) return;
     box.className = 'rv-cards ' + b.dataset.v;
     box.querySelectorAll('.rv-pick button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+    rvPlay();
   });
+  // 등장 효과 다시 재생: 목록을 잠깐 숨겼다 보이면 CSS 애니메이션이 처음부터 + 큰 숫자 0부터 올라감
+  var rvList = box.querySelector('.rv-list');
+  function rvPlay() {
+    rvList.hidden = true; void rvList.offsetWidth; rvList.hidden = false;
+    data.forEach(function (d) {
+      var big = box.querySelector('.rv-card[data-r="' + d.id + '"] .rv-big');
+      if (big && big.firstChild) {
+        var t = document.createElement('span'); big.firstChild.replaceWith(t);
+        tickNumber(t, 0, d.n, 700 + d.rank * 60);
+      }
+    });
+  }
+  window.rvPlay = rvPlay;
   // 지도 칸 ↔ 카드 서로 강조
   function on(id, v) {
     tab.querySelectorAll('.kr-region-' + id + ', .rv-card[data-r="' + id + '"]').forEach(function (el) { el.classList.toggle('rv-on', v); });
@@ -6876,7 +6948,18 @@ function buildJumpNav(curId) {
   });
 })();
 revealOnView('#tab-timeline .tl-event', 'bv-fade-in', 0.15);
-revealOnView('#tab-browse .bv-news-item', 'bv-fade-in', 0.1, 0.08);
+revealOnView('#tab-news .bv-news-item', 'bv-fade-in', 0.1, 0.06);
+// 붓질 제목: 섹션 제목이 화면에 들어올 때마다(탭을 다시 열면 다시) 먹이 스며들듯 드러남
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.remove('fx-wait'); e.target.classList.add('fx-brush'); }
+      else if (!e.target.offsetParent) { e.target.classList.remove('fx-brush'); e.target.classList.add('fx-wait'); } // 숨은 탭으로 가면 다음에 다시
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.bv-section-head h2, .bv-module h2, #regionTitle, .rx-title').forEach(function (h) { h.classList.add('fx-wait'); io.observe(h); });
+})();
 revealOnView('.bv-highlight-phrase', 'play', 0.6);
 // 제조사 현황 — 편집팀 .mfr-item 목록을 읽어 카드 그리드로 그림(지역·시대 칩으로 걸러보기)
 (function () {
@@ -7235,6 +7318,7 @@ function requestModalClose(close) { if ((history.state || {}).modal) history.bac
         d.style.width = d.style.height = D + 'px';
         d.style.left = (k * colW + (i % perRow) * (D + G)) + 'px';
         d.style.bottom = (2 + Math.floor(i / perRow) * (D + G)) + 'px';
+        d.style.setProperty('--dl', (Math.floor(i / perRow) * 0.03 + k * 0.008).toFixed(3) + 's');
         d.addEventListener('mouseenter', function () { showTip(b, d); });
         d.addEventListener('focus', function () { showTip(b, d); });
         d.addEventListener('mouseleave', hideTip);
@@ -7343,7 +7427,7 @@ document.addEventListener('DOMContentLoaded', function () {
   };
   function card(b) {
     return '<button type="button" class="bh-card" data-name="' + escHtml(b.name) + '">' +
-      '<span class="bh-ph"><img src="' + escHtml(b.photo) + '" alt="' + escHtml(b.alt || b.name) + '" loading="lazy">' +
+      '<span class="bh-ph fx-glaze"><img src="' + escHtml(b.photo) + '" alt="' + escHtml(b.alt || b.name) + '" loading="lazy">' +
       (b.disc ? '<span class="bh-tag">단종</span>' : '') +
       '<span class="bh-ov"><b>' + escHtml(b.name) + '</b><span>' + escHtml([CATN[b.cat], b.abvText].filter(Boolean).join(' · ')) + '</span></span></span>' +
       '<span class="bh-meta"><span class="bh-av" aria-hidden="true">' + escHtml(b.co.charAt(0)) + '</span><span class="bh-nm">' + escHtml(b.name) + '<small>' + escHtml(b.co) + '</small></span>' +
@@ -7362,7 +7446,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!regionNav) new ResizeObserver(function () {
       if (!grid.clientWidth) return;
       var c = cols();
-      if (c !== lastCols) { lastCols = c; render(true); }
+      if (c !== lastCols) { lastCols = c; lastKey = ''; render(true); } // 칸 수가 바뀌면 다시 그리므로 등장 효과도 다시
     }).observe(grid);
     function press(key, v) { var box = $(key); if (box) box.querySelectorAll('.bh-chip').forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.v === v ? 'true' : 'false'); }); }
     function chips(key, list) {
@@ -7399,13 +7483,20 @@ document.addEventListener('DOMContentLoaded', function () {
         .concat(disc ? ['단종 ' + disc] : []).join(' · ');
     }
     // 칩·정렬·지역을 바꿨을 때만 지역 화면과 같은 등장 효과(bv-fade-in) — 글자 입력 중엔 깜빡이지 않게 생략
-    function fade() {
+    // 화면에 들어오는 순간 등장(같은 때 들어온 것끼리 70ms 간격). 더 보기는 새로 붙은 카드만(from)
+    var io = 'IntersectionObserver' in window && new IntersectionObserver(function (es) {
+      es.filter(function (e) { return e.isIntersecting; }).forEach(function (e, i) {
+        e.target.style.animationDelay = Math.min(i, 8) * 0.07 + 's';
+        e.target.classList.add('bv-fade-in');
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.1 });
+    function fade(from) {
       var key = st.reg + '|' + st.cat + '|' + st.sort;
-      if (key === lastKey) return;
+      if (from == null && key === lastKey) return;
       lastKey = key;
-      var els = Array.prototype.slice.call(grid.children);
-      els.forEach(function (el) { el.classList.remove('bv-fade-in'); });
-      void grid.offsetWidth; // 한 번만 다시 계산하고 전부 다시 등장
+      var els = Array.prototype.slice.call(grid.children, from || 0);
+      if (io) { io.disconnect(); els.forEach(function (el) { io.observe(el); }); return; }
       els.forEach(function (el) { el.classList.add('bv-fade-in'); });
     }
     function render(reset) {
@@ -7437,10 +7528,11 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       grid.innerHTML = items.length ? items.slice(0, shown).map(card).join('') : '<p class="qx-empty bh-empty">찾는 소주가 없어요. 띄어쓰기나 다른 이름으로 찾아보세요.</p>';
       more.hidden = shown >= items.length;
-      fade();
+      fade(moreFrom); moreFrom = null;
       more.textContent = '더 보기 (' + Math.max(0, items.length - shown) + ')';
     }
-    more.addEventListener('click', function () { shown += pageSize(); render(); });
+    var moreFrom = null;
+    more.addEventListener('click', function () { moreFrom = shown; shown += pageSize(); render(); });
     // 제조사 묶음: 펼침 상태는 회사 이름으로 기억(검색어가 바뀌면 초기화), 타일은 지역 화면과 같은 qxTile
     var openCo = {};
     function coTile(b) { return qxTile(b, [b.abvText, isNaN(b.yearNum) ? '' : b.yearNum].filter(Boolean).join(' · '), escHtml(b.name), CATN[b.cat] ? b.cat : 'etc'); }
@@ -7469,7 +7561,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (act) regionF.setRegion(act.id.replace('region-', '')); // 처음 열 때 이미 지역 화면이면(주소 #region-…) 맞춰 줌
 
   // 대문: 많이 찾는 칩
-  document.getElementById('bhTotal').textContent = brands.length;
+  tickNumber(document.getElementById('bhTotal'), 0, brands.length, 1400);
   var pop = document.getElementById('bhPop');
   ['참이슬 후레쉬', '처음처럼', '새로', '진로이즈백', '좋은데이', '화요25'].filter(function (n) { return byName[n]; }).forEach(function (n) {
     var b = document.createElement('button');
