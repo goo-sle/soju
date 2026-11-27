@@ -75,6 +75,7 @@ def parse(text):
                     'photos': re.findall(r'<img class="rgH-photo" src="([^"]*)" alt="([^"]*)"', card),
                     'ety': first(r'<div class="ety">(.*?)</div>\n', card),
                     'det': first(r'<div class="det">(.*?)</div>\n', card),
+                    'ing': first(r'<div class="ing">(.*?)</div>\n', card),
                     'chg': blocks('chg', card),
                     'spec': blocks('spec', card),
                     'disc': 'disc-badge' in card.split('<div class="rgH-right">')[0],
@@ -260,10 +261,10 @@ html{{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAmCAYAAAA1
 '''.format(title=e(title), url=url, desc=e(desc), breadcrumb=breadcrumb, cat_cls=b['cat_cls'],
            name=e(b['name']), kw=e(b['kw']), photo=photo, more=more, og_image=og_image, facts=facts_html,
            lead=e(lead(b)),
-           sections=section('이름 유래', b['ety']) + section('상세 연혁', b['det']) +
-           section('변경 이력', b['chg']) + section('스페셜 에디션', b['spec']) +
-           section('%s의 다른 소주' % e(b['company']), sib) +
-           section('%s 지역의 다른 소주' % e(b['region'].replace(' · ', '·')), near), edition=edition)
+           sections=section('🔤 이름 유래', b['ety']) + section('📜 상세 연혁', b['det']) + section('🌾 원재료', b['ing']) +
+           section('🔄 변경 이력', b['chg']) + section('✨ 스페셜 에디션', b['spec']) +
+           section('🏭 %s의 다른 소주' % e(b['company']), sib) +
+           section('📍 %s 지역의 다른 소주' % e(b['region'].replace(' · ', '·')), near), edition=edition)
 
 
 def update_sitemap(changed, all_slugs, today):
